@@ -1,0 +1,6 @@
+E:\AeL\Projects\CSharp\MariniImpianto\MariniImpianto\bin\Debug\MariniImpianto.exe.config
+E:\AeL\Projects\CSharp\MariniImpianto\MariniImpianto\bin\Debug\MariniImpianto.exe
+E:\AeL\Projects\CSharp\MariniImpianto\MariniImpianto\bin\Debug\MariniImpianto.pdb
+E:\AeL\Projects\CSharp\MariniImpianto\MariniImpianto\obj\Debug\MariniImpianto.exe
+E:\AeL\Projects\CSharp\MariniImpianto\MariniImpianto\obj\Debug\MariniImpianto.pdb
+E:\AeL\Projects\CSharp\MariniImpianto\MariniImpianto\obj\Debug\MariniImpianto.csprojResolveAssemblyReference.cache

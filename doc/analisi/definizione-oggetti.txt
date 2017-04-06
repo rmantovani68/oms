@@ -1,0 +1,89 @@
+// Classe utilizzata per il caricamento e la gestione degli oggetti
+
+class ObjectsBuilder 
+{
+    // constructors
+    public ObjectsBuilder()
+    {}
+    public ObjectsBuilder(file filename)
+    {}
+    public ObjectsBuilder(string data)
+    {}
+
+    public Add(file filename)
+    {}
+    public Add(string data)
+    {}
+
+    // ritorna la referenza di un oggetto dato il nome
+    public Object GetObject(string name)
+    {}
+
+    // ritorna la lista degli oggetti componenti il sistema
+    public Objects GetObjects()
+    {}
+
+    // connette le callbacks definite nel file di definizione
+    public ConnectSignals()
+    {}
+
+    // gestione testi in lingua 
+    public TranslationDomain {get; set;}
+}
+
+
+
+class Object 
+{
+    public string Name {get; set;}
+    public bool Active {get; set;}
+
+    public Object() 
+    {}
+
+    public OnChange()
+    {}
+}
+
+class Predosatore : Object 
+{
+
+
+
+
+<Container Name="Plant">
+  <Container Name="Predosaggio">
+    <PredosatoreRiciclato Name="PredosatoreRiciclato01" active="true" attributo1="First" attr2="altro"/>
+    <PredosatoreRiciclato Name="PredosatoreRiciclato02" active="true" attributo1="First" attr2="altro"/>
+    <PredosatoreRiciclato Name="PredosatoreRiciclato03"               attributo1="First" attr2="altro"/>
+    <PredosatoreRiciclato Name="PredosatoreRiciclato04"               attributo1="First" attr2="altro"/>
+
+    <Predosatore Name="Predosatore01" active="true" attributo1="First" attr2="altro"/>
+    <Predosatore Name="Predosatore02" active="true" attributo1="First" attr2="altro"/>
+    <Predosatore Name="Predosatore03" active="true" attributo1="First" attr2="altro"/>
+    <Predosatore Name="Predosatore04"               attributo1="First" attr2="altro"/>
+    <Predosatore Name="Predosatore05"               attributo1="First" attr2="altro"/>
+    <Predosatore Name="Predosatore06"               attributo1="First" attr2="altro"/>
+  </Container>
+</Container>
+
+
+    <child internal-child="vbox">
+      <object class="GtkBox" id="vbox1">
+        <property name="border-width">10</property>
+        <child internal-child="action_area">
+          <object class="GtkButtonBox" id="hbuttonbox1">
+            <property name="border-width">20</property>
+            <child>
+              <object class="GtkButton" id="ok_button">
+                <property name="label">gtk-ok</property>
+                <property name="use-stock">TRUE</property>
+                <signal name="clicked" handler="ok_button_clicked"/>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</plant>

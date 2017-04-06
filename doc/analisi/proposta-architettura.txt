@@ -1,0 +1,61 @@
+proposta di architettura nuovo sistema cyber
+
+obiettivo : eliminare il modulo visual basic (VB) e implementare modularita' e indipendenza tra i moduli
+
+situazione attuale:
+
+              / --> C# <-> 
+              |     ^
+ (campo) <-> PLC    |      (ui)
+              |     V
+              \ --> VB <-> 
+
+Il PLC si occupa di interfacciare il campo (I/O digitale e analogico) e implementa quasi tutta la logica di gestione dell'impianto.
+
+il modulo VB implementa la comunicazione con il PLC e la interfaccia utente (ui) e la logica di alcune parti del sistema.
+i moduli c# implementano la comunicazione con il modulo VB e l'interfaccia utente, un modulo c# (diagnostica) comunica con il pc .
+
+Comunicazione tra VB e C#
+la comunicazione tra VB e PLC e tra C# e PLC avviene attraverso un opc server
+la comunicazione tra VB e C# avviene attraerso socket, C# apre un canale e esegue comandi ricevuti da VB
+
+Architettura proposta:
+
+
+ (campo) <-> PLC <-> PLCSERVER <-> MANAGER <-> INTERFACE <-> (ui)
+
+
+PLC si occupa di interfacciare il campo ed eseguire la logica
+PLCSERVER comunica con il PLC e con il MANAGER
+MANAGER controlla tutti i componenti dell'impianto e gestisce il database e comunica con il PLCSERVER e con INTERFACE
+INTERFACE gestisce l'interfaccia utente e comunica con MANAGER
+
+I moduli sopra descritti comunicano attraverso un sistema di messaggistica tra processi
+
+L'impianto sara' descritto attraverso oggetti, esso stesso e' un oggetto con i suoi attributi, metodi e oggetti in esso conmtenuti.
+
+esempio di definizione gerarchia di oggetti
+
+object                       - classe base
+    container                - contenitore di oggetti
+        impianto             - definizione di impianto
+        zona                 - oggetto che definisce un'area che puo' contenere altri oggetti
+        predosatore         
+        motore
+        bilancia
+        vaglio
+        cisterna
+        mescolatore
+        nastro
+        elevatore
+        benna
+        navetta
+        vibratore
+        soffio
+        amperometro
+    plctag
+
+esempio di definizione di un impianto : impianto.xml
+
+schema definition : impianto.xsd
+

@@ -1,0 +1,5 @@
+<Shape Colour="Black">
+        <Point x="0" y="0" />
+        <Point x="100" y="0" />
+        <Point x="50" y="50" />
+</Shape>

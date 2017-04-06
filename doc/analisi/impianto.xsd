@@ -1,0 +1,167 @@
+<?xml version = "1.0"?>
+
+<xs:schema xmlns:xs = "http://www.w3.org/2001/XMLSchema">
+	<xs:element name="impianto">
+		<xs:complexType>
+			
+            <xs:sequence>
+				<xs:element name="zona" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="predosatore" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="bilancia" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="plctag" minOccurs="0" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:attribute name="id" type="xs:string" />
+															<xs:attribute name="type" type="xs:string" />
+															<xs:attribute name="tagid" type="xs:string" />
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+                                                <xs:attribute name="id" type="xs:string" />
+                                                <xs:attribute name="name" type="xs:string" />
+                                                <xs:attribute name="type" type="xs:string" />
+                                            </xs:complexType>
+										</xs:element>
+										<xs:element name="nastro" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="plctag" minOccurs="0" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:attribute name="id" type="xs:string" />
+															<xs:attribute name="type" type="xs:string" />
+															<xs:attribute name="tagid" type="xs:string" />
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+                                                <xs:attribute name="id" type="xs:string" />
+                                                <xs:attribute name="name" type="xs:string" />
+                                                <xs:attribute name="type" type="xs:string" />
+                                            </xs:complexType>
+										</xs:element>
+										<xs:element name="motore" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="amperometro" minOccurs="0" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="plctag" minOccurs="0" maxOccurs="unbounded">
+																	<xs:complexType>
+																		<xs:attribute name="id" type="xs:string" />
+																		<xs:attribute name="type" type="xs:string" />
+																		<xs:attribute name="tagid" type="xs:string" />
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+                                                            <xs:attribute name="id" type="xs:string" />
+                                                            <xs:attribute name="name" type="xs:string" />
+                                                            <xs:attribute name="type" type="xs:string" />
+                                                        </xs:complexType>
+													</xs:element>
+													<xs:element name="plctag" minOccurs="0" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:attribute name="id" type="xs:string" />
+															<xs:attribute name="type" type="xs:string" />
+															<xs:attribute name="tagid" type="xs:string" />
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+                                                <xs:attribute name="id" type="xs:string" />
+                                                <xs:attribute name="name" type="xs:string" />
+                                                <xs:attribute name="type" type="xs:string" />
+                                            </xs:complexType>
+										</xs:element>
+										<xs:element name="plctag" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:attribute name="id" type="xs:string" />
+												<xs:attribute name="type" type="xs:string" />
+												<xs:attribute name="tagid" type="xs:string" />
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+                                    <xs:attribute name="id" type="xs:string" />
+                                    <xs:attribute name="name" type="xs:string" />
+                                </xs:complexType>
+							</xs:element>
+                            
+                            <xs:element name="cisterna" minOccurs="0" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="plctag" minOccurs="0" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:attribute name="id" type="xs:string" />
+                                                <xs:attribute name="type" type="xs:string" />
+                                                <xs:attribute name="tagid" type="xs:string" />
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="id" type="xs:string" />
+                                    <xs:attribute name="name" type="xs:string" />
+                                </xs:complexType>
+                            </xs:element>
+
+                            <xs:element name="mescolatore" minOccurs="0" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="plctag" minOccurs="0" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:attribute name="id" type="xs:string" />
+                                                <xs:attribute name="type" type="xs:string" />
+                                                <xs:attribute name="tagid" type="xs:string" />
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="id" type="xs:string" />
+                                    <xs:attribute name="name" type="xs:string" />
+                                </xs:complexType>
+                            </xs:element>
+
+                            <xs:element name="filtro" minOccurs="0" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="plctag" minOccurs="0" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:attribute name="id" type="xs:string" />
+                                                <xs:attribute name="type" type="xs:string" />
+                                                <xs:attribute name="tagid" type="xs:string" />
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="id" type="xs:string" />
+                                    <xs:attribute name="name" type="xs:string" />
+                                </xs:complexType>
+                            </xs:element>
+
+                            <xs:element name="vaglio" minOccurs="0" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="plctag" minOccurs="0" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:attribute name="id" type="xs:string" />
+                                                <xs:attribute name="type" type="xs:string" />
+                                                <xs:attribute name="tagid" type="xs:string" />
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="id" type="xs:string" />
+                                    <xs:attribute name="name" type="xs:string" />
+                                </xs:complexType>
+                            </xs:element>
+
+                        </xs:sequence>
+                        <xs:attribute name="id" type="xs:string" />
+                        <xs:attribute name="name" type="xs:string" />
+                    </xs:complexType>
+				</xs:element>
+			</xs:sequence>
+            <xs:attribute name="id" type="xs:string" />
+            <xs:attribute name="name" type="xs:string" />
+            <xs:attribute name="type" type="xs:string" />
+        </xs:complexType>
+	</xs:element>
+</xs:schema>
+

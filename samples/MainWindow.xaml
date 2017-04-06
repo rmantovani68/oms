@@ -1,0 +1,76 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:Picking" xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="Picking.MainWindow"
+        Title="MainWindow" Loaded="Window_Loaded" Height="441.55" Width="619" MinWidth="640" MinHeight="480"
+    >
+    <Grid Margin="0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <DockPanel LastChildFill="False" Margin="0">
+            <Image Width="64" Height="64" Source="images/clementine.png"/>
+            <Menu Margin="0" VerticalAlignment="Center">
+                <MenuItem Header="MenuItem" Margin="0" Click="MenuItem_Click">
+                    <MenuItem Header="MenuItem" Width="100"/>
+                    <MenuItem Header="MenuItem" Width="100"/>
+                    <MenuItem Header="MenuItem" Width="100"/>
+                    <MenuItem Header="MenuItem" Width="100"/>
+                </MenuItem>
+                <MenuItem Header="MenuItem" Margin="0" Click="MenuItem_Click">
+                    <MenuItem Header="MenuItem" Width="100"/>
+                    <MenuItem Header="MenuItem" Width="100"/>
+                    <MenuItem Header="MenuItem" Width="100"/>
+                    <MenuItem Header="MenuItem" Width="100"/>
+                </MenuItem>
+
+            </Menu>
+            <Image Source="images/dragonplayer.png" DockPanel.Dock="Right" Width="64" Height="64"/>
+            <Image Height="64" Width="64" Source="images/openoffice4-base.png" DockPanel.Dock="Right"/>
+            <Image Height="64" Width="64" Source="images/gdmsetup.png" DockPanel.Dock="Right"/>
+            <Image Height="64" Width="64" Source="images/geany.png" DockPanel.Dock="Right"/>
+            <Image Height="64" Width="64" Source="images/engrampa.png" DockPanel.Dock="Right"/>
+            <Image Height="64" Width="64" Source="images/gimp.png" DockPanel.Dock="Right"/>
+        </DockPanel>
+        <DataGrid x:Name="dgViewOrdini" IsReadOnly="True" SelectionChanged="dgViewOrdini_SelectionChanged" AlternationCount="2" AlternatingRowBackground="#FFA04F4F" RowBackground="#FFE0C934" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" MouseDoubleClick="dgViewOrdini_MouseDoubleClick" Margin="10" Grid.Row="1" MinHeight="40">
+            <DataGrid.Effect>
+                <DropShadowEffect/>
+            </DataGrid.Effect>
+        </DataGrid>
+        <DataGrid x:Name="dgViewColli" IsReadOnly="True" SelectionChanged="dgViewColli_SelectionChanged" AlternationCount="2" AlternatingRowBackground="#FF1A69A0" RowBackground="#FF39A022" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" MouseDoubleClick="dgViewColli_MouseDoubleClick" Margin="10" Grid.Row="2" MinHeight="40">
+            <DataGrid.Effect>
+                <DropShadowEffect/>
+            </DataGrid.Effect>
+        </DataGrid>
+        <DataGrid x:Name="dgViewRighe" IsReadOnly="True" AlternationCount="2" AlternatingRowBackground="#FF0AAE3E" RowBackground="#FFA48EB9" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" MouseDoubleClick="dgViewRighe_MouseDoubleClick" Margin="10" Grid.Row="3" MinHeight="40">
+            <DataGrid.Effect>
+                <DropShadowEffect/>
+            </DataGrid.Effect>
+        </DataGrid>
+        <DockPanel Margin="0" LastChildFill="False" Grid.Row="4">
+            <DockPanel DockPanel.Dock="Top" Margin="0">
+                <Button Content="_Cancel" IsCancel="True" HorizontalAlignment="Left" Height="22" VerticalAlignment="Center" Width="91" Margin="100,5,0,5">
+                    <Button.Effect>
+                        <DropShadowEffect/>
+                    </Button.Effect>
+                </Button>
+                <Button Content="_Ok" HorizontalAlignment="Right" BorderThickness="1" IsDefault="True" VerticalAlignment="Center" Width="67" Margin="0,5,100,5" DockPanel.Dock="Right">
+                    <Button.Effect>
+                        <DropShadowEffect/>
+                    </Button.Effect>
+                </Button>
+            </DockPanel>
+            <StatusBar Margin="0,5,0,0" DockPanel.Dock="Bottom">
+                <StatusBarItem Content="StatusBarItem" HorizontalContentAlignment="Right"/>
+                <StatusBarItem Width="80" HorizontalContentAlignment="Right"/>
+            </StatusBar>
+        </DockPanel>
+    </Grid>
+</Window>

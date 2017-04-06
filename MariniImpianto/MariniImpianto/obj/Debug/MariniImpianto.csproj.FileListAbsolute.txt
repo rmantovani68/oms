@@ -7,3 +7,6 @@ E:\AeL\Projects\CSharp\MariniImpianto\MariniImpianto\obj\Debug\MariniImpianto.cs
 E:\AeL\GIT_Projects\oms\MariniImpianto\MariniImpianto\bin\Debug\MariniImpianto.exe.config
 E:\AeL\GIT_Projects\oms\MariniImpianto\MariniImpianto\obj\Debug\MariniImpianto.exe
 E:\AeL\GIT_Projects\oms\MariniImpianto\MariniImpianto\obj\Debug\MariniImpianto.pdb
+E:\new-project\oms\MariniImpianto\MariniImpianto\bin\Debug\MariniImpianto.exe.config
+E:\new-project\oms\MariniImpianto\MariniImpianto\obj\Debug\MariniImpianto.exe
+E:\new-project\oms\MariniImpianto\MariniImpianto\obj\Debug\MariniImpianto.pdb

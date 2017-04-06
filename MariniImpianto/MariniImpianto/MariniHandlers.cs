@@ -6,12 +6,7 @@ using System.Threading.Tasks;
 
 namespace MariniImpianto
 {
-    //
-    // aggiunto commento
-    //
     class MariniHandlers
     {
-        // rm : roba mia
-        int prova;
     }
 }

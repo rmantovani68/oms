@@ -7,8 +7,6 @@ using Topshelf;
 
 namespace DotNetMQ
 {
-    /*
-
     static class Program
     {
         /// <summary>
@@ -16,9 +14,6 @@ namespace DotNetMQ
         /// </summary>
         static void Main()
         {
-
-
-
 
             ServiceBase[] ServicesToRun;
             ServicesToRun = new ServiceBase[] 
@@ -28,7 +23,6 @@ namespace DotNetMQ
             ServiceBase.Run(ServicesToRun);
         }
     }
-    */
 
     public class DotNetMQService
     {
@@ -37,7 +31,9 @@ namespace DotNetMQ
         public void Start() { Server.Start(); }
         public void Stop() { Server.Stop(true); }
     }
-
+    /*
+     * esperimento per cambiare il lancio del servizio utilizzando HostFactory ...
+     * 
     public class Program
     {
         public static void Main()
@@ -58,7 +54,7 @@ namespace DotNetMQ
             });
         }
     }
-
+    */
 
 
 

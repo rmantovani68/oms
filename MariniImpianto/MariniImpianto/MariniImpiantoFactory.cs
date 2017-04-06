@@ -10,7 +10,7 @@ namespace MariniImpianto
 {
     class MariniImpiantoFactory
     {
-        
+        //Luca
     }
 
 

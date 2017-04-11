@@ -3,52 +3,64 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
 using MDS;
 using MDS.Client;
 using AxSoftingAxC;
 using App.Msg;
 using App.PlcDataExchange;
 
-namespace plcserver
+namespace WpfApplication1
 {
-    class Program
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
+    public partial class MainWindow : Window
     {
-        static int msg_counter;
-        static PlcDataExchange plcConnection;
+        PlcDataExchange plcConnection;
 
-        [STAThread]
-        static void Main(string[] args)
+        public MainWindow()
         {
+            InitializeComponent();
+            
+            tbText.Clear();
+            
+            tbText.AppendText("Prova di inserimento testo\n");
+            tbText.AppendText(String.Format("Valore intero {0}, valore booleano {1}\n", 0, false));
+
             //Create MDSClient object to connect to DotNetMQ
             //Name of this application: Application2
             var mdsClient = new MDSClient("plcserver");
 
-            msg_counter = 0;
-
-            Console.WriteLine("PLCServer - Reading OPCTags ...");
+            tbText.AppendText(String.Format("PLCServer - Reading OPCTags ..."));
 
             plcConnection = new PlcDataExchange("plc4", "OPCTags.xls", true);
+            tbText.AppendText(String.Format("...{0}\n", plcConnection.TagItems.Count));
 
             //Register to MessageReceived event to get messages.
-            mdsClient.MessageReceived += plcserver_MessageReceived;
+            mdsClient.MessageReceived += new MessageReceivedHandler(my_MessageReceived);
 
             //Connect to DotNetMQ server
             mdsClient.Connect();
 
-            //Wait user to press enter to terminate application
-            Console.WriteLine("PLCServer - Ready to receive ... Press enter to exit...");
-            Console.ReadLine();
 
-            //Disconnect from DotNetMQ server
-            mdsClient.Disconnect();
         }
-
+        
         /// <summary>
         /// This method handles received messages from other applications via DotNetMQ.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e">Message parameters</param>
-        static void plcserver_MessageReceived(object sender, MessageReceivedEventArgs e)
+        void my_MessageReceived(object sender, MessageReceivedEventArgs e)
         {
             try {
                 //Get message 
@@ -64,24 +76,21 @@ namespace plcserver
                 Console.WriteLine("Message MsgText        : " + appMsg.MsgText);
                 Console.WriteLine("Source application     : " + e.Message.SourceApplicationName);
                 */
-                msg_counter ++;
-                //if(msg_counter % 100 == 0){
-                //    Console.WriteLine("Ricevuto messaggio {0}",msg_counter);
-                //}
+
                 switch(appMsg.MsgCode){
                     case MsgCodes.SetPLCTag:
                     {
                         var appPlcTagMsg = (PLCTagMsg) GeneralHelper.DeserializeObject(e.Message.MessageData);
 
-                        Console.Write(" -> Set [{0}] : {1}",appPlcTagMsg.PLCTagID, appPlcTagMsg.PLCTagValue);
+                        // tbText.AppendText(String.Format(" -> Set [{0}] : {1}",appPlcTagMsg.PLCTagID, appPlcTagMsg.PLCTagValue));
 
                         try {
                             var plctagitem = plcConnection[appPlcTagMsg.PLCTagID];
-                            Console.Write(" name {0} ",plctagitem.TagName);
+                            //tbText.AppendText(String.Format(" name {0} ",plctagitem.TagName));
                             plctagitem.Value=true;//appPlcTagMsg.PLCTagValue;
-                            Console.WriteLine(" OK");
+                            //tbText.AppendText(String.Format(" OK\n"));
                         } catch (Exception exc){
-                            Console.WriteLine(" FALLITO ! ({0})",exc.Message);
+                            //tbText.AppendText(String.Format(" FALLITO ! ({0})\n",exc.Message));
                         }
 
                     }
@@ -109,10 +118,11 @@ namespace plcserver
 
 
             } catch {
-                Console.WriteLine("Errore in formato messaggio ID:{0} From : {1}",e.Message.MessageId,e.Message.SourceApplicationName);
+                //this.tbText.AppendText(String.Format("Errore in formato messaggio ID:{0} From : {1}",e.Message.MessageId,e.Message.SourceApplicationName));
             }
             //Acknowledge that message is properly handled and processed. So, it will be deleted from queue.
             e.Message.Acknowledge();
         }
+
     }
 }

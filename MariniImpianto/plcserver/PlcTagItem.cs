@@ -25,7 +25,7 @@ public enum TagQuality
     GOOD_LocalOverride = 216
 }
 
-namespace plcserver
+namespace App.PlcDataExchange
 {
     public class PlcTagItem
     {

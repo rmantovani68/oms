@@ -171,14 +171,14 @@ namespace MariniImpianto
 
             set 
             {
-                if (value == true && _start == false || value == false && _start == true)
+                if (value != _start)
                 {
                     _start = value;
                     Changed = true;
                 }
                 else
                 {
-                    // segnalare tantativo di settare valore uguale a proprieta'
+                    // segnalare tentativo di settare valore uguale a proprieta'
                 }
             }
         }
@@ -213,27 +213,6 @@ namespace MariniImpianto
 
     public class MariniPlctag : MariniGenericObject
     {
-
-        private bool _value;
-
-        public bool Value
-        {
-
-            get { return _start; }
-
-            set
-            {
-                if (value == true && _start == false || value == false && _start == true)
-                {
-                    _start = value;
-                    Changed = true;
-                }
-                else
-                {
-                    // segnalare tantativo di settare valore uguale a proprieta'
-                }
-            }
-        }
 
         public MariniPlctag(string tagid)
         {

@@ -11,3 +11,5 @@ E:\new-project\oms\MariniImpianto\MariniImpianto\bin\Debug\MariniImpianto.exe.co
 E:\new-project\oms\MariniImpianto\MariniImpianto\obj\Debug\MariniImpianto.exe
 E:\new-project\oms\MariniImpianto\MariniImpianto\obj\Debug\MariniImpianto.pdb
 E:\new-project\oms\MariniImpianto\MariniImpianto\obj\Debug\MariniImpianto.csprojResolveAssemblyReference.cache
+E:\new-project\oms\MariniImpianto\MariniImpianto\bin\Debug\MariniImpianto.exe
+E:\new-project\oms\MariniImpianto\MariniImpianto\bin\Debug\MariniImpianto.pdb

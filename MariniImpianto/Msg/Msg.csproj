@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B2ED3772-A595-4269-AEA0-CFF2F509BA24}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{D79A6152-20C6-4521-8803-75B915D1021D}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>plcserver</RootNamespace>
-    <AssemblyName>plcserver</AssemblyName>
+    <RootNamespace>Msg</RootNamespace>
+    <AssemblyName>Msg</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -32,30 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AxInterop.SoftingAxC">
-      <HintPath>..\..\..\..\cybertronicv9.6\Additional library\AxInterop.SoftingAxC.dll</HintPath>
-    </Reference>
-    <Reference Include="Interop.SoftingAxC">
-      <HintPath>..\..\..\..\cybertronicv9.6\Additional library\Interop.SoftingAxC.dll</HintPath>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
-    </Reference>
-    <Reference Include="Interop.SoftingAxCmn, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files\Cybertronic 500\Interop.SoftingAxCmn.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
-    </Reference>
-    <Reference Include="log4net">
-      <HintPath>C:\Users\uts\Documents\Visual Studio 2013\Projects\dotnetmq-master\src\Dependencies\Libraries\log4net.dll</HintPath>
-    </Reference>
-    <Reference Include="MDSCommonLib">
-      <HintPath>C:\Users\uts\Documents\Visual Studio 2013\Projects\dotnetmq-master\src\MDSCommonLib\obj\Debug\MDSCommonLib.dll</HintPath>
-    </Reference>
-    <Reference Include="Npgsql">
-      <HintPath>C:\Users\uts\Documents\Visual Studio 2013\Projects\dotnetmq-master\src\Dependencies\Libraries\Npgsql.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -63,20 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PlcDataExchange.cs" />
-    <Compile Include="PlcTagItem.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Msg.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Msg\Msg.csproj">
-      <Project>{d79a6152-20c6-4521-8803-75b915d1021d}</Project>
-      <Name>Msg</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

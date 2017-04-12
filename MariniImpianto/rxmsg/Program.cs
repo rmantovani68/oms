@@ -34,7 +34,7 @@ namespace rxmsg
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e">Message parameters</param>
-        static void rxmsg_MessageReceived(object sender, MessageReceivedEventArgs e)
+        static private void rxmsg_MessageReceived(object sender, MessageReceivedEventArgs e)
         {
             //Get message
             var messageText = Encoding.UTF8.GetString(e.Message.MessageData);

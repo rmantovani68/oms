@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{13C15038-E76B-4C89-AD97-53E0F1057102}</ProjectGuid>
+    <ProjectGuid>{CC800893-9DA2-4453-B895-5ED7CA25EEB2}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WpfApplication1</RootNamespace>
-    <AssemblyName>WpfApplication1</AssemblyName>
+    <RootNamespace>WpfApplication2</RootNamespace>
+    <AssemblyName>WpfApplication2</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -34,22 +34,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AxInterop.SoftingAxC">
-      <HintPath>..\..\..\..\cybertronicv9.6\Additional library\AxInterop.SoftingAxC.dll</HintPath>
-    </Reference>
-    <Reference Include="Interop.SoftingAxC">
-      <HintPath>..\..\..\..\cybertronicv9.6\Additional library\Interop.SoftingAxC.dll</HintPath>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
-    </Reference>
-    <Reference Include="Interop.SoftingAxCmn">
-      <HintPath>C:\Program Files\Cybertronic 500\Interop.SoftingAxCmn.dll</HintPath>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </Reference>
     <Reference Include="log4net">
-      <HintPath>C:\Users\uts\Documents\Visual Studio 2013\Projects\dotnetmq-master\src\Dependencies\Libraries\log4net.dll</HintPath>
+      <HintPath>..\plcserver\bin\Debug\log4net.dll</HintPath>
     </Reference>
     <Reference Include="MDSCommonLib">
-      <HintPath>C:\Users\uts\Documents\Visual Studio 2013\Projects\dotnetmq-master\src\MDSCommonLib\obj\Debug\MDSCommonLib.dll</HintPath>
+      <HintPath>..\plcserver\bin\Debug\MDSCommonLib.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -114,10 +103,6 @@
     <ProjectReference Include="..\Msg\Msg.csproj">
       <Project>{d79a6152-20c6-4521-8803-75b915d1021d}</Project>
       <Name>Msg</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PlcDataExchange\PlcDataExchange.csproj">
-      <Project>{6f1cdad0-2923-4559-908e-25a2c0c5d9b0}</Project>
-      <Name>PlcDataExchange</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

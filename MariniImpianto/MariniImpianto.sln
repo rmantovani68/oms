@@ -7,19 +7,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MariniImpianto", "MariniImp
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BEB3CE9B-366C-4F72-B214-9C0802ACFB6F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "plcserver", "plcserver\plcserver.csproj", "{B2ED3772-A595-4269-AEA0-CFF2F509BA24}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "txmsg", "txmsg\txmsg.csproj", "{855306DC-E49F-450E-A824-FF681F052905}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rxmsg", "rxmsg\rxmsg.csproj", "{614BA56A-84AC-4D7F-B3EB-C4EA971A1D6E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Msg", "Msg\Msg.csproj", "{D79A6152-20C6-4521-8803-75B915D1021D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApplication1", "WpfApplication1\WpfApplication1.csproj", "{13C15038-E76B-4C89-AD97-53E0F1057102}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "plcserver", "WpfApplication1\plcserver.csproj", "{13C15038-E76B-4C89-AD97-53E0F1057102}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlcDataExchange", "PlcDataExchange\PlcDataExchange.csproj", "{6F1CDAD0-2923-4559-908E-25A2C0C5D9B0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApplication1", "WindowsFormsApplication1\WindowsFormsApplication1.csproj", "{842B7686-1CDC-4858-979B-96A436F7DC94}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "manager", "WpfApplication2\manager.csproj", "{CC800893-9DA2-4453-B895-5ED7CA25EEB2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,10 +29,6 @@ Global
 		{B3BEACD0-1777-46C3-9C7D-0EED2812E792}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3BEACD0-1777-46C3-9C7D-0EED2812E792}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3BEACD0-1777-46C3-9C7D-0EED2812E792}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B2ED3772-A595-4269-AEA0-CFF2F509BA24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B2ED3772-A595-4269-AEA0-CFF2F509BA24}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B2ED3772-A595-4269-AEA0-CFF2F509BA24}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B2ED3772-A595-4269-AEA0-CFF2F509BA24}.Release|Any CPU.Build.0 = Release|Any CPU
 		{855306DC-E49F-450E-A824-FF681F052905}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{855306DC-E49F-450E-A824-FF681F052905}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{855306DC-E49F-450E-A824-FF681F052905}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -55,10 +49,10 @@ Global
 		{6F1CDAD0-2923-4559-908E-25A2C0C5D9B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F1CDAD0-2923-4559-908E-25A2C0C5D9B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F1CDAD0-2923-4559-908E-25A2C0C5D9B0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{842B7686-1CDC-4858-979B-96A436F7DC94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{842B7686-1CDC-4858-979B-96A436F7DC94}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{842B7686-1CDC-4858-979B-96A436F7DC94}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{842B7686-1CDC-4858-979B-96A436F7DC94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC800893-9DA2-4453-B895-5ED7CA25EEB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC800893-9DA2-4453-B895-5ED7CA25EEB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC800893-9DA2-4453-B895-5ED7CA25EEB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC800893-9DA2-4453-B895-5ED7CA25EEB2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

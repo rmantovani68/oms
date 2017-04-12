@@ -10,7 +10,8 @@ namespace App.Msg
         SetPLCTag,  /* set plctag */
                     /* devono essere definiti tags di tipo read e di tipo write */
         GetPLCTag,  /* getplctag */
-        SubscribePLCTags,
+        PLCTagChanged,
+        SubscribePLCTag,
         
         ObjectMsg
     };

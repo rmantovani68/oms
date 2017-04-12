@@ -120,11 +120,7 @@ namespace App.PlcDataExchange
         }
         #endregion
     }
-}
 
-
-namespace App.PlcDataExchange
-{
     public class PlcDataExchange
     {
         #region Fields

@@ -13,3 +13,6 @@ E:\new-project\oms\MariniImpianto\MariniImpianto\obj\Debug\MariniImpianto.pdb
 E:\new-project\oms\MariniImpianto\MariniImpianto\obj\Debug\MariniImpianto.csprojResolveAssemblyReference.cache
 E:\new-project\oms\MariniImpianto\MariniImpianto\bin\Debug\MariniImpianto.exe
 E:\new-project\oms\MariniImpianto\MariniImpianto\bin\Debug\MariniImpianto.pdb
+E:\AeL\GIT_Projects\oms\MariniImpianto\MariniImpianto\bin\Debug\MariniImpianto.exe
+E:\AeL\GIT_Projects\oms\MariniImpianto\MariniImpianto\bin\Debug\MariniImpianto.pdb
+E:\AeL\GIT_Projects\oms\MariniImpianto\MariniImpianto\obj\Debug\MariniImpianto.csprojResolveAssemblyReference.cache

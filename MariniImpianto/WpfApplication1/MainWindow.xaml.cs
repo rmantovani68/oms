@@ -57,6 +57,11 @@ namespace PlcServer
             
             LogMessage(String.Format("...{0}\n", plcConnection.TagItems.Count));
 
+            foreach(var item in plcConnection.TagItems)
+            {
+                LogMessage(String.Format("{0}\n", item.TagName, item.Value));
+            }
+
             //Register to OnDataChanged event to get changes
             plcConnection.OnDataChanged += my_OnDataChanged;
 
@@ -249,6 +254,8 @@ namespace PlcServer
                         case MsgCodes.SubscribePLCTag:
                         {
                             var appPlcTagMsg = GeneralHelper.DeserializeObject(e.Message.MessageData) as PLCTagMsg;
+                            
+                            LogMessage(String.Format("SubscribePLCTag {0} - {1}\n",appPlcTagMsg.MsgSender,appPlcTagMsg.PLCTagID));
                             
                             /* verifico esistenza subscriber in lista */
                             if(clientTags.ContainsKey(appPlcTagMsg.MsgSender)){

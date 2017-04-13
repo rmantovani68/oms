@@ -13,7 +13,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml;
 
+using MariniImpianto;
 using MDS;
 using MDS.Client;
 using MDS.Communication.Messages;
@@ -34,18 +36,81 @@ namespace Manager
             
             tbText.Clear();
 
-            //Create MDSClient object to connect to DotNetMQ
-            //Name of this application: manager
+            // Create MDSClient object to connect to DotNetMQ
+            // Name of this application: manager
             mdsClient = new MDSClient("manager");
 
-            LogMessage(String.Format("Manager..."));
+            LogMessage(String.Format("Manager...\n"));
 
-            //Register to MessageReceived event to get messages.
+            // Connect to DotNetMQ server
+            try {
+                mdsClient.Connect();
+            } catch (Exception) {
+                LogMessage(String.Format("Connessione a MDS non riuscita\n"));
+            }
+
+            // Register to MessageReceived event to get messages.
             mdsClient.MessageReceived += my_MessageReceived;
 
-            //Connect to DotNetMQ server
-            mdsClient.Connect();
+            XmlDocument doc = new XmlDocument();
+
+            LogMessage(String.Format("Carico il file xml impianto.xml\n"));
             
+            doc.Load(@"Q:\VARIE\ael\new-project\doc\analisi\impianto.xml");
+            
+            XmlNode root = doc.SelectSingleNode("*");
+            
+            MariniImpiantone impiantoMarini = (MariniImpiantone)MariniObjectCreator.CreateMariniObject(root);
+
+            /* 
+            * scorrimento dell'oggetto 
+            * e creazione lista plctags 
+            */
+            List<MariniGenericObject> listaPlcTags = new List<MariniGenericObject>();
+            
+            impiantoMarini.GetObjectsByType(typeof(MariniPlcTag), listaPlcTags);
+
+            foreach(var item in listaPlcTags){
+                
+                string plcTagName = ((MariniPlcTag)item).tagid;
+
+                LogMessage(String.Format("PLCTag Name : {0}\n",plcTagName));
+
+                //Create a DotNetMQ Message to send 
+                IOutgoingMessage message = mdsClient.CreateMessage();
+
+                //Set destination application name
+                message.DestinationApplicationName = "plcserver";
+
+                //Create a message
+                var Msg = new PLCTagMsg { 
+                    MsgCode = MsgCodes.SubscribePLCTag, 
+                    MsgDateTime = DateTime.Now, 
+                    MsgDestination = message.DestinationApplicationName,
+                    MsgSender = "manager",
+                    PLCTagID = plcTagName,
+                };
+
+                //Set message data
+                message.MessageData = GeneralHelper.SerializeObject(Msg);
+            
+                // message.MessageData = Encoding.UTF8.GetBytes(messageText);
+                message.TransmitRule = MessageTransmitRules.NonPersistent;
+
+                try 
+                {
+                    //Send message
+                    message.Send();
+                    LogMessage(String.Format("Inviato Messaggio a {0}\n",message.DestinationApplicationName ));
+                } 
+                catch (Exception exc)
+                {
+                    // non sono riuscito a inviare il messaggio
+                    LogMessage(String.Format("Messaggio non inviato\n"));
+                }
+
+                
+            }
 
         }
 
@@ -62,25 +127,12 @@ namespace Manager
         /// <param name="e">Message parameters</param>
         void my_MessageReceived(object sender, MessageReceivedEventArgs e)
         {
-            // questo serve per potere 'utilizzare' i controlli creati nella MainWindow
-            //this.Dispatcher.Invoke((Action)(() =>
             this.Dispatcher.Invoke(() =>
             {
-                //this refer to form in WPF application 
                 try {
-                    //Get message 
+                    // Get message 
                     var appMsg = GeneralHelper.DeserializeObject(e.Message.MessageData) as Msg;
 
-                    /*
-                    //Process message
-                    Console.WriteLine("Received Message ID:{0} From : {1}",e.Message.MessageId,e.Message.SourceApplicationName);
-                    Console.WriteLine("Message Code           : " + appMsg.MsgCode);
-                    Console.WriteLine("Message MsgDateTime    : " + appMsg.MsgDateTime);
-                    Console.WriteLine("Message MsgSender      : " + appMsg.MsgSender);
-                    Console.WriteLine("Message MsgDestination : " + appMsg.MsgDestination);
-                    Console.WriteLine("Message MsgText        : " + appMsg.MsgText);
-                    Console.WriteLine("Source application     : " + e.Message.SourceApplicationName);
-                    */
 
                     switch(appMsg.MsgCode){
                     
@@ -91,8 +143,14 @@ namespace Manager
                     LogMessage(String.Format("Errore {0} in formato messaggio ID:{1} From : {2}",exc.InnerException.Message, e.Message.MessageId,e.Message.SourceApplicationName));
                 }
             });
-            //Acknowledge that message is properly handled and processed. So, it will be deleted from queue.
+            // Acknowledge that message is properly handled and processed. So, it will be deleted from queue.
             e.Message.Acknowledge();
+        }
+
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            Application.Current.Shutdown();
         }
 
     }

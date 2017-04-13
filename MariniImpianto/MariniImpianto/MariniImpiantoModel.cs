@@ -31,7 +31,7 @@ namespace MariniImpianto
         [XmlElement("impianto", Type = typeof(MariniImpiantone))]
         [XmlElement("zona", Type = typeof(MariniZona))]
         [XmlElement("predosatore", Type = typeof(MariniPredosatore))]
-        [XmlElement("plctag", Type = typeof(MariniPlctag))]
+        [XmlElement("plctag", Type = typeof(MariniPlcTag))]
         [XmlElement("bilancia", Type = typeof(MariniBilancia))]
         [XmlElement("motore", Type = typeof(MariniMotore))]
         [XmlElement("nastro", Type = typeof(MariniNastro))]
@@ -121,6 +121,30 @@ namespace MariniImpianto
             return;
         }
 
+        public void GetObject(Type type, List<MariniGenericObject> list)
+        {
+            if (type == this.GetType())
+            {
+                list.Add(this);
+            }
+        }
+
+
+        public void GetObjectsByType(Type type, List<MariniGenericObject> list)
+        {
+            GetObject(type,list);
+
+            foreach (MariniGenericObject mgo in _listaGenericObject)
+            {
+                mgo.GetObjectsByType(type,list);
+            }
+
+
+        }
+
+
+
+
         public void Manage()
         {
             // scateno evento
@@ -176,8 +200,6 @@ namespace MariniImpianto
             }
         }
 
-
-
     }
 
     public class MariniOggettoBase : MariniGenericObject
@@ -212,6 +234,8 @@ namespace MariniImpianto
         {
             Console.WriteLine("Sono un oggetto base id: {0} name: {1} description: {2}", id, name, description);
         }
+
+
     }
 
     public class MariniImpiantone : MariniGenericObject
@@ -233,7 +257,7 @@ namespace MariniImpianto
                 }
                 else
                 {
-                    // segnalare tantativo di settare valore uguale a proprieta'
+                    // segnalare tentativo di settare valore uguale a proprietà?
                 }
             }
         }
@@ -351,20 +375,20 @@ namespace MariniImpianto
         }
     }
 
-    public class MariniPlctag : MariniGenericObject
+    public class MariniPlcTag : MariniGenericObject
     {
-        public MariniPlctag(string tagid)
+        public MariniPlcTag(string tagid)
             : base()
         {
             this.tagid = tagid;
         }
 
-        public MariniPlctag()
+        public MariniPlcTag()
             : this("NO_PLCTAG")
         {
         }
 
-        public MariniPlctag(XmlNode node)
+        public MariniPlcTag(XmlNode node)
             : base(node)
         {
             if (node.Attributes != null)

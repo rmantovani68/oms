@@ -60,7 +60,7 @@ namespace MariniImpianto
                     mgo = new MariniPredosatore(node);
                     break;
                 case "plctag":
-                    mgo = new MariniPlctag(node);
+                    mgo = new MariniPlcTag(node);
                     break;
                 case "bilancia":
                     mgo = new MariniBilancia(node);

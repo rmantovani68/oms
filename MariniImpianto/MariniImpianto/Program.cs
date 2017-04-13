@@ -33,11 +33,70 @@ namespace MariniImpianto
             Console.WriteLine("Carico il file xml impianto.xml");
             doc.Load(@"Q:\VARIE\ael\new-project\doc\analisi\impianto.xml");
             XmlNode root = doc.SelectSingleNode("*");
+            
             Console.WriteLine("Creo l'oggetto MariniImpianto impiantoMarini mediante il factory MariniObjectCreator.CreateMariniObject");
             MariniImpiantone impiantoMarini = (MariniImpiantone)MariniObjectCreator.CreateMariniObject(root);
+            
             Console.WriteLine("Ecco una descrizione ricorsiva fatta mediante ToPlainTextRecursive()");
             impiantoMarini.ToPlainTextRecursive();
-            Console.ReadKey();
+           
+            Console.WriteLine("\n\n\n");
+            while (true)
+            {
+                Console.WriteLine("\n-----------------------------------------------------------");
+                Console.WriteLine("\nOra inserisci un id valido per un oggetto e te lo stampo.\nInserisci 'exit' per uscire:");
+                string id = Console.ReadLine(); // Get string from user
+                if (id == "exit") // Check string
+                {
+                    break;
+                }
+                else
+                {
+                    MariniGenericObject mgo = null;
+                    //impiantoMarini.GetObjectById(id,ref mgo);
+                    mgo = impiantoMarini.GetObjectById(id);
+                    if (mgo == null)
+                    {
+                        Console.WriteLine("\nNon ho trovato nulla con id {0}", id);
+                    }
+                    else
+                    {
+                        Console.WriteLine("\nEcco una descrizione di {0} ricorsiva fatta mediante ToPlainTextRecursive()", id);
+                        mgo.ToPlainTextRecursive();
+                        Console.WriteLine("\nEcco una descrizione del babbo di {0} fatta mediante ToPlainText()", id);
+                        if (mgo.parent == null)
+                        {
+                            Console.WriteLine("\nIl Babbo di id {0} e' nullo", id);
+                        }
+                        else
+                        {
+                            mgo.parent.ToPlainText();
+                        }
+
+                        Console.WriteLine("\nEcco una descrizione del nonno di {0} fatta mediante ToPlainText()", id);
+                        if (mgo.parent.parent == null)
+                        {
+                            Console.WriteLine("\nIl Nonno di id {0} e' nullo", id);
+
+                        }
+                        else
+                        {
+                            mgo.parent.parent.ToPlainText();
+
+                        }
+
+                    }
+                }
+            }
+
+
+
+
+
+
+
+
+           
 
 
             Console.WriteLine("Becco i segnali al cambiamento: imserisci s o t per cambiare stato o f per finire");

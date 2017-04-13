@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -43,7 +44,7 @@ namespace MariniImpianto
             get { return _mariniCreator; }
         }
 
-        public static MariniGenericObject CreateMariniObject(XmlNode node)
+        public static MariniGenericObject CreateMariniObject(MariniGenericObject parent, XmlNode node)
         {
 
             MariniGenericObject mgo;
@@ -51,31 +52,31 @@ namespace MariniImpianto
             switch (node.Name)
             {
                 case "impianto":
-                    mgo = new MariniImpiantone(node);
+                    mgo = new MariniImpiantone(parent, node);
                     break;
                 case "zona":
-                    mgo = new MariniZona(node);
+                    mgo = new MariniZona(parent, node);
                     break;
                 case "predosatore":
-                    mgo = new MariniPredosatore(node);
+                    mgo = new MariniPredosatore(parent, node);
                     break;
                 case "plctag":
-                    mgo = new MariniPlcTag(node);
+                    mgo = new MariniPlctag(parent, node);
                     break;
                 case "bilancia":
-                    mgo = new MariniBilancia(node);
+                    mgo = new MariniBilancia(parent, node);
                     break;
                 case "motore":
-                    mgo = new MariniMotore(node);
+                    mgo = new MariniMotore(parent, node);
                     break;
                 case "nastro":
-                    mgo = new MariniNastro(node);
+                    mgo = new MariniNastro(parent, node);
                     break;
                 case "amperometro":
-                    mgo = new MariniAmperometro(node);
+                    mgo = new MariniAmperometro(parent, node);
                     break;
                 default:
-                    mgo = new MariniOggettoBase(node);
+                    mgo = new MariniOggettoBase(parent, node);
                     break;
                 //    throw new ApplicationException(string.Format("MariniObject '{0}' cannot be created", mgo));
             }
@@ -106,7 +107,7 @@ namespace MariniImpianto
                 if (children.Count > 0)
                 {
                     //Console.WriteLine("Parent id: {0} node.childnodes = {1}", mgo.id, node.ChildNodes.Count);
-                    mgo.ListaGenericObject.Add(CreateMariniObject(child));
+                    mgo.ListaGenericObject.Add(CreateMariniObject(mgo, child));
                 }
             }
 
@@ -114,70 +115,10 @@ namespace MariniImpianto
             return mgo;
         }
 
-        public static void CreateMariniObjectConsole(XmlNode node)
+        public static MariniGenericObject CreateMariniObject(XmlNode node)
         {
-            string id = "idgenerico";
-            string name = "nomegenerico";
-            string description = "descrizionegenerica";
-            //MariniGenericObject mgo = new MariniOggettoBase();
-
-            //Print the node type, node name and node value of the node
-            if (node.NodeType == XmlNodeType.Text)
-            {
-                Console.WriteLine("Type = [" + node.NodeType + "] Value = " + node.Value);
-            }
-            else
-            {
-                Console.WriteLine("Type = [" + node.NodeType + "] Name = " + node.Name);
-                //mgo = new MariniOggettoBase();
-            }
-
-            //Print attributes of the node
-            if (node.Attributes != null)
-            {
-                XmlAttributeCollection attrs = node.Attributes;
-                foreach (XmlAttribute attr in attrs)
-                {
-                    Console.WriteLine("Attribute Name = " + attr.Name + "; Attribute Value = " + attr.Value);
-
-                    switch (attr.Name)
-                    {
-                        case "id":
-                            //mgo.id = attr.Value;
-                            id = attr.Value;
-                            break;
-                        case "name":
-                            //mgo.name = attr.Value;
-                            name = attr.Value;
-                            break;
-                        case "description":
-                            //mgo.description = attr.Value;
-                            description = attr.Value;
-                            break;
-                        //default:
-                        //    throw new ApplicationException(string.Format("MariniObject '{0}' cannot be created", mgo));
-                    }
-                }
-            }
-
-            //Console.WriteLine("MariniObject id: {0}", mgo.id);
-
-
-            //Print individual children of the node, gets only direct children of the node
-            XmlNodeList children = node.ChildNodes;
-            foreach (XmlNode child in children)
-            {
-
-                //Console.WriteLine("Nodo id: {0} name {1} description: {2}",id, name, description);
-                //mgo.ListaGenericObject.Add(CreateMariniObject(child));
-                CreateMariniObjectConsole(child);
-
-            }
-
-            //return mgo;
-
+            return CreateMariniObject(null, node);
         }
-
 
     }
 }

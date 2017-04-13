@@ -8,7 +8,6 @@ using System.Xml.Serialization;
 using System.IO;
 using System.Reflection;
 
-
 namespace MariniImpianto
 {
     class Program

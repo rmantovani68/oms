@@ -68,11 +68,11 @@ namespace Manager
             */
             List<MariniGenericObject> listaPlcTags = new List<MariniGenericObject>();
             
-            impiantoMarini.GetObjectsByType(typeof(MariniPlcTag), listaPlcTags);
+            // impiantoMarini.GetObjectsByType(typeof(MariniPlcTag), listaPlcTags);
 
             foreach(var item in listaPlcTags){
                 
-                string plcTagName = ((MariniPlcTag)item).tagid;
+                string plcTagName = ((MariniPlctag)item).tagid;
 
                 LogMessage(String.Format("PLCTag Name : {0}\n",plcTagName));
 

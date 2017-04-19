@@ -11,7 +11,7 @@ using System.Xml;
 namespace MariniImpianto
 {
 
-
+   
 
     public abstract class MariniGenericObject
     {
@@ -31,6 +31,11 @@ namespace MariniImpianto
         [System.Xml.Serialization.XmlAttribute]
         public string name { get { return _name; } set { _name = value; } }
 
+        //[System.Xml.Serialization.XmlElementAttribute("id")]
+        private string _path;
+        [System.Xml.Serialization.XmlAttribute]
+        public string path { get { return _path; } set { _path = value; } }
+
         private string _description;
         [System.Xml.Serialization.XmlAttribute]
         public string description { get { return _description; } set { _description = value; } }
@@ -40,7 +45,7 @@ namespace MariniImpianto
         public bool Changed { get { return _changed; } set { _changed = value; } }
 
         private readonly List<MariniGenericObject> _listaGenericObject = new List<MariniGenericObject>();
-        [XmlElement("impianto", Type = typeof(MariniImpiantone))]
+        [XmlElement("impianto", Type = typeof(MariniImpianto))]
         [XmlElement("zona", Type = typeof(MariniZona))]
         [XmlElement("predosatore", Type = typeof(MariniPredosatore))]
         [XmlElement("plctag", Type = typeof(MariniPlctag))]
@@ -51,16 +56,29 @@ namespace MariniImpianto
         [XmlElement("oggettobase", Type = typeof(MariniOggettoBase))]
         public List<MariniGenericObject> ListaGenericObject { get { return _listaGenericObject; } }
 
-
         /*
          * Costruttori
          */
         protected MariniGenericObject(MariniGenericObject parent, string id, string name, string description)
         {
+            if (parent==null)
+            {
+                path = "/" + id;
+            } 
+            else
+            {
+                path = parent.path + "/" + id;
+            }           
             this.parent = parent;
             this.id = id;
             this.name = name;
             this.description = description;
+
+            System.Timers.Timer tTimer = new System.Timers.Timer();
+            tTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
+            tTimer.Interval = 1000;
+            tTimer.Enabled = true;
+
         }
 
         protected MariniGenericObject(MariniGenericObject parent, string id, string name)
@@ -76,18 +94,15 @@ namespace MariniImpianto
         protected MariniGenericObject(MariniGenericObject parent)
             : this(parent, "NO_ID")
         {
+            
         }
 
         protected MariniGenericObject()
             : this(null, "NO_ID")
         {
 
-            System.Timers.Timer tTimer = new System.Timers.Timer();
-            tTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
-            tTimer.Interval = 1000;
-            tTimer.Enabled = true;
+            
         }
-
 
         protected MariniGenericObject(MariniGenericObject parent, XmlNode node)
             : this(parent)
@@ -116,13 +131,21 @@ namespace MariniImpianto
                 }
             }
 
-        }
+            if (parent == null)
+            {
+                path = "/" + id;
+            }
+            else
+            {
+                path = parent.path + "/" + id;
+            }           
 
+        }
 
         protected MariniGenericObject(XmlNode node)
             : this(null, node)
         {
-
+            
         }
 
 
@@ -155,13 +178,10 @@ namespace MariniImpianto
             MariniGenericObject mgo = null;
             _GetObjectById(id, ref mgo);
             return mgo;
-
-
         }
 
-        public void _GetObjectById(string id, ref MariniGenericObject mgo)
+        private void _GetObjectById(string id, ref MariniGenericObject mgo)
         {
-
             if (this.id == id)
             {
                 mgo = this;
@@ -177,9 +197,31 @@ namespace MariniImpianto
                     }
                 }
             }
-
         }
 
+        public List<MariniGenericObject> GetObjectListByType(Type type)
+        {
+            List<MariniGenericObject> mgoList= new List<MariniGenericObject>();
+            _GetObjectListByType(type, ref mgoList);
+            return mgoList;
+        }
+
+        private void _GetObjectListByType(Type type, ref List<MariniGenericObject> mgoList)
+        {
+            if (this.GetType() == type)
+            {
+                mgoList.Add(this);
+                //return;
+            }
+
+            if (_listaGenericObject.Count > 0)
+            {
+                foreach (MariniGenericObject child in _listaGenericObject)
+                {
+                    child._GetObjectListByType(type, ref  mgoList);
+                }
+            }        
+        }
 
 
         public void Manage()
@@ -285,11 +327,11 @@ namespace MariniImpianto
 
         public override void ToPlainText()
         {
-            Console.WriteLine("Sono un oggetto base id: {0} name: {1} description: {2}", id, name, description);
+            Console.WriteLine("Sono un oggetto base id: {0} name: {1} description: {2}", id, name, description, path);
         }
     }
 
-    public class MariniImpiantone : MariniGenericObject
+    public class MariniImpianto : MariniGenericObject
     {
 
         private bool _start;
@@ -313,23 +355,23 @@ namespace MariniImpianto
             }
         }
 
-        public MariniImpiantone(MariniGenericObject parent)
+        public MariniImpianto(MariniGenericObject parent)
             : base(parent)
         {
         }
 
-        public MariniImpiantone()
+        public MariniImpianto()
             : base()
         {
         }
 
-        public MariniImpiantone(MariniGenericObject parent, XmlNode node)
+        public MariniImpianto(MariniGenericObject parent, XmlNode node)
             : base(parent, node)
         {
 
         }
 
-        public MariniImpiantone(XmlNode node)
+        public MariniImpianto(XmlNode node)
             : this(null, node)
         {
 
@@ -337,7 +379,7 @@ namespace MariniImpianto
 
         public override void ToPlainText()
         {
-            Console.WriteLine("Sono un impianto id: {0} name: {1} description: {2}", id, name, description);
+            Console.WriteLine("Sono un impianto id: {0} name: {1} description: {2} path: {3}", id, name, description, path);
         }
     }
 
@@ -367,7 +409,7 @@ namespace MariniImpianto
         }
         public override void ToPlainText()
         {
-            Console.WriteLine("Sono una zona id: {0} name: {1} description: {2}", id, name, description);
+            Console.WriteLine("Sono una zona id: {0} name: {1} description: {2} path: {3}", id, name, description, path);
         }
     }
 
@@ -397,7 +439,7 @@ namespace MariniImpianto
 
         public override void ToPlainText()
         {
-            Console.WriteLine("Sono un Predosatore id: {0} name: {1} description: {2}", id, name, description);
+            Console.WriteLine("Sono un Predosatore id: {0} name: {1} description: {2} path: {3}", id, name, description, path);
         }
     }
 
@@ -476,7 +518,7 @@ namespace MariniImpianto
 
         public override void ToPlainText()
         {
-            Console.WriteLine("Sono un plctag id: {0} name: {1} description: {2} tagid: {3}", id, name, description, tagid);
+            Console.WriteLine("Sono un plctag id: {0} name: {1} description: {2} tagid: {3} path: {4}", id, name, description, tagid, path);
         }
     }
 
@@ -506,7 +548,7 @@ namespace MariniImpianto
 
         public override void ToPlainText()
         {
-            Console.WriteLine("Sono una bilancia id: {0} name: {1} description: {2}", id, name, description);
+            Console.WriteLine("Sono una bilancia id: {0} name: {1} description: {2} path: {3}", id, name, description, path);
         }
     }
 
@@ -538,7 +580,7 @@ namespace MariniImpianto
 
         public override void ToPlainText()
         {
-            Console.WriteLine("Sono un motore id: {0} name: {1} description: {2}", id, name, description);
+            Console.WriteLine("Sono un motore id: {0} name: {1} description: {2} path: {3}", id, name, description, path);
         }
     }
 
@@ -570,7 +612,7 @@ namespace MariniImpianto
 
         public override void ToPlainText()
         {
-            Console.WriteLine("Sono un nastro id: {0} name: {1} description: {2}", id, name, description);
+            Console.WriteLine("Sono un nastro id: {0} name: {1} description: {2} path: {3}", id, name, description, path);
         }
     }
 
@@ -601,7 +643,7 @@ namespace MariniImpianto
 
         public override void ToPlainText()
         {
-            Console.WriteLine("Sono un amperometro id: {0} name: {1} description: {2}", id, name, description);
+            Console.WriteLine("Sono un amperometro id: {0} name: {1} description: {2} path: {3}", id, name, description, path);
         }
     }
 

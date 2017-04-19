@@ -51,7 +51,7 @@ namespace MariniImpianto
             switch (node.Name)
             {
                 case "impianto":
-                    mgo = new MariniImpiantone(parent, node);
+                    mgo = new MariniImpianto(parent, node);
                     break;
                 case "zona":
                     mgo = new MariniZona(parent, node);
@@ -81,7 +81,7 @@ namespace MariniImpianto
             }
 
             /* tutti gli oggetti creati vengono gestiti dalla stessa ... */
-            if (mgo is MariniImpiantone)
+            if (mgo is MariniImpianto)
             {
                 mgo.OnManage += impianto_on_manage_method;
             }
@@ -90,7 +90,7 @@ namespace MariniImpianto
                 mgo.OnChange += on_change_method;
             }
 
-            if (mgo is MariniImpiantone)
+            if (mgo is MariniImpianto)
             {
                 mgo.OnChange += impianto_on_change_method;
             }

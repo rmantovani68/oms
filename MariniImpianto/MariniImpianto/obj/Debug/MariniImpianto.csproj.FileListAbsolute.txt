@@ -22,3 +22,9 @@ C:\Users\uts\Documents\projects\new-project\oms\MariniImpianto\MariniImpianto\ob
 C:\Users\uts\Documents\projects\new-project\oms\MariniImpianto\MariniImpianto\obj\Debug\MariniImpianto.dll
 C:\Users\uts\Documents\projects\new-project\oms\MariniImpianto\MariniImpianto\obj\Debug\MariniImpianto.pdb
 E:\AeL\GIT_Projects\oms\MariniImpianto\MariniImpianto\obj\Debug\MariniImpianto.csprojResolveAssemblyReference.cache
+C:\Users\uts.MARINI\Documents\projects\new-project\oms\oms\MariniImpianto\MariniImpianto\bin\Debug\MariniImpianto.dll.config
+C:\Users\uts.MARINI\Documents\projects\new-project\oms\oms\MariniImpianto\MariniImpianto\bin\Debug\MariniImpianto.dll
+C:\Users\uts.MARINI\Documents\projects\new-project\oms\oms\MariniImpianto\MariniImpianto\bin\Debug\MariniImpianto.pdb
+C:\Users\uts.MARINI\Documents\projects\new-project\oms\oms\MariniImpianto\MariniImpianto\obj\Debug\MariniImpianto.csprojResolveAssemblyReference.cache
+C:\Users\uts.MARINI\Documents\projects\new-project\oms\oms\MariniImpianto\MariniImpianto\obj\Debug\MariniImpianto.dll
+C:\Users\uts.MARINI\Documents\projects\new-project\oms\oms\MariniImpianto\MariniImpianto\obj\Debug\MariniImpianto.pdb

@@ -9,7 +9,6 @@ using System.Data;
 using System.Data.OleDb;
 using System.Windows.Forms;
 using AxSoftingAxC;
-//using SoftingAxC;
 
 public enum TagQuality
 {

@@ -27,6 +27,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MariniImpiantoTester", "MariniImpiantoTester\MariniImpiantoTester.csproj", "{04028D7C-8723-46C8-A1D6-F4DABF7097AF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmptyProject", "EmptyProject\EmptyProject.csproj", "{CAD9D07A-EAD1-404D-AFF1-CF1B0BFDEDBC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,6 +67,10 @@ Global
 		{04028D7C-8723-46C8-A1D6-F4DABF7097AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04028D7C-8723-46C8-A1D6-F4DABF7097AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{04028D7C-8723-46C8-A1D6-F4DABF7097AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAD9D07A-EAD1-404D-AFF1-CF1B0BFDEDBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAD9D07A-EAD1-404D-AFF1-CF1B0BFDEDBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAD9D07A-EAD1-404D-AFF1-CF1B0BFDEDBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAD9D07A-EAD1-404D-AFF1-CF1B0BFDEDBC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

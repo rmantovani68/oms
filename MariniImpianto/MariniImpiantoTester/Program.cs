@@ -8,7 +8,9 @@ using System.Xml.Serialization;
 using System.IO;
 using System.Reflection;
 
-namespace MariniImpianto
+using MariniImpianti;
+
+namespace MariniImpiantiTester
 {
     class Program
     {

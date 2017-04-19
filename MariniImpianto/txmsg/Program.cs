@@ -30,7 +30,10 @@ namespace txmsg
             //Set destination application name
             message.DestinationApplicationName = "plcserver";
 
+            
             //Create a message
+
+            /*
             var appMsg = new PLCTagMsg { 
                 
                 MsgCode = App.Msg.MsgCodes.SetPLCTag, 
@@ -45,8 +48,10 @@ namespace txmsg
 
             //Set message data
             message.MessageData = GeneralHelper.SerializeObject(appMsg);
+            */
             
-            // message.MessageData = Encoding.UTF8.GetBytes(messageText);
+            message.MessageData = Encoding.UTF8.GetBytes(messageText);
+
             message.TransmitRule = MessageTransmitRules.NonPersistent;
 
             try 

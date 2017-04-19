@@ -94,9 +94,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MariniImpianto\MariniImpianto.csproj">
+    <ProjectReference Include="..\MariniImpianto\MariniImpianti.csproj">
       <Project>{b3beacd0-1777-46c3-9c7d-0eed2812e792}</Project>
-      <Name>MariniImpianto</Name>
+      <Name>MariniImpianti</Name>
     </ProjectReference>
     <ProjectReference Include="..\Msg\Msg.csproj">
       <Project>{d79a6152-20c6-4521-8803-75b915d1021d}</Project>

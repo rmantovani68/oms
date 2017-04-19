@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MariniImpianto", "MariniImpianto\MariniImpianto.csproj", "{B3BEACD0-1777-46C3-9C7D-0EED2812E792}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MariniImpianti", "MariniImpianto\MariniImpianti.csproj", "{B3BEACD0-1777-46C3-9C7D-0EED2812E792}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BEB3CE9B-366C-4F72-B214-9C0802ACFB6F}"
 EndProject
@@ -22,10 +22,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{95108C60-99EC-4A91-A01D-D579C090F332}"
 	ProjectSection(SolutionItems) = preProject
 		Q:\VARIE\ael\new-project\doc\analisi\impianto.xml = Q:\VARIE\ael\new-project\doc\analisi\impianto.xml
-		C:\Program Files\Cybertronic 500\OPCTagsnew.xls = C:\Program Files\Cybertronic 500\OPCTagsnew.xls
+		..\..\..\..\..\..\..\Program Files\Cybertronic 500\OPCTagsnew.xls = ..\..\..\..\..\..\..\Program Files\Cybertronic 500\OPCTagsnew.xls
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MariniImpiantoTester", "MariniImpiantoTester\MariniImpiantoTester.csproj", "{04028D7C-8723-46C8-A1D6-F4DABF7097AF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MariniImpiantiTester", "MariniImpiantoTester\MariniImpiantiTester.csproj", "{04028D7C-8723-46C8-A1D6-F4DABF7097AF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Manager", "Manager\Manager.csproj", "{CC331AE6-78A7-4559-B645-FBCE7313109A}"
 EndProject

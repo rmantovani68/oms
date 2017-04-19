@@ -8,7 +8,7 @@ using System.Xml.Serialization;
 using System.Timers;
 using System.Xml;
 
-namespace MariniImpianto
+namespace MariniImpianti
 {
 
    

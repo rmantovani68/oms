@@ -46,7 +46,7 @@ namespace Manager
             
             XmlNode root = doc.SelectSingleNode("*");
             
-            MariniImpiantone impiantoMarini = (MariniImpiantone)MariniObjectCreator.CreateMariniObject(root);
+            MariniImpianto impiantoMarini = (MariniImpianto)MariniObjectCreator.CreateMariniObject(root);
 
             /* 
             * scorrimento dell'oggetto 

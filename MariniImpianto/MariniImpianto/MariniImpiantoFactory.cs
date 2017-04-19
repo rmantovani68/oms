@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Reflection;
 using System.Xml;
 
-namespace MariniImpianto
+namespace MariniImpianti
 {
     class MariniImpiantoFactory
     {

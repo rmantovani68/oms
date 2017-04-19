@@ -87,10 +87,17 @@ namespace MariniImpianto
                     }
                 }
             }
-
-            Console.WriteLine("Creo una lista di oggetti PlcTags");
+            Console.WriteLine("\n\n\n");
+            Console.WriteLine("Creo una lista di oggetti PlcTags dell'impianto");
             List<MariniGenericObject> mgoList = null;
             mgoList = impiantoMarini.GetObjectListByType(typeof(MariniPlctag));
+            foreach (MariniGenericObject mgo in mgoList)
+            {
+                mgo.ToPlainText();
+            }
+            Console.WriteLine("\n\n\n"); 
+            Console.WriteLine("Creo una lista di oggetti PlcTags di MOTORE_02");
+            mgoList = impiantoMarini.GetObjectById("MOTORE_02").GetObjectListByType(typeof(MariniPlctag));
             foreach (MariniGenericObject mgo in mgoList)
             {
                 mgo.ToPlainText();

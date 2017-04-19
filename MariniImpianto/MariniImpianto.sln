@@ -22,7 +22,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{95108C60-99EC-4A91-A01D-D579C090F332}"
 	ProjectSection(SolutionItems) = preProject
 		Q:\VARIE\ael\new-project\doc\analisi\impianto.xml = Q:\VARIE\ael\new-project\doc\analisi\impianto.xml
-		..\..\..\..\..\..\..\..\Program Files\Cybertronic 500\OPCTagsnew.xls = ..\..\..\..\..\..\..\..\Program Files\Cybertronic 500\OPCTagsnew.xls
+		C:\Program Files\Cybertronic 500\OPCTagsnew.xls = C:\Program Files\Cybertronic 500\OPCTagsnew.xls
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MariniImpiantoTester", "MariniImpiantoTester\MariniImpiantoTester.csproj", "{04028D7C-8723-46C8-A1D6-F4DABF7097AF}"

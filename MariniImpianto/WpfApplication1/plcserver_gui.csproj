@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CC800893-9DA2-4453-B895-5ED7CA25EEB2}</ProjectGuid>
+    <ProjectGuid>{13C15038-E76B-4C89-AD97-53E0F1057102}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WpfApplication2</RootNamespace>
-    <AssemblyName>WpfApplication2</AssemblyName>
+    <RootNamespace>WpfApplication1</RootNamespace>
+    <AssemblyName>WpfApplication1</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -34,12 +34,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="log4net">
-      <HintPath>..\plcserver\bin\Debug\log4net.dll</HintPath>
-    </Reference>
-    <Reference Include="MDSCommonLib">
-      <HintPath>..\plcserver\bin\Debug\MDSCommonLib.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -100,13 +94,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MariniImpianto\MariniImpianto.csproj">
-      <Project>{b3beacd0-1777-46c3-9c7d-0eed2812e792}</Project>
-      <Name>MariniImpianto</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Msg\Msg.csproj">
       <Project>{d79a6152-20c6-4521-8803-75b915d1021d}</Project>
       <Name>Msg</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PlcDataExchange\PlcDataExchange.csproj">
+      <Project>{6f1cdad0-2923-4559-908e-25a2c0c5d9b0}</Project>
+      <Name>PlcDataExchange</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

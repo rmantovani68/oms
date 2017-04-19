@@ -32,16 +32,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="log4net">
-      <HintPath>..\plcserver\bin\Debug\log4net.dll</HintPath>
-    </Reference>
-    <Reference Include="MDSCommonLib, Version=0.9.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\plcserver\bin\Debug\MDSCommonLib.dll</HintPath>
-    </Reference>
-    <Reference Include="Npgsql">
-      <HintPath>..\plcserver\bin\Debug\Npgsql.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />

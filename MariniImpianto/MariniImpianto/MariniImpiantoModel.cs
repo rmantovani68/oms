@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,11 +8,100 @@ using System.Threading;
 using System.Xml.Serialization;
 using System.Timers;
 using System.Xml;
+using System.Runtime.Serialization;
+using System.Net;
 
 namespace MariniImpianti
 {
 
-   
+    // Classe Singleton
+    public sealed class MariniImpiantoTree
+    {
+
+        private MariniImpianto _mariniImpianto;
+        public MariniImpianto MariniImpianto
+        {
+            get
+            {
+                return _mariniImpianto;
+            }
+        }
+
+        private static MariniImpiantoTree _instance;
+        private MariniImpiantoTree()
+        {
+            XmlDocument doc = new XmlDocument();
+            //doc.Load(@"E:\AeL\Varie\Impianto.xml");
+            Console.WriteLine("Carico il file xml impianto.xml");
+            doc.Load(@"Q:\VARIE\ael\new-project\doc\analisi\impianto.xml");
+            XmlNode root = doc.SelectSingleNode("*");
+            Console.WriteLine("Creo l'oggetto MariniImpianto impiantoMarini mediante il factory MariniObjectCreator.CreateMariniObject");
+            _mariniImpianto = (MariniImpianto)MariniObjectCreator.CreateMariniObject(root);
+
+        }
+
+        public static MariniImpiantoTree Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new MariniImpiantoTree();
+                }
+                return _instance;
+            }
+        }
+
+        public string SerializeObject(string id)
+        {
+            MariniGenericObject mgo = null;
+
+            mgo = _mariniImpianto.GetObjectById(id);
+            if (mgo == null)
+            {
+                Console.WriteLine("\nNon ho trovato nulla con id {0}", id);
+                return "NN";
+            }
+            else
+            {
+                XmlSerializer xmlSerializer = new XmlSerializer(mgo.GetType());
+                //using (StringWriter textWriter = new StringWriter())
+                //{
+                //    xmlSerializer.Serialize(textWriter, mgo);
+                //    return textWriter.ToString();
+                //}
+
+                using (StringWriter stringWriter = new StringWriter())
+                {
+                    using (XmlWriter xmlWriter = XmlWriter.Create(stringWriter, new XmlWriterSettings()
+                    {
+                        OmitXmlDeclaration = true
+                        ,
+                        ConformanceLevel = ConformanceLevel.Auto
+                            //, ConformanceLevel = ConformanceLevel.Document
+                            //, NewLineOnAttributes = true
+                        ,
+                        Indent = true
+                    }))
+                    {
+                        // Build Xml with xw.
+                        xmlSerializer.Serialize(xmlWriter, mgo);
+
+                    }
+
+
+                    return WebUtility.HtmlDecode(stringWriter.ToString());
+                }
+
+            }
+
+        }
+
+
+
+    }
+
+
 
     public abstract class MariniGenericObject
     {

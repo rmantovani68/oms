@@ -14,10 +14,9 @@ namespace MariniImpiantiTester
 {
     class Program
     {
-
         private static void ciccio(object sender, MariniGenericObject.OnManageEventArgs e)
         {
-            Console.WriteLine("Cicio : sto gestendo {0}", sender.ToString());
+            Console.WriteLine("Ciccio : sto gestendo {0}", sender.ToString());
         }
 
         private static void pippo(object sender, MariniGenericObject.OnChangeEventArgs e)
@@ -27,8 +26,6 @@ namespace MariniImpiantiTester
 
         static void Main(string[] args)
         {
-
-
             XmlDocument doc = new XmlDocument();
             //doc.Load(@"E:\AeL\Varie\Impianto.xml");
             Console.WriteLine("Carico il file xml impianto.xml");
@@ -40,6 +37,18 @@ namespace MariniImpiantiTester
             
             Console.WriteLine("Ecco una descrizione ricorsiva fatta mediante ToPlainTextRecursive()");
             impiantoMarini.ToPlainTextRecursive();
+
+            Console.WriteLine("\n\n\n");
+            Console.WriteLine("Creo l'oggetto MariniImpiantoTree con singleton");
+            MariniImpiantoTree mariniImpiantoTree = MariniImpiantoTree.Instance;
+
+            Console.WriteLine("Ecco una descrizione ricorsiva di MariniImpiantoTree fatta mediante ToPlainTextRecursive()");
+            mariniImpiantoTree.MariniImpianto.ToPlainTextRecursive();
+
+            Console.WriteLine("\n\n\n");
+            Console.WriteLine("Ecco un xml di MOTORE_02");
+            string sMotore02XML = mariniImpiantoTree.SerializeObject("MOTORE_02");
+            Console.WriteLine("{0}", sMotore02XML);
            
             Console.WriteLine("\n\n\n");
             while (true)
@@ -89,6 +98,7 @@ namespace MariniImpiantiTester
                     }
                 }
             }
+
             Console.WriteLine("\n\n\n");
             Console.WriteLine("Creo una lista di oggetti PlcTags dell'impianto");
             List<MariniGenericObject> mgoList = null;
@@ -97,6 +107,7 @@ namespace MariniImpiantiTester
             {
                 mgo.ToPlainText();
             }
+
             Console.WriteLine("\n\n\n"); 
             Console.WriteLine("Creo una lista di oggetti PlcTags di MOTORE_02");
             mgoList = impiantoMarini.GetObjectById("MOTORE_02").GetObjectListByType(typeof(MariniPlctag));
@@ -104,9 +115,6 @@ namespace MariniImpiantiTester
             {
                 mgo.ToPlainText();
             }
-
-
-
 
             Console.WriteLine("Becco i segnali al cambiamento: imserisci s o t per cambiare stato o f per finire");
             while (true)
@@ -128,7 +136,6 @@ namespace MariniImpiantiTester
             }
 
             XmlSerializer x;
-
             x = new XmlSerializer(impiantoMarini.GetType());
             using (TextWriter writer = new StreamWriter(@"Q:\VARIE\ael\new-project\doc\analisi\impiantoMariniSerializzato.xml"))
             {
@@ -141,7 +148,6 @@ namespace MariniImpiantiTester
                 Console.ReadKey();
             }
 
-
             Console.ReadKey();
             using (var sr = new StreamReader(@"Q:\VARIE\ael\new-project\doc\analisi\impiantoMariniSerializzato.xml "))
             {
@@ -153,7 +159,6 @@ namespace MariniImpiantiTester
                 impiantoMarini2.ToPlainTextRecursive();
                 Console.ReadKey();
             }
-
 
         }
     }

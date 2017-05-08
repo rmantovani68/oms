@@ -44,7 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MariniHandlers.cs" />
+    <Compile Include="MariniImpiantoEventHandlers.cs" />
     <Compile Include="MariniImpiantoFactory.cs" />
     <Compile Include="MariniImpiantoModel.cs" />
     <Compile Include="Program.cs" />

@@ -10,6 +10,9 @@ using System.Timers;
 using System.Xml;
 using System.Runtime.Serialization;
 using System.Net;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+
 
 namespace MariniImpianti
 {
@@ -27,16 +30,45 @@ namespace MariniImpianti
             }
         }
 
+        private Dictionary<string, MariniGenericObject> _mariniImpiantoObjectsDictionary;
+        public Dictionary<string, MariniGenericObject> MariniImpiantoObjectsDictionary
+        {
+            get
+            {
+                return _mariniImpiantoObjectsDictionary;
+            }
+        }
+
+        private MariniImpiantoEventHandlers _mariniImpiantoEventHandlers;
+        public MariniImpiantoEventHandlers MariniImpiantoEventHandlers
+        {
+            get
+            {
+                return _mariniImpiantoEventHandlers;
+            }
+        }
+
+
+
         private static MariniImpiantoTree _instance;
         private MariniImpiantoTree()
         {
             XmlDocument doc = new XmlDocument();
-            //doc.Load(@"E:\AeL\Varie\Impianto.xml");
             Console.WriteLine("Carico il file xml impianto.xml");
             doc.Load(@"Q:\VARIE\ael\new-project\doc\analisi\impianto.xml");
             XmlNode root = doc.SelectSingleNode("*");
             Console.WriteLine("Creo l'oggetto MariniImpianto impiantoMarini mediante il factory MariniObjectCreator.CreateMariniObject");
+
+            _mariniImpiantoEventHandlers = new MariniImpiantoEventHandlers();
             _mariniImpianto = (MariniImpianto)MariniObjectCreator.CreateMariniObject(root);
+
+            this._mariniImpiantoObjectsDictionary = this._mariniImpianto.GetChildDictionary();
+            //gestisco qui
+            foreach (MariniGenericObject mgo in this._mariniImpiantoObjectsDictionary.Values)
+            {
+                //mgo.PropertyChanged += PropertyChangedEventHandler;
+                mgo.PropertyChanged += this.MariniImpiantoEventHandlers.PropertyChangedEventHandler;
+            }
 
         }
 
@@ -52,11 +84,30 @@ namespace MariniImpianti
             }
         }
 
+        public MariniGenericObject GetObjectById(string id)
+        {
+            MariniGenericObject mgo = null;
+            //_GetObjectById(id, ref mgo);
+            //string test;
+            if (this.MariniImpiantoObjectsDictionary.TryGetValue(id, out mgo)) // Returns true.
+            {
+                //Console.WriteLine(test); // This is the value at cat.
+                return mgo;
+            }
+            else
+            {
+                return null;
+            }
+
+        }
+
+
+
         public string SerializeObject(string id)
         {
             MariniGenericObject mgo = null;
 
-            mgo = _mariniImpianto.GetObjectById(id);
+            mgo = this.GetObjectById(id);
             if (mgo == null)
             {
                 Console.WriteLine("\nNon ho trovato nulla con id {0}", id);
@@ -88,22 +139,15 @@ namespace MariniImpianti
                         xmlSerializer.Serialize(xmlWriter, mgo);
 
                     }
-
-
                     return WebUtility.HtmlDecode(stringWriter.ToString());
                 }
-
             }
-
         }
-
-
-
     }
 
 
 
-    public abstract class MariniGenericObject
+    public abstract class MariniGenericObject : INotifyPropertyChanged
     {
         /*
          * Attributi e proprietà 
@@ -119,7 +163,7 @@ namespace MariniImpianti
 
         private string _name;
         [System.Xml.Serialization.XmlAttribute]
-        public string name { get { return _name; } set { _name = value; } }
+        public string name { get { return _name; } set { SetField(ref _name, value); } }
 
         //[System.Xml.Serialization.XmlElementAttribute("id")]
         private string _path;
@@ -128,11 +172,7 @@ namespace MariniImpianti
 
         private string _description;
         [System.Xml.Serialization.XmlAttribute]
-        public string description { get { return _description; } set { _description = value; } }
-
-        bool _changed;
-        [System.Xml.Serialization.XmlAttribute]
-        public bool Changed { get { return _changed; } set { _changed = value; } }
+        public string description { get { return _description; } set { SetField(ref _description, value); } }
 
         private readonly List<MariniGenericObject> _listaGenericObject = new List<MariniGenericObject>();
         [XmlElement("impianto", Type = typeof(MariniImpianto))]
@@ -145,6 +185,32 @@ namespace MariniImpianti
         [XmlElement("amperometro", Type = typeof(MariniAmperometro))]
         [XmlElement("oggettobase", Type = typeof(MariniOggettoBase))]
         public List<MariniGenericObject> ListaGenericObject { get { return _listaGenericObject; } }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            //Console.WriteLine("Sono nel metodo OnPropertyChanged");
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+        //protected bool SetField<T>(ref T field, T value, string propertyName)
+        protected bool SetField<T>(ref T field, T value, [CallerMemberName] string propertyName = null)
+        {
+            if (EqualityComparer<T>.Default.Equals(field, value))
+            {
+                //Console.WriteLine("Sono nella SetField e la proprieta' non e' cambiata");
+                return false;
+            }
+            field = value;
+            //Console.WriteLine("Sono nella SetField e lancio OnPropertyChanged(propertyName)");
+            OnPropertyChanged(propertyName);
+            return true;
+        }
+
 
         /*
          * Costruttori
@@ -163,11 +229,6 @@ namespace MariniImpianti
             this.id = id;
             this.name = name;
             this.description = description;
-
-            System.Timers.Timer tTimer = new System.Timers.Timer();
-            tTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
-            tTimer.Interval = 1000;
-            tTimer.Enabled = true;
 
         }
 
@@ -313,64 +374,25 @@ namespace MariniImpianti
             }        
         }
 
-
-        public void Manage()
+        public Dictionary<string, MariniGenericObject> GetChildDictionary()
         {
-            // scateno evento
-            if (m_onManage != null)
-                m_onManage(this, new OnManageEventArgs(0));
+            Dictionary<string, MariniGenericObject> md = new Dictionary<string, MariniGenericObject>();
+            _GetChildDictionary(ref md);
+            return md;
 
-            if (Changed)
+
+        }
+
+        private void _GetChildDictionary(ref Dictionary<string, MariniGenericObject> md)
+        {
+
+            md.Add(this.id, this);
+            if (_listaGenericObject.Count > 0)
             {
-                if (m_onChange != null)
-                    m_onChange(this, new OnChangeEventArgs(0));
-                Changed = false;
-            }
-        }
-
-        // Specify what you want to happen when the Elapsed event is raised.
-        private void OnTimedEvent(object source, ElapsedEventArgs e)
-        {
-            Manage();
-        }
-
-
-        // gestione evento
-        public delegate void ManageHandler(object sender, OnManageEventArgs e);
-        private event ManageHandler m_onManage;
-        public event ManageHandler OnManage
-        {
-            add { m_onManage += value; }
-            remove { m_onManage -= value; }
-        }
-
-        public class OnManageEventArgs : EventArgs
-        {
-            public int idImpianto;
-
-            public OnManageEventArgs(int id_impianto)
-            {
-                idImpianto = id_impianto;
-            }
-        }
-
-        // gestione evento
-        public delegate void ChangeHandler(object sender, OnChangeEventArgs e);
-        private event ChangeHandler m_onChange;
-        public event ChangeHandler OnChange
-        {
-            add { m_onChange += value; }
-            remove { m_onChange -= value; }
-        }
-
-
-        public class OnChangeEventArgs : EventArgs
-        {
-            public int idImpianto;
-
-            public OnChangeEventArgs(int id_impianto)
-            {
-                idImpianto = id_impianto;
+                foreach (MariniGenericObject child in _listaGenericObject)
+                {
+                    child._GetChildDictionary(ref md);
+                }
             }
         }
 
@@ -424,27 +446,7 @@ namespace MariniImpianti
     public class MariniImpianto : MariniGenericObject
     {
 
-        private bool _start;
-
-        public bool Start
-        {
-
-            get { return _start; }
-
-            set
-            {
-                if (value == true && _start == false || value == false && _start == true)
-                {
-                    _start = value;
-                    Changed = true;
-                }
-                else
-                {
-                    // segnalare tantativo di settare valore uguale a proprieta'
-                }
-            }
-        }
-
+        
         public MariniImpianto(MariniGenericObject parent)
             : base(parent)
         {
@@ -584,26 +586,7 @@ namespace MariniImpianti
         [System.Xml.Serialization.XmlAttribute]
         public string tagid { get { return _tagid; } set { _tagid = value; } }
 
-        private bool _start;
-        [System.Xml.Serialization.XmlAttribute]
-        public bool Value
-        {
-
-            get { return _start; }
-
-            set
-            {
-                if (value == true && _start == false || value == false && _start == true)
-                {
-                    _start = value;
-                    Changed = true;
-                }
-                else
-                {
-                    // segnalare tantativo di settare valore uguale a proprieta'
-                }
-            }
-        }
+        
 
 
         public override void ToPlainText()

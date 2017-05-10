@@ -23,8 +23,11 @@ namespace MariniImpiantiTester
             Logger.Info("***********************************");
             Logger.Info("          TEST STARTED");
             Logger.Info("***********************************");
-            //Console.WriteLine("Ecco una descrizione ricorsiva 2 fatta mediante ToPlainTextRecursive()");
+            
+            MariniImpiantoTree.InitializeFromXmlFile(@"Q:\VARIE\ael\new-project\doc\analisi\impianto.xml");
             MariniImpiantoTree mariniImpiantoTree = MariniImpiantoTree.Instance;
+
+            //Console.WriteLine("Ecco una descrizione ricorsiva 2 fatta mediante ToPlainTextRecursive()");
             //mariniImpiantoTree.MariniImpianto.ToPlainTextRecursive();
             //Console.WriteLine("\n\n\n");
             //Console.WriteLine("Ecco un xml di MOTORE_02");

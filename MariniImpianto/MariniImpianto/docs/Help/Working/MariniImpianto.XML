@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>MariniImpianto</name>
+  </assembly>
+  <members>
+    <member name="T:MariniImpianti.MariniImpiantoTree">
+      <summary>
+            Classe singleton con la quale accedere al modello dell'impianto Marini. Crea dinamicamente il modello
+            partendo da un file xml. Contiene alcuni metodi di supporto per la gestione del modello
+            </summary>
+    </member>
+    <member name="M:MariniImpianti.MariniImpiantoTree.InitializeFromXmlFile(System.String)">
+      <summary>
+            Initialize the MariniImpiantoTree
+            </summary>
+      <param name="filename">The XML file to construct MariniImpianto</param>
+      <returns>
+        <c>true</c> if initialization is correct; otherwise, <c>false</c>.</returns>
+    </member>
+    <member name="M:MariniImpianti.MariniImpiantoTree.GetObjectById(System.String)">
+      <summary>
+            Gets a specific object of MariniImpianto.
+            </summary>
+      <param name="id">ID of the object</param>
+      <returns>The <c>MariniGenericObject</c> with the given ID, <c>null</c> if not found.</returns>
+    </member>
+    <member name="M:MariniImpianti.MariniImpiantoTree.SerializeObject(System.String)">
+      <summary>
+            Serialize a specific object of MariniImpianto.
+            </summary>
+      <param name="id">ID of the object.</param>
+      <returns>A string that contains the serialized object  with the given ID.</returns>
+    </member>
+    <member name="P:MariniImpianti.MariniImpiantoTree.MariniImpianto">
+      <summary>
+            Gets the actual MariniImpianto model
+            </summary>
+    </member>
+    <member name="P:MariniImpianti.MariniImpiantoTree.MariniImpiantoObjectsDictionary">
+      <summary>
+            Gets the dictionary of all object that composed MariniImpianto
+            </summary>
+    </member>
+    <member name="P:MariniImpianti.MariniImpiantoTree.MariniImpiantoEventHandlers">
+      <summary>
+            Gets the class with event handler methods
+            </summary>
+    </member>
+    <member name="P:MariniImpianti.MariniImpiantoTree.Instance">
+      <summary>
+            Gets the singleton of MariniImpiantoTree
+            </summary>
+    </member>
+    <member name="T:MariniImpianti.MariniGenericObject">
+      <summary>
+            Represents a generic object of MariniImpianto
+            </summary>
+    </member>
+    <member name="M:MariniImpianti.MariniGenericObject.OnPropertyChanged(System.String)">
+      <summary>
+            Raises the <see cref="E:MariniImpianti.MariniGenericObject.PropertyChanged">PropertyChanged</see> event.
+            </summary>
+      <param name="propertyName">
+      </param>
+    </member>
+    <member name="M:MariniImpianti.MariniGenericObject.SetField``1(``0@,``0,System.String)">
+      <summary>
+            Used in every property set to launch <see cref="M:MariniImpianti.MariniGenericObject.OnPropertyChanged(System.String)" /></summary>
+      <typeparam name="T">
+      </typeparam>
+      <param name="field">
+      </param>
+      <param name="value">
+      </param>
+      <param name="propertyName">
+      </param>
+      <returns>
+        <c>true</c> if the property is effectively changed; otherwise, <c>false</c>.</returns>
+    </member>
+    <member name="M:MariniImpianti.MariniGenericObject.#ctor(MariniImpianti.MariniGenericObject,System.String,System.String,System.String,System.String)">
+      <summary>
+            Initializes a new instance of the <see cref="T:MariniImpianti.MariniGenericObject" /> class.
+            </summary>
+      <param name="parent">MariniGenericObject parent</param>
+      <param name="id">MariniGenericObject ID</param>
+      <param name="name">MariniGenericObject name</param>
+      <param name="description">MariniGenericObject description</param>
+      <param name="handler">MariniGenericObject method name to handle the PropertyChange event</param>
+    </member>
+    <member name="M:MariniImpianti.MariniGenericObject.#ctor(MariniImpianti.MariniGenericObject,System.String,System.String,System.String)">
+      <summary>
+            Initializes a new instance of the <see cref="T:MariniImpianti.MariniGenericObject" /> class.
+            </summary>
+      <param name="parent">MariniGenericObject parent</param>
+      <param name="id">MariniGenericObject ID</param>
+      <param name="name">MariniGenericObject name</param>
+      <param name="description">
+      </param>
+    </member>
+    <member name="M:MariniImpianti.MariniGenericObject.#ctor(MariniImpianti.MariniGenericObject,System.String,System.String)">
+      <summary>
+            Initializes a new instance of the <see cref="T:MariniImpianti.MariniGenericObject" /> class.
+            </summary>
+      <param name="parent">MariniGenericObject parent</param>
+      <param name="id">MariniGenericObject ID</param>
+      <param name="name">MariniGenericObject name</param>
+    </member>
+    <member name="M:MariniImpianti.MariniGenericObject.#ctor(MariniImpianti.MariniGenericObject,System.String)">
+      <summary>
+            Initializes a new instance of the <see cref="T:MariniImpianti.MariniGenericObject" /> class.
+            </summary>
+      <param name="parent">MariniGenericObject parent</param>
+      <param name="id">MariniGenericObject ID</param>
+    </member>
+    <member name="M:MariniImpianti.MariniGenericObject.#ctor(MariniImpianti.MariniGenericObject)">
+      <summary>
+            Initializes a new instance of the <see cref="T:MariniImpianti.MariniGenericObject" /> class.
+            </summary>
+      <param name="parent">MariniGenericObject parent</param>
+    </member>
+    <member name="M:MariniImpianti.MariniGenericObject.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:MariniImpianti.MariniGenericObject" /> class.
+            </summary>
+    </member>
+    <member name="M:MariniImpianti.MariniGenericObject.#ctor(MariniImpianti.MariniGenericObject,System.Xml.XmlNode)">
+      <summary>
+            Initializes a new instance of the <see cref="T:MariniImpianti.MariniGenericObject" /> class.
+            </summary>
+      <param name="parent">MariniGenericObject parent</param>
+      <param name="node">An Xml node from which to construct the object</param>
+    </member>
+    <member name="M:MariniImpianti.MariniGenericObject.#ctor(System.Xml.XmlNode)">
+      <summary>
+            Initializes a new instance of the <see cref="T:MariniImpianti.MariniGenericObject" /> class.
+            </summary>
+      <param name="node">An Xml node from which to construct the object</param>
+    </member>
+    <member name="M:MariniImpianti.MariniGenericObject.ToPlainText">
+      <summary>
+            Plain description of the MariniGenericObject.
+            </summary>
+    </member>
+    <member name="M:MariniImpianti.MariniGenericObject.ToPlainTextRecursive">
+      <summary>
+            Plain description of the MariniGenericObject and, recursively, it's children.
+            </summary>
+    </member>
+    <member name="M:MariniImpianti.MariniGenericObject.GetObjectById(System.String)">
+      <summary>
+            Retrieve the child with the given ID
+            </summary>
+      <param name="id">MariniGenericObject ID</param>
+      <returns>The MariniGenericObject or null if not found</returns>
+    </member>
+    <member name="M:MariniImpianti.MariniGenericObject.GetObjectListByType(System.Type)">
+      <summary>
+            Retrieve a list of MariniGenericObject child of a specific type
+            </summary>
+      <param name="type">The type of MariniGenericObject</param>
+      <returns>A list of MariniGenericObject</returns>
+    </member>
+    <member name="M:MariniImpianti.MariniGenericObject.GetChildDictionary">
+      <summary>
+            Retrieve a dictionary of MariniGenericObject children
+            </summary>
+      <returns>The children dictionary</returns>
+    </member>
+    <member name="P:MariniImpianti.MariniGenericObject.parent">
+      <summary>
+            Gets and Sets the parent of an object
+            </summary>
+    </member>
+    <member name="P:MariniImpianti.MariniGenericObject.id">
+      <summary>
+            Gets and Sets the ID of an object
+            </summary>
+    </member>
+    <member name="P:MariniImpianti.MariniGenericObject.name">
+      <summary>
+            Gets and Sets the name of an object
+            </summary>
+    </member>
+    <member name="P:MariniImpianti.MariniGenericObject.path">
+      <summary>
+            Gets and Sets the path of an object
+            </summary>
+    </member>
+    <member name="P:MariniImpianti.MariniGenericObject.description">
+      <summary>
+            Gets and Sets the description of an object
+            </summary>
+    </member>
+    <member name="P:MariniImpianti.MariniGenericObject.handler">
+      <summary>
+            Gets and Sets the handler method of an object propertychanged event
+            </summary>
+    </member>
+    <member name="P:MariniImpianti.MariniGenericObject.ListaGenericObject">
+      <summary>
+            Gets the list of children objects
+            </summary>
+    </member>
+    <member name="E:MariniImpianti.MariniGenericObject.PropertyChanged">
+      <summary>
+            Occurs when a property is changed
+            </summary>
+    </member>
+    <member name="N:MariniImpianti">
+      <summary />
+    </member>
+  </members>
+</doc>

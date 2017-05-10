@@ -9,18 +9,7 @@ using System.Net;
 
 namespace MariniWcfService
 {
-    //// NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IMariniRestService" in both code and config file together.
-    //[ServiceContract]
-    //public interface IMariniRestService
-    //{
-    //    [OperationContract]
-    //    [WebInvoke(Method = "GET",
-    //        ResponseFormat = WebMessageFormat.Xml,
-    //        BodyStyle = WebMessageBodyStyle.Wrapped,
-    //        UriTemplate = "xml/{id}")]
-    //    String GetXMLSerializedObjectFromId(String id);
-    //}
-
+       
     [ServiceContract]
     public interface IMariniRestService
     {
@@ -30,10 +19,27 @@ namespace MariniWcfService
             BodyStyle = WebMessageBodyStyle.Wrapped,
             //BodyStyle= WebMessageBodyStyle.Bare,
             UriTemplate = "xml/{id}")]
-        //string GetXMLSerializedObjectFromId(string id);
         XMLDescription GetXMLSerializedObjectFromId(string id);
+
+        [OperationContract]
+        [WebInvoke(Method = "GET",
+            ResponseFormat = WebMessageFormat.Xml,
+            BodyStyle = WebMessageBodyStyle.Wrapped,
+            //BodyStyle= WebMessageBodyStyle.Bare,
+            UriTemplate = "propertyvalue/{id}/{prop}")]
+        string GetPropertyValue(string id, string prop);
+
+        [OperationContract]
+        [WebInvoke(Method = "GET",
+            ResponseFormat = WebMessageFormat.Xml,
+            BodyStyle = WebMessageBodyStyle.Wrapped,
+            //BodyStyle= WebMessageBodyStyle.Bare,
+            UriTemplate = "propertychange/{id}/{prop}/{value}")]
+        void ChangePropertyValue(string id, string prop, string value);
+
     }
 
+    
     [DataContract]
     public class XMLDescription
     {

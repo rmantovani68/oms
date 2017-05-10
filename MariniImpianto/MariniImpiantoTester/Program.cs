@@ -7,23 +7,29 @@ using System.Xml;
 using System.Xml.Serialization;
 using System.IO;
 using System.Reflection;
-
 using MariniImpianti;
+using log4net;
+
 
 namespace MariniImpiantiTester
 {
     class Program
     {
-        
+
+        protected static readonly ILog Logger = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+
         static void Main(string[] args)
         {
-            Console.WriteLine("Ecco una descrizione ricorsiva 2 fatta mediante ToPlainTextRecursive()");
+            Logger.Info("***********************************");
+            Logger.Info("          TEST STARTED");
+            Logger.Info("***********************************");
+            //Console.WriteLine("Ecco una descrizione ricorsiva 2 fatta mediante ToPlainTextRecursive()");
             MariniImpiantoTree mariniImpiantoTree = MariniImpiantoTree.Instance;
-            mariniImpiantoTree.MariniImpianto.ToPlainTextRecursive();
-            Console.WriteLine("\n\n\n");
-            Console.WriteLine("Ecco un xml di MOTORE_02");
-            string sMotore02XML=mariniImpiantoTree.SerializeObject("MOTORE_02");
-            Console.WriteLine("{0}", sMotore02XML);
+            //mariniImpiantoTree.MariniImpianto.ToPlainTextRecursive();
+            //Console.WriteLine("\n\n\n");
+            //Console.WriteLine("Ecco un xml di MOTORE_02");
+            //string sMotore02XML=mariniImpiantoTree.SerializeObject("MOTORE_02");
+            //Console.WriteLine("{0}", sMotore02XML);
 
             Console.WriteLine("\n\n\n");
             Console.WriteLine("Provo a cambiare il nome di IMPIANTO");
@@ -43,13 +49,20 @@ namespace MariniImpiantiTester
             Console.WriteLine("la nuova descrizione di {0} e' {1}", mariniImpiantoTree.GetObjectById("MOTORE_02").id, mariniImpiantoTree.GetObjectById("MOTORE_02").description);
             mariniImpiantoTree.GetObjectById("MOTORE_02").description = "nuovadescr2";
             Console.WriteLine("la nuova descrizione di {0} e' {1}", mariniImpiantoTree.GetObjectById("MOTORE_02").id, mariniImpiantoTree.GetObjectById("MOTORE_02").description);
+            mariniImpiantoTree.GetObjectById("MOTORE_01").description = "NUOVA_descrizione_motore_01";
+            Console.WriteLine("la nuova descrizione di {0} e' {1}", mariniImpiantoTree.GetObjectById("MOTORE_01").id, mariniImpiantoTree.GetObjectById("MOTORE_01").description);
+            mariniImpiantoTree.GetObjectById("MOTORE_01").description = "NUOVISSIMA_descrizione_motore_01";
+            Console.WriteLine("la nuova descrizione di {0} e' {1}", mariniImpiantoTree.GetObjectById("MOTORE_01").id, mariniImpiantoTree.GetObjectById("MOTORE_01").description);
+            Console.WriteLine("Prova a cambiare il nome di MOTORE_02 con le web API");
+            Console.WriteLine("Quando hai finito premi invio");
             Console.ReadLine();
-
-
-            Console.WriteLine("\n\n\n");
-            Console.WriteLine("Ecco una descrizione ricorsiva 2 fatta mediante ToPlainTextRecursive()");
-            mariniImpiantoTree.MariniImpianto.ToPlainTextRecursive();
+            Console.WriteLine("il nuovo nome di {0} e' {1}", mariniImpiantoTree.GetObjectById("MOTORE_02").id, mariniImpiantoTree.GetObjectById("MOTORE_02").name);
             Console.ReadLine();
+            
+            //Console.WriteLine("\n\n\n");
+            //Console.WriteLine("Ecco una descrizione ricorsiva 2 fatta mediante ToPlainTextRecursive()");
+            //mariniImpiantoTree.MariniImpianto.ToPlainTextRecursive();
+            //Console.ReadLine();
 
             Console.WriteLine("Provo a cambiare il nome di IMPIANTO con mariniImpiantoTree");
             mariniImpiantoTree.GetObjectById("IMPIANTO").name = "AHAhahaha";
@@ -75,6 +88,7 @@ namespace MariniImpiantiTester
 
             Console.ReadLine();
 
+
             Console.WriteLine("\n\n\n");
             Console.WriteLine("Creo una lista di oggetti PlcTags di MOTORE_02");
             List<MariniGenericObject> mgoList = null;
@@ -84,7 +98,10 @@ namespace MariniImpiantiTester
                 mgo.ToPlainText();
             }
 
-            
+            Console.WriteLine("\n\n\n");
+            Console.WriteLine("Ecco una descrizione fatta mediante ToPlainText()");
+            mariniImpiantoTree.MariniImpianto.ToPlainText();
+            Console.ReadLine();
 
             XmlSerializer x;
             x = new XmlSerializer(mariniImpiantoTree.MariniImpianto.GetType());
@@ -110,6 +127,10 @@ namespace MariniImpiantiTester
                 impiantoMarini2.ToPlainTextRecursive();
                 Console.ReadKey();
             }
+
+            Logger.Info("***********************************");
+            Logger.Info("          TEST FINISHED");
+            Logger.Info("***********************************");
 
         }
     }

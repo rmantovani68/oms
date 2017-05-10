@@ -12,15 +12,20 @@ using System.Runtime.Serialization;
 using System.Net;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Reflection;
+using log4net;
 
 
 namespace MariniImpianti
 {
-
-    // Classe Singleton
+    
+    /// <summary>
+    /// Classe singleton con la quale accedere al modello dell'impianto Marini. Crea dinamicamente il modello
+    /// partendo da un file xml. Contiene alcuni metodi di supporto per la gestione del modello
+    /// </summary>
     public sealed class MariniImpiantoTree
     {
-
+        protected static readonly ILog Logger = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
         private MariniImpianto _mariniImpianto;
         public MariniImpianto MariniImpianto
         {
@@ -53,6 +58,7 @@ namespace MariniImpianti
         private static MariniImpiantoTree _instance;
         private MariniImpiantoTree()
         {
+            
             XmlDocument doc = new XmlDocument();
             Console.WriteLine("Carico il file xml impianto.xml");
             doc.Load(@"Q:\VARIE\ael\new-project\doc\analisi\impianto.xml");
@@ -63,12 +69,74 @@ namespace MariniImpianti
             _mariniImpianto = (MariniImpianto)MariniObjectCreator.CreateMariniObject(root);
 
             this._mariniImpiantoObjectsDictionary = this._mariniImpianto.GetChildDictionary();
+
+
             //gestisco qui
+            MethodInfo[] methods = typeof(MariniImpiantoEventHandlers).GetMethods();
+                       
             foreach (MariniGenericObject mgo in this._mariniImpiantoObjectsDictionary.Values)
             {
-                //mgo.PropertyChanged += PropertyChangedEventHandler;
-                mgo.PropertyChanged += this.MariniImpiantoEventHandlers.PropertyChangedEventHandler;
+
+                
+
+
+                if (mgo.handler == "NO_HANDLER")
+                {
+
+                }
+                else
+                {
+
+                    foreach (MethodInfo handlerInfo in methods)
+                    {
+                        Console.WriteLine(handlerInfo.Name);
+
+                        Type t_mgo = mgo.GetType();
+                        //foreach (var prop in t_mgo.GetProperties())
+                        //{
+                        //    Console.WriteLine("{0}={1}", prop.Name, prop.GetValue(mgo, null));
+                        //}
+
+                        EventInfo ei = t_mgo.GetEvent("PropertyChanged");
+                        //Console.WriteLine("{0}", ei.Name);
+                        // Call  method.
+                        
+                        MethodInfo mi = null;
+
+                        Console.WriteLine("handlerInfo.Name: {0} mgo.handler {1}", handlerInfo.Name, mgo.handler);
+
+                        if (handlerInfo.Name == mgo.handler)
+                        {
+                            //MethodInfo mi = _mariniImpiantoEventHandlers.GetType().GetMethod("MyHandler");
+                            mi = _mariniImpiantoEventHandlers.GetType().GetMethod(handlerInfo.Name);
+                            Console.WriteLine("{0}", mi.Name);
+
+                            //Delegate dg = Delegate.CreateDelegate(typeof(PropertyChangedEventHandler), value, mi);
+                            Delegate dg = Delegate.CreateDelegate(ei.EventHandlerType, _mariniImpiantoEventHandlers, mi);
+
+                            ei.AddEventHandler(mgo, dg);
+                        }
+                        else
+                        {
+                            //mi = _mariniImpiantoEventHandlers.GetType().GetMethod("MyDefaultHandler");
+                        }
+                        
+
+
+                        //info.Invoke(_mariniImpiantoEventHandlers, null);
+
+
+                        
+                    }
+
+                }
             }
+            // Questa si userebbe se avessi l'handler dentro al mio oggetto
+            // invece voglio un gestore esterno
+            //mgo.PropertyChanged += PropertyChangedEventHandler;
+                    
+            // Questa funziona con un gestore esterno ma uso un solo handler
+            //mgo.PropertyChanged += this.MariniImpiantoEventHandlers.PropertyChangedEventHandler;
 
         }
 
@@ -79,10 +147,97 @@ namespace MariniImpianti
                 if (_instance == null)
                 {
                     _instance = new MariniImpiantoTree();
+                    Logger.Info("Creata l'Istanza di MariniImpiantoTree");
                 }
                 return _instance;
             }
         }
+
+        public bool InitializeFromXmlFile(string filename)
+        {
+            XmlDocument doc = new XmlDocument();
+            Console.WriteLine("Carico il file xml impianto.xml");
+            doc.Load(@"Q:\VARIE\ael\new-project\doc\analisi\impianto.xml");
+            XmlNode root = doc.SelectSingleNode("*");
+            Console.WriteLine("Creo l'oggetto MariniImpianto impiantoMarini mediante il factory MariniObjectCreator.CreateMariniObject");
+
+            _mariniImpiantoEventHandlers = new MariniImpiantoEventHandlers();
+            _mariniImpianto = (MariniImpianto)MariniObjectCreator.CreateMariniObject(root);
+
+            this._mariniImpiantoObjectsDictionary = this._mariniImpianto.GetChildDictionary();
+
+
+            //gestisco qui
+            MethodInfo[] methods = typeof(MariniImpiantoEventHandlers).GetMethods();
+
+            foreach (MariniGenericObject mgo in this._mariniImpiantoObjectsDictionary.Values)
+            {
+
+
+
+
+                if (mgo.handler == "NO_HANDLER")
+                {
+
+                }
+                else
+                {
+
+                    foreach (MethodInfo handlerInfo in methods)
+                    {
+                        Console.WriteLine(handlerInfo.Name);
+
+                        Type t_mgo = mgo.GetType();
+                        //foreach (var prop in t_mgo.GetProperties())
+                        //{
+                        //    Console.WriteLine("{0}={1}", prop.Name, prop.GetValue(mgo, null));
+                        //}
+
+                        EventInfo ei = t_mgo.GetEvent("PropertyChanged");
+                        //Console.WriteLine("{0}", ei.Name);
+                        // Call  method.
+
+                        MethodInfo mi = null;
+
+                        Console.WriteLine("handlerInfo.Name: {0} mgo.handler {1}", handlerInfo.Name, mgo.handler);
+
+                        if (handlerInfo.Name == mgo.handler)
+                        {
+                            //MethodInfo mi = _mariniImpiantoEventHandlers.GetType().GetMethod("MyHandler");
+                            mi = _mariniImpiantoEventHandlers.GetType().GetMethod(handlerInfo.Name);
+                            Console.WriteLine("{0}", mi.Name);
+
+                            //Delegate dg = Delegate.CreateDelegate(typeof(PropertyChangedEventHandler), value, mi);
+                            Delegate dg = Delegate.CreateDelegate(ei.EventHandlerType, _mariniImpiantoEventHandlers, mi);
+
+                            ei.AddEventHandler(mgo, dg);
+                        }
+                        else
+                        {
+                            //mi = _mariniImpiantoEventHandlers.GetType().GetMethod("MyDefaultHandler");
+                        }
+
+
+
+                        //info.Invoke(_mariniImpiantoEventHandlers, null);
+
+
+
+                    }
+
+                }
+            }
+            // Questa si userebbe se avessi l'handler dentro al mio oggetto
+            // invece voglio un gestore esterno
+            //mgo.PropertyChanged += PropertyChangedEventHandler;
+
+            // Questa funziona con un gestore esterno ma uso un solo handler
+            //mgo.PropertyChanged += this.MariniImpiantoEventHandlers.PropertyChangedEventHandler;
+
+            return true;
+        }
+
+
 
         public MariniGenericObject GetObjectById(string id)
         {
@@ -174,6 +329,10 @@ namespace MariniImpianti
         [System.Xml.Serialization.XmlAttribute]
         public string description { get { return _description; } set { SetField(ref _description, value); } }
 
+        private string _handler;
+        [System.Xml.Serialization.XmlAttribute]
+        public string handler { get { return _handler; } set { SetField(ref _handler, value); } }
+
         private readonly List<MariniGenericObject> _listaGenericObject = new List<MariniGenericObject>();
         [XmlElement("impianto", Type = typeof(MariniImpianto))]
         [XmlElement("zona", Type = typeof(MariniZona))]
@@ -215,7 +374,7 @@ namespace MariniImpianti
         /*
          * Costruttori
          */
-        protected MariniGenericObject(MariniGenericObject parent, string id, string name, string description)
+        protected MariniGenericObject(MariniGenericObject parent, string id, string name, string description,string handler)
         {
             if (parent==null)
             {
@@ -229,7 +388,13 @@ namespace MariniImpianti
             this.id = id;
             this.name = name;
             this.description = description;
+            this.handler = handler;
 
+        }
+
+        protected MariniGenericObject(MariniGenericObject parent, string id, string name,string description)
+            : this(parent, id, name, description, "NO_HANDLER")
+        {
         }
 
         protected MariniGenericObject(MariniGenericObject parent, string id, string name)
@@ -244,15 +409,12 @@ namespace MariniImpianti
 
         protected MariniGenericObject(MariniGenericObject parent)
             : this(parent, "NO_ID")
-        {
-            
+        { 
         }
 
         protected MariniGenericObject()
             : this(null, "NO_ID")
         {
-
-            
         }
 
         protected MariniGenericObject(MariniGenericObject parent, XmlNode node)
@@ -276,6 +438,9 @@ namespace MariniImpianti
                         case "description":
                             description = attr.Value;
                             break;
+                        case "handler":
+                            handler = attr.Value;
+                            break;
                         //default:
                         //    throw new ApplicationException(string.Format("MariniObject '{0}' cannot be created", mgo));
                     }
@@ -296,7 +461,6 @@ namespace MariniImpianti
         protected MariniGenericObject(XmlNode node)
             : this(null, node)
         {
-            
         }
 
 
@@ -446,6 +610,7 @@ namespace MariniImpianti
     public class MariniImpianto : MariniGenericObject
     {
 
+        //protected static readonly ILog Logger = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
         
         public MariniImpianto(MariniGenericObject parent)
             : base(parent)
@@ -471,6 +636,7 @@ namespace MariniImpianti
 
         public override void ToPlainText()
         {
+            //Logger.Info("Sono un impianto ");
             Console.WriteLine("Sono un impianto id: {0} name: {1} description: {2} path: {3}", id, name, description, path);
         }
     }

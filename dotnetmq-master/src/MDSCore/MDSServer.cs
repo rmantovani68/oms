@@ -103,6 +103,7 @@ namespace MDS
         /// </summary>
         /// <param name="waitToStop">True, if caller thread must be blocked until MDS server stops.</param>
         public void Stop(bool waitToStop)
+
         {
             _communicationLayer.Stop(waitToStop);
             _organizationLayer.Stop(waitToStop);

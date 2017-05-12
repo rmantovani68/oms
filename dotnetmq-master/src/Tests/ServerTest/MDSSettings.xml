@@ -2,9 +2,13 @@
 <MDSConfiguration>
 
     <Settings>
-        <Setting Key="ThisServerName" Value="this_server" />
-        <Setting Key="StorageType" Value="PostgreSQL" />
-        <Setting Key="ConnectionString" Value="Server=127.0.0.1;Port=5432;Database=mds;User Id=roberto;Password=3zin;" />
+      <Setting Key="ThisServerName" Value="this_server" />
+      <Setting Key="StorageType" Value="MSSQL" />
+      <Setting Key="ConnectionString" Value="Data Source=localhost;Initial Catalog=mds;Integrated Security=SSPI" />
+      <!--
+      <Setting Key="StorageType" Value="PostgreSQL" />
+      <Setting Key="ConnectionString" Value="Server=127.0.0.1;Port=5432;Database=mds;User Id=roberto;Password=3zin;" />
+      -->
     </Settings>
 
     <Servers>
@@ -12,8 +16,10 @@
     </Servers>
 
     <Applications>
-        <Application Name="Application1" />
-        <Application Name="Application2" />
+        <Application Name="PLCServer" />
+        <Application Name="HMIClient" />
+        <Application Name="manager" />
+        <Application Name="gui" />
     </Applications>
 
     <Routes>

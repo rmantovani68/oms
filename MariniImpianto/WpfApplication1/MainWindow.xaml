@@ -1,8 +1,0 @@
-﻿<Window x:Class="PlcServer.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        <TextBox x:Name="tbText" TextWrapping="Wrap" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" VerticalScrollBarVisibility="Auto" Margin="0" IsReadOnly="True" UseLayoutRounding="False"/>
-    </Grid>
-</Window>

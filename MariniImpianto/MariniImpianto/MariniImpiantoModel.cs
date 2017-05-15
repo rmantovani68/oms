@@ -234,11 +234,17 @@ namespace MariniImpianti
             {
                 if (_instance == null)
                 {
-                    //_instance = new MariniImpiantoTree();
-                    //Logger.Info("Creata l'Istanza di MariniImpiantoTree");
-                    Logger.Error("MariniImpiantoTree NOT CREATED!!!");
-                    throw new Exception("MariniImpiantoTree not created");
+                    // Questa roba in teoria andrebbe commentata, per ora la tengo per avere un default
+                    _instance = new MariniImpiantoTree(@"Q:\VARIE\ael\new-project\doc\analisi\impianto.xml");
+                    Logger.Warn("*************************************************");
+                    Logger.Warn("Creata l'Istanza DI DEFAULT di MariniImpiantoTree");
+                    Logger.Warn("*************************************************");
+                    //Logger.Error("MariniImpiantoTree NOT CREATED!!!");
+                    //throw new Exception("MariniImpiantoTree not created");
                 }
+                
+                Logger.Info("Recupero l'Istanza di MariniImpiantoTree");
+                
                 return _instance;
             }
         }

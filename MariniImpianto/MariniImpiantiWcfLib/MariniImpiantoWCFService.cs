@@ -8,12 +8,14 @@ using MariniImpianti;
 using System.Reflection;
 using log4net;
 
-namespace MariniWcfService
+namespace MariniImpiantiWcfLib
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "MariniRestService" in code, svc and config file together.
-    // NOTE: In order to launch WCF Test Client for testing this service, please select MariniRestService.svc or MariniRestService.svc.cs at the Solution Explorer and start debugging.
-    public class MariniRestService : IMariniRestService
+    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in both code and config file together.
+    public class MariniImpiantoWCFService : IMariniImpiantoWCFService
     {
+       
+
+
 
         protected static readonly ILog Logger = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
@@ -34,7 +36,7 @@ namespace MariniWcfService
             MariniImpiantoTree.InitializeFromXmlFile(@"Q:\VARIE\ael\new-project\doc\analisi\impianto.xml");
             MariniImpiantoTree mariniImpiantoTree = MariniImpiantoTree.Instance;
         }
- 
+
         /// <summary>
         /// Gets the xml description of an object
         /// </summary>
@@ -43,9 +45,9 @@ namespace MariniWcfService
         public XMLDescription GetXMLSerializedObjectFromId(string id)
         {
             XMLDescription myXMLMGO = new XMLDescription();
-            
+
             myXMLMGO.XMLData = MariniImpiantoTree.Instance.SerializeObject(id);
-            Logger.InfoFormat("GetXMLSerializedObjectFromId di {0}",id);
+            Logger.InfoFormat("GetXMLSerializedObjectFromId di {0}", id);
             return myXMLMGO;
         }
 
@@ -73,6 +75,12 @@ namespace MariniWcfService
             PropertyInfo propertyInfo = MariniImpiantoTree.Instance.GetObjectById(id).GetType().GetProperty(prop);
             propertyInfo.SetValue(MariniImpiantoTree.Instance.GetObjectById(id), Convert.ChangeType(value, propertyInfo.PropertyType), null);
         }
+
+
+
+
+
+
 
 
     }

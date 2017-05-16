@@ -68,84 +68,7 @@ namespace MariniImpianti
         {
             // mai usata!
             throw new Exception("Ehhh???? Chi ha chiamato questo costruttore?!?");
-
-            /*
-            XmlDocument doc = new XmlDocument();
-            Console.WriteLine("Carico il file xml impianto.xml");
-            doc.Load(@"Q:\VARIE\ael\new-project\doc\analisi\impianto.xml");
-            XmlNode root = doc.SelectSingleNode("*");
-            Console.WriteLine("Creo l'oggetto MariniImpianto impiantoMarini mediante il factory MariniObjectCreator.CreateMariniObject");
-
-            _mariniImpiantoEventHandlers = new MariniImpiantoEventHandlers();
-            _mariniImpianto = (MariniImpianto)MariniObjectCreator.CreateMariniObject(root);
-
-            this._mariniImpiantoObjectsDictionary = this._mariniImpianto.GetChildDictionary();
-
-
-            //gestisco qui
-            MethodInfo[] methods = typeof(MariniImpiantoEventHandlers).GetMethods();
-                       
-            foreach (MariniGenericObject mgo in this._mariniImpiantoObjectsDictionary.Values)
-            {
-
-                if (mgo.handler == "NO_HANDLER")
-                {
-
-                }
-                else
-                {
-
-                    foreach (MethodInfo handlerInfo in methods)
-                    {
-                        Console.WriteLine(handlerInfo.Name);
-
-                        Type t_mgo = mgo.GetType();
-                        //foreach (var prop in t_mgo.GetProperties())
-                        //{
-                        //    Console.WriteLine("{0}={1}", prop.Name, prop.GetValue(mgo, null));
-                        //}
-
-                        EventInfo ei = t_mgo.GetEvent("PropertyChanged");
-                        //Console.WriteLine("{0}", ei.Name);
-                        // Call  method.
-                        
-                        MethodInfo mi = null;
-
-                        Console.WriteLine("handlerInfo.Name: {0} mgo.handler {1}", handlerInfo.Name, mgo.handler);
-
-                        if (handlerInfo.Name == mgo.handler)
-                        {
-                            //MethodInfo mi = _mariniImpiantoEventHandlers.GetType().GetMethod("MyHandler");
-                            mi = _mariniImpiantoEventHandlers.GetType().GetMethod(handlerInfo.Name);
-                            Console.WriteLine("{0}", mi.Name);
-
-                            //Delegate dg = Delegate.CreateDelegate(typeof(PropertyChangedEventHandler), value, mi);
-                            Delegate dg = Delegate.CreateDelegate(ei.EventHandlerType, _mariniImpiantoEventHandlers, mi);
-
-                            ei.AddEventHandler(mgo, dg);
-                        }
-                        else
-                        {
-                            //mi = _mariniImpiantoEventHandlers.GetType().GetMethod("MyDefaultHandler");
-                        }
-                        
-
-
-                        //info.Invoke(_mariniImpiantoEventHandlers, null);
-
-
-                        
-                    }
-
-                }
-            }
-            // Questa si userebbe se avessi l'handler dentro al mio oggetto
-            // invece voglio un gestore esterno
-            //mgo.PropertyChanged += PropertyChangedEventHandler;
-                    
-            // Questa funziona con un gestore esterno ma uso un solo handler
-            //mgo.PropertyChanged += this.MariniImpiantoEventHandlers.PropertyChangedEventHandler;
-            */
+           
         }
 
         private MariniImpiantoTree(string filename)
@@ -209,7 +132,6 @@ namespace MariniImpianti
                         {
                             Logger.DebugFormat("{0} - Nessun handler trovato", mgo.id);
                         }
-
                     }
                 }
                 // Questa si userebbe se avessi l'handler dentro al mio oggetto
@@ -242,9 +164,7 @@ namespace MariniImpianti
                     //Logger.Error("MariniImpiantoTree NOT CREATED!!!");
                     //throw new Exception("MariniImpiantoTree not created");
                 }
-                
                 Logger.Info("Recupero l'Istanza di MariniImpiantoTree");
-                
                 return _instance;
             }
         }
@@ -664,8 +584,6 @@ namespace MariniImpianti
             Dictionary<string, MariniGenericObject> md = new Dictionary<string, MariniGenericObject>();
             _GetChildDictionary(ref md);
             return md;
-
-
         }
 
         private void _GetChildDictionary(ref Dictionary<string, MariniGenericObject> md)
@@ -713,13 +631,11 @@ namespace MariniImpianti
         public MariniOggettoBase(MariniGenericObject parent, XmlNode node)
             : base(parent, node)
         {
-
         }
 
         public MariniOggettoBase(XmlNode node)
             : base(node)
         {
-
         }
 
         public override void ToPlainText()
@@ -752,7 +668,6 @@ namespace MariniImpianti
         public MariniImpianto(XmlNode node)
             : this(null, node)
         {
-
         }
 
         public override void ToPlainText()
@@ -783,7 +698,6 @@ namespace MariniImpianti
         public MariniZona(XmlNode node)
             : this(null, node)
         {
-
         }
         public override void ToPlainText()
         {
@@ -806,13 +720,11 @@ namespace MariniImpianti
         public MariniPredosatore(MariniGenericObject parent, XmlNode node)
             : base(parent, node)
         {
-
         }
 
         public MariniPredosatore(XmlNode node)
             : this(null, node)
         {
-
         }
 
         public override void ToPlainText()
@@ -823,6 +735,17 @@ namespace MariniImpianti
 
     public class MariniPlctag : MariniGenericObject
     {
+
+        private string _tagid;
+        [System.Xml.Serialization.XmlAttribute]
+        public string tagid { get { return _tagid; } set { _tagid = value; } }
+
+        private string _parent_property_bind;
+        [System.Xml.Serialization.XmlAttribute]
+        public string parent_property_bind { get { return _parent_property_bind; } set { _parent_property_bind = value; } }
+
+
+
         public MariniPlctag(MariniGenericObject parent, string tagid)
             : base(parent)
         {
@@ -849,28 +772,23 @@ namespace MariniImpianti
                 foreach (XmlAttribute attr in attrs)
                 {
                     //Console.WriteLine("Attribute Name = " + attr.Name + "; Attribute Value = " + attr.Value);
-
                     switch (attr.Name)
                     {
                         case "tagid":
                             tagid = attr.Value;
                             break;
-
+                        case "parent_property_bind":
+                            parent_property_bind = attr.Value;
+                            break;
                     }
                 }
             }
-
         }
 
         public MariniPlctag(XmlNode node)
             : this(null, node)
         {
-
         }
-
-        private string _tagid;
-        [System.Xml.Serialization.XmlAttribute]
-        public string tagid { get { return _tagid; } set { _tagid = value; } }
 
         
 
@@ -896,13 +814,11 @@ namespace MariniImpianti
         public MariniBilancia(MariniGenericObject parent, XmlNode node)
             : base(parent, node)
         {
-
         }
 
         public MariniBilancia(XmlNode node)
             : this(null, node)
         {
-
         }
 
         public override void ToPlainText()
@@ -927,13 +843,11 @@ namespace MariniImpianti
         public MariniMotore(MariniGenericObject parent, XmlNode node)
             : base(parent, node)
         {
-
         }
 
         public MariniMotore(XmlNode node)
             : this(null, node)
         {
-
         }
 
 
@@ -959,7 +873,6 @@ namespace MariniImpianti
         public MariniNastro(MariniGenericObject parent, XmlNode node)
             : base(parent, node)
         {
-
         }
 
         public MariniNastro(XmlNode node)
@@ -967,7 +880,6 @@ namespace MariniImpianti
         {
 
         }
-
 
         public override void ToPlainText()
         {
@@ -977,6 +889,11 @@ namespace MariniImpianti
 
     public class MariniAmperometro : MariniGenericObject
     {
+
+        private string _presente;
+        [System.Xml.Serialization.XmlAttribute]
+        public string presente { get { return _presente; } set { _presente = value; } }
+
 
         public MariniAmperometro(MariniGenericObject parent)
             : base(parent)
@@ -991,6 +908,21 @@ namespace MariniImpianti
         public MariniAmperometro(MariniGenericObject parent, XmlNode node)
             : base(parent, node)
         {
+            if (node.Attributes != null)
+            {
+                XmlAttributeCollection attrs = node.Attributes;
+                foreach (XmlAttribute attr in attrs)
+                {
+                    //Console.WriteLine("Attribute Name = " + attr.Name + "; Attribute Value = " + attr.Value);
+
+                    switch (attr.Name)
+                    {
+                        case "presente":
+                            presente = attr.Value;
+                            break;
+                    }
+                }
+            }
 
         }
 
@@ -1003,6 +935,69 @@ namespace MariniImpianti
         public override void ToPlainText()
         {
             Console.WriteLine("Sono un amperometro id: {0} name: {1} description: {2} path: {3}", id, name, description, path);
+        }
+    }
+
+    public class MariniProperty : MariniGenericObject
+    {
+
+        private string _type;
+        [System.Xml.Serialization.XmlAttribute]
+        public string type { get { return _type; } set { _type = value; } }
+
+        private string _value;
+        [System.Xml.Serialization.XmlAttribute]
+        public string value { get { return _value; } set { _value = value; } }
+
+        private string _bind;
+        [System.Xml.Serialization.XmlAttribute]
+        public string bind { get { return _bind; } set { _bind = value; } }
+
+        private string _plctag_id;
+        [System.Xml.Serialization.XmlAttribute]
+        public string plctag_id { get { return _plctag_id; } set { _plctag_id = value; } }
+
+        public MariniProperty(MariniGenericObject parent)
+            : base(parent)
+        {
+        }
+
+        public MariniProperty()
+            : base()
+        {
+        }
+
+        public MariniProperty(MariniGenericObject parent, XmlNode node)
+            : base(parent, node)
+        {
+            if (node.Attributes != null)
+            {
+                XmlAttributeCollection attrs = node.Attributes;
+                foreach (XmlAttribute attr in attrs)
+                {
+                    //Console.WriteLine("Attribute Name = " + attr.Name + "; Attribute Value = " + attr.Value);
+
+                    switch (attr.Name)
+                    {
+                        case "type":
+                            type = attr.Value;
+                            break;
+
+                    }
+                }
+            }
+
+        }
+
+        public MariniProperty(XmlNode node)
+            : this(null, node)
+        {
+
+        }
+
+        public override void ToPlainText()
+        {
+            Console.WriteLine("Sono una property id: {0} name: {1} description: {2} path: {3}", id, name, description, path);
         }
     }
 

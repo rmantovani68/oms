@@ -56,17 +56,10 @@ namespace MariniImpiantiHost
             // da riempire con i dati del xml
             _Properties = new HashSet<PropertyItem>();
 
-            TagItem tag = new TagItem() { Name = "tag_name", PLCName = "plc2", Address = "db0.8.9" };
-            tag.PropertyChanged+=tag_PropertyChanged;
-
 
         }
         #endregion Constructor
 
-        private void tag_PropertyChanged(object sender, PropertyChangedEventArgs args)
-        {
-                args.PropertyName
-        }
     }
 
 

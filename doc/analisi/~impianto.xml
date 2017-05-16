@@ -1,0 +1,43 @@
+<impianto id="IMPIANTO" name="Impianto di test" type="CYBER500">
+    <zona id="ZONA_PREDOSAGGIO" name="Predosaggio">
+        <predosatore id="PRED_01" name="PREDOSATORE 1" Active="true">
+            <plctag id="PRESENTE" type="PRESENCE_TAG" tagid="PLCTAG_PRED1_PRESENTE"/>
+            <bilancia id="BIL_02" name="BILANCIA PREDOSATORE 2" type="SYWAREX_T1" Active="true">
+                <plctag id="TEMPO_STAB" type="TEMPO_STAB" tagid="PLCTAG_TEMPOSTAB_BIL1"/>
+                <plctag id="TOLLERANZA" type="TOLLERANZA" tagid="PLCTAG_TOLL_BIL1"/>
+                <plctag id="PRESENTE" type="PRESENCE_TAG" tagid="PLCTAG_BIL1_PRESENTE"/>
+            </bilancia>
+            <nastro id="NASTRO_01" name="NASTRO PREDOSATORE 1">
+                <motore id="MOTORE_01" name="MOTORE PREDOSATORE 1">
+                    <amperometro id="AMP_01" name="AMPEROMETRO MOTORE 1">
+                        <plctag id="LIMITE_MINIMO" type="MIN_LIMIT_MOTORE_TAG" tagid="PLCTAG_NM_MOTORE1_LIM_MIN"/>
+                        <plctag id="LIMITE_MASSIMO" type="MAX_LIMIT_MOTORE_TAG" tagid="PLCTAG_NM_MOTORE1_LIM_MAX"/>
+                        <plctag id="PRESENTE" type="PRESENCE_TAG" tagid="PLCTAG_NM_MOTORE1_PRESENTE"/>
+                    </amperometro>
+                </motore>
+            </nastro>
+        </predosatore>
+        <predosatore id="PRED_02" name="PREDOSATORE 2" Active="false"	>
+            <plctag id="PRESENTE" type="PRESENCE_TAG" tagid="PLCTAG_PRED2_PRESENTE"/>
+            <bilancia id="BIL_02" name="BILANCIA PREDOSATORE 2" type="SYWAREX_T1" >
+                <plctag id="TEMPO_STAB" type="TEMPO_STAB" tagid="PLCTAG_TEMPOSTAB_BIL2"/>
+                <plctag id="TOLLERANZA" type="TOLLERANZA" tagid="PLCTAG_TOLL_BIL_02"/>
+                <plctag id="PRESENTE" type="PRESENCE_TAG" tagid="PLCTAG_BIL2_PRESENTE"/>
+            </bilancia>
+            <nastro id="NASTRO_02" name="NASTRO PREDOSATORE 2">
+                <motore id="MOTORE_02" name="MOTORE PREDOSATORE 2">
+                    <amperometro id="AMP_02" name="AMPEROMETRO MOTORE 2">
+                        <plctag id="LIMITE_MINIMO" type="MIN_LIMIT_MOTORE_TAG" tagid="PLCTAG_NM_MOTORE2_LIM_MIN"/>
+                        <plctag id="LIMITE_MASSIMO" type="MAX_LIMIT_MOTORE_TAG" tagid="PLCTAG_NM_MOTORE2_LIM_MAX"/>
+                        <plctag id="PRESENTE" type="PRESENCE_TAG" tagid="PLCTAG_NM_MOTORE2_PRESENTE"/>
+                    </amperometro>
+                </motore>
+            </nastro>
+        </predosatore>
+    </zona>
+    <zona id="TAMBURO" name="Tamburo">
+    </zona>
+    <zona id="FILTRO" name="Filtro">
+    </zona>
+</impianto>
+

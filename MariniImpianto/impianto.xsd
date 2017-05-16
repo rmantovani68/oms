@@ -1,0 +1,222 @@
+﻿<?xml version="1.0"?>
+
+<xs:schema xmlns:xs = "http://www.w3.org/2001/XMLSchema">
+  
+  <xs:element name="impianto">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="zona_predosaggio"    minOccurs="0" maxOccurs="1" type="zona_predosaggio_type"/>
+        <xs:element name="zona_essiccazione"   minOccurs="0" maxOccurs="1" type="zona_essiccazione_type"/>
+        <xs:element name="zona_dosaggio"       minOccurs="0" maxOccurs="1" type="zona_dosaggio_type"/>
+        <xs:element name="zona_cisterne"       minOccurs="0" maxOccurs="1" type="zona_cisterne_type"/>
+        <xs:element name="zona_stoccaggio"     minOccurs="0" maxOccurs="1" type="zona_stoccaggio_type"/>
+        </xs:sequence>
+      <xs:attributeGroup ref="obj_attributes_group"/>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- Definizione dei tipi -->
+
+  <!-- ZONA PREDOSAGGIO -->
+  <xs:complexType name ="zona_predosaggio_type">
+    <xs:sequence>
+      <xs:element name="predosatore" minOccurs="0" maxOccurs="unbounded" type="predosatore_type"/>
+      <xs:element name="bilancia"    minOccurs="0" maxOccurs="unbounded" type="bilancia_type"/>
+      <xs:element name="nastro"      minOccurs="0" maxOccurs="unbounded" type="nastro_type"/>
+		</xs:sequence>
+    <xs:attributeGroup ref="obj_attributes_group"/>
+  </xs:complexType>
+
+  <!-- ZONA ESSICCAZIONE -->
+  <xs:complexType name ="zona_essiccazione_type">
+    <xs:sequence>
+      <xs:element name="tamburo"   minOccurs="0" maxOccurs="unbounded" type="tamburo_type"/>
+      <xs:element name="elevatore" minOccurs="0" maxOccurs="unbounded" type="elevatore_type"/>
+      <xs:element name="filtro"    minOccurs="0" maxOccurs="unbounded" type="filtro_type"/>
+		</xs:sequence>
+    <xs:attributeGroup ref="obj_attributes_group"/>
+  </xs:complexType>
+
+  <!-- ZONA DOSAGGIO -->
+  <xs:complexType name ="zona_dosaggio_type">
+    <xs:sequence>
+      <xs:element name="vaglio"      minOccurs="0" maxOccurs="unbounded" type="vaglio_type"/>
+      <xs:element name="bilancia"    minOccurs="0" maxOccurs="unbounded" type="bilancia_type"/>
+      <xs:element name="tramoggia"   minOccurs="0" maxOccurs="unbounded" type="tramoggia_type"/>
+      <xs:element name="mescolatore" minOccurs="0" maxOccurs="unbounded" type="mescolatore_type"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="obj_attributes_group"/>
+  </xs:complexType>
+
+  <!-- ZONA STOCCAGGIO -->
+  <xs:complexType name ="zona_stoccaggio_type">
+    <xs:sequence>
+      <xs:element name="silos"   minOccurs="0" maxOccurs="unbounded" type="silos_type"/>
+      <xs:element name="navetta" minOccurs="0" maxOccurs="unbounded" type="navetta_type"/>
+      <xs:element name="nastro"  minOccurs="0" maxOccurs="unbounded" type="nastro_type"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="obj_attributes_group"/>
+  </xs:complexType>
+
+  <!-- ZONA CISTERNE -->
+  <xs:complexType name ="zona_cisterne_type">
+    <xs:sequence>
+      <xs:element name="cisterna" minOccurs="0" maxOccurs="unbounded" type="cisterna_type"/>
+      <xs:element name="nastro"   minOccurs="0" maxOccurs="unbounded" type="nastro_type"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="obj_attributes_group"/>
+  </xs:complexType>
+
+
+
+
+  <!-- NASTRO -->
+  <xs:complexType name ="nastro_type">
+    <xs:sequence>
+      <xs:element name="motore" minOccurs="0" maxOccurs="unbounded" type="motore_type"/>
+      <xs:element name="property" minOccurs="0" maxOccurs="unbounded" type="property_type"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="obj_attributes_group"/>
+  </xs:complexType>
+
+
+  <!-- TAMBURO -->
+  <xs:complexType name ="tamburo_type">
+    <xs:sequence>
+      <xs:element name="property" minOccurs="0" maxOccurs="unbounded" type="property_type"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="obj_attributes_group"/>
+  </xs:complexType>
+
+  <!-- TRAMOGGIA -->
+  <xs:complexType name ="tramoggia_type">
+    <xs:sequence>
+      <xs:element name="property" minOccurs="0" maxOccurs="unbounded" type="property_type"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="obj_attributes_group"/>
+  </xs:complexType>
+
+  <!-- SILOS -->
+  <xs:complexType name ="silos_type">
+    <xs:sequence>
+      <xs:element name="property" minOccurs="0" maxOccurs="unbounded" type="property_type"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="obj_attributes_group"/>
+  </xs:complexType>
+
+  <!-- NAVETTA -->
+  <xs:complexType name ="navetta_type">
+    <xs:sequence>
+      <xs:element name="property" minOccurs="0" maxOccurs="unbounded" type="property_type"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="obj_attributes_group"/>
+  </xs:complexType>
+
+
+  <!-- CISTERNA -->
+  <xs:complexType name ="cisterna_type">
+    <xs:sequence>
+      <xs:element name="property" minOccurs="0" maxOccurs="unbounded" type="property_type"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="obj_attributes_group"/>
+  </xs:complexType>
+
+  <!-- MESCOLATORE -->
+  <xs:complexType name ="mescolatore_type">
+    <xs:sequence>
+      <xs:element name="property" minOccurs="0" maxOccurs="unbounded" type="property_type"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="obj_attributes_group"/>
+  </xs:complexType>
+
+  <!-- VAGLIO -->
+  <xs:complexType name ="vaglio_type">
+    <xs:sequence>
+      <xs:element name="property" minOccurs="0" maxOccurs="unbounded" type="property_type"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="obj_attributes_group"/>
+  </xs:complexType>
+
+  <!-- FILTRO -->
+  <xs:complexType name ="filtro_type">
+    <xs:sequence>
+      <xs:element name="property" minOccurs="0" maxOccurs="unbounded" type="property_type"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="obj_attributes_group"/>
+  </xs:complexType>
+
+  <!-- PREDOSATORE -->
+  <xs:complexType name ="predosatore_type">
+    <xs:sequence>
+      <xs:element name="property" minOccurs="0" maxOccurs="unbounded" type="property_type"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="obj_attributes_group"/>
+  </xs:complexType>
+
+  <!-- ELEVATORE -->
+  <xs:complexType name ="elevatore_type">
+    <xs:sequence>
+      <xs:element name="property" minOccurs="0" maxOccurs="unbounded" type="property_type"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="obj_attributes_group"/>
+  </xs:complexType>
+
+  <!-- Bilancia -->
+  <xs:complexType name ="bilancia_type">
+    <xs:sequence>
+      <xs:element name="property" minOccurs="0" maxOccurs="unbounded" type="property_type"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="obj_attributes_group"/>
+  </xs:complexType>
+
+  <!-- AMPEROMETRO -->
+  <xs:complexType name ="amperometro_type">
+    <xs:sequence>
+      <xs:element name="property" minOccurs="0" maxOccurs="unbounded" type="property_type"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="obj_attributes_group"/>
+  </xs:complexType>
+
+  <!-- MOTORE -->
+  <xs:complexType name="motore_type">
+    <xs:sequence>
+      <xs:element name="amperometro" minOccurs="0" maxOccurs="1" type="amperometro_type"/>
+      <xs:element name="property" minOccurs="0" maxOccurs="unbounded" type="property_type"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="obj_attributes_group"/>
+  </xs:complexType>
+
+  <!-- PLCTAG -->
+  <xs:complexType name="plctag_type">
+    <xs:attributeGroup ref="obj_attributes_group"/>
+    <xs:attribute name="tagid" type="xs:string"/>
+  </xs:complexType>
+
+  <!-- PROPERTY -->
+  <xs:complexType name="property_type">
+    <xs:attributeGroup ref="prop_attributes_group"/>
+  </xs:complexType>
+
+  <!-- Attributes groups-->
+  
+  <!-- Object Attributes Group -->
+  <xs:attributeGroup name="obj_attributes_group">
+    <xs:attribute name="id" type="xs:string"/>
+    <xs:attribute name="name" type="xs:string"/>
+    <xs:attribute name="type" type="xs:string"/>
+  </xs:attributeGroup>
+
+  <!-- Property Attributes Group -->
+  <xs:attributeGroup name="prop_attributes_group">
+    <xs:attribute name="id" type="xs:string"/>
+    <xs:attribute name="name" type="xs:string"/>
+    <xs:attribute name="type" type="xs:string"/>
+    <xs:attribute name="plctag_id" type="xs:string"/>
+    <xs:attribute name="bind" type="xs:string"/>
+    <xs:attribute name="value" type="xs:string"/>
+    <xs:attribute name="persistence" type="xs:string"/>
+  </xs:attributeGroup>
+
+</xs:schema>
+
+

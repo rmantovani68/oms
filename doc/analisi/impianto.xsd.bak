@@ -4,11 +4,11 @@
 	<xs:element name="impianto">
 		<xs:complexType>
 			<xs:sequence>
-        			<xs:element name="predosaggio"  minOccurs="0" maxOccurs="1" type="zona_predosaggio_type"/>
-        			<xs:element name="essiccazione" minOccurs="0" maxOccurs="1" type="zona_essiccazione_type"/>
-        			<xs:element name="dosaggio"     minOccurs="0" maxOccurs="1" type="zona_dosaggio_type"/>
-        			<xs:element name="cisterne"     minOccurs="0" maxOccurs="1" type="zona_cisterne_type"/>
-        			<xs:element name="stoccaggio"   minOccurs="0" maxOccurs="1" type="zona_stoccaggio_type"/>
+        			<xs:element name="predosaggio"  minOccurs="0" maxOccurs="1" type="zona_predosaggio"/>
+        			<xs:element name="essiccazione" minOccurs="0" maxOccurs="1" type="zona_essiccazione"/>
+        			<xs:element name="dosaggio"     minOccurs="0" maxOccurs="1" type="zona_dosaggio"/>
+        			<xs:element name="cisterne"     minOccurs="0" maxOccurs="1" type="zona_cisterne"/>
+        			<xs:element name="stoccaggio"   minOccurs="0" maxOccurs="1" type="zona_stoccaggio"/>
 			</xs:sequence>
 			<xs:attribute name="id" type="xs:string"/>
 			<xs:attribute name="name" type="xs:string"/>

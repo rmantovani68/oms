@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="utf-8"?>
+<impianto xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file:///C:/Users/uts.MARINI/Documents/projects/new-project/oms/MariniImpianto/impianto.xsd" id="string" name="string" type="string">
+  <zona_predosaggio id="string" name="string" type="string">
+    <predosatore id="string" name="string" type="string">
+      <property id="string" name="string" type="string" bind="string"/>
+    </predosatore>
+    <predosatore id="string" name="string" type="string">
+      <property id="string" name="string" type="string" bind="string"/>
+    </predosatore>
+    <predosatore id="string" name="string" type="string">
+      <property id="string" name="string" type="string" bind="string"/>
+    </predosatore>
+    <predosatore id="string" name="string" type="string">
+      <property id="string" name="string" type="string" bind="string"/>
+    </predosatore>
+    <bilancia id="string" name="string" type="string">
+      <property id="string" name="string" type="string" bind="string"/>
+    </bilancia>
+    <bilancia id="string" name="string" type="string">
+      <property id="string" name="string" type="string" bind="string"/>
+    </bilancia>
+    <bilancia id="string" name="string" type="string">
+      <property id="string" name="string" type="string" bind="string"/>
+    </bilancia>
+    <bilancia id="string" name="string" type="string">
+      <property id="string" name="string" type="string" bind="string"/>
+    </bilancia>
+    <nastro id="string" name="string" type="string">
+      <motore id="string" name="string" type="string">
+        <amperometro id="Amperometro_motore_predosatore_01" name="string" type="string">
+          
+          <!-- parametri -->
+          <property id="AmperometerFilterEnable" name="string" type="Bool" bind="cfg"/>
+          
+          <!-- plctags W -->
+          <property id="Presente"                name="string" type="Bool"    plctag_id="PLCTAG_NM_MOTORE100_Amperometri_Presente" bind="cfg"/>
+          <property id="ValoreMax"               name="string" type="Integer" plctag_id="PLCTAG_NM_MOTORE100_Amperometri_MaxOut"   bind="cfg"/>
+          <property id="ValoreSogliaMin"         name="string" type="Integer" plctag_id="PLCTAG_NM_MOTORE100_Amperometri_LimMin"   bind="cfg"/>
+          <property id="ValoreSogliaMax"         name="string" type="Integer" plctag_id="PLCTAG_NM_MOTORE100_Amperometri_LimMax"   bind="cfg"/>
+          <property id="XTUA"                    name="string" type="Integer" plctag_id="PLCTAG_DB46_XTUA_DRW_Elevatore_Caldo"     bind="cfg"/>
+
+          <!-- plctags R -->
+          <property id="Valore"                  name="string" type="Integer" plctag_id="PLCTAG_NM_MOTORE2_Amperometri_ValScal" bind="plctag"/>
+        </amperometro>
+       
+        <property id="" name="string" type="Bool" bind="string"/>
+
+        <property id="" name="string" type="Bool" bind="PLCTAG_DO_Motore01"/>
+        <property id="" name="string" type="Bool" bind="PLCTAG_DI_RitMotore01"/>
+        <property id="" name="string" type="Bool" bind="PLCTAG_DI_TermMotore01"/>
+        <property id="" name="string" type="Bool" bind="PLCTAG_DI_SicMotore01"/>
+        <property id="" name="string" type="Bool" bind="PLCTAG_DO_InvMotore01"/>
+        <property id="" name="string" type="Bool" bind="PLCTAG_DI_Al_Slittamento01"/>
+        <property id="AnalogSet" name="string" type="Integer" plctag_id="PLCTAG_AO_SetMotore01" bind="cfg" persistence="auto|manual"/>
+        <property id="" name="string" type="Integer" bind="PLCTAG_AI_AmpMotore01"/>
+        
+        <!--
+
+          With ListaMotori(motore)
+
+            .presente = String2Bool(ParameterPlus.GetParameterValue(SEZIONE, "Motore" + CStr(motore), "", "Presente"))
+            .asservimento = String2Int(ParameterPlus.GetParameterValue(SEZIONE, "Motore" + CStr(motore), "", "Asservimento"))
+            .tempoStart = String2Int(ParameterPlus.GetParameterValue(SEZIONE, "Motore" + CStr(motore), "", "tempoStart"))
+            .tempoStop = String2Int(ParameterPlus.GetParameterValue(SEZIONE, "Motore" + CStr(motore), "", "tempoStop"))
+            .offStart = String2Bool(ParameterPlus.GetParameterValue(SEZIONE, "Motore" + CStr(motore), "", "offStart"))
+            .onStop = String2Bool(ParameterPlus.GetParameterValue(SEZIONE, "Motore" + CStr(motore), "", "onStop"))
+            '20150625
+            '.uscitaAnalogica = String2Int(ParameterPlus.GetParameterValue(SEZIONE, "Motore" + CStr(motore), "", "UscitaAnalogica"))
+            '.tempoAttesaRitorno = String2Int(ParameterPlus.GetParameterValue(SEZIONE, "Motore" + CStr(motore), "", "TempoAttesaRitorno"))
+            '
+            .tempoRitAllSlittamento = String2Long(ParameterPlus.GetParameterValue(SEZIONE, "Motore" + CStr(motore), "", "TempoRitAllSlittamento"))
+            If (.tempoAttesaRitorno = 0) Then
+                .tempoAttesaRitorno = 3
+            End If
+            '20161020
+            .GestioneInternaSlittamento = String2Bool(ParameterPlus.GetParameterValue(SEZIONE, "Motore" + CStr(motore), "", "GestioneInternaSlittamento"))
+            .Soglia1Slittamento = String2Double(ParameterPlus.GetParameterValue(SEZIONE, "Motore" + CStr(motore), "", "Soglia1Slittamento"))
+            .TempoSoglia1Slittamento = String2Long(ParameterPlus.GetParameterValue(SEZIONE, "Motore" + CStr(motore), "", "TempoSoglia1Slittamento")) * 1000
+            .Soglia2Slittamento = String2Double(ParameterPlus.GetParameterValue(SEZIONE, "Motore" + CStr(motore), "", "Soglia2Slittamento"))
+            .TempoSoglia2Slittamento = String2Long(ParameterPlus.GetParameterValue(SEZIONE, "Motore" + CStr(motore), "", "TempoSoglia2Slittamento")) * 1000
+            '20161020
+            '20150625
+            '.InverterPresente = String2Bool(ParameterPlus.GetParameterValue(SEZIONE, "Motore" + CStr(motore), "", "InverterPresente"))
+            .InverterPresente = ((String2Int(ParameterPlus.GetParameterValue(SEZIONE, "Motore" + CStr(motore), "", "TipoAzionamento"))) = 1)
+            .SoftStarterPresente = ((String2Int(ParameterPlus.GetParameterValue(SEZIONE, "Motore" + CStr(motore), "", "TipoAzionamento"))) = 2)
+            .tempoAttesaRitorno = IIf( _
+                (.InverterPresente Or .SoftStarterPresente), _
+                String2Int(ParameterPlus.GetParameterValue(SEZIONE, "Motore" + CStr(motore), "", "TempoAttesaRitorno")), _
+                tempoAttesaMotOn _
+                )
+            .uscitaAnalogica = IIf(.InverterPresente, String2Int(ParameterPlus.GetParameterValue(SEZIONE, "Motore" + CStr(motore), "", "UscitaAnalogica")), 0)
+            '
+
+            .SoloVisualizzazione = String2Bool(ParameterPlus.GetParameterValue(SEZIONE, "Motore" + CStr(motore), "", "SoloVisualizzazione"))
+            If (motore <> MotoreMescolatore And motore <> MotoreElevatoreCaldo And motore <> MotoreRotazioneEssiccatore And motore <> MotoreRotazioneEssiccatore2) Then
+                'NON GESTITA!
+                .uscitaAnalogica = -1
+            End If
+            .pausaLavoro.TempoLavoro = String2Int(ParameterPlus.GetParameterValue(SEZIONE, "Motore" + CStr(motore), "", "TempoLavoro"))
+            .pausaLavoro.TempoPausa = String2Int(ParameterPlus.GetParameterValue(SEZIONE, "Motore" + CStr(motore), "", "TempoPausa"))
+            If (ListaMotori(motore).pausaLavoro.TempoLavoro <= 0 Or ListaMotori(motore).pausaLavoro.TempoPausa <= 0) Then
+                ListaMotori(motore).pausaLavoro.TempoLavoro = 0
+                ListaMotori(motore).pausaLavoro.TempoPausa = 0
+            End If
+            .pausaLavoro.abilitato = (.pausaLavoro.TempoLavoro > 0 And .pausaLavoro.TempoPausa > 0)
+            If (.tempoStart <= 0) Then
+                .tempoStart = 1
+            End If
+            If (.tempoStop <= 0) Then
+                .tempoStop = 1
+            End If
+    
+            GruppoAvviamentoSelezionato(0) = String2Bool(ParameterPlus.GetParameterValue("OrdineMotori", "AvviamentoRidotto", "", "Gruppo0"))
+            
+            OrdineAvviamentoMotori(motore) = CInt(left(ParameterPlus.GetParameterValue("OrdineMotori", "  ", "", "OrdineAvvio" + CStr(motore)), 2))
+            OrdineSpegnimentoMotori(motore) = CInt(left(ParameterPlus.GetParameterValue("OrdineMotori", "OrdineSpegnimentoMotori", "", "OrdineArresto" + CStr(motore)), 2))
+
+            ListaMotori(motore).EsclusioneConAvviamentoRidotto = False
+            ListaMotori(motore).GruppoEsclusione = AvviamentoMotoriCompleto
+
+            If String2Bool(ParameterPlus.GetParameterValue("OrdineMotori", "AvviamentoRidotto", "EsclusioneTamburoPrincipale", "Motore" + CStr(motore))) Then
+                ListaMotori(motore).EsclusioneConAvviamentoRidotto = True
+                ListaMotori(motore).GruppoEsclusione = AvviamentoMotoriNoTamburoPrincipale
+            End If
+            If String2Bool(ParameterPlus.GetParameterValue("OrdineMotori", "AvviamentoRidotto", "EsclusioneTamburoParallelo", "Motore" + CStr(motore))) Then
+                ListaMotori(motore).EsclusioneConAvviamentoRidotto = True
+                ListaMotori(motore).GruppoEsclusione = AvviamentoMotoriNoTamburoParallelo
+            End If
+            If String2Bool(ParameterPlus.GetParameterValue("OrdineMotori", "AvviamentoRidotto", "EsclusioneRiciclatoFreddo", "Motore" + CStr(motore))) Then
+                ListaMotori(motore).EsclusioneConAvviamentoRidotto = True
+                ListaMotori(motore).GruppoEsclusione = AvviamentoMotoriNoRiciclatoFreddo
+            End If
+        
+        End With
+        -->
+
+
+
+
+
+      </motore>
+      <property id="" name="string" type="Bool" bind="string"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <!--
+
+'   Struttura contenente tutte le informazioni di un motore
+Public Type MotoreType
+
+    presente As Boolean
+
+    Descrizione As String
+
+    'ex uscita. Adesso si tratta del comando "non automatico"
+    ComandoManuale As Boolean
+    'comando invertito
+    ComandoInversione As Boolean
+    
+    ritorno As Boolean
+    RitornoReale As Boolean
+    RitornoIndietro As Boolean
+    ForzatoDarwin As Boolean
+    'Bitmask di allarmi
+    allarme As Integer
+
+    AllarmeTimeoutAvvio As Boolean
+    AllarmeNessunRitorno As Boolean
+    AllarmeTermica As Boolean
+    AllarmeTimeoutArresto As Boolean
+    AllarmeSicurezza As Boolean
+    AllarmeSlittamentoMotore As Boolean
+
+    'Motore bloccato da PLC
+    blocco As Boolean
+
+    'Motore forzatamente acceso da PLC
+    ForzAccesoPLC As Boolean
+    'Motore forzatamente spento da PLC
+    ForzSpentoPLC As Boolean
+
+    '   Ora in cui è stato dato lo start al motore
+    oraStart As Long
+    '   Secondi di attesa del ritorno
+    tempoAttesaRitorno As Long
+    '   Secondi di start
+    tempoStart As Long
+    '   Secondi di stop
+    tempoStop As Long
+
+    '   Flag per non accendere il motore all'avvio automatico
+    offStart As Boolean
+
+    '   Flag per non spegnere il motore allo spegnimento automatico
+    onStop As Boolean
+
+    '   Motore asservito (0 = se stesso)
+    asservimento As Integer
+
+    '   In verità vi dico che contengono minuti, non ore
+    MinutiLavoroParz As Long
+    MinutiLavoroTot As Long
+    MinutiLavoroUltimoControllo As Long
+    
+    SecondiLavoroAppoggio As Long 'Appoggio per il conteggio delle ore di lavoro dei motori con funzionamento temporizzato
+
+    '   Ottimizzazione per salvataggio lento
+
+    pausaLavoro As MotorePausaLavoro
+
+    uscitaAnalogica As Integer
+    
+    '   Flag per inserire il motore in una lista di avviamento automatico ridotto
+    EsclusioneConAvviamentoRidotto As Boolean
+    '   Flag per dire se la lista dove il motore è stato inserito è anche selezionata da parte dell'utente
+    EsclusioneSelezionata As Boolean
+    '   Serve per discriminare l'esclusione del motore fra i vari gruppi di esclusione
+    GruppoEsclusione As Integer
+    
+    InverterPresente As Boolean
+    '20150625
+    SoftStarterPresente As Boolean
+    '
+    
+    tempoRitAllSlittamento As Long
+
+    SoloVisualizzazione As Boolean
+
+'20150422
+    OraStartAllSlittamentoMotore As Long
+'
+
+    amperometro As Boolean
+
+    '20161020
+    GestioneInternaSlittamento  As Boolean
+    Soglia1Slittamento  As Double
+    TempoSoglia1Slittamento As Long
+    Soglia2Slittamento As Double
+    TempoSoglia2Slittamento As Long
+    '20161020
+End Type
+
+      
+      
+      -->
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </nastro>
+    <nastro id="string" name="string" type="string">
+      <motore id="string" name="string" type="string">
+        <amperometro id="string" name="string" type="string">
+          <property id="string" name="string" type="string" bind="string"/>
+        </amperometro>
+        <property id="string" name="string" type="string" bind="string"/>
+      </motore>
+      <property id="string" name="string" type="string" bind="string"/>
+    </nastro>
+    <nastro id="string" name="string" type="string">
+      <motore id="string" name="string" type="string">
+        <amperometro id="string" name="string" type="string">
+          <property id="string" name="string" type="string" bind="string"/>
+        </amperometro>
+        <property id="string" name="string" type="string" bind="string"/>
+      </motore>
+      <property id="string" name="string" type="string" bind="string"/>
+    </nastro>
+    <nastro id="string" name="string" type="string">
+      <motore id="string" name="string" type="string">
+        <amperometro id="string" name="string" type="string">
+          <property id="string" name="string" type="string" bind="string"/>
+        </amperometro>
+        <property id="string" name="string" type="string" bind="string"/>
+      </motore>
+      <property id="string" name="string" type="string" bind="string"/>
+    </nastro>
+  </zona_predosaggio>
+  <zona_essiccazione id="string" name="string" type="string">
+    <tamburo id="string" name="string" type="string">
+      <property id="string" name="string" type="string" bind="string"/>
+    </tamburo>
+    <tamburo id="string" name="string" type="string">
+      <property id="string" name="string" type="string" bind="string"/>
+    </tamburo>
+    <tamburo id="string" name="string" type="string">
+      <property id="string" name="string" type="string" bind="string"/>
+    </tamburo>
+    <tamburo id="string" name="string" type="string">
+      <property id="string" name="string" type="string" bind="string"/>
+    </tamburo>
+    <elevatore id="string" name="string" type="string">
+      <property id="string" name="string" type="string" bind="string"/>
+    </elevatore>
+    <elevatore id="string" name="string" type="string">
+      <property id="string" name="string" type="string" bind="string"/>
+    </elevatore>
+    <elevatore id="string" name="string" type="string">
+      <property id="string" name="string" type="string" bind="string"/>
+    </elevatore>
+    <elevatore id="string" name="string" type="string">
+      <property id="string" name="string" type="string" bind="string"/>
+    </elevatore>
+    <filtro id="string" name="string" type="string">
+      <property id="string" name="string" type="string" bind="string"/>
+    </filtro>
+    <filtro id="string" name="string" type="string">
+      <property id="string" name="string" type="string" bind="string"/>
+    </filtro>
+    <filtro id="string" name="string" type="string">
+      <property id="string" name="string" type="string" bind="string"/>
+    </filtro>
+    <filtro id="string" name="string" type="string">
+      <property id="string" name="string" type="string" bind="string"/>
+    </filtro>
+  </zona_essiccazione>
+  <zona_dosaggio id="string" name="string" type="string">
+    <vaglio id="string" name="string" type="string">
+      <property id="string" name="string" type="string" bind="string"/>
+    </vaglio>
+    <vaglio id="string" name="string" type="string">
+      <property id="string" name="string" type="string" bind="string"/>
+    </vaglio>
+    <vaglio id="string" name="string" type="string">
+      <property id="string" name="string" type="string" bind="string"/>
+    </vaglio>
+    <vaglio id="string" name="string" type="string">
+      <property id="string" name="string" type="string" bind="string"/>
+    </vaglio>
+    <bilancia id="string" name="string" type="string">
+      <property id="string" name="string" type="string" bind="string"/>
+    </bilancia>
+    <bilancia id="string" name="string" type="string">
+      <property id="string" name="string" type="string" bind="string"/>
+    </bilancia>
+    <bilancia id="string" name="string" type="string">
+      <property id="string" name="string" type="string" bind="string"/>
+    </bilancia>
+    <bilancia id="string" name="string" type="string">
+      <property id="string" name="string" type="string" bind="string"/>
+    </bilancia>
+    <tramoggia id="string" name="string" type="string">
+      <property id="string" name="string" type="string" bind="string"/>
+    </tramoggia>
+    <tramoggia id="string" name="string" type="string">
+      <property id="string" name="string" type="string" bind="string"/>
+    </tramoggia>
+    <tramoggia id="string" name="string" type="string">
+      <property id="string" name="string" type="string" bind="string"/>
+    </tramoggia>
+    <tramoggia id="string" name="string" type="string">
+      <property id="string" name="string" type="string" bind="string"/>
+    </tramoggia>
+    <mescolatore id="string" name="string" type="string">
+      <property id="string" name="string" type="string" bind="string"/>
+    </mescolatore>
+    <mescolatore id="string" name="string" type="string">
+      <property id="string" name="string" type="string" bind="string"/>
+    </mescolatore>
+    <mescolatore id="string" name="string" type="string">
+      <property id="string" name="string" type="string" bind="string"/>
+    </mescolatore>
+    <mescolatore id="string" name="string" type="string">
+      <property id="string" name="string" type="string" bind="string"/>
+    </mescolatore>
+  </zona_dosaggio>
+  <zona_cisterne id="string" name="string" type="string">
+    <cisterna id="string" name="string" type="string">
+      <property id="string" name="string" type="string" bind="string"/>
+    </cisterna>
+    <cisterna id="string" name="string" type="string">
+      <property id="string" name="string" type="string" bind="string"/>
+    </cisterna>
+    <cisterna id="string" name="string" type="string">
+      <property id="string" name="string" type="string" bind="string"/>
+    </cisterna>
+    <cisterna id="string" name="string" type="string">
+      <property id="string" name="string" type="string" bind="string"/>
+    </cisterna>
+    <nastro id="string" name="string" type="string">
+      <motore id="string" name="string" type="string">
+        <amperometro id="string" name="string" type="string">
+          <property id="string" name="string" type="string" bind="string"/>
+        </amperometro>
+        <property id="string" name="string" type="string" bind="string"/>
+      </motore>
+      <property id="string" name="string" type="string" bind="string"/>
+    </nastro>
+    <nastro id="string" name="string" type="string">
+      <motore id="string" name="string" type="string">
+        <amperometro id="string" name="string" type="string">
+          <property id="string" name="string" type="string" bind="string"/>
+        </amperometro>
+        <property id="string" name="string" type="string" bind="string"/>
+      </motore>
+      <property id="string" name="string" type="string" bind="string"/>
+    </nastro>
+    <nastro id="string" name="string" type="string">
+      <motore id="string" name="string" type="string">
+        <amperometro id="string" name="string" type="string">
+          <property id="string" name="string" type="string" bind="string"/>
+        </amperometro>
+        <property id="string" name="string" type="string" bind="string"/>
+      </motore>
+      <property id="string" name="string" type="string" bind="string"/>
+    </nastro>
+    <nastro id="string" name="string" type="string">
+      <motore id="string" name="string" type="string">
+        <amperometro id="string" name="string" type="string">
+          <property id="string" name="string" type="string" bind="string"/>
+        </amperometro>
+        <property id="string" name="string" type="string" bind="string"/>
+      </motore>
+      <property id="string" name="string" type="string" bind="string"/>
+    </nastro>
+  </zona_cisterne>
+  <zona_stoccaggio id="string" name="string" type="string">
+    <silos id="string" name="string" type="string">
+      <property id="string" name="string" type="string" bind="string"/>
+    </silos>
+    <silos id="string" name="string" type="string">
+      <property id="string" name="string" type="string" bind="string"/>
+    </silos>
+    <silos id="string" name="string" type="string">
+      <property id="string" name="string" type="string" bind="string"/>
+    </silos>
+    <silos id="string" name="string" type="string">
+      <property id="string" name="string" type="string" bind="string"/>
+    </silos>
+    <navetta id="string" name="string" type="string">
+      <property id="string" name="string" type="string" bind="string"/>
+    </navetta>
+    <navetta id="string" name="string" type="string">
+      <property id="string" name="string" type="string" bind="string"/>
+    </navetta>
+    <navetta id="string" name="string" type="string">
+      <property id="string" name="string" type="string" bind="string"/>
+    </navetta>
+    <navetta id="string" name="string" type="string">
+      <property id="string" name="string" type="string" bind="string"/>
+    </navetta>
+    <nastro id="string" name="string" type="string">
+      <motore id="string" name="string" type="string">
+        <amperometro id="string" name="string" type="string">
+          <property id="string" name="string" type="string" bind="string"/>
+        </amperometro>
+        <property id="string" name="string" type="string" bind="string"/>
+      </motore>
+      <property id="string" name="string" type="string" bind="string"/>
+    </nastro>
+    <nastro id="string" name="string" type="string">
+      <motore id="string" name="string" type="string">
+        <amperometro id="string" name="string" type="string">
+          <property id="string" name="string" type="string" bind="string"/>
+        </amperometro>
+        <property id="string" name="string" type="string" bind="string"/>
+      </motore>
+      <property id="string" name="string" type="string" bind="string"/>
+    </nastro>
+    <nastro id="string" name="string" type="string">
+      <motore id="string" name="string" type="string">
+        <amperometro id="string" name="string" type="string">
+          <property id="string" name="string" type="string" bind="string"/>
+        </amperometro>
+        <property id="string" name="string" type="string" bind="string"/>
+      </motore>
+      <property id="string" name="string" type="string" bind="string"/>
+    </nastro>
+    <nastro id="string" name="string" type="string">
+      <motore id="string" name="string" type="string">
+        <amperometro id="string" name="string" type="string">
+          <property id="string" name="string" type="string" bind="string"/>
+        </amperometro>
+        <property id="string" name="string" type="string" bind="string"/>
+      </motore>
+      <property id="string" name="string" type="string" bind="string"/>
+    </nastro>
+  </zona_stoccaggio>
+</impianto>

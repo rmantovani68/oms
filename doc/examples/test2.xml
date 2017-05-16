@@ -1,0 +1,11 @@
+ <card xmlns="http://businesscard.org"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://businesscard.org 
+                           business_card.xsd">
+
+   <name>John Doe</name>
+   <title>CEO, Widget Inc.</title>
+   <email>john.doe@widget.com</email>
+   <phone>(202) 456-1414</phone>
+   <logo url="widget.gif"/>
+ </card>

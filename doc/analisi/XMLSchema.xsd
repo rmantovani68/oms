@@ -1,0 +1,79 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wmh="http://www.wmhelp.com/2003/eGenerator" elementFormDefault="qualified">
+  <xs:element name="impianto">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="zona" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:string"/>
+      <xs:attribute name="name" type="xs:string"/>
+      <xs:attribute name="type" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="zona">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="predosatore" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:string" use="required"/>
+      <xs:attribute name="name" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="predosatore">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="plctag"/>
+        <xs:element ref="bilancia"/>
+        <xs:element ref="nastro"/>
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:string" use="required"/>
+      <xs:attribute name="name" type="xs:string" use="required"/>
+      <xs:attribute name="Active" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="plctag">
+    <xs:complexType>
+      <xs:attribute name="id" type="xs:string" use="required"/>
+      <xs:attribute name="type" type="xs:string" use="required"/>
+      <xs:attribute name="tagid" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="bilancia">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="plctag" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:string" use="required"/>
+      <xs:attribute name="name" type="xs:string" use="required"/>
+      <xs:attribute name="type" type="xs:string" use="required"/>
+      <xs:attribute name="Active" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="nastro">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="motore"/>
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:string" use="required"/>
+      <xs:attribute name="name" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="motore">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="amperometro"/>
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:string" use="required"/>
+      <xs:attribute name="name" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="amperometro">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="plctag" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:string" use="required"/>
+      <xs:attribute name="name" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -999,6 +999,12 @@ namespace MariniImpianti
         {
             Console.WriteLine("Sono una property id: {0} name: {1} description: {2} path: {3}", id, name, description, path);
         }
+  
+    
+    
     }
+
+
+
 
 }

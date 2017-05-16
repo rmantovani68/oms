@@ -27,13 +27,14 @@ namespace MariniImpiantiHost
 
 
         // lista dei tags sottoscritti
+        // da creare dopo la lettura del file impianto
         public ObservableUniqueCollection<TagItem> ListTagItems { get; set; }
 
         // lista dei plc connessi
         public ObservableUniqueCollection<PLCItem> ListPLCItems { get; set; }
 
-        /* associazione property / plc tags */
-        public Dictionary<Property, TagItem> _proptags { get; set; }
+        /* lista properties dell'impianto */
+        public HashSet<PropertyItem> _Properties { get; set; }
 
         /* associazione sender / subscriptions */
         public Dictionary<string, HashSet<Subscription>> _Subs { get; set; }
@@ -53,12 +54,21 @@ namespace MariniImpiantiHost
             _Subs = new Dictionary<string, HashSet<Subscription>>();
 
             // da riempire con i dati del xml
-            _proptags = new Dictionary<Property,TagItem>();
+            _Properties = new HashSet<PropertyItem>();
+
+            TagItem tag = new TagItem() { Name = "tag_name", PLCName = "plc2", Address = "db0.8.9" };
+            tag.PropertyChanged+=tag_PropertyChanged;
 
 
         }
         #endregion Constructor
+
+        private void tag_PropertyChanged(object sender, PropertyChangedEventArgs args)
+        {
+                args.PropertyName
+        }
     }
+
 
     
     public class ObservableUniqueCollection<T> : ObservableCollection<T>

@@ -379,6 +379,15 @@ namespace MariniImpiantiHost
 
                 switch (MsgData.MsgCode)
                 {
+                    case MsgCodes.SubscribeProperty:
+                        SubscribeProperty(Message);
+                        break;
+
+                    case MsgCodes.SubscribeProperties:
+                        break;
+                    
+                    
+                    
                     case MsgCodes.PLCTagsChanged:
                         /* gestione da fare */
                         break;
@@ -397,78 +406,91 @@ namespace MariniImpiantiHost
             e.Message.Acknowledge();
         }
 
+        private bool SubscribeProperty(IIncomingMessage Message)
+        {
+            bool RetValue = true;
+
+            // get msg application data
+            var MsgData = GeneralHelper.DeserializeObject(Message.MessageData) as PropertyData;
+            var prop = MsgData.Prop;
+
+            Logger.InfoFormat("{1}/{2} da {0}", Message.SourceApplicationName, prop.ObjName, prop.Name);
+
+            // gestione subscriptions
+            if (!model._Subs.ContainsKey(Message.SourceApplicationName))
+            {
+                model._Subs.Add(Message.SourceApplicationName, new HashSet<Subscription>());
+            }
+
+            try
+            {
+                model._Subs[Message.SourceApplicationName].Add(new Subscription(prop.ObjID, prop.ObjName, prop.Name));
+            } 
+            catch (Exception exc)
+            {
+                Logger.WarnFormat("Obj {0} error subscribing property {1} : {2}", prop.ObjID, prop.Name, exc.Message);
+                RetValue = false;
+
+            }
+
+            /* invio messaggio di risposta */
+
+            //Create a DotNetMQ Message to respond
+            var ResponseMessage = Message.CreateResponseMessage();
+
+            var ResponseData = new ResponseData
+            {
+                Response = RetValue
+            };
+
+            //Set message data
+            ResponseMessage.MessageData = GeneralHelper.SerializeObject(ResponseData);
+            ResponseMessage.TransmitRule = MessageTransmitRules.NonPersistent;
+
+            try
+            {
+                //Send message
+                ResponseMessage.Send();
+
+                Logger.InfoFormat("Inviata Risposta a {0}", ResponseMessage.DestinationApplicationName);
+            }
+            catch (Exception exc)
+            {
+                // non sono riuscito a inviare il messaggio
+                Logger.WarnFormat("Risposta non inviata - {0}", exc.Message);
+                RetValue = false;
+            }
+
+            return RetValue;
+
+        }
+
         private bool PLCTagChanged(IIncomingMessage Message)
         {
             bool RetValue = true;
 
             // get msg application data
             var MsgData = GeneralHelper.DeserializeObject(Message.MessageData) as PLCTagData;
+            var plctag = MsgData.Tag;
 
             Logger.InfoFormat("Ricevuto Messaggio {1}/{2}:{3} da {0}", Message.SourceApplicationName, MsgData.Tag.PLCName, MsgData.Tag.Name, MsgData.Tag.Value);
-            TagItem tag = new TagItem() {PLCName =  MsgData.Tag.PLCName, Name = MsgData.Tag.Name};
             
-            // property
-            var prop = model._proptags.FirstOrDefault(item => item.Value==tag).Key;
+            // tag
+            var tag = model.ListTagItems.FirstOrDefault(item => item.PLCName == plctag.PLCName && item.Address==plctag.Name);
 
-            if (prop != null)
+            if (tag != null)
             {
-
                 // 
-                prop.Value = MsgData.Tag.Value.ToString();
-
-                /* cerco il subscriber associato alla property */
-                foreach (var subscriber in model._Subs.ToList())
-                {
-                    /* lista di subscrictions del subscriber */
-                    var list = subscriber.Value;
-
-                    var sub = new Subscription(prop.ObjID, prop.ObjName, prop.Name);
-
-                    if (list.Contains(sub))
-                    {
-                        // trovato il subscriber, invio messaggio di tag changed
-
-                        //Create a DotNetMQ Message to send 
-                        var message = mdsClient.CreateMessage();
-
-                        //Set destination application name
-                        message.DestinationApplicationName = subscriber.Key;
-
-                        //Create a message
-                        var PropData = new PropertyData
-                        {
-                            MsgCode = MsgCodes.PropertyChanged,
-                            Prop = prop
-                        };
-
-                        //Set message data
-                        message.MessageData = GeneralHelper.SerializeObject(MsgData);
-                        message.TransmitRule = MessageTransmitRules.NonPersistent;
-
-                        try
-                        {
-                            //Send message
-                            message.Send();
-                            Logger.InfoFormat("{1}/{2}-{3} : Inviata Risposta a {0}", message.DestinationApplicationName, tag.PLCName, tag.Name, tag.Value.ToString());
-                        }
-                        catch (Exception exc)
-                        {
-                            // non sono riuscito a inviare il messaggio
-                            Logger.WarnFormat("Risposta non inviata - {0}", exc.Message);
-                        }
-                    }
-                }
+                tag.Value = MsgData.Tag.Value.ToString();
             }
             else
             {
-                Logger.InfoFormat("Property associata a : {0}/{1} non trovata", tag.PLCName, tag.Name);
+                Logger.InfoFormat("Tag associato a : {0}/{1} non trovata", tag.PLCName, tag.Address);
                 RetValue = false;
             }
 
             return RetValue;
         }
-
-
 
         #endregion Private Methods
 

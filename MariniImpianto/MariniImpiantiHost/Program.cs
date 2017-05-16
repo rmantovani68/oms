@@ -8,6 +8,10 @@ using MariniImpiantiWcfLib;
 using log4net;
 using System.Reflection;
 using MariniImpianti;
+using MDS;
+using MDS.Client;
+using MDS.Communication.Messages;
+
 
 namespace MariniImpiantiHost
 {
@@ -15,18 +19,47 @@ namespace MariniImpiantiHost
     {
         protected static readonly ILog Logger = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
+        public static MDSClient mdsClient { get; private set; }
+
+        public static string ApplicationName { get; private set; }
+
+        public static string PLCServerApplicationName { get; private set; }
+
         static void Main(string[] args)
         {
+
 
             MariniImpiantoTree.InitializeFromXmlFile(@"Q:\VARIE\ael\new-project\doc\analisi\impianto.xml");
             MariniImpiantoTree mariniImpiantoTree = MariniImpiantoTree.Instance;
 
 
-
-
             Logger.Info("***********************************");
             Logger.Info("--- HOST STARTED");
             Logger.Info("***********************************");
+
+
+            // Name of this application: HMIClient
+            ApplicationName = "HMIClient";
+            // Name of the plc server application: PLCServer
+            PLCServerApplicationName = "PLCServer";
+
+            // Create MDSClient object to connect to DotNetMQ
+            mdsClient = new MDSClient(ApplicationName);
+
+            // Connect to DotNetMQ server
+            try
+            {
+                mdsClient.Connect();
+            }
+            catch (Exception ex)
+            {
+                Logger.Warn(ex.Message, ex);
+            }
+
+            // Register to MessageReceived event to get messages.
+            mdsClient.MessageReceived += manager_MessageReceived;
+
+            // sottoscrizione ai tags
 
             ServiceHost serviceHost = null;
 
@@ -120,6 +153,40 @@ namespace MariniImpiantiHost
             }  
 
 
+        }
+        /// <summary>
+        /// This method handles received messages from other applications via DotNetMQ.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e">Message parameters</param>
+        private static void manager_MessageReceived(object sender, MessageReceivedEventArgs e)
+        {
+            try
+            {
+                // Get message 
+                var Message = e.Message;
+                // Get message data
+                var MsgData = GeneralHelper.DeserializeObject(Message.MessageData) as MsgData;
+
+                switch (MsgData.MsgCode)
+                {
+                 /*
+                    case MsgCodes.PLCTagsChanged:
+                        // gestione da fare 
+                        break;
+                    case MsgCodes.PLCTagChanged:
+                        PLCTagChanged(Message);
+                        break;
+                */
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.Warn(ex.Message, ex);
+            }
+
+            // Acknowledge that message is properly handled and processed. So, it will be deleted from queue.
+            e.Message.Acknowledge();
         }
     }
 }

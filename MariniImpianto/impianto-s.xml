@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<impianto xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file:///C:/Users/uts.MARINI/Documents/projects/new-project/oms/MariniImpianto/impianto.xsd" id="string" name="string" type="string">
+<impianto 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:noNamespaceSchemaLocation="file:///C:/Users/uts.MARINI/Documents/projects/new-project/oms/MariniImpianto/impianto.xsd" 
+  id="string" 
+  name="string" 
+  type="string">
   <zona_predosaggio id="string" name="string" type="string">
     <predosatore id="string" name="string" type="string">
       <property id="string" name="string" type="string" bind="string"/>

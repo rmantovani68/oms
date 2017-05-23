@@ -20,7 +20,7 @@ namespace MariniImpiantiWcfLib
             ResponseFormat = WebMessageFormat.Xml,
             BodyStyle = WebMessageBodyStyle.Wrapped,
             //BodyStyle= WebMessageBodyStyle.Bare,
-            UriTemplate = "xml/{id}")]
+            UriTemplate = "xmlfromid/{id}")]
         XMLDescription GetXMLSerializedObjectFromId(string id);
 
         [OperationContract]
@@ -28,17 +28,40 @@ namespace MariniImpiantiWcfLib
             ResponseFormat = WebMessageFormat.Xml,
             BodyStyle = WebMessageBodyStyle.Wrapped,
             //BodyStyle= WebMessageBodyStyle.Bare,
-            UriTemplate = "propertyvalue/{id}/{prop}")]
-        string GetPropertyValue(string id, string prop);
+            UriTemplate = "propertyvaluefromid/{id}/{prop}")]
+        string GetPropertyValueFromId(string id, string prop);
 
         [OperationContract]
         [WebInvoke(Method = "GET",
             ResponseFormat = WebMessageFormat.Xml,
             BodyStyle = WebMessageBodyStyle.Wrapped,
             //BodyStyle= WebMessageBodyStyle.Bare,
-            UriTemplate = "propertychange/{id}/{prop}/{value}")]
-        void ChangePropertyValue(string id, string prop, string value);
+            UriTemplate = "propertychangefromid/{id}/{prop}/{value}")]
+        void ChangePropertyValueFromId(string id, string prop, string value);
 
+        [OperationContract]
+        [WebInvoke(Method = "GET",
+            ResponseFormat = WebMessageFormat.Xml,
+            BodyStyle = WebMessageBodyStyle.Wrapped,
+            //BodyStyle= WebMessageBodyStyle.Bare,
+            UriTemplate = "xmlfrompath/{path}")]
+        XMLDescription GetXMLSerializedObjectFromPath(string path);
+
+        [OperationContract]
+        [WebInvoke(Method = "GET",
+            ResponseFormat = WebMessageFormat.Xml,
+            BodyStyle = WebMessageBodyStyle.Wrapped,
+            //BodyStyle= WebMessageBodyStyle.Bare,
+            UriTemplate = "propertyvaluefrompath/{path}/{prop}")]
+        string GetPropertyValueFromPath(string path, string prop);
+
+        [OperationContract]
+        [WebInvoke(Method = "GET",
+            ResponseFormat = WebMessageFormat.Xml,
+            BodyStyle = WebMessageBodyStyle.Wrapped,
+            //BodyStyle= WebMessageBodyStyle.Bare,
+            UriTemplate = "propertychangefrompath/{path}/{prop}/{value}")]
+        void ChangePropertyValueFromPath(string path, string prop, string value);
 
 
 

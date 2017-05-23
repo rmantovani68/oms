@@ -41,7 +41,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="OMSCore">
-      <HintPath>..\..\..\plcserver\OMSCore\bin\Debug\OMSCore.dll</HintPath>
+      <HintPath>..\..\..\plcserver\plcserver\bin\Debug\OMSCore.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

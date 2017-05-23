@@ -39,17 +39,32 @@ namespace MariniImpianti
             }
         }
 
-        private Dictionary<string, MariniGenericObject> _mariniImpiantoObjectsDictionary;
+        private Dictionary<string, MariniGenericObject> _mariniImpiantoIdObjectsDictionary;
         /// <summary>
-        /// Gets the dictionary of all object that composed MariniImpianto
+        /// Gets the dictionary of all object that composed MariniImpianto with id key
         /// </summary>
-        public Dictionary<string, MariniGenericObject> MariniImpiantoObjectsDictionary
+        public Dictionary<string, MariniGenericObject> MariniImpiantoIdObjectsDictionary
         {
             get
             {
-                return _mariniImpiantoObjectsDictionary;
+                return _mariniImpiantoIdObjectsDictionary;
             }
         }
+
+        private Dictionary<string, MariniGenericObject> _mariniImpiantoPathObjectsDictionary;
+        /// <summary>
+        /// Gets the dictionary of all object that composed MariniImpianto with path key
+        /// </summary>
+        public Dictionary<string, MariniGenericObject> MariniImpiantoPathObjectsDictionary
+        {
+            get
+            {
+                return _mariniImpiantoPathObjectsDictionary;
+            }
+        }
+
+
+
 
         private MariniImpiantoEventHandlers _mariniImpiantoEventHandlers;
         /// <summary>
@@ -89,11 +104,18 @@ namespace MariniImpianti
                 Logger.DebugFormat("Tento la creazione di MariniImpianto dal file XML: {0}", filename);
                 _mariniImpiantoEventHandlers = new MariniImpiantoEventHandlers();
                 _mariniImpianto = (MariniImpianto)MariniObjectCreator.CreateMariniObject(root);
-                this._mariniImpiantoObjectsDictionary = this._mariniImpianto.GetChildDictionary();
 
-                MethodInfo[] methods = typeof(MariniImpiantoEventHandlers).GetMethods(BindingFlags.DeclaredOnly);
-                foreach (MariniGenericObject mgo in this._mariniImpiantoObjectsDictionary.Values)
+                // LG: uso la dictionary con key = path perche' id non sara' piu' univoco
+                // L'altra con l'id per ora non la riempio.
+                //this._mariniImpiantoIdObjectsDictionary = this._mariniImpianto.GetIdChildDictionary();
+                this._mariniImpiantoPathObjectsDictionary = this._mariniImpianto.GetPathChildDictionary();
+
+                MethodInfo[] methods = typeof(MariniImpiantoEventHandlers).GetMethods();
+                foreach (MariniGenericObject mgo in this._mariniImpiantoPathObjectsDictionary.Values)
                 {
+                    // Qua cerco di agganciare un handler caricato dal file XML e presente in _mariniImpiantoEventHandlers
+                    // Se l'handler nell'XML trova una corrispondenza nei metodi della classe MariniImpiantoEventHandler
+                    // allora viene usato allo scatenarsi dell'evento
                     if (mgo.handler == "NO_HANDLER")
                     {
                         Logger.DebugFormat("{0} - Nessuna richiesta di handler", mgo.id);
@@ -131,8 +153,54 @@ namespace MariniImpianti
                         if (!bHandlerFound)
                         {
                             Logger.DebugFormat("{0} - Nessun handler trovato", mgo.id);
-                        }
+                        }    
                     }
+
+                    // Qua cerco di agganciare l'handler per tutte le proprieta' con plctag associato, in modo da fare il bind
+                    // tra il valore del plctag e la proprieta' dell'oggetto che contiene il plctag.
+                    if (mgo.GetType() == typeof(MariniProperty))
+                    {
+
+                        //mgo.PropertyChanged+=_mariniImpiantoEventHandlers.MyPropertyHandler;
+                        (mgo as MariniProperty).MariniPropertyChanged += _mariniImpiantoEventHandlers.MariniPropertyHandler;
+
+
+
+                    }
+
+
+
+
+                    //// Qua cerco di agganciare l'handler per tutte le proprieta' con plctag associato, in modo da fare il bind
+                    //// tra il valore del plctag e la proprieta' dell'oggetto che contiene il plctag.
+                    //if (mgo.GetType() == typeof(MariniPlctag))
+                    //{
+
+                    //    //mgo.PropertyChanged+=_mariniImpiantoEventHandlers.MyPropertyHandler;
+                    //    (mgo as MariniPlctag).PlctagPropertyChanged += _mariniImpiantoEventHandlers.PlctagPropertyHandler;
+
+                        
+
+                    //}
+
+
+                    //// Qua volevo fare il bind inverso tra la proprieta' e il plctag associato ma non va bene, perche'mi fa partire 
+                    //// il segnale sul plctag anche se il valore e' uguale e non dovrebbe.
+                    //foreach (PropertyInfo prop in mgo.GetType().GetProperties())
+                    //{
+                    //    MariniPlctag mp = mgo.GetPropertyBoundPlctag
+                    //    Object(prop.Name);
+                    //    if (mp!=null) 
+                    //    {
+                    //        mgo.PropertyChanged += _mariniImpiantoEventHandlers.PropertyBoundToPlctagHandler;
+                    //    }
+                        
+                    //}
+                    
+
+
+
+
                 }
                 // Questa si userebbe se avessi l'handler dentro al mio oggetto
                 // invece voglio un gestore esterno
@@ -199,7 +267,25 @@ namespace MariniImpianti
         public MariniGenericObject GetObjectById(string id)
         {
             MariniGenericObject mgo = null;
-            if (this.MariniImpiantoObjectsDictionary.TryGetValue(id, out mgo))
+            if (this.MariniImpiantoIdObjectsDictionary.TryGetValue(id, out mgo))
+            {
+                return mgo;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Gets a specific object of MariniImpianto.
+        /// </summary>
+        /// <param name="path">ID of the object</param>
+        /// <returns>The <c>MariniGenericObject</c> with the given path, <c>null</c> if not found.</returns>
+        public MariniGenericObject GetObjectByPath(string path)
+        {
+            MariniGenericObject mgo = null;
+            if (this.MariniImpiantoPathObjectsDictionary.TryGetValue(path.ToLower(), out mgo))
             {
                 return mgo;
             }
@@ -209,12 +295,14 @@ namespace MariniImpianti
             }
         }
         
+
+
         /// <summary>
         /// Serialize a specific object of MariniImpianto.
         /// </summary>
         /// <param name="id">ID of the object.</param>
         /// <returns>A string that contains the serialized object  with the given ID.</returns>
-        public string SerializeObject(string id)
+        public string SerializeObjectById(string id)
         {
             MariniGenericObject mgo = null;
             mgo = this.GetObjectById(id);
@@ -252,6 +340,53 @@ namespace MariniImpianti
                 }
             }
         }
+
+        /// <summary>
+        /// Serialize a specific object of MariniImpianto.
+        /// </summary>
+        /// <param name="id">ID of the object.</param>
+        /// <returns>A string that contains the serialized object  with the given ID.</returns>
+        public string SerializeObjectByPath(string path)
+        {
+            MariniGenericObject mgo = null;
+            mgo = this.GetObjectByPath(path);
+            if (mgo == null)
+            {
+                Console.WriteLine("\nNon ho trovato nulla con id {0}", path);
+                return "NN";
+            }
+            else
+            {
+                XmlSerializer xmlSerializer = new XmlSerializer(mgo.GetType());
+                //using (StringWriter textWriter = new StringWriter())
+                //{
+                //    xmlSerializer.Serialize(textWriter, mgo);
+                //    return textWriter.ToString();
+                //}
+                using (StringWriter stringWriter = new StringWriter())
+                {
+                    using (XmlWriter xmlWriter = XmlWriter.Create(stringWriter, new XmlWriterSettings()
+                    {
+                        OmitXmlDeclaration = true
+                        ,
+                        ConformanceLevel = ConformanceLevel.Auto
+                            //, ConformanceLevel = ConformanceLevel.Document
+                            //, NewLineOnAttributes = true
+                        ,
+                        Indent = true
+                    }))
+                    {
+                        // Build Xml with xw.
+                        xmlSerializer.Serialize(xmlWriter, mgo);
+
+                    }
+                    return WebUtility.HtmlDecode(stringWriter.ToString());
+                }
+            }
+        }
+
+
+
     }
 
     /// <summary>
@@ -312,12 +447,14 @@ namespace MariniImpianti
         /// </summary>
         [XmlElement("impianto", Type = typeof(MariniImpianto))]
         [XmlElement("zona", Type = typeof(MariniZona))]
+        [XmlElement("zona_predosatori", Type = typeof(MariniZonaPredosaggio))]
         [XmlElement("predosatore", Type = typeof(MariniPredosatore))]
         [XmlElement("plctag", Type = typeof(MariniPlctag))]
         [XmlElement("bilancia", Type = typeof(MariniBilancia))]
         [XmlElement("motore", Type = typeof(MariniMotore))]
         [XmlElement("nastro", Type = typeof(MariniNastro))]
         [XmlElement("amperometro", Type = typeof(MariniAmperometro))]
+        [XmlElement("property", Type = typeof(MariniProperty))]
         [XmlElement("oggettobase", Type = typeof(MariniOggettoBase))]
         public List<MariniGenericObject> ListaGenericObject { get { return _listaGenericObject; } }
 
@@ -329,6 +466,22 @@ namespace MariniImpianti
         /// Occurs when a property is changed
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
+
+        // What this method does, is look whether there is an event handler assigned or not 
+        // (if it is not assigned and you just call it, you'll get a NullReferenceException).
+        // If there is one assigned, call this event handler. The event handler provided, 
+        // has to have the signature of the PropertyChangedEventHandler delegate. This signature is:
+        // void MyMethod(object sender, PropertyChangedEventArgs e)
+        // Where the first parameter has to be of the type object and represents the object that fires the event,
+        // and the second parameter contains the arguments of this event. 
+        // In this case, your own class fires the event and thus give this as parameter sender. 
+        // The second parameter contains the name of the property that has changed.
+        // Now to be able to react upon the firing of the event, you have to assign an event handler to the class.
+        // In this case, you'll have to assign this in your addChatter method.
+        // Apart from that, you'll have to first define your handler.
+        // In your NosyClass you'll have to add a method to do this, for example:
+        // chatter.PropertyChanged += new PropertyChangedEventHandler(chatter_PropertyChanged);
+        // mgo.PropertyChanged += _mariniImpiantoEventHandlers.MyPropertyHandler;
 
         /// <summary>
         /// Raises the <see cref="PropertyChanged">PropertyChanged</see> event.
@@ -363,6 +516,7 @@ namespace MariniImpianti
             field = value;
             //Console.WriteLine("Sono nella SetField e lancio OnPropertyChanged(propertyName)");
             OnPropertyChanged(propertyName);
+
             return true;
         }
 
@@ -382,11 +536,11 @@ namespace MariniImpianti
         {
             if (parent==null)
             {
-                path = "/" + id;
+                path = "~" + id;
             } 
             else
             {
-                path = parent.path + "/" + id;
+                path = parent.path + "~" + id;
             }           
             this.parent = parent;
             this.id = id;
@@ -476,11 +630,11 @@ namespace MariniImpianti
 
             if (parent == null)
             {
-                path = "/" + id;
+                path = "~" + id;
             }
             else
             {
-                path = parent.path + "/" + id;
+                path = parent.path + "~" + id;
             }           
 
         }
@@ -516,6 +670,27 @@ namespace MariniImpianti
         }
 
         /// <summary>
+        /// Retrieve the MariniPlctag bound to the property prop_name
+        /// </summary>
+        /// <param name="prop_name">the property bound to the plctag</param>
+        /// <returns></returns>
+        public MariniPlctag GetPropertyBoundPlctagObject(string prop_name)
+        {
+
+            //MariniPlctag mplctag = ListaGenericObject
+            //    .Where(mgo => mgo.GetType() == typeof(MariniPlctag))
+            //    .Cast<MariniPlctag>()
+            //    .FirstOrDefault(mp => mp.parent_property_bind == prop_name);
+
+            return ListaGenericObject
+                .Where(mgo => mgo.GetType() == typeof(MariniPlctag))
+                .Cast<MariniPlctag>()
+                .FirstOrDefault(mp => mp.parent_property_bind == prop_name);
+        }
+
+
+
+        /// <summary>
         /// Retrieve the child with the given ID
         /// </summary>
         /// <param name="id">MariniGenericObject ID</param>
@@ -545,6 +720,42 @@ namespace MariniImpianti
                 }
             }
         }
+
+        /// <summary>
+        /// Retrieve the child with the given ID
+        /// </summary>
+        /// <param name="id">MariniGenericObject ID</param>
+        /// <returns>The MariniGenericObject or null if not found</returns>
+        public MariniGenericObject GetObjectByPath(string path)
+        {
+            MariniGenericObject mgo = null;
+            _GetObjectByPath(path, ref mgo);
+            return mgo;
+        }
+
+        private void _GetObjectByPath(string path, ref MariniGenericObject mgo)
+        {
+            if (this.path == path)
+            {
+                mgo = this;
+                return;
+            }
+            else
+            {
+                if (_listaGenericObject.Count > 0)
+                {
+                    foreach (MariniGenericObject child in _listaGenericObject)
+                    {
+                        child._GetObjectByPath(path, ref mgo);
+                    }
+                }
+            }
+        }
+
+
+
+
+
 
         /// <summary>
         /// Retrieve a list of MariniGenericObject child of a specific type
@@ -579,24 +790,53 @@ namespace MariniImpianti
         /// Retrieve a dictionary of MariniGenericObject children
         /// </summary>
         /// <returns>The children dictionary</returns>
-        public Dictionary<string, MariniGenericObject> GetChildDictionary()
+        public Dictionary<string, MariniGenericObject> GetIdChildDictionary()
         {
             Dictionary<string, MariniGenericObject> md = new Dictionary<string, MariniGenericObject>();
-            _GetChildDictionary(ref md);
+            _GetIdChildDictionary(ref md);
             return md;
         }
 
-        private void _GetChildDictionary(ref Dictionary<string, MariniGenericObject> md)
+        private void _GetIdChildDictionary(ref Dictionary<string, MariniGenericObject> md)
         {
             md.Add(this.id, this);
             if (_listaGenericObject.Count > 0)
             {
                 foreach (MariniGenericObject child in _listaGenericObject)
                 {
-                    child._GetChildDictionary(ref md);
+                    child._GetIdChildDictionary(ref md);
                 }
             }
         }
+
+        
+
+
+        /// <summary>
+        /// Retrieve a dictionary of MariniGenericObject children
+        /// </summary>
+        /// <returns>The children dictionary</returns>
+        public Dictionary<string, MariniGenericObject> GetPathChildDictionary()
+        {
+            Dictionary<string, MariniGenericObject> md = new Dictionary<string, MariniGenericObject>();
+            _GetPathChildDictionary(ref md);
+            return md;
+        }
+
+        private void _GetPathChildDictionary(ref Dictionary<string, MariniGenericObject> md)
+        {
+            md.Add(this.path.ToLower(), this);
+            if (_listaGenericObject.Count > 0)
+            {
+                foreach (MariniGenericObject child in _listaGenericObject)
+                {
+                    child._GetPathChildDictionary(ref md);
+                }
+            }
+        }
+
+
+
 
         #endregion
     }
@@ -705,6 +945,34 @@ namespace MariniImpianti
         }
     }
 
+    public class MariniZonaPredosaggio : MariniGenericObject
+    {
+        public MariniZonaPredosaggio(MariniGenericObject parent)
+            : base(parent)
+        {
+        }
+
+        public MariniZonaPredosaggio()
+            : base()
+        {
+        }
+
+        public MariniZonaPredosaggio(MariniGenericObject parent, XmlNode node)
+            : base(parent, node)
+        {
+
+        }
+
+        public MariniZonaPredosaggio(XmlNode node)
+            : this(null, node)
+        {
+        }
+        public override void ToPlainText()
+        {
+            Console.WriteLine("Sono una zona predosaggio id: {0} name: {1} description: {2} path: {3}", id, name, description, path);
+        }
+    }
+
     public class MariniPredosatore : MariniGenericObject
     {
         public MariniPredosatore(MariniGenericObject parent)
@@ -744,6 +1012,17 @@ namespace MariniImpianti
         [System.Xml.Serialization.XmlAttribute]
         public string parent_property_bind { get { return _parent_property_bind; } set { _parent_property_bind = value; } }
 
+        private string _value;
+        [System.Xml.Serialization.XmlAttribute]
+        public string value { get { return _value; } set { SetPlctagField(ref _value, value); } }
+
+        private string _type;
+        [System.Xml.Serialization.XmlAttribute]
+        public string type { get { return _type; } set { _type = value; } }
+
+        private string _rw;
+        [System.Xml.Serialization.XmlAttribute]
+        public string rw { get { return _rw; } set { _rw = value; } }
 
 
         public MariniPlctag(MariniGenericObject parent, string tagid)
@@ -780,6 +1059,15 @@ namespace MariniImpianti
                         case "parent_property_bind":
                             parent_property_bind = attr.Value;
                             break;
+                        case "value":
+                            value = attr.Value;
+                            break;
+                        case "type":
+                            type = attr.Value;
+                            break;
+                        case "rw":
+                            rw = attr.Value;
+                            break;
                     }
                 }
             }
@@ -790,7 +1078,49 @@ namespace MariniImpianti
         {
         }
 
-        
+        /// <summary>
+        /// Occurs when a property is changed
+        /// </summary>
+        public event PropertyChangedEventHandler PlctagPropertyChanged;
+
+        /// <summary>
+        /// Raises the <see cref="PropertyChanged">PropertyChanged</see> event.
+        /// </summary>
+        /// <param name="propertyName"></param>
+        protected virtual void OnPlctagPropertyChanged(string propertyName)
+        {
+            //Console.WriteLine("Sono nel metodo OnPropertyChanged");
+            PropertyChangedEventHandler ehandler = PlctagPropertyChanged;
+            if (ehandler != null)
+            {
+                ehandler(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
+        //protected bool SetField<T>(ref T field, T value, string propertyName)
+        /// <summary>
+        /// Used in every property set to launch <see cref="MariniGenericObject.OnPropertyChanged"/>
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="field"></param>
+        /// <param name="value"></param>
+        /// <param name="propertyName"></param>
+        /// <returns><c>true</c> if the property is effectively changed; otherwise, <c>false</c>.</returns>
+        protected bool SetPlctagField<T>(ref T field, T value, [CallerMemberName] string propertyName = null)
+        {
+            if (EqualityComparer<T>.Default.Equals(field, value))
+            {
+                //Console.WriteLine("Sono nella SetField e la proprieta' non e' cambiata");
+                return false;
+            }
+            field = value;
+            //Console.WriteLine("Sono nella SetField e lancio OnPropertyChanged(propertyName)");
+            OnPlctagPropertyChanged(propertyName);
+            return true;
+        }
+
+
+
 
 
         public override void ToPlainText()
@@ -894,6 +1224,9 @@ namespace MariniImpianti
         [System.Xml.Serialization.XmlAttribute]
         public string presente { get { return _presente; } set { _presente = value; } }
 
+        private int _valore;
+        [System.Xml.Serialization.XmlAttribute]
+        public int valore { get { return _valore; } set { SetField(ref _valore, value); } }
 
         public MariniAmperometro(MariniGenericObject parent)
             : base(parent)
@@ -919,6 +1252,17 @@ namespace MariniImpianti
                     {
                         case "presente":
                             presente = attr.Value;
+                            break;
+                        case "valore":
+                            try
+                            {
+                                valore = int.Parse(attr.Value);
+                            }
+                            catch (Exception e)
+                            {
+                                Console.WriteLine(e.Message);
+                            }
+                            
                             break;
                     }
                 }
@@ -947,7 +1291,7 @@ namespace MariniImpianti
 
         private string _value;
         [System.Xml.Serialization.XmlAttribute]
-        public string value { get { return _value; } set { _value = value; } }
+        public string value { get { return _value; } set { SetMariniPropertyField(ref _value, value); } }
 
         private string _bind;
         [System.Xml.Serialization.XmlAttribute]
@@ -956,6 +1300,11 @@ namespace MariniImpianti
         private string _plctag_id;
         [System.Xml.Serialization.XmlAttribute]
         public string plctag_id { get { return _plctag_id; } set { _plctag_id = value; } }
+
+        private string _persistence;
+        [System.Xml.Serialization.XmlAttribute]
+        public string Persistence { get { return _persistence; } set { _persistence = value; } }
+
 
         public MariniProperty(MariniGenericObject parent)
             : base(parent)
@@ -982,7 +1331,15 @@ namespace MariniImpianti
                         case "type":
                             type = attr.Value;
                             break;
-
+                        case "plctag_id":
+                            plctag_id = attr.Value;
+                            break;
+                        case "bind":
+                            bind = attr.Value;
+                            break;
+                        case "persistence":
+                            bind = attr.Value;
+                            break;
                     }
                 }
             }
@@ -994,6 +1351,49 @@ namespace MariniImpianti
         {
 
         }
+
+        /// <summary>
+        /// Occurs when a property is changed
+        /// </summary>
+        public event PropertyChangedEventHandler MariniPropertyChanged;
+
+        /// <summary>
+        /// Raises the <see cref="MariniPropertyChanged">MariniPropertyChanged</see> event.
+        /// </summary>
+        /// <param name="propertyName"></param>
+        protected virtual void OnMariniPropertyChanged(string propertyName)
+        {
+            //Console.WriteLine("Sono nel metodo OnPropertyChanged");
+            PropertyChangedEventHandler ehandler = MariniPropertyChanged;
+            if (ehandler != null)
+            {
+                ehandler(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
+        //protected bool SetField<T>(ref T field, T value, string propertyName)
+        /// <summary>
+        /// Used in every property set to launch <see cref="MariniGenericObject.OnMariniPropertyChanged"/>
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="field"></param>
+        /// <param name="value"></param>
+        /// <param name="propertyName"></param>
+        /// <returns><c>true</c> if the property is effectively changed; otherwise, <c>false</c>.</returns>
+        protected bool SetMariniPropertyField<T>(ref T field, T value, [CallerMemberName] string propertyName = null)
+        {
+            if (EqualityComparer<T>.Default.Equals(field, value))
+            {
+                //Console.WriteLine("Sono nella SetField e la proprieta' non e' cambiata");
+                return false;
+            }
+            field = value;
+            //Console.WriteLine("Sono nella SetField e lancio OnMariniPropertyChanged(propertyName)");
+            OnMariniPropertyChanged(propertyName);
+            return true;
+        }
+
+
 
         public override void ToPlainText()
         {

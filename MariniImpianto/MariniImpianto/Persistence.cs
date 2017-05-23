@@ -8,5 +8,7 @@ namespace MariniImpianti
 {
     public enum Persistence
     {
+        auto,
+        manual
     }
 }

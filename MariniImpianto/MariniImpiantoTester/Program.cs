@@ -29,7 +29,8 @@ namespace MariniImpiantiTester
                 Logger.Info("***********************************");
 
                 //MariniImpiantoTree.InitializeFromXmlFile(@"Q:\VARIE\ael\new-project\doc\analisi\impianto.xml");
-                MariniImpiantoTree.InitializeFromXmlFile(@"C:\Users\uts.MARINI\Documents\projects\new-project\oms\MariniImpianto\impianto-test.xml");
+                //MariniImpiantoTree.InitializeFromXmlFile(@"C:\Users\uts.MARINI\Documents\projects\new-project\oms\MariniImpianto\impianto-test.xml");
+                MariniImpiantoTree.InitializeFromXmlFile(@"E:\AeL\GIT_Projects\oms\MariniImpianto\impianto-test.xml");
                 //MariniImpiantoTree.InitializeFromXmlFile(@"E:\AeL\GIT_Projects\oms\MariniImpianto\impianto-plctag1.xml");
                 MariniImpiantoTree mariniImpiantoTree = MariniImpiantoTree.Instance;
 
@@ -146,7 +147,10 @@ namespace MariniImpiantiTester
                 Console.ReadKey();
 
                 Console.WriteLine("\n");
-                Console.WriteLine("Provo a cambiare la MariniProperty {0} di {1} che attualmente e' {2}", (mariniImpiantoTree.GetObjectByPath("~Impianto~Predosatori~Nastro~Motore_01~Amperometro_motore_predosatore_01~Valore") as MariniProperty).name, (mariniImpiantoTree.GetObjectByPath("~Impianto~Predosatori~Nastro~Motore_01~Amperometro_motore_predosatore_01~Valore") as MariniProperty).path, (mariniImpiantoTree.GetObjectByPath("~Impianto~Predosatori~Nastro~Motore_01~Amperometro_motore_predosatore_01~Valore") as MariniProperty).value);
+                Console.WriteLine("Provo a cambiare la MariniProperty {0} di {1} che attualmente e' {2}", 
+                    (mariniImpiantoTree.GetObjectByPath("~Impianto~ZonaPredosaggio~Predosatore1~Stato") as MariniProperty).name,
+                    (mariniImpiantoTree.GetObjectByPath("~Impianto~ZonaPredosaggio~Predosatore1~Stato") as MariniProperty).path,
+                    (mariniImpiantoTree.GetObjectByPath("~Impianto~ZonaPredosaggio~Predosatore1~Stato") as MariniProperty).value);
                 Console.ReadKey();
 
                 (mariniImpiantoTree.GetObjectByPath("~Impianto~Predosatori~Nastro~Motore_01~Amperometro_motore_predosatore_01~Valore") as MariniProperty).value = "20";

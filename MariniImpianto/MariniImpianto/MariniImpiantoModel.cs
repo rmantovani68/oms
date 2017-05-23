@@ -445,18 +445,13 @@ namespace MariniImpianti
         /// <summary>
         /// Gets the list of children objects
         /// </summary>
-        [XmlElement("Impianto", Type = typeof(MariniImpianto))]
-        [XmlElement("ZonaPredosaggio", Type = typeof(MariniZonaPredosaggio))]
+
         /*
         [XmlElement("ZonaEssiccazione", Type = typeof(MariniZonaEssiccazione))]
         [XmlElement("ZonaDosaggio", Type = typeof(MariniZonaDosaggio))]
         [XmlElement("ZonaCisterne", Type = typeof(MariniZonaCisterne))]
         [XmlElement("ZonaStoccaggio", Type = typeof(MariniZonaStoccaggio))]
         */
-        [XmlElement("Predosatore", Type = typeof(MariniPredosatore))]
-        [XmlElement("Bilancia", Type = typeof(MariniBilancia))]
-        [XmlElement("Nastro", Type = typeof(MariniNastro))]
-
         /*
         [XmlElement("Tamburo"  , Type = typeof(MariniTamburo))]
         [XmlElement("Elevatore", Type = typeof(MariniElevatore))]
@@ -471,17 +466,20 @@ namespace MariniImpianti
 
         [XmlElement("Cisterna"  , Type = typeof(MariniCisterna))]
         */
-        
+
         //[XmlElement("plctag", Type = typeof(MariniPlctag))]
         //[XmlElement("bilancia", Type = typeof(MariniBilancia))]
         //[XmlElement("motore", Type = typeof(MariniMotore))]
         //[XmlElement("nastro", Type = typeof(MariniNastro))]
         //[XmlElement("amperometro", Type = typeof(MariniAmperometro))]
 
+        [XmlElement("Impianto", Type = typeof(MariniImpianto))]
+        [XmlElement("ZonaPredosaggio", Type = typeof(MariniZonaPredosaggio))]
+        [XmlElement("Predosatore", Type = typeof(MariniPredosatore))]
+        [XmlElement("Bilancia", Type = typeof(MariniBilancia))]
+        [XmlElement("Nastro", Type = typeof(MariniNastro))]
         [XmlElement("Property", Type = typeof(MariniProperty))]
-
         [XmlElement("oggettobase", Type = typeof(MariniOggettoBase))]
-
         public List<MariniGenericObject> ListaGenericObject { get { return _listaGenericObject; } }
 
         #endregion
@@ -1331,8 +1329,10 @@ namespace MariniImpianti
         public PropertyType propertytype { get { return _propertytype; } set { _propertytype = value; } }
 
         private object _value;
-        [System.Xml.Serialization.XmlAttribute]
+        [System.Xml.Serialization.XmlIgnore]
         public object value { get { return _value; } set { SetMariniPropertyField(ref _value, value); } }
+        [System.Xml.Serialization.XmlAttribute("value")]
+        public string valuestring { get { if (_value != null) { return _value.ToString(); } else { return "NO_VALUE"; }; } set { valuestring = value; } }
 
         public MariniProperty(MariniGenericObject parent)
             : base(parent)

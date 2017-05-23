@@ -37,19 +37,19 @@ namespace MariniImpiantiHost
             Controller.Instance.PLCAdd("plc2", "213.3.3.3");
 
 
-            // sottoscrizione ai tags
-            foreach(var property in properties)
-            {
-                // dati ricavati dalla property
-                TagItem tag = new TagItem {PLCName="gdgdgdgd", Name="783426868"};
-                if (Controller.Instance.PLCAddTag(tag))
-                {
-                }
-                else
-                {
-                    // errore in sottoscrizione tag
-                }
-            }
+            //// sottoscrizione ai tags
+            //foreach(var property in properties)
+            //{
+            //    // dati ricavati dalla property
+            //    TagItem tag = new TagItem {PLCName="gdgdgdgd", Name="783426868"};
+            //    if (Controller.Instance.PLCAddTag(tag))
+            //    {
+            //    }
+            //    else
+            //    {
+            //        // errore in sottoscrizione tag
+            //    }
+            //}
                 
 
             ServiceHost serviceHost = null;
@@ -79,43 +79,45 @@ namespace MariniImpiantiHost
                             case "getxml":
                                 if (tokens.Length<2)
                                 {
-                                    Console.WriteLine("ERROR: getxml required argument: Object ID ");
+                                    Console.WriteLine("ERROR: getxml required argument: Object Path ");
                                 }
                                 else
                                 {
-                                    string id = tokens[1];
-                                    Console.WriteLine("{0}", MariniImpiantoTree.Instance.SerializeObject(id));
+                                    string path = tokens[1];
+                                    Console.WriteLine("{0}", MariniImpiantoTree.Instance.SerializeObjectByPath(path));
                                 }
                                 break;
 
                             case "getproperty":
                                 if (tokens.Length < 3)
                                 {
-                                    Console.WriteLine("ERROR: getproperty required argument: Object ID, property name ");
+                                    Console.WriteLine("ERROR: getproperty required argument: Object path, property name ");
                                 }
                                 else
                                 {
-                                    string id = tokens[1];
+                                    string path = tokens[1];
                                     string prop = tokens[2];
-                                    Console.WriteLine("{0}", MariniImpiantoTree.Instance.GetObjectById(id).GetType().GetProperty(prop).GetValue(MariniImpiantoTree.Instance.GetObjectById(id), null).ToString());
+                                    //Console.WriteLine("{0}", MariniImpiantoTree.Instance.GetObjectById(id).GetType().GetProperty(prop).GetValue(MariniImpiantoTree.Instance.GetObjectById(id), null).ToString());
+                                    Console.WriteLine("{0}", MariniImpiantoTree.Instance.GetObjectByPath(path).GetType().GetProperty(prop).GetValue(MariniImpiantoTree.Instance.GetObjectByPath(path), null).ToString());
                                 }
                                 break;
                                 
                             case "changeproperty":
                                 if (tokens.Length < 4)
                                 {
-                                    Console.WriteLine("ERROR: changeproperty required argument: Object ID, property name, new value");
+                                    Console.WriteLine("ERROR: changeproperty required argument: Object Path, property name, new value");
                                 }
                                 else
                                 {
-                                    string id = tokens[1];
+                                    string path = tokens[1];
                                     string prop = tokens[2];
                                     string value = tokens[3];
 
-                                    PropertyInfo propertyInfo = MariniImpiantoTree.Instance.GetObjectById(id).GetType().GetProperty(prop);
-                                    propertyInfo.SetValue(MariniImpiantoTree.Instance.GetObjectById(id), Convert.ChangeType(value, propertyInfo.PropertyType), null);
+                                    PropertyInfo propertyInfo = MariniImpiantoTree.Instance.GetObjectByPath(path).GetType().GetProperty(prop);
+                                    propertyInfo.SetValue(MariniImpiantoTree.Instance.GetObjectByPath(path), Convert.ChangeType(value, propertyInfo.PropertyType), null);
 
-                                    Console.WriteLine("{0}.{1} = {2}",id,prop, MariniImpiantoTree.Instance.GetObjectById(id).GetType().GetProperty(prop).GetValue(MariniImpiantoTree.Instance.GetObjectById(id), null).ToString());
+                                    //Console.WriteLine("{0}.{1} = {2}",id,prop, MariniImpiantoTree.Instance.GetObjectById(id).GetType().GetProperty(prop).GetValue(MariniImpiantoTree.Instance.GetObjectById(id), null).ToString());
+                                    Console.WriteLine("{0}.{1} = {2}", path, prop, MariniImpiantoTree.Instance.GetObjectByPath(path).GetType().GetProperty(prop).GetValue(MariniImpiantoTree.Instance.GetObjectByPath(path), null).ToString());
                                 }
                                 break;
 

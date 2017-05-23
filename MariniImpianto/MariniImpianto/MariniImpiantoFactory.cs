@@ -26,7 +26,7 @@ namespace MariniImpianti
         {
 
             MariniGenericObject mgo;
-
+            // uso il ToLower percui mettere tutto a minuscolo qui e come si vuole nel file xml
             switch (node.Name)
             {
                 case "impianto":
@@ -34,6 +34,9 @@ namespace MariniImpianti
                     break;
                 case "zona":
                     mgo = new MariniZona(parent, node);
+                    break;
+                case "zona_predosaggio":
+                    mgo = new MariniZonaPredosaggio(parent, node);
                     break;
                 case "predosatore":
                     mgo = new MariniPredosatore(parent, node);
@@ -52,6 +55,9 @@ namespace MariniImpianti
                     break;
                 case "amperometro":
                     mgo = new MariniAmperometro(parent, node);
+                    break;
+                case "property":
+                    mgo = new MariniProperty(parent, node);
                     break;
                 default:
                     mgo = new MariniOggettoBase(parent, node);

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<impianto xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file:///C:/Users/uts.MARINI/Documents/projects/new-project/oms/MariniImpianto/impianto.xsd" id="Impianto" name="impianto_name" type="impianto">
+  <zona_predosaggio id="Predosatori" name="predosatori" type="zona_predosatori">
+    <nastro id="Nastro" name="nastro" type="nastro">
+      <motore id="Motore_01" name="motore1" type="motore">
+        <amperometro id="Amperometro_motore_predosatore_01" name="amp01" type="amperometro" presenza="true"  valore="0" >
+
+
+          <property id="AmperometerFilterEnable" name="AmperometerFilterEnable" type="bool" bind="cfg" />
+          <property id="Presente"                name="Presente" type="Bool"    plctag_id="PLCTAG_NM_MOTORE100_Amperometri_Presente" bind="cfg"  />
+          <property id="ValoreMax"               name="ValoreMax" type="Integer" plctag_id="PLCTAG_NM_MOTORE100_Amperometri_MaxOut"   bind="cfg"  />
+          <property id="ValoreSogliaMin"         name="ValoreSogliaMin" type="Integer" plctag_id="PLCTAG_NM_MOTORE100_Amperometri_LimMin"   bind="cfg"  />
+          <property id="ValoreSogliaMax"         name="ValoreSogliaMax" type="Integer" plctag_id="PLCTAG_NM_MOTORE100_Amperometri_LimMax"   bind="cfg"  />
+          <property id="XTUA"                    name="XTUA" type="Integer" plctag_id="PLCTAG_DB46_XTUA_DRW_Elevatore_Caldo"     bind="cfg"  />
+          <property id="Valore"                  name="Valore" type="Integer" plctag_id="PLCTAG_NM_MOTORE2_Amperometri_ValScal"    bind="plctag"  />
+        </amperometro>
+      </motore>
+    </nastro>
+  </zona_predosaggio>
+</impianto>

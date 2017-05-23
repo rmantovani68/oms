@@ -327,17 +327,17 @@ namespace MariniImpiantiHost
             return RetVal;
         }
 
-        // reperisce il default ip address dai settings
-        public string GetDefaultIpAddress()
-        {
-            return Settings.Default.IpAddress;
-        }
+        //// reperisce il default ip address dai settings
+        //public string GetDefaultIpAddress()
+        //{
+        //    return Settings.Default.IpAddress;
+        //}
         
-        // reperisce il default plc name dai settings
-        public string GetDefaultPLCName()
-        {
-            return Settings.Default.PLCName;
-        }
+        //// reperisce il default plc name dai settings
+        //public string GetDefaultPLCName()
+        //{
+        //    return Settings.Default.PLCName;
+        //}
 
         #endregion Public Methods
 

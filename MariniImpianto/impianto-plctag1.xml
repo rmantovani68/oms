@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<impianto xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file:///C:/Users/uts.MARINI/Documents/projects/new-project/oms/MariniImpianto/impianto.xsd" id="Impianto" name="impianto_name" type="impianto">
+  <zona_predosaggio id="Predosatori" name="predosatori" type="zona_predosatori">
+    <nastro id="Nastro" name="nastro" type="nastro">
+      <motore id="Motore_01" name="motore1" type="motore">
+        <amperometro id="Amperometro_motore_predosatore_01" name="amp01" type="amperometro" presenza="true"  valore="0" handler="MyAmperometroHandler" >
+          <plctag id="Amp_pres" name="Amp_pres" parent_property_bind="presente" tagid="PLCTAG_NM_MOTORE100_Amperometri_Presente" value="true" type="bool" rw="rw" />
+          <plctag id="Amp_value" name="Amp_value" parent_property_bind="valore" tagid="PLCTAG_NM_MOTORE100_Amperometri_Valore" value="0" type="int" rw="rw" />
+        </amperometro>
+      </motore>
+    </nastro>
+  </zona_predosaggio>
+</impianto>

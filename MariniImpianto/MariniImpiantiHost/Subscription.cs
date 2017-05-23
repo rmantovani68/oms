@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace MariniImpiantiHost
 {
 
-    class Subscription : IComparable,IComparable<Subscription>
+    public class Subscription : IComparable,IComparable<Subscription>
     {
         public string ObjID { get; private set; }
         public string ObjName { get; private set; }

@@ -445,17 +445,43 @@ namespace MariniImpianti
         /// <summary>
         /// Gets the list of children objects
         /// </summary>
-        [XmlElement("impianto", Type = typeof(MariniImpianto))]
-        [XmlElement("zona", Type = typeof(MariniZona))]
-        [XmlElement("zona_predosatori", Type = typeof(MariniZonaPredosaggio))]
-        [XmlElement("predosatore", Type = typeof(MariniPredosatore))]
-        [XmlElement("plctag", Type = typeof(MariniPlctag))]
-        [XmlElement("bilancia", Type = typeof(MariniBilancia))]
-        [XmlElement("motore", Type = typeof(MariniMotore))]
-        [XmlElement("nastro", Type = typeof(MariniNastro))]
-        [XmlElement("amperometro", Type = typeof(MariniAmperometro))]
-        [XmlElement("property", Type = typeof(MariniProperty))]
+        [XmlElement("Impianto", Type = typeof(MariniImpianto))]
+        [XmlElement("ZonaPredosaggio", Type = typeof(MariniZonaPredosaggio))]
+        /*
+        [XmlElement("ZonaEssiccazione", Type = typeof(MariniZonaEssiccazione))]
+        [XmlElement("ZonaDosaggio", Type = typeof(MariniZonaDosaggio))]
+        [XmlElement("ZonaCisterne", Type = typeof(MariniZonaCisterne))]
+        [XmlElement("ZonaStoccaggio", Type = typeof(MariniZonaStoccaggio))]
+        */
+        [XmlElement("Predosatore", Type = typeof(MariniPredosatore))]
+        [XmlElement("Bilancia", Type = typeof(MariniBilancia))]
+        [XmlElement("Nastro", Type = typeof(MariniNastro))]
+
+        /*
+        [XmlElement("Tamburo"  , Type = typeof(MariniTamburo))]
+        [XmlElement("Elevatore", Type = typeof(MariniElevatore))]
+        [XmlElement("Filtro"   , Type = typeof(MariniFiltro))]
+
+        [XmlElement("Vaglio"       , Type = typeof(MariniVaglio))]
+        [XmlElement("Tramoggia"    , Type = typeof(MariniTramoggia))]
+        [XmlElement("Mescolatore"  , Type = typeof(MariniMescolatore))]
+
+        [XmlElement("Silos"    , Type = typeof(MariniSilos))]
+        [XmlElement("Navetta"  , Type = typeof(MariniNavetta))]
+
+        [XmlElement("Cisterna"  , Type = typeof(MariniCisterna))]
+        */
+        
+        //[XmlElement("plctag", Type = typeof(MariniPlctag))]
+        //[XmlElement("bilancia", Type = typeof(MariniBilancia))]
+        //[XmlElement("motore", Type = typeof(MariniMotore))]
+        //[XmlElement("nastro", Type = typeof(MariniNastro))]
+        //[XmlElement("amperometro", Type = typeof(MariniAmperometro))]
+
+        [XmlElement("Property", Type = typeof(MariniProperty))]
+
         [XmlElement("oggettobase", Type = typeof(MariniOggettoBase))]
+
         public List<MariniGenericObject> ListaGenericObject { get { return _listaGenericObject; } }
 
         #endregion
@@ -1284,27 +1310,29 @@ namespace MariniImpianti
 
     public class MariniProperty : MariniGenericObject
     {
-
-        private string _type;
-        [System.Xml.Serialization.XmlAttribute]
-        public string type { get { return _type; } set { _type = value; } }
-
-        private string _value;
-        [System.Xml.Serialization.XmlAttribute]
-        public string value { get { return _value; } set { SetMariniPropertyField(ref _value, value); } }
-
         private string _bind;
         [System.Xml.Serialization.XmlAttribute]
         public string bind { get { return _bind; } set { _bind = value; } }
 
-        private string _plctag_id;
+        private BindType _bindtype;
         [System.Xml.Serialization.XmlAttribute]
-        public string plctag_id { get { return _plctag_id; } set { _plctag_id = value; } }
+        public BindType bindtype { get { return _bindtype; } set { _bindtype = value; } }
 
-        private string _persistence;
+        private BindDirection _binddirection;
         [System.Xml.Serialization.XmlAttribute]
-        public string Persistence { get { return _persistence; } set { _persistence = value; } }
+        public BindDirection binddirection { get { return _binddirection; } set { _binddirection = value; } }
 
+        private Persistence _persistence;
+        [System.Xml.Serialization.XmlAttribute]
+        public Persistence persistence { get { return _persistence; } set { _persistence = value; } }
+
+        private PropertyType _propertytype;
+        [System.Xml.Serialization.XmlAttribute]
+        public PropertyType propertytype { get { return _propertytype; } set { _propertytype = value; } }
+
+        private object _value;
+        [System.Xml.Serialization.XmlAttribute]
+        public object value { get { return _value; } set { SetMariniPropertyField(ref _value, value); } }
 
         public MariniProperty(MariniGenericObject parent)
             : base(parent)
@@ -1315,6 +1343,20 @@ namespace MariniImpianti
             : base()
         {
         }
+
+        /*
+          <!-- Property Attributes Group -->
+          <xs:attributeGroup name="prop_attributes_group">
+            <xs:attribute name="id" type="xs:string"/>
+            <xs:attribute name="name" type="xs:string"/>
+            <xs:attribute name="bind" type="xs:string"/>
+            <xs:attribute name="bindtype" type="BindType"/>
+            <xs:attribute name="binddirection" type="BindDirectionType"/>
+            <xs:attribute name="value" type="xs:string"/>
+            <xs:attribute name="persistence" type="PersistenceType"/>
+            <xs:attribute name="propertytype" type="PropertyTypeType"/>
+          </xs:attributeGroup>
+        */
 
         public MariniProperty(MariniGenericObject parent, XmlNode node)
             : base(parent, node)
@@ -1328,22 +1370,28 @@ namespace MariniImpianti
 
                     switch (attr.Name)
                     {
-                        case "type":
-                            type = attr.Value;
-                            break;
-                        case "plctag_id":
-                            plctag_id = attr.Value;
-                            break;
+
                         case "bind":
                             bind = attr.Value;
                             break;
+                        case "bindtype":
+                            bindtype = (BindType)Enum.Parse(typeof(BindType), attr.Value, true);
+                            break;
+                        case "binddirection":
+                            binddirection = (BindDirection)Enum.Parse(typeof(BindDirection), attr.Value, true);
+                            break;
                         case "persistence":
-                            bind = attr.Value;
+                            persistence = (Persistence)Enum.Parse(typeof(Persistence), attr.Value, true);
+                            break;
+                        case "propertytype":
+                            propertytype = (PropertyType)Enum.Parse(typeof(PropertyType), attr.Value, true);
+                            break;
+                        case "value":
+                            value = ParsePropertyValue(propertytype, attr.Value);
                             break;
                     }
                 }
             }
-
         }
 
         public MariniProperty(XmlNode node)
@@ -1371,6 +1419,21 @@ namespace MariniImpianti
             }
         }
 
+        private object ParsePropertyValue(PropertyType type, string Value)
+        {
+            switch(type)
+            {
+                case PropertyType.Bool: return bool.Parse(Value);
+                case PropertyType.Byte: return Byte.Parse(Value);
+                case PropertyType.Dint: return int.Parse(Value);
+                case PropertyType.Int: return int.Parse(Value);
+                case PropertyType.Long: return int.Parse(Value);
+                case PropertyType.Real: return int.Parse(Value);
+                case PropertyType.Word: return short.Parse(Value);
+            }
+            throw new Exception(String.Format("Errore in ParsePropertyValue({0},{1})",type,Value));
+        }
+
         //protected bool SetField<T>(ref T field, T value, string propertyName)
         /// <summary>
         /// Used in every property set to launch <see cref="MariniGenericObject.OnMariniPropertyChanged"/>
@@ -1394,17 +1457,9 @@ namespace MariniImpianti
         }
 
 
-
         public override void ToPlainText()
         {
             Console.WriteLine("Sono una property id: {0} name: {1} description: {2} path: {3}", id, name, description, path);
         }
-  
-    
-    
     }
-
-
-
-
 }

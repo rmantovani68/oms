@@ -29,34 +29,16 @@ namespace MariniImpianti
             // uso il ToLower percui mettere tutto a minuscolo qui e come si vuole nel file xml
             switch (node.Name)
             {
-                case "impianto":
+                case "Impianto":
                     mgo = new MariniImpianto(parent, node);
                     break;
-                case "zona":
-                    mgo = new MariniZona(parent, node);
-                    break;
-                case "zona_predosaggio":
+                case "ZonaPredosaggio":
                     mgo = new MariniZonaPredosaggio(parent, node);
                     break;
-                case "predosatore":
+                case "Predosatore":
                     mgo = new MariniPredosatore(parent, node);
                     break;
-                case "plctag":
-                    mgo = new MariniPlctag(parent, node);
-                    break;
-                case "bilancia":
-                    mgo = new MariniBilancia(parent, node);
-                    break;
-                case "motore":
-                    mgo = new MariniMotore(parent, node);
-                    break;
-                case "nastro":
-                    mgo = new MariniNastro(parent, node);
-                    break;
-                case "amperometro":
-                    mgo = new MariniAmperometro(parent, node);
-                    break;
-                case "property":
+                case "Property":
                     mgo = new MariniProperty(parent, node);
                     break;
                 default:

@@ -12,6 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{
 		impianto-plctag1.xml = impianto-plctag1.xml
 		impianto-property1.xml = impianto-property1.xml
 		impianto-s.xml = impianto-s.xml
+		impianto-test.xml = impianto-test.xml
 		Q:\VARIE\ael\new-project\doc\analisi\impianto.xml = Q:\VARIE\ael\new-project\doc\analisi\impianto.xml
 		impianto.xsd = impianto.xsd
 	EndProjectSection

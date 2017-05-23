@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-<impianto xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:noNamespaceSchemaLocation="file:///C:/Users/uts.MARINI/Documents/projects/new-project/oms/MariniImpianto/impianto.xsd"
-		  xmlns="http://www.marini.fayat.com/impianto.xsd"
-          id="ImpiantoTest"
-          name="Impianto Test">
--->
 <Impianto xmlns="http://www.marini.fayat.com/impianto.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.marini.fayat.com/impianto.xsd file:///C:/Users/uts.MARINI/Documents/projects/new-project/oms/MariniImpianto/impianto.xsd" id="string" name="string" type="string">
   <ZonaPredosaggio id="ZonaPredosaggio" name="Zona Predosaggio">
     <Predosatore id="Predosatore1" name="Predosatore 1" type="Aggregato">
-      <Property id="Attivo"        name="Attivo"  type="Bool" bind="PLCTAG_PREDOSATORE_1_ATTIVO"  bindtype="PLCTag" binddirection="OneWaySource" value="true" cippa="ciao"/>
-      <Property id="Comando"       name="Comando" type="Bool" bind="PLCTAG_PREDOSATORE_1_COMANDO" bindtype="PLCTag" binddirection="OneWaySource" value="true"/>
-      <Property id="Stato"         name="Stato"   type="Bool" bind="PLCTAG_PREDOSATORE_1_STATO"   bindtype="PLCTag" binddirection="OneWay"/>
+      <Property id="Attivo"        name="Attivo"  propertytype="Bool" bind="PLCTAG_PREDOSATORE_1_ATTIVO"  bindtype="PLCTag" binddirection="OneWaySource" value="true"/>
+      <Property id="Comando"       name="Comando" propertytype="Bool" bind="PLCTAG_PREDOSATORE_1_COMANDO" bindtype="PLCTag" binddirection="OneWaySource" value="true"/>
+      <Property id="Stato"         name="Stato"   propertytype="Bool" bind="PLCTAG_PREDOSATORE_1_STATO"   bindtype="PLCTag" binddirection="OneWay"/>
     </Predosatore>
   </ZonaPredosaggio>
 </Impianto>

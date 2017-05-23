@@ -29,7 +29,7 @@ namespace MariniImpiantiTester
                 Logger.Info("***********************************");
 
                 //MariniImpiantoTree.InitializeFromXmlFile(@"Q:\VARIE\ael\new-project\doc\analisi\impianto.xml");
-                MariniImpiantoTree.InitializeFromXmlFile(@"E:\AeL\GIT_Projects\oms\MariniImpianto\impianto-property1.xml");
+                MariniImpiantoTree.InitializeFromXmlFile(@"C:\Users\uts.MARINI\Documents\projects\new-project\oms\MariniImpianto\impianto-test.xml");
                 //MariniImpiantoTree.InitializeFromXmlFile(@"E:\AeL\GIT_Projects\oms\MariniImpianto\impianto-plctag1.xml");
                 MariniImpiantoTree mariniImpiantoTree = MariniImpiantoTree.Instance;
 

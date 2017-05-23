@@ -276,12 +276,6 @@
     <xs:attributeGroup ref="obj_attributes_group"/>
   </xs:complexType>
 
-  <!-- PLCTAG -->
-  <xs:complexType name="plctag_type">
-    <xs:attributeGroup ref="obj_attributes_group"/>
-    <xs:attribute name="tagid" type="xs:string"/>
-  </xs:complexType>
-
   <!-- PROPERTY -->
   <xs:complexType name="property_type">
     <xs:attributeGroup ref="prop_attributes_group"/>
@@ -292,7 +286,7 @@
   <!--                         -->
 
   <!-- property type definition -->
-  <xs:simpleType name="PropertyType">
+  <xs:simpleType name="PropertyTypeType">
     <xs:restriction base="xs:string">
       <xs:enumeration value="Int"/>
       <xs:enumeration value="Dint"/>
@@ -376,7 +370,7 @@
     <xs:attribute name="binddirection" type="BindDirectionType"/>
     <xs:attribute name="value" type="xs:string"/>
     <xs:attribute name="persistence" type="PersistenceType"/>
-    <xs:attribute name="type" type="PropertyType"/>
+    <xs:attribute name="propertytype" type="PropertyTypeType"/>
   </xs:attributeGroup>
 
 

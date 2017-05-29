@@ -23,7 +23,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MariniWcfService", "MariniW
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MariniImpiantiWcfLib", "MariniImpiantiWcfLib\MariniImpiantiWcfLib.csproj", "{3EA9C122-4736-4A25-93B0-C35EF3C0D914}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MariniImpiantiHost", "MariniImpiantiHost\MariniImpiantiHost.csproj", "{91904408-97AE-43C1-B5D7-211A611AD29F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Manager", "Manager\Manager.csproj", "{91904408-97AE-43C1-B5D7-211A611AD29F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -8,39 +8,10 @@ using System.Threading.Tasks;
 
 #endregion
 
-namespace MariniImpiantiHost
+namespace Manager
 {
-    public class PropertyItem : INotifyPropertyChanged, IEquatable<PropertyItem>
+    public class TagItem : INotifyPropertyChanged, IEquatable<TagItem>
     {
-
-        private string objID;
-        public string ObjID
-        {
-            get { return this.objID; }
-            set
-            {
-                if (this.objID!= value)
-                {
-                    this.objID= value;
-                    this.NotifyPropertyChanged("ObjID");
-                }
-            }
-        }
-
-        private string objName;
-        public string ObjName
-        {
-            get { return this.objName; }
-            set
-            {
-                if (this.objName != value)
-                {
-                    this.objName = value;
-                    this.NotifyPropertyChanged("ObjName");
-                }
-            }
-        }
-
         private string name;
         public string Name
         {
@@ -54,6 +25,36 @@ namespace MariniImpiantiHost
                 }
             }
         }
+
+        private string address;
+        public string Address
+        {
+            get { return this.address; }
+            set
+            {
+                if (this.address != value)
+                {
+                    this.address = value;
+                    this.NotifyPropertyChanged("Address");
+                }
+            }
+        }
+
+
+        private string plcName;
+        public string PLCName
+        {
+            get { return this.plcName; }
+            set
+            {
+                if (this.plcName != value)
+                {
+                    this.plcName = value;
+                    this.NotifyPropertyChanged("PLCName");
+                }
+            }
+        }
+
 
         private string type;
         public string Type
@@ -69,22 +70,8 @@ namespace MariniImpiantiHost
             }
         }
 
-        private string tagName;
-        public string TagName
-        {
-            get { return this.tagName; }
-            set
-            {
-                if (this.tagName != value)
-                {
-                    this.tagName = value;
-                    this.NotifyPropertyChanged("TagName");
-                }
-            }
-        }
-
-        private string value;
-        public string Value
+        private object value;
+        public object Value
         {
             get { return this.value; }
             set
@@ -97,7 +84,7 @@ namespace MariniImpiantiHost
             }
         }
 
-        public PropertyItem() { }
+        public TagItem() { }
 
         void NotifyPropertyChanged(string propName)
         {
@@ -107,7 +94,7 @@ namespace MariniImpiantiHost
 
         public override string ToString()
         {
-            return string.Format("{0}.{1}", objName, name);
+            return string.Format("{0}", name);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -120,36 +107,36 @@ namespace MariniImpiantiHost
                 return false;
             }
 
-            return Equals(obj as PropertyItem);
+            return Equals(obj as TagItem);
         }
 
-        public bool Equals(PropertyItem prop)
+        public bool Equals(TagItem tag)
         {
             // If parameter is null return false:
-            if (prop == null)
+            if (tag == null)
             {
                 return false;
             }
 
             // Return true if either fields match:
-            return ((ObjID == prop.ObjID && Name == prop.Name));
+            return (Name == tag.Name);
         }
         public override int GetHashCode()
         {
-            return (this.ObjID+this.Name).GetHashCode();
+            return (this.Name).GetHashCode();
         }
 
-        public static bool operator == (PropertyItem prop1, PropertyItem prop2)
+        public static bool operator == (TagItem tag1, TagItem tag2)
         {
-            if (((object)prop1) == ((object)prop2)) return true;
-            if (((object)prop1) == null || ((object)prop2) == null) return false;
+            if (((object)tag1) == ((object)tag2)) return true;
+            if (((object)tag1) == null || ((object)tag2) == null) return false;
 
-            return prop1.Equals(prop2);
+            return tag1.Equals(tag2);
         }
 
-        public static bool operator !=(PropertyItem prop1, PropertyItem prop2)
+        public static bool operator != (TagItem tag1, TagItem tag2)
         {
-            return !(prop1 == prop2);
+            return !(tag1 == tag2);
         }
 
     }

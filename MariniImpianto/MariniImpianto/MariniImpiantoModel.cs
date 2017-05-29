@@ -87,7 +87,7 @@ namespace MariniImpianti
         }
 
         private MariniImpiantoTree(string filename)
-        {
+        {   
             Logger.DebugFormat("---> MariniImpiantoTree(string filename)");
             if (!File.Exists(filename))
             {
@@ -162,7 +162,7 @@ namespace MariniImpianti
                     {
 
                         //mgo.PropertyChanged+=_mariniImpiantoEventHandlers.MyPropertyHandler;
-                        (mgo as MariniProperty).MariniPropertyChanged += _mariniImpiantoEventHandlers.MariniPropertyHandler;
+                        //(mgo as MariniProperty).MariniPropertyChanged += _mariniImpiantoEventHandlers.MariniPropertyHandler;
 
 
 
@@ -285,7 +285,7 @@ namespace MariniImpianti
         public MariniGenericObject GetObjectByPath(string path)
         {
             MariniGenericObject mgo = null;
-            if (this.MariniImpiantoPathObjectsDictionary.TryGetValue(path.ToLower(), out mgo))
+            if (this.MariniImpiantoPathObjectsDictionary.TryGetValue(path, out mgo))
             {
                 return mgo;
             }
@@ -397,6 +397,9 @@ namespace MariniImpianti
 
         #region properties
 
+        //Threadsafe implementation of the event
+        readonly object synchro = new object();
+
         private MariniGenericObject _parent;
         /// <summary>
         /// Gets and Sets the parent of an object
@@ -432,7 +435,10 @@ namespace MariniImpianti
         /// Gets and Sets the description of an object
         /// </summary>
         [System.Xml.Serialization.XmlAttribute]
-        public string description { get { return _description; } set { SetField(ref _description, value); } }
+        public string description { get { lock (synchro) { return _description; } } set { SetField(ref _description, value); } }
+
+
+
 
         private string _handler;
         /// <summary>
@@ -440,6 +446,8 @@ namespace MariniImpianti
         /// </summary>
         [System.Xml.Serialization.XmlAttribute]
         public string handler { get { return _handler; } set { SetField(ref _handler, value); } }
+
+
 
         private readonly List<MariniGenericObject> _listaGenericObject = new List<MariniGenericObject>();
         /// <summary>
@@ -489,7 +497,32 @@ namespace MariniImpianti
         /// <summary>
         /// Occurs when a property is changed
         /// </summary>
+        /*
         public event PropertyChangedEventHandler PropertyChanged;
+        */
+        //By default the event implementation is not threadsafe.
+        //We will do a thread-safe implementation of the event
+
+        private PropertyChangedEventHandler internalPropertyChanged;
+
+        public event PropertyChangedEventHandler PropertyChanged
+        {
+            add
+            {
+                lock (synchro)
+                {
+                    internalPropertyChanged += value;
+                }
+            }
+            remove
+            {
+                lock (synchro)
+                {
+                    internalPropertyChanged -= value;
+                }
+            }
+        }
+
 
         // What this method does, is look whether there is an event handler assigned or not 
         // (if it is not assigned and you just call it, you'll get a NullReferenceException).
@@ -511,6 +544,7 @@ namespace MariniImpianti
         /// Raises the <see cref="PropertyChanged">PropertyChanged</see> event.
         /// </summary>
         /// <param name="propertyName"></param>
+        /*
         protected virtual void OnPropertyChanged(string propertyName)
         {
             //Console.WriteLine("Sono nel metodo OnPropertyChanged");
@@ -520,6 +554,29 @@ namespace MariniImpianti
                 ehandler(this, new PropertyChangedEventArgs(propertyName));
             }
         }
+        */
+
+        private void OnPropertyChanged(string property)
+        {
+            //Send notification without acquiring the synchro object
+            PropertyChangedEventHandler localCopy;
+            lock (synchro)
+            {
+                localCopy = internalPropertyChanged != null ? (PropertyChangedEventHandler)internalPropertyChanged.Clone() : null;
+            }
+
+            if (localCopy != null)
+            {
+                localCopy(this, new PropertyChangedEventArgs(property));
+            }
+        }
+
+
+
+
+
+
+
 
         //protected bool SetField<T>(ref T field, T value, string propertyName)
         /// <summary>
@@ -532,12 +589,16 @@ namespace MariniImpianti
         /// <returns><c>true</c> if the property is effectively changed; otherwise, <c>false</c>.</returns>
         protected bool SetField<T>(ref T field, T value, [CallerMemberName] string propertyName = null)
         {
-            if (EqualityComparer<T>.Default.Equals(field, value))
+            lock (synchro)
             {
-                //Console.WriteLine("Sono nella SetField e la proprieta' non e' cambiata");
-                return false;
+                if (EqualityComparer<T>.Default.Equals(field, value))
+                {
+                    //Console.WriteLine("Sono nella SetField e la proprieta' non e' cambiata");
+                    return false;
+                }
+                field = value;
             }
-            field = value;
+            
             //Console.WriteLine("Sono nella SetField e lancio OnPropertyChanged(propertyName)");
             OnPropertyChanged(propertyName);
 
@@ -558,19 +619,13 @@ namespace MariniImpianti
         /// <param name="handler">MariniGenericObject method name to handle the PropertyChange event</param>
         protected MariniGenericObject(MariniGenericObject parent, string id, string name, string description,string handler)
         {
-            if (parent==null)
-            {
-                path = "~" + id;
-            } 
-            else
-            {
-                path = parent.path + "~" + id;
-            }           
             this.parent = parent;
             this.id = id;
             this.name = name;
             this.description = description;
             this.handler = handler;
+
+            SetObjPath(parent);
         }
 
         /// <summary>
@@ -652,15 +707,20 @@ namespace MariniImpianti
                 }
             }
 
+            SetObjPath(parent);
+
+        }
+        
+        private void SetObjPath(MariniGenericObject parent)
+        {
             if (parent == null)
             {
-                path = "~" + id;
+                path = id;
             }
             else
             {
-                path = parent.path + "~" + id;
+                path = parent.path + "." + id;
             }           
-
         }
 
         /// <summary>
@@ -849,7 +909,7 @@ namespace MariniImpianti
 
         private void _GetPathChildDictionary(ref Dictionary<string, MariniGenericObject> md)
         {
-            md.Add(this.path.ToLower(), this);
+            md.Add(this.path, this);
             if (_listaGenericObject.Count > 0)
             {
                 foreach (MariniGenericObject child in _listaGenericObject)
@@ -1330,7 +1390,7 @@ namespace MariniImpianti
 
         private object _value;
         [System.Xml.Serialization.XmlIgnore]
-        public object value { get { return _value; } set { SetMariniPropertyField(ref _value, value); } }
+        public object value { get { return _value; } set { SetField(ref _value, value);} }
         [System.Xml.Serialization.XmlAttribute("value")]
         public string valuestring { get { if (_value != null) { return _value.ToString(); } else { return "NO_VALUE"; }; } set { valuestring = value; } }
 
@@ -1411,7 +1471,6 @@ namespace MariniImpianti
         /// <param name="propertyName"></param>
         protected virtual void OnMariniPropertyChanged(string propertyName)
         {
-            //Console.WriteLine("Sono nel metodo OnPropertyChanged");
             PropertyChangedEventHandler ehandler = MariniPropertyChanged;
             if (ehandler != null)
             {

@@ -4,20 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MariniImpiantiHost
+namespace Manager
 {
 
     public class Subscription : IComparable,IComparable<Subscription>
     {
-        public string ObjID { get; private set; }
-        public string ObjName { get; private set; }
-        public string PropertyName { get; private set; }
+        public string PropertyPath { get; private set; }
+        public string PropertyID{ get; private set; }
 
-        public Subscription(string objID, string objName, string propertyName)
+        public Subscription(string propertyPath, string propertyID)
         {
-            ObjID = objID;
-            ObjName = objName;
-            PropertyName = propertyName;
+            PropertyPath = propertyPath;
+            PropertyID = propertyID;
         }
 
         public override bool Equals(object obj)
@@ -27,12 +25,12 @@ namespace MariniImpiantiHost
 
             if(sub==null) return false;
 
-            return (ObjID == sub.ObjID && PropertyName == sub.PropertyName);
+            return (PropertyPath == sub.PropertyPath);
         }
 
         public override int GetHashCode()
         {
-            return (ObjID + PropertyName).GetHashCode();
+            return PropertyPath.GetHashCode();
         }
 
         #region IComparable Members
@@ -47,10 +45,7 @@ namespace MariniImpiantiHost
 
         public int CompareTo(Subscription sub)
         {
-            var cmpPLCName = ObjID.CompareTo(sub.ObjID);
-            if (cmpPLCName == 0)
-                return PropertyName.CompareTo(sub.PropertyName);
-            return cmpPLCName;            
+            return PropertyPath.CompareTo(sub.PropertyPath);
         }
 
         #endregion

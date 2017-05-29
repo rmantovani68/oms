@@ -13,7 +13,7 @@ namespace MariniImpianti
         Default,
         OneTime,
         OneWay,
-        OneWaySource,
+        OneWayToSource,
         TwoWay,
     }
 }

@@ -13,7 +13,7 @@ using OMS.Core.Communication;
 using MDS.Communication.Messages;
 #endregion
 
-namespace MariniImpiantiHost
+namespace Manager
 {
     public class PLCItem : INotifyPropertyChanged
     {
@@ -136,6 +136,7 @@ namespace MariniImpiantiHost
 
         public bool Connection(string sender, string destination)
         {
+            bool RetValue=true;
             //Create a DotNetMQ Message to send 
             var message = MDSClientInstance.CreateMessage();
 
@@ -164,28 +165,28 @@ namespace MariniImpiantiHost
             {
 
                 //Send message
+                message.Send();
+#if eliminato
                 var responseMessage = message.SendAndGetResponse();
                 Logger.InfoFormat("Inviato Messaggio a {0}", message.DestinationApplicationName);
 
 
                 //Get connect result
-                var ResponseData = MDS.GeneralHelper.DeserializeObject(responseMessage.MessageData) as PLCStatusData;
+                var responseData = MDS.GeneralHelper.DeserializeObject(responseMessage.MessageData) as ResponseData;
+                RetValue = responseData.Response;
 
-                this.ConnectionStatus = ResponseData.Status;
-
-                Logger.InfoFormat("Ricevuto risposta [{0}]", this.ConnectionStatus.ToString());
+                Logger.InfoFormat("Ricevuto risposta [{0}]", responseData.Response);
 
                 //Acknowledge received message
                 responseMessage.Acknowledge();
-
+#endif
             }
             catch (Exception exc)
             {
                 // non sono riuscito a inviare il messaggio
                 Logger.WarnFormat("Messaggio non inviato : {0}",exc.Message);
-                this.ConnectionStatus = PLCConnectionStatus.NotConnected;
             }
-            return this.ConnectionStatus != PLCConnectionStatus.NotConnected;
+            return RetValue;
         }
 
         public bool Disconnection(string sender, string destination)
@@ -214,26 +215,26 @@ namespace MariniImpiantiHost
             try
             {
                 //Send message
+                message.Send();
+#if eliminato
                 var responseMessage = message.SendAndGetResponse();
 
                 Logger.InfoFormat("Inviato Messaggio a {0}", message.DestinationApplicationName);
 
                 //Get connect result
-                var ResponseData = MDS.GeneralHelper.DeserializeObject(responseMessage.MessageData) as PLCStatusData;
-                
-                this.ConnectionStatus = ResponseData.Status;
+                var responseData = MDS.GeneralHelper.DeserializeObject(responseMessage.MessageData) as ResponseData;
+                RetVal = responseData.Response;
 
-                Logger.InfoFormat("Ricevuto risposta [{0}]", this.ConnectionStatus.ToString());
+                Logger.InfoFormat("Ricevuto risposta [{0}]", responseData.Response);
 
                 //Acknowledge received message
                 responseMessage.Acknowledge();
-
+#endif
             }
             catch (Exception exc)
             {
                 // non sono riuscito a inviare il messaggio
                 Logger.WarnFormat("Disconnection() : Messaggio non inviato : {0}",exc.Message);
-                this.ConnectionStatus = PLCConnectionStatus.NotConnected;
             }
             return RetVal;
         }

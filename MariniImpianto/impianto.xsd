@@ -19,6 +19,7 @@
         <xs:element name="ZonaDosaggio"       minOccurs="0" maxOccurs="1" type="zona_dosaggio_type"/>
         <xs:element name="ZonaCisterne"       minOccurs="0" maxOccurs="1" type="zona_cisterne_type"/>
         <xs:element name="ZonaStoccaggio"     minOccurs="0" maxOccurs="1" type="zona_stoccaggio_type"/>
+        <xs:element name="Property" minOccurs="0" maxOccurs="unbounded" type="property_type"/>
       </xs:sequence>
       <xs:attributeGroup ref="obj_attributes_group"/>
     </xs:complexType>
@@ -34,6 +35,7 @@
       <xs:element name="Predosatore" minOccurs="0" maxOccurs="unbounded" type="predosatore_type"/>
       <xs:element name="Bilancia"    minOccurs="0" maxOccurs="unbounded" type="bilancia_type"/>
       <xs:element name="Nastro"      minOccurs="0" maxOccurs="unbounded" type="nastro_type"/>
+      <xs:element name="Property" minOccurs="0" maxOccurs="unbounded" type="property_type"/>
     </xs:sequence>
     <xs:attributeGroup ref="obj_attributes_group"/>
   </xs:complexType>
@@ -44,6 +46,7 @@
       <xs:element name="Tamburo"   minOccurs="0" maxOccurs="unbounded" type="tamburo_type"/>
       <xs:element name="Elevatore" minOccurs="0" maxOccurs="unbounded" type="elevatore_type"/>
       <xs:element name="Filtro"    minOccurs="0" maxOccurs="unbounded" type="filtro_type"/>
+      <xs:element name="Property" minOccurs="0" maxOccurs="unbounded" type="property_type"/>
     </xs:sequence>
     <xs:attributeGroup ref="obj_attributes_group"/>
   </xs:complexType>
@@ -55,6 +58,7 @@
       <xs:element name="Bilancia"    minOccurs="0" maxOccurs="unbounded" type="bilancia_type"/>
       <xs:element name="Tramoggia"   minOccurs="0" maxOccurs="unbounded" type="tramoggia_type"/>
       <xs:element name="Mescolatore" minOccurs="0" maxOccurs="unbounded" type="mescolatore_type"/>
+      <xs:element name="Property" minOccurs="0" maxOccurs="unbounded" type="property_type"/>
     </xs:sequence>
     <xs:attributeGroup ref="obj_attributes_group"/>
   </xs:complexType>
@@ -65,6 +69,7 @@
       <xs:element name="Silos"   minOccurs="0" maxOccurs="unbounded" type="silos_type"/>
       <xs:element name="Navetta" minOccurs="0" maxOccurs="unbounded" type="navetta_type"/>
       <xs:element name="Nastro"  minOccurs="0" maxOccurs="unbounded" type="nastro_type"/>
+      <xs:element name="Property" minOccurs="0" maxOccurs="unbounded" type="property_type"/>
     </xs:sequence>
     <xs:attributeGroup ref="obj_attributes_group"/>
   </xs:complexType>
@@ -74,6 +79,7 @@
     <xs:sequence>
       <xs:element name="Cisterna" minOccurs="0" maxOccurs="unbounded" type="cisterna_type"/>
       <xs:element name="Nastro"   minOccurs="0" maxOccurs="unbounded" type="nastro_type"/>
+      <xs:element name="Property" minOccurs="0" maxOccurs="unbounded" type="property_type"/>
     </xs:sequence>
     <xs:attributeGroup ref="obj_attributes_group"/>
   </xs:complexType>
@@ -163,7 +169,7 @@
     <xs:attributeGroup ref="obj_attributes_group"/>
     <xs:attribute name="set" type="xs:integer"/>
   </xs:complexType>
-  
+
   <!-- SET PREDOSATORE TYPE -->
   <xs:complexType name="set_predosatore_type">
 
@@ -197,7 +203,7 @@
     <xs:attribute name="percento" type="PercentType"/>
   </xs:complexType>
 
-<!--
+  <!--
   '   Struttura contenente il set di un predosatore
   Public Type SetPredosatoreType
 
@@ -231,7 +237,7 @@
   End Type
 -->
 
-<!--
+  <!--
 
   Public Type GraficoPredosatoreType
 
@@ -242,7 +248,7 @@
 
   End Type
 -->
-  
+
   <!-- ELEVATORE -->
   <xs:complexType name ="elevatore_type">
     <xs:sequence>
@@ -330,7 +336,7 @@
       <xs:enumeration value="Default"/>
       <xs:enumeration value="OneTime"/>
       <xs:enumeration value="OneWay"/>
-      <xs:enumeration value="OneWaySource"/>
+      <xs:enumeration value="OneWayToSource"/>
       <xs:enumeration value="TwoWay"/>
     </xs:restriction>
   </xs:simpleType>
@@ -359,6 +365,7 @@
     <xs:attribute name="id" type="xs:string"/>
     <xs:attribute name="name" type="xs:string"/>
     <xs:attribute name="type" type="xs:string"/>
+    <xs:attribute name="handler" type="xs:string"/>
   </xs:attributeGroup>
 
   <!-- Property Attributes Group -->
@@ -366,6 +373,7 @@
     <xs:attribute name="id" type="xs:string"/>
     <xs:attribute name="name" type="xs:string"/>
     <xs:attribute name="bind" type="xs:string"/>
+    <xs:attribute name="handler" type="xs:string"/>
     <xs:attribute name="bindtype" type="BindType"/>
     <xs:attribute name="binddirection" type="BindDirectionType"/>
     <xs:attribute name="value" type="xs:string"/>

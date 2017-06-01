@@ -523,39 +523,6 @@ namespace MariniImpianti
             }
         }
 
-
-        // What this method does, is look whether there is an event handler assigned or not 
-        // (if it is not assigned and you just call it, you'll get a NullReferenceException).
-        // If there is one assigned, call this event handler. The event handler provided, 
-        // has to have the signature of the PropertyChangedEventHandler delegate. This signature is:
-        // void MyMethod(object sender, PropertyChangedEventArgs e)
-        // Where the first parameter has to be of the type object and represents the object that fires the event,
-        // and the second parameter contains the arguments of this event. 
-        // In this case, your own class fires the event and thus give this as parameter sender. 
-        // The second parameter contains the name of the property that has changed.
-        // Now to be able to react upon the firing of the event, you have to assign an event handler to the class.
-        // In this case, you'll have to assign this in your addChatter method.
-        // Apart from that, you'll have to first define your handler.
-        // In your NosyClass you'll have to add a method to do this, for example:
-        // chatter.PropertyChanged += new PropertyChangedEventHandler(chatter_PropertyChanged);
-        // mgo.PropertyChanged += _mariniImpiantoEventHandlers.MyPropertyHandler;
-
-        /// <summary>
-        /// Raises the <see cref="PropertyChanged">PropertyChanged</see> event.
-        /// </summary>
-        /// <param name="propertyName"></param>
-        /*
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            //Console.WriteLine("Sono nel metodo OnPropertyChanged");
-            PropertyChangedEventHandler ehandler = PropertyChanged;
-            if (ehandler != null)
-            {
-                ehandler(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
-        */
-
         private void OnPropertyChanged(string property)
         {
             //Send notification without acquiring the synchro object
@@ -570,12 +537,6 @@ namespace MariniImpianti
                 localCopy(this, new PropertyChangedEventArgs(property));
             }
         }
-
-
-
-
-
-
 
 
         //protected bool SetField<T>(ref T field, T value, string propertyName)
@@ -1404,19 +1365,6 @@ namespace MariniImpianti
         {
         }
 
-        /*
-          <!-- Property Attributes Group -->
-          <xs:attributeGroup name="prop_attributes_group">
-            <xs:attribute name="id" type="xs:string"/>
-            <xs:attribute name="name" type="xs:string"/>
-            <xs:attribute name="bind" type="xs:string"/>
-            <xs:attribute name="bindtype" type="BindType"/>
-            <xs:attribute name="binddirection" type="BindDirectionType"/>
-            <xs:attribute name="value" type="xs:string"/>
-            <xs:attribute name="persistence" type="PersistenceType"/>
-            <xs:attribute name="propertytype" type="PropertyTypeType"/>
-          </xs:attributeGroup>
-        */
 
         public MariniProperty(MariniGenericObject parent, XmlNode node)
             : base(parent, node)

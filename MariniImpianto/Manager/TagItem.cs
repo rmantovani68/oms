@@ -12,7 +12,14 @@ namespace Manager
 {
     public class TagItem : INotifyPropertyChanged, IEquatable<TagItem>
     {
+
+        #region properties
         private string name;
+        private string address;
+        private string plcName;
+        private string type;
+        private object value;
+
         public string Name
         {
             get { return this.name; }
@@ -20,13 +27,10 @@ namespace Manager
             {
                 if (this.name != value)
                 {
-                    this.name = value;
-                    this.NotifyPropertyChanged("Name");
+                    this.name = value; this.NotifyPropertyChanged("Name");
                 }
             }
         }
-
-        private string address;
         public string Address
         {
             get { return this.address; }
@@ -34,14 +38,11 @@ namespace Manager
             {
                 if (this.address != value)
                 {
-                    this.address = value;
-                    this.NotifyPropertyChanged("Address");
+                    this.address = value; this.NotifyPropertyChanged("Address");
                 }
             }
         }
 
-
-        private string plcName;
         public string PLCName
         {
             get { return this.plcName; }
@@ -49,14 +50,11 @@ namespace Manager
             {
                 if (this.plcName != value)
                 {
-                    this.plcName = value;
-                    this.NotifyPropertyChanged("PLCName");
+                    this.plcName = value; this.NotifyPropertyChanged("PLCName");
                 }
             }
         }
 
-
-        private string type;
         public string Type
         {
             get { return this.type; }
@@ -64,13 +62,11 @@ namespace Manager
             {
                 if (this.type != value)
                 {
-                    this.type = value;
-                    this.NotifyPropertyChanged("Type");
+                    this.type = value; this.NotifyPropertyChanged("Type");
                 }
             }
         }
 
-        private object value;
         public object Value
         {
             get { return this.value; }
@@ -78,35 +74,42 @@ namespace Manager
             {
                 if (this.value != value)
                 {
-                    this.value = value;
-                    this.NotifyPropertyChanged("Value");
+                    this.value = value; this.NotifyPropertyChanged("Value");
                 }
             }
         }
+        #endregion
 
-        public TagItem() { }
+        #region constructor
+        public TagItem(string name, string address, string plcName, string type) 
+        {
+            Name = name;
+            Address = address;
+            PLCName = plcName;
+            Type = type;
+        }
+        #endregion
 
-        void NotifyPropertyChanged(string propName)
+        #region events
+        public event PropertyChangedEventHandler PropertyChanged;
+        #endregion
+
+        #region private methods
+        private void NotifyPropertyChanged(string propName)
         {
             if (this.PropertyChanged != null)
                 this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
         }
+        #endregion
 
+        #region public methods
         public override string ToString()
         {
             return string.Format("{0}", name);
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public override bool Equals(System.Object obj)
+        public override bool Equals(Object obj)
         {
-            // If parameter is null return false.
-            if (obj == null)
-            {
-                return false;
-            }
-
             return Equals(obj as TagItem);
         }
 
@@ -121,12 +124,15 @@ namespace Manager
             // Return true if either fields match:
             return (Name == tag.Name);
         }
+
         public override int GetHashCode()
         {
             return (this.Name).GetHashCode();
         }
+        #endregion
 
-        public static bool operator == (TagItem tag1, TagItem tag2)
+        #region operators
+        public static bool operator ==(TagItem tag1, TagItem tag2)
         {
             if (((object)tag1) == ((object)tag2)) return true;
             if (((object)tag1) == null || ((object)tag2) == null) return false;
@@ -134,10 +140,10 @@ namespace Manager
             return tag1.Equals(tag2);
         }
 
-        public static bool operator != (TagItem tag1, TagItem tag2)
+        public static bool operator !=(TagItem tag1, TagItem tag2)
         {
             return !(tag1 == tag2);
         }
-
+        #endregion
     }
 }

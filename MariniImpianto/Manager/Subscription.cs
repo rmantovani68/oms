@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Manager
 {
 
-    public class Subscription : IComparable,IComparable<Subscription>
+    public class Subscription : IComparable,IComparable<Subscription>, IEquatable<Subscription>
     {
         public string PropertyPath { get; private set; }
         public string PropertyID{ get; private set; }
@@ -20,10 +20,12 @@ namespace Manager
 
         public override bool Equals(object obj)
         {
-            // throws exception if type is wrong
-            var sub = obj as Subscription;
+            return Equals(obj as Subscription);
+        }
 
-            if(sub==null) return false;
+        public bool Equals(Subscription sub)
+        {
+            if (sub == null) return false;
 
             return (PropertyPath == sub.PropertyPath);
         }

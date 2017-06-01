@@ -203,51 +203,7 @@
     <xs:attribute name="percento" type="PercentType"/>
   </xs:complexType>
 
-  <!--
-  '   Struttura contenente il set di un predosatore
-  Public Type SetPredosatoreType
-
-    set As Integer
-
-    '   Ora per verificare due set consecutivi
-    setOra As Long
-
-    tempoStart As Long
-    tempoStop As Long
-
-    cambioManuale As Boolean
-
-  End Type
--->
-
-
-
-  <!--
-  Public Type CurvaPredosatoreType
-  Nome As String
-
-    'Dati taratura predosatore
-    valori(0 To MAXPUNTICURVAPREDOSATORE - 1) As Integer
-
-    'Valore introdotto del potenziometro individuale predosatore
-    percento(0 To MAXPUNTICURVAPREDOSATORE - 1) As Integer
-
-    IdMaterialeLog As Long
-
-  End Type
--->
-
-  <!--
-
-  Public Type GraficoPredosatoreType
-
-    'Inclusione serie di 5 dati da introdurre. (ex SerieDatiPred)
-    curvaAttiva As Integer '0, 1 o 2 per primo, secondo o terzo grafico
-
-    curva(0 To MAXCURVEPREDOSATORE - 1) As CurvaPredosatoreType
-
-  End Type
--->
+  >
 
   <!-- ELEVATORE -->
   <xs:complexType name ="elevatore_type">
@@ -380,8 +336,4 @@
     <xs:attribute name="persistence" type="PersistenceType"/>
     <xs:attribute name="propertytype" type="PropertyTypeType"/>
   </xs:attributeGroup>
-
-
-
-
 </xs:schema>

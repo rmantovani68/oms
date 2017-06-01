@@ -17,14 +17,22 @@ namespace Manager
 {
     public class PLCItem : INotifyPropertyChanged
     {
+        #region private members
         /// <summary>
         /// Reference to logger.
         /// </summary>
         private static readonly ILog Logger = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
-
         private MDSClient MDSClientInstance;
-
         private string name;
+        private string ipAddress;
+        private PLCConnectionStatus connectionStatus;
+        private short rack;
+        private short slot;
+        private int delay;
+
+        #endregion private members
+
+        #region Properties
         public string Name
         {
             get { return this.name; }
@@ -32,13 +40,11 @@ namespace Manager
             {
                 if (this.name != value)
                 {
-                    this.name = value;
-                    this.NotifyPropertyChanged("Name");
+                    this.name = value; this.NotifyPropertyChanged("Name");
                 }
             }
         }
 
-        private string ipAddress;
         public string IPAddress
         {
             get { return this.ipAddress; }
@@ -46,29 +52,24 @@ namespace Manager
             {
                 if (this.ipAddress != value)
                 {
-                    this.ipAddress = value;
-                    this.NotifyPropertyChanged("IPAddress");
+                    this.ipAddress = value; this.NotifyPropertyChanged("IPAddress");
                 }
             }
         }
 
-        private PLCConnectionStatus connectionStatus;
-
         public PLCConnectionStatus ConnectionStatus
         {
-            get
-            {
-                return this.connectionStatus;
-            }
-
+            get { return this.connectionStatus; }
             set
             {
-                connectionStatus = value;
-                this.NotifyPropertyChanged("ConnectionStatus");
+                if (this.connectionStatus != value)
+                {
+                    this.connectionStatus = value; this.NotifyPropertyChanged("ConnectionStatus");
+                }
             }
         }
 
-        private short rack;
+
         public short Rack
         {
             get { return this.rack; }
@@ -76,13 +77,11 @@ namespace Manager
             {
                 if (this.rack != value)
                 {
-                    this.rack = value;
-                    this.NotifyPropertyChanged("Rack");
+                    this.rack = value; this.NotifyPropertyChanged("Rack");
                 }
             }
         }
 
-        private short slot;
         public short Slot
         {
             get { return this.slot; }
@@ -90,13 +89,11 @@ namespace Manager
             {
                 if (this.slot != value)
                 {
-                    this.slot = value;
-                    this.NotifyPropertyChanged("Slot");
+                    this.slot = value; this.NotifyPropertyChanged("Slot");
                 }
             }
         }
 
-        private int delay;
         public int Delay
         {
             get { return this.delay; }
@@ -109,7 +106,9 @@ namespace Manager
                 }
             }
         }
+        #endregion Properties
 
+        #region Constructor
         public PLCItem(string plcName, string ipAddress, MDSClient mdsClient)
             : this(plcName, ipAddress, 0, 2, 100, mdsClient)
         {
@@ -125,18 +124,24 @@ namespace Manager
             ConnectionStatus = PLCConnectionStatus.NotConnected;
             MDSClientInstance = mdsClient;
         }
+        #endregion Constructor
 
-        public void NotifyPropertyChanged(string propName)
+        #region Events
+        public event PropertyChangedEventHandler PropertyChanged;
+        #endregion Events
+
+        #region Private Methods
+        private void NotifyPropertyChanged(string propName)
         {
             if (this.PropertyChanged != null)
                 this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
         }
+        #endregion Private Methods
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
+        #region Public Methods
         public bool Connection(string sender, string destination)
         {
-            bool RetValue=true;
+            bool RetValue = true;
             //Create a DotNetMQ Message to send 
             var message = MDSClientInstance.CreateMessage();
 
@@ -146,7 +151,6 @@ namespace Manager
             //Create a message
             var MsgData = new PLCConnectionData
             {
-
                 MsgCode = MsgCodes.ConnectPLC,
                 PLCName = this.Name,
                 IpAddress = this.IPAddress,
@@ -163,35 +167,20 @@ namespace Manager
 
             try
             {
-
                 //Send message
                 message.Send();
-#if eliminato
-                var responseMessage = message.SendAndGetResponse();
-                Logger.InfoFormat("Inviato Messaggio a {0}", message.DestinationApplicationName);
-
-
-                //Get connect result
-                var responseData = MDS.GeneralHelper.DeserializeObject(responseMessage.MessageData) as ResponseData;
-                RetValue = responseData.Response;
-
-                Logger.InfoFormat("Ricevuto risposta [{0}]", responseData.Response);
-
-                //Acknowledge received message
-                responseMessage.Acknowledge();
-#endif
             }
             catch (Exception exc)
             {
                 // non sono riuscito a inviare il messaggio
-                Logger.WarnFormat("Messaggio non inviato : {0}",exc.Message);
+                Logger.WarnFormat("Messaggio non inviato : {0}", exc.Message);
             }
             return RetValue;
         }
 
         public bool Disconnection(string sender, string destination)
         {
-            bool RetVal=true;
+            bool RetVal = true;
 
             //Create a DotNetMQ Message to send 
             var message = MDSClientInstance.CreateMessage();
@@ -216,25 +205,11 @@ namespace Manager
             {
                 //Send message
                 message.Send();
-#if eliminato
-                var responseMessage = message.SendAndGetResponse();
-
-                Logger.InfoFormat("Inviato Messaggio a {0}", message.DestinationApplicationName);
-
-                //Get connect result
-                var responseData = MDS.GeneralHelper.DeserializeObject(responseMessage.MessageData) as ResponseData;
-                RetVal = responseData.Response;
-
-                Logger.InfoFormat("Ricevuto risposta [{0}]", responseData.Response);
-
-                //Acknowledge received message
-                responseMessage.Acknowledge();
-#endif
             }
             catch (Exception exc)
             {
                 // non sono riuscito a inviare il messaggio
-                Logger.WarnFormat("Disconnection() : Messaggio non inviato : {0}",exc.Message);
+                Logger.WarnFormat("Disconnection() : Messaggio non inviato : {0}", exc.Message);
             }
             return RetVal;
         }
@@ -244,14 +219,8 @@ namespace Manager
             return string.Format("{0}:{1}", Name, IPAddress);
         }
 
-        public override bool Equals(System.Object obj)
+        public override bool Equals(Object obj)
         {
-            // If parameter is null return false.
-            if (obj == null)
-            {
-                return false;
-            }
-
             return Equals(obj as PLCItem);
         }
 
@@ -271,8 +240,10 @@ namespace Manager
         {
             return (this.Name + this.IPAddress).GetHashCode();
         }
+        #endregion
 
-        public static bool operator == (PLCItem plc1, PLCItem plc2)
+        #region Operators
+        public static bool operator ==(PLCItem plc1, PLCItem plc2)
         {
             if (((object)plc1) == ((object)plc2)) return true;
             if (((object)plc1) == null || ((object)plc2) == null) return false;
@@ -280,10 +251,10 @@ namespace Manager
             return plc1.Equals(plc2);
         }
 
-        public static bool operator != (PLCItem plc1, PLCItem plc2)
+        public static bool operator !=(PLCItem plc1, PLCItem plc2)
         {
             return !(plc1 == plc2);
         }
-
+        #endregion
     }
 }

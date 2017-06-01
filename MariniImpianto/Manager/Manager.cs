@@ -1,10 +1,15 @@
-﻿using System;
+﻿#region using
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using System.Data.OleDb;
+using System.Collections;
+using System.ComponentModel;
+using System.Timers;
 
 using log4net;
 using MDS;
@@ -12,58 +17,86 @@ using MDS.Client;
 using MDS.Communication.Messages;
 using OMS.Core.Communication;
 using MariniImpianti;
-using System.Data.OleDb;
-using System.Collections;
-using System.ComponentModel;
+#endregion
 
 namespace Manager
 {
     class Manager
     {
-        protected static readonly ILog Logger = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
         #region Private Fields
+        protected static readonly ILog Logger = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
         private MDSClient mdsClient;
+
+        private System.Timers.Timer timer = new System.Timers.Timer();
+
+        // default loop time = 100
+        static private int _defaultLoopTime = 100;
+        // default application Name
+        static private string _defaultApplicationName = "Manager";
+        // default plcserver application Name
+        static private string _defaultPLCServerApplicationName = "PLCServer";
+
+        private int _loopTime;
+        private DateTime lastReadTime;
+
         
-        // lista dei plctags per nome tag
+        // lista dei plctags totali per nome tag
         private Hashtable _hashTagsAddressByName = new Hashtable();
-        
-        // lista dei plctags per address tag
+
+        // lista dei plctags totali per address tag
         private Hashtable _hashTagsNameByAddress = new Hashtable();
         
         // lista dei plc connessi
         private List<PLCItem> ListPLCItems = new List<PLCItem>();
 
-        // lista dei tag sottoscritti
+        // lista dei tag sottoscritti su plcserver
         private List<TagItem> ListTagItems = new List<TagItem>();
 
-        // lista delle properties sottoscritte
+        // lista delle properties sottoscritte dai clients
         private Dictionary<string, HashSet<Property>> ListSubscriptions = new Dictionary<string, HashSet<Property>>();
 
         MariniImpiantoTree mariniImpiantoTree;
 
         #endregion Private Fields
 
-        #region Public Fields
+        #region Properties
 
         public string ApplicationName { get; private set; }
         public string PLCServerApplicationName { get; private set; }
 
+        public TimeSpan CycleReadTime { get; private set; }
 
-        #endregion Public Fields
+        public int LoopTime
+        {
+            get { return _loopTime; }
+
+            set
+            {
+                timer.Enabled = false;
+                timer.Interval = value; // ms
+                _loopTime = value;
+                timer.Enabled = true;
+            }
+        }
+
+
+        #endregion Properties
 
         #region Constructor
-        public Manager()
+        
+        public Manager(int loopTime, string applicationName, string plcserverApplicationName)
         {
-            ApplicationName = "Manager";
-            PLCServerApplicationName = "PLCServer";
+            ApplicationName = applicationName;
+            PLCServerApplicationName = plcserverApplicationName;
 
             Logger.InfoFormat("{0} application ready", ApplicationName);
 
             // Create MDSClient object to connect to DotNetMQ
             // Name of this application: PLCServer
             mdsClient = new MDSClient(ApplicationName);
+            mdsClient.AutoAcknowledgeMessages = true;
 
             // Connect to DotNetMQ server
             try
@@ -86,6 +119,10 @@ namespace Manager
 
             // lettura del dominio dei tags 
             LoadOPCTags(@"C:\Users\uts.MARINI\Documents\projects\cyb500n\Versione 9.6.x\Exe\OPCTags.xls", "plc4");
+            LoadOPCTags(@"C:\Users\uts.MARINI\Documents\projects\cyb500n\Versione 9.6.x\Exe\OPCTags.xls", "plc4cist");
+            LoadOPCTags(@"C:\Users\uts.MARINI\Documents\projects\cyb500n\Versione 9.6.x\Exe\OPCTags.xls", "plc5");
+            LoadOPCTags(@"C:\Users\uts.MARINI\Documents\projects\cyb500n\Versione 9.6.x\Exe\OPCTags.xls", "plc2");
+            LoadOPCTags(@"C:\Users\uts.MARINI\Documents\projects\cyb500n\Versione 9.6.x\Exe\OPCTags.xls", "WamFoam");
 
             // Register to MessageReceived event to get messages.
             mdsClient.MessageReceived += Manager_MessageReceived;
@@ -93,7 +130,11 @@ namespace Manager
             PLCServerConnect();
 
             // spostare su plcserver
-            PLCAdd("plc4", "213.131.0.161");
+            PLCAdd("plc4",     "213.131.0.161");
+            PLCAdd("plc4cist", "213.131.0.161");
+            PLCAdd("plc5",     "213.131.0.161");
+            PLCAdd("plc2",     "213.131.0.161");
+            PLCAdd("WamFoam",  "213.131.0.161");
 
             
             // configurazione
@@ -106,9 +147,30 @@ namespace Manager
 
             SubscribePLCTags(mariniImpiantoTree);
 
+            LoopTime = loopTime;
+            timer.Elapsed += timer_Elapsed;
+            timer.Enabled = true;
 
+            Logger.InfoFormat("{0} application ready", ApplicationName);
         }
+
+        public Manager()
+            : this(_defaultLoopTime, _defaultApplicationName, _defaultPLCServerApplicationName)
+        {
+        }
+
         #endregion Constructor
+
+        #region Event Handlers
+        private void timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            timer.Enabled = false;
+            CycleReadTime = DateTime.Now - lastReadTime;
+
+            timer.Enabled = true;
+            lastReadTime = DateTime.Now;
+        }
+        #endregion Event Handlers
 
         #region Public Methods
         #endregion Public Methods
@@ -120,13 +182,25 @@ namespace Manager
             //Disconnect from DotNetMQ server
             Logger.InfoFormat("{0} Exit Application", ApplicationName);
 
+            // spostare su plcserver
+            PLCRemove("plc4",     "213.131.0.161");
+            PLCRemove("plc4cist", "213.131.0.161");
+            PLCRemove("plc5",     "213.131.0.161");
+            PLCRemove("plc2",     "213.131.0.161");
+            PLCRemove("WamFoam",  "213.131.0.161");
+
             // disconnetto dal plcserver
             PLCServerDisconnect();
-            // disconnetto dal sistema di messaggisstica
+
+            // disconnetto dal sistema di messaggistica
             mdsClient.Disconnect();
         }
 
-        // sottoscrive la lista delle properties dell'impianto aventi bindtype = plctag e binddirection oneway o twoway
+        /// <summary>
+        /// sottoscrive la lista delle properties dell'impianto aventi bindtype = plctag e binddirection oneway o twoway
+        /// </summary>
+        /// <param name="mariniImpiantoTree"></param>
+        /// <returns></returns>
         private bool SubscribePLCTags(MariniImpiantoTree mariniImpiantoTree)
         {
             bool RetVal = true;
@@ -186,17 +260,19 @@ namespace Manager
             return RetVal;
         }
 
-        // creo un tag plc completo (plcname/address:type da un tag name)
+        /// <summary>
+        /// creo un tag plc completo (plcname/address:type da un tag name)
+        /// </summary>
+        /// <param name="PLCTagName"></param>
+        /// <returns></returns>
         private TagItem GetPLCTagData(string PLCTagName)
         {
-            TagItem tag = null;
+            bool bOK = true;
 
             string PLCTagFullAddress = null;
             string PLCTagPLCName = null;
             string PLCTagAddress = null;
             string PLCTagType = null;
-
-            bool bOK = true;
 
             if (PLCTagName == null || PLCTagName.Length == 0)
             {
@@ -236,19 +312,19 @@ namespace Manager
                     }
                 }
             }
+            
+            TagItem tag = null;
             if (bOK)
             {
-                tag = new TagItem() { 
-                    Name = PLCTagName,
-                    PLCName = PLCTagPLCName,
-                    Address = PLCTagAddress,
-                    Type = PLCTagType
-                };
+                tag = new TagItem(PLCTagName, PLCTagAddress, PLCTagPLCName, PLCTagType);
             }
-
             return tag;
         }
 
+        /// <summary>
+        /// Connette a plcserver
+        /// </summary>
+        /// <returns></returns>
         private bool PLCServerConnect()
         {
             bool RetValue = true;
@@ -275,22 +351,6 @@ namespace Manager
             {
                 //Send message
                 message.Send();
-#if eliminato
-                var responseMessage = message.SendAndGetResponse();
-                Logger.InfoFormat("Inviato Messaggio a {0}", message.DestinationApplicationName);
-
-                //Get connect result
-                var ResponseData = GeneralHelper.DeserializeObject(responseMessage.MessageData) as ResponseData;
-
-                RetValue = ResponseData.Response;
-                if (RetValue == false)
-                {
-                    Logger.InfoFormat("Errore in connessione");
-                }
-
-                //Acknowledge received message
-                responseMessage.Acknowledge();
-#endif
             }
             catch
             {
@@ -307,6 +367,10 @@ namespace Manager
             return RetValue;
         }
 
+        /// <summary>
+        /// Disconnette da plcserver
+        /// </summary>
+        /// <returns></returns>
         private bool PLCServerDisconnect()
         {
             bool RetValue = true;
@@ -333,22 +397,6 @@ namespace Manager
             {
                 //Send message
                 message.Send();
-#if eliminato
-                var responseMessage = message.SendAndGetResponse();
-                Logger.InfoFormat("Inviato Messaggio a {0}", message.DestinationApplicationName);
-
-                //Get connect result
-                var ResponseData = GeneralHelper.DeserializeObject(responseMessage.MessageData) as ResponseData;
-
-                RetValue = ResponseData.Response;
-                if (RetValue == false)
-                {
-                    Logger.InfoFormat("Errore in disconnessione");
-                }
-
-                //Acknowledge received message
-                responseMessage.Acknowledge();
-#endif
             }
             catch
             {
@@ -366,14 +414,14 @@ namespace Manager
         }
 
 
-        // LoadOPCTags("OPCTags.xls", "plc4")
+        
         private void LoadOPCTags(string xlsPathName, string PLCName)
         {
             ReadTagFromXLS(xlsPathName, PLCName);
         }
 
         /// <summary>
-        /// Legge gli indirizzi dei tag dal file XLS e crea un hashtable in cui la chiave è il nome del tag (PLCTAG_...)
+        /// Legge gli indirizzi dei tag dal file XLS e aggiunge gli items a due hashtables : name/address e address/nome
         /// </summary>
         /// <param name="PlcName"></param>
         private void ReadTagFromXLS(string xlsFilePath, string PLCName)
@@ -391,12 +439,13 @@ namespace Manager
                                   {
                                       TagName = row.Field<String>(0).Trim(),
                                       TagAddress = row.Field<String>(1).Trim(),
+                                      TagDescription = row.Field<String>(2)!=null ? row.Field<String>(2).Trim():"",
                                   };
 
                     foreach (var tag in PLCTags)
                     {
-                        _hashTagsAddressByName.Add(tag.TagName, tag.TagAddress);   //Dictionary Name-Address
-                        _hashTagsNameByAddress.Add(tag.TagAddress, tag.TagName);   //Dictionary Address-Name
+                        _hashTagsAddressByName.Add(tag.TagName, tag.TagAddress);   // Dictionary Name-Address
+                        _hashTagsNameByAddress.Add(tag.TagAddress, tag.TagName);   // Dictionary Address-Name
                     }
                 }
             }
@@ -406,7 +455,11 @@ namespace Manager
             }
         }
 
-
+        /// <summary>
+        /// Aggiunta PLC a lista PLC
+        /// </summary>
+        /// <param name="plcName">Nome del plc</param>
+        /// <param name="ipAddress">indirizzo ip del plc</param>
         private void PLCAdd(string plcName, string ipAddress)
         {
             var plc = new PLCItem(plcName, ipAddress, mdsClient);
@@ -417,6 +470,11 @@ namespace Manager
             }
         }
 
+        /// <summary>
+        /// Rimozione PLC da lista PLC
+        /// </summary>
+        /// <param name="plcName">Nome del plc</param>
+        /// <param name="ipAddress">indirizzo ip del plc</param>
         private void PLCRemove(string plcName, string ipAddress)
         {
             var plc = new PLCItem(plcName, ipAddress, mdsClient);
@@ -425,16 +483,29 @@ namespace Manager
             ListPLCItems.Remove(plc);
         }
 
+        /// <summary>
+        /// Connessione a PLC
+        /// </summary>
+        /// <param name="plc">PLC da connettere</param>
         private void PLCConnect(PLCItem plc)
         {
             plc.Connection(ApplicationName, PLCServerApplicationName);
         }
 
+        /// <summary>
+        /// Disconnessione da PLC
+        /// </summary>
+        /// <param name="plc">PLC da disconnettere</param>
         private void PLCDisconnect(PLCItem plc)
         {
             plc.Disconnection(ApplicationName, PLCServerApplicationName);
         }
 
+        /// <summary>
+        /// Sottoscrizione tag
+        /// </summary>
+        /// <param name="tag"></param>
+        /// <returns></returns>
         private bool PLCAddTag(TagItem tag)
         {
             bool RetValue = true;
@@ -469,26 +540,6 @@ namespace Manager
             {
                 //Send message
                 message.Send();
-#if eliminato
-                var responseMessage = message.SendAndGetResponse();
-                Logger.InfoFormat("Inviato Messaggio a {0}", message.DestinationApplicationName);
-
-                //Get connect result
-                var ResponseData = GeneralHelper.DeserializeObject(responseMessage.MessageData) as ResponseData;
-
-                RetValue = ResponseData.Response;
-                if (RetValue == false)
-                {
-                    Logger.InfoFormat("Errore in aggiunta tag {0}", tag.Name);
-                }
-                else
-                {
-                    Logger.InfoFormat("tag {0} aggiunto", tag.Name);
-                }
-
-                //Acknowledge received message
-                responseMessage.Acknowledge();
-#endif
             }
             catch
             {
@@ -508,6 +559,11 @@ namespace Manager
             return RetValue;
         }
 
+        /// <summary>
+        /// Rimozione sottoscrizione tag
+        /// </summary>
+        /// <param name="tag"></param>
+        /// <returns></returns>
         private bool PLCRemoveTag(TagItem tag)
         {
             bool RetValue = true;
@@ -535,19 +591,6 @@ namespace Manager
             {
                 //Send message
                 message.Send();
-#if eliminato
-                var responseMessage = message.SendAndGetResponse();
-
-                Logger.InfoFormat("Inviato Messaggio a {0}", message.DestinationApplicationName);
-
-                //Get connect result
-                var ResponseData = GeneralHelper.DeserializeObject(responseMessage.MessageData) as ResponseData;
-
-                RetValue = ResponseData.Response;
-
-                //Acknowledge received message
-                responseMessage.Acknowledge();
-#endif
             }
             catch
             {
@@ -566,7 +609,11 @@ namespace Manager
 
 
 
-        // verifica correttezza formale nome tag ( <plcname>/<nometag>:<tipotag> )
+        /// <summary>
+        /// verifica correttezza formale nome tag ( <plcname>/<nometag>:<tipotag> )
+        /// </summary>
+        /// <param name="tagName"></param>
+        /// <returns></returns>
         private bool PLCTagIsCorrect(string tagName)
         {
 
@@ -580,8 +627,6 @@ namespace Manager
                 string[] var2 = var1[1].Split(':');
                 if (var2.Count() == 2)
                 {
-                    var tag = new TagItem() { PLCName = var1[0], Name = var2[0], Type = var2[1] };
-
                     // controllo esistenza tag ?
                 }
                 else
@@ -605,51 +650,41 @@ namespace Manager
         /// <param name="e">Message parameters</param>
         private void Manager_MessageReceived(object sender, MessageReceivedEventArgs e)
         {
+            // Get message 
+            var Message = e.Message;
 
             try
             {
-                // Get message 
-                var Message = e.Message;
-
                 // Get message data
                 var MsgData = GeneralHelper.DeserializeObject(Message.MessageData) as MsgData;
 
-                // Acknowledge that message is properly handled and processed. So, it will be deleted from queue.
-                e.Message.Acknowledge();
-
                 switch (MsgData.MsgCode)
                 {
-                    case MsgCodes.ConnectSubscriber:
-                        ConnectSubscriber(Message);
-                        break;
+                    case MsgCodes.ConnectSubscriber:      ConnectSubscriber(Message);     break;
+                    case MsgCodes.DisconnectSubscriber:   DisconnectSubscriber(Message);  break;
+                    case MsgCodes.SubscribeProperty:      SubscribeProperty(Message);     break;
+                    case MsgCodes.SubscribeProperties:    SubscribeProperties(Message);   break;
+                    case MsgCodes.RemoveProperty:         RemoveProperty(Message);        break;
+                    case MsgCodes.RemoveProperties:       RemoveProperties(Message);      break;
+                    case MsgCodes.PLCTagsChanged:         PLCTagsChanged(Message);        break;
+                    case MsgCodes.PLCTagChanged:          PLCTagChanged(Message);         break;
 
-                    case MsgCodes.DisconnectSubscriber:
-                        DisconnectSubscriber(Message);
-                        break;
+                    case MsgCodes.ResultSubscribePLCTag:     /* Da Implementare */ break;
+                    case MsgCodes.ResultSubscribePLCTags:    /* Da Implementare */ break;
+                    case MsgCodes.ResultRemovePLCTag:        /* Da Implementare */ break;
+                    case MsgCodes.ResultRemovePLCTags:       /* Da Implementare */ break;
+                    case MsgCodes.ResultStartCheckPLCTags:   /* Da Implementare */ break;
+                    case MsgCodes.ResultStopCheckPLCTags:    /* Da Implementare */ break;
+                    case MsgCodes.ResultSetPLCTag:           /* Da Implementare */ break;
+                    case MsgCodes.ResultSetPLCTags:          /* Da Implementare */ break;
+                    case MsgCodes.ResultGetPLCTag:           /* Da Implementare */ break;
+                    case MsgCodes.ResultGetPLCTags:          /* Da Implementare */ break;
+                    case MsgCodes.ResultConnectPLC:          /* Da Implementare */ break;
+                    case MsgCodes.ResultDisconnectPLC:       /* Da Implementare */ break;
+                    case MsgCodes.PLCStatusChanged:          /* Da Implementare */ break;
+                    case MsgCodes.SubscribedPLCTags:         /* Da Implementare */ break;
+                    case MsgCodes.PLCStatus:                 /* Da Implementare */ break;
 
-                    case MsgCodes.SubscribeProperty:
-                        SubscribeProperty(Message);
-                        break;
-
-                    case MsgCodes.SubscribeProperties:
-                        SubscribeProperties(Message);
-                        break;
-
-                    case MsgCodes.RemoveProperty:
-                        RemoveProperty(Message);
-                        break;
-
-                    case MsgCodes.RemoveProperties:
-                        RemoveProperties(Message);
-                        break;
-
-                    case MsgCodes.PLCTagsChanged:
-                        PLCTagsChanged(Message);
-                        break;
-
-                    case MsgCodes.PLCTagChanged:
-                        PLCTagChanged(Message);
-                        break;
                 }
             }
             catch (Exception ex)
@@ -657,6 +692,8 @@ namespace Manager
                 Logger.Warn(ex.Message, ex);
             }
 
+            // Acknowledge that message is properly handled and processed. So, it will be deleted from queue.
+            e.Message.Acknowledge();
         }
 
         private bool ConnectSubscriber(IIncomingMessage Message)
@@ -682,9 +719,7 @@ namespace Manager
             }
 
             /* invio messaggio di risposta */
-            RetValue = SendResponse(Message, RetValue);
-
-            return RetValue;
+            return SendResponse(Message, MsgCodes.ResultConnectSubscriber, MsgData, RetValue);
         }
 
         private bool DisconnectSubscriber(IIncomingMessage Message)
@@ -713,9 +748,7 @@ namespace Manager
             }
 
             /* invio messaggio di risposta */
-            RetValue = SendResponse(Message, RetValue);
-
-            return RetValue;
+            return SendResponse(Message, MsgCodes.ResultDisconnectSubscriber, MsgData, RetValue);
         }
 
 
@@ -768,8 +801,9 @@ namespace Manager
             RetValue = SubscribeProperty(Message.SourceApplicationName, prop);
 
             /* invio messaggio di risposta */
-            RetValue = SendResponse(Message,RetValue );
+            RetValue = SendResponse(Message, MsgCodes.ResultSubscribeProperty, MsgData, RetValue);
 
+            // all'atto della sottoscrizione invio valore attuale della property
             if (RetValue) 
             {
                 PropertyNotifyToSubscriber(Message.SourceApplicationName, prop);
@@ -789,14 +823,23 @@ namespace Manager
 
             Logger.InfoFormat("{0}", Message.SourceApplicationName);
 
-            foreach(var prop in props)
+            for (int i = 0; i < props.Count(); i++)
             {
-                if (!SubscribeProperty(Message.SourceApplicationName, prop)) { RetValue = false; }
+                var prop = props[i];
+                if (!SubscribeProperty(Message.SourceApplicationName, prop)) 
+                { 
+                    RetValue = false;
+                    prop.Validation = false;
+                }
+                else
+                {
+                    prop.Validation = true;
+                }
+                
             }
-            /* invio messaggio di risposta */
-            RetValue = SendResponse(Message, RetValue);
 
-            return RetValue;
+            /* invio messaggio di risposta */
+            return SendResponse(Message, MsgCodes.ResultSubscribeProperties, MsgData, RetValue);
         }
 
         private bool RemoveProperty(string subscriber, Property prop)
@@ -843,9 +886,7 @@ namespace Manager
             RetValue = RemoveProperty(Message.SourceApplicationName, prop);
 
             /* invio messaggio di risposta */
-            RetValue = SendResponse(Message, RetValue);
-
-            return RetValue;
+            return SendResponse(Message, MsgCodes.ResultRemoveProperty, MsgData, RetValue);
         }
 
         private bool RemoveProperties(IIncomingMessage Message)
@@ -858,16 +899,31 @@ namespace Manager
 
             Logger.InfoFormat("{0}", Message.SourceApplicationName);
 
-            foreach (var prop in props)
+            for (int i = 0; i < props.Count(); i++)
             {
-                if (!RemoveProperty(Message.SourceApplicationName, prop)) { RetValue = false; }
+                var prop = props[i];
+                if (!RemoveProperty(Message.SourceApplicationName, prop)) 
+                { 
+                    RetValue = false;
+                    prop.Validation = false;
+                }
+                else
+                {
+                    prop.Validation = true;
+                }
+                
             }
-            /* invio messaggio di risposta */
-            RetValue = SendResponse(Message, RetValue);
 
-            return RetValue;
+            /* invio messaggio di risposta */
+            return SendResponse(Message, MsgCodes.ResultRemoveProperties, MsgData, RetValue);
         }
 
+        /// <summary>
+        /// Ricezione messaggio di valore di plctag sottoscritto cambiato
+        /// se la property associata è sottoscritta invio messaggio di notifica al sottoscrittore
+        /// </summary>
+        /// <param name="Message"></param>
+        /// <returns><c>true</c> if the tag is effectively subscribed; otherwise, <c>false</c>.</returns>
         private bool PLCTagChanged(IIncomingMessage Message)
         {
             bool RetValue = true;
@@ -876,26 +932,26 @@ namespace Manager
             var MsgData = GeneralHelper.DeserializeObject(Message.MessageData) as PLCTagData;
             var plctag = MsgData.Tag;
 
-            Logger.InfoFormat("Ricevuto Messaggio {1}/{2}:{3} da {0}", Message.SourceApplicationName, plctag.PLCName, plctag.Address, plctag.Value);
+            Logger.InfoFormat("{0} -> {1}/{2}:{3}", Message.SourceApplicationName, plctag.PLCName, plctag.Address, plctag.Value);
 
-            // trova il tag corrispondente (uno solo) all'indirizzo sottoscritto
-            TagItem tag = ListTagItems.FirstOrDefault(item => item.PLCName == plctag.PLCName && item.Address == plctag.Address);
-
-            if (tag != null)
+            // trova il tag corrispondente all'indirizzo sottoscritto
+            TagItem tag;
+            if((tag = ListTagItems.FirstOrDefault(item => item.PLCName == plctag.PLCName && item.Address == plctag.Address))!=null)
             {
                 // 
                 try
                 {
                     tag.Value = MsgData.Tag.Value;
-                    Logger.InfoFormat("Cambiato Tag {0} : {1}/{2}:{3} -> {4}", tag.Name, tag.PLCName, tag.Address, tag.Type, tag.Value);
                 }
                 catch (Exception exc)
                 {
                     Logger.WarnFormat("Errore in cambio Tag value {0} : {1}/{2}:{3} -> {4} {5}", tag.Name, tag.PLCName, tag.Address, tag.Type, tag.Value,exc.Message);
+                    RetValue = false;
                 }
                 
-                // recuperare la lista delle properties dell'impianto
+                // recupero la lista delle properties dell'impianto
                 List<MariniProperty> props = mariniImpiantoTree.MariniImpianto.GetObjectListByType(typeof(MariniProperty)).Cast<MariniProperty>().ToList();
+
                 // trova la property associata e cambia il valore
                 MariniProperty property = props.FirstOrDefault(prp=> prp.bind == tag.Name);
 
@@ -908,6 +964,7 @@ namespace Manager
                     catch (Exception exc)
                     {
                         Logger.WarnFormat("Errore in cambio valore property {0}:{1} {2}", property.name,tag.Value,exc.Message);
+                        RetValue = false;
                     }
                 }
             }
@@ -977,7 +1034,11 @@ namespace Manager
         }
 
 
-        // metodo chiamato sul cambiamento del valore di una property non originata da PLCtag
+        /// <summary>
+        /// metodo chiamato sul cambiamento del valore di una property
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void PropertyValueChangedHandler(object sender, PropertyChangedEventArgs e)
         {
             MariniProperty mp = sender as MariniProperty;
@@ -996,11 +1057,14 @@ namespace Manager
                     break;
             }
 
-            // trovo l'eventuale sottoscrizione 
+            // notifico l'eventuale sottoscrizione 
             ObjectPropertyNotifyToSubscribers(mp);
         }
 
-        // invia la notifica ai sottoscrittori 
+        /// <summary>
+        /// invia la notifica ai sottoscrittori 
+        /// </summary>
+        /// <param name="mp">Property to notify</param>
         private void ObjectPropertyNotifyToSubscribers(MariniProperty mp)
         {
             foreach (var subscriber in ListSubscriptions.Keys)
@@ -1017,8 +1081,6 @@ namespace Manager
 
                 if (property != null)
                 {
-                    bool bOK = true;
-
                     // assegno il valore alla property
                     property.Value = mp.value;
 
@@ -1050,7 +1112,6 @@ namespace Manager
                     {
                         // non sono riuscito a inviare il messaggio
                         Logger.WarnFormat("valore non inviato - {0}", exc.Message);
-                        bOK = false;
                     }
                 }
             }
@@ -1160,34 +1221,34 @@ namespace Manager
             return bOK;
         }
 
-        private bool SendResponse(IIncomingMessage Message,bool bOK)
+
+        private bool SendResponse(IIncomingMessage receivedMsg, MsgCodes MsgCode, MsgData MessageData, bool Result)
         {
+            bool bOK = true;
+            var message = mdsClient.CreateMessage();
 
-            //Create a DotNetMQ Message to respond
-            var ResponseMessage = Message.CreateResponseMessage();
-            var ResponseData = new ResponseData
-            {
-                Response = bOK
-            };
+            // Set message data
+            MessageData.MsgCode = MsgCode;
+            MessageData.validation = Result;
 
-            //Set message data
-            ResponseMessage.MessageData = GeneralHelper.SerializeObject(ResponseData);
-            ResponseMessage.TransmitRule = MessageTransmitRules.NonPersistent;
+            // Set message params
+            message.MessageData = GeneralHelper.SerializeObject(MessageData);
+            message.DestinationApplicationName = receivedMsg.SourceApplicationName;
+            message.TransmitRule = MessageTransmitRules.NonPersistent;
 
             try
             {
                 //Send message
-                ResponseMessage.Send();
-
-                Logger.InfoFormat("Inviata Risposta a {0}", ResponseMessage.DestinationApplicationName);
+                message.Send();
+                Logger.InfoFormat("Inviato msg a {0}", message.DestinationApplicationName);
             }
             catch (Exception exc)
             {
                 // non sono riuscito a inviare il messaggio
-                Logger.WarnFormat("Risposta non inviata - {0}", exc.Message);
-
+                Logger.WarnFormat("Messaggio non inviato - {0}", exc.Message);
                 bOK = false;
             }
+
             return bOK;
         }
 

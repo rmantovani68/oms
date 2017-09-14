@@ -1,0 +1,385 @@
+<?xml version="1.0"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.marini.fayat.com/impianto.xsd"
+  xmlns="http://www.marini.fayat.com/impianto.xsd" elementFormDefault="qualified">
+
+  <xs:annotation>
+    <xs:documentation xml:lang="en">
+      plant schema definition
+    </xs:documentation>
+  </xs:annotation>
+
+  <!-- Impianto -->
+
+  <xs:element name="Impianto">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ZonaPredosaggio"    minOccurs="0" maxOccurs="1" type="zona_predosaggio_type"/>
+        <xs:element name="ZonaEssiccazione"   minOccurs="0" maxOccurs="1" type="zona_essiccazione_type"/>
+        <xs:element name="ZonaDosaggio"       minOccurs="0" maxOccurs="1" type="zona_dosaggio_type"/>
+        <xs:element name="ZonaCisterne"       minOccurs="0" maxOccurs="1" type="zona_cisterne_type"/>
+        <xs:element name="ZonaStoccaggio"     minOccurs="0" maxOccurs="1" type="zona_stoccaggio_type"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="obj_attributes_group"/>
+    </xs:complexType>
+  </xs:element>
+
+  <!--                      -->
+  <!-- Definizione dei tipi -->
+  <!--                      -->
+
+  <!-- ZONA PREDOSAGGIO -->
+  <xs:complexType name ="zona_predosaggio_type">
+    <xs:sequence>
+      <xs:element name="Predosatore" minOccurs="0" maxOccurs="unbounded" type="predosatore_type"/>
+      <xs:element name="Bilancia"    minOccurs="0" maxOccurs="unbounded" type="bilancia_type"/>
+      <xs:element name="Nastro"      minOccurs="0" maxOccurs="unbounded" type="nastro_type"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="obj_attributes_group"/>
+  </xs:complexType>
+
+  <!-- ZONA ESSICCAZIONE -->
+  <xs:complexType name ="zona_essiccazione_type">
+    <xs:sequence>
+      <xs:element name="Tamburo"   minOccurs="0" maxOccurs="unbounded" type="tamburo_type"/>
+      <xs:element name="Elevatore" minOccurs="0" maxOccurs="unbounded" type="elevatore_type"/>
+      <xs:element name="Filtro"    minOccurs="0" maxOccurs="unbounded" type="filtro_type"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="obj_attributes_group"/>
+  </xs:complexType>
+
+  <!-- ZONA DOSAGGIO -->
+  <xs:complexType name ="zona_dosaggio_type">
+    <xs:sequence>
+      <xs:element name="Vaglio"      minOccurs="0" maxOccurs="unbounded" type="vaglio_type"/>
+      <xs:element name="Bilancia"    minOccurs="0" maxOccurs="unbounded" type="bilancia_type"/>
+      <xs:element name="Tramoggia"   minOccurs="0" maxOccurs="unbounded" type="tramoggia_type"/>
+      <xs:element name="Mescolatore" minOccurs="0" maxOccurs="unbounded" type="mescolatore_type"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="obj_attributes_group"/>
+  </xs:complexType>
+
+  <!-- ZONA STOCCAGGIO -->
+  <xs:complexType name ="zona_stoccaggio_type">
+    <xs:sequence>
+      <xs:element name="Silos"   minOccurs="0" maxOccurs="unbounded" type="silos_type"/>
+      <xs:element name="Navetta" minOccurs="0" maxOccurs="unbounded" type="navetta_type"/>
+      <xs:element name="Nastro"  minOccurs="0" maxOccurs="unbounded" type="nastro_type"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="obj_attributes_group"/>
+  </xs:complexType>
+
+  <!-- ZONA CISTERNE -->
+  <xs:complexType name ="zona_cisterne_type">
+    <xs:sequence>
+      <xs:element name="Cisterna" minOccurs="0" maxOccurs="unbounded" type="cisterna_type"/>
+      <xs:element name="Nastro"   minOccurs="0" maxOccurs="unbounded" type="nastro_type"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="obj_attributes_group"/>
+  </xs:complexType>
+
+  <!-- NASTRO -->
+  <xs:complexType name ="nastro_type">
+    <xs:sequence>
+      <xs:element name="Motore" minOccurs="0" maxOccurs="unbounded" type="motore_type"/>
+      <xs:element name="Property" minOccurs="0" maxOccurs="unbounded" type="property_type"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="obj_attributes_group"/>
+  </xs:complexType>
+
+
+  <!-- TAMBURO -->
+  <xs:complexType name ="tamburo_type">
+    <xs:sequence>
+      <xs:element name="Property" minOccurs="0" maxOccurs="unbounded" type="property_type"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="obj_attributes_group"/>
+  </xs:complexType>
+
+  <!-- TRAMOGGIA -->
+  <xs:complexType name ="tramoggia_type">
+    <xs:sequence>
+      <xs:element name="Property" minOccurs="0" maxOccurs="unbounded" type="property_type"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="obj_attributes_group"/>
+  </xs:complexType>
+
+  <!-- SILOS -->
+  <xs:complexType name ="silos_type">
+    <xs:sequence>
+      <xs:element name="Property" minOccurs="0" maxOccurs="unbounded" type="property_type"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="obj_attributes_group"/>
+  </xs:complexType>
+
+  <!-- NAVETTA -->
+  <xs:complexType name ="navetta_type">
+    <xs:sequence>
+      <xs:element name="Property" minOccurs="0" maxOccurs="unbounded" type="property_type"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="obj_attributes_group"/>
+  </xs:complexType>
+
+
+  <!-- CISTERNA -->
+  <xs:complexType name ="cisterna_type">
+    <xs:sequence>
+      <xs:element name="Property" minOccurs="0" maxOccurs="unbounded" type="property_type"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="obj_attributes_group"/>
+  </xs:complexType>
+
+  <!-- MESCOLATORE -->
+  <xs:complexType name ="mescolatore_type">
+    <xs:sequence>
+      <xs:element name="Property" minOccurs="0" maxOccurs="unbounded" type="property_type"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="obj_attributes_group"/>
+  </xs:complexType>
+
+  <!-- VAGLIO -->
+  <xs:complexType name ="vaglio_type">
+    <xs:sequence>
+      <xs:element name="Property" minOccurs="0" maxOccurs="unbounded" type="property_type"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="obj_attributes_group"/>
+  </xs:complexType>
+
+  <!-- FILTRO -->
+  <xs:complexType name ="filtro_type">
+    <xs:sequence>
+      <xs:element name="Property" minOccurs="0" maxOccurs="unbounded" type="property_type"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="obj_attributes_group"/>
+  </xs:complexType>
+
+  <!-- PREDOSATORE -->
+  <xs:complexType name ="predosatore_type">
+    <xs:sequence>
+      <xs:element name="Grafico" minOccurs="0" maxOccurs="1" type="grafico_predosatore_type"/>
+      <xs:element name="SetPredosatore" minOccurs="0" maxOccurs="unbounded" type="set_predosatore_type"/>
+      <xs:element name="Property" minOccurs="0" maxOccurs="unbounded" type="property_type"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="obj_attributes_group"/>
+    <xs:attribute name="set" type="xs:integer"/>
+  </xs:complexType>
+  
+  <!-- SET PREDOSATORE TYPE -->
+  <xs:complexType name="set_predosatore_type">
+
+    <xs:attribute name="set" type="xs:integer"/>
+    <xs:attribute name="setOra" type="xs:long"/>
+    <xs:attribute name="tempoStart"  type="xs:long"/>
+    <xs:attribute name="tempoStop" type="xs:long"/>
+    <xs:attribute name="cambioManuale" type="xs:boolean"/>
+
+  </xs:complexType>
+
+  <!-- grafico predosatore definition -->
+  <xs:complexType name ="grafico_predosatore_type">
+    <xs:sequence>
+      <xs:element name="Curva" minOccurs="0" maxOccurs="unbounded" type="curva_predosatore_type"/>
+    </xs:sequence>
+    <xs:attribute name="curvaAttiva" type="xs:integer"/>
+  </xs:complexType>
+
+  <!-- curva predosatore definition -->
+  <xs:complexType name ="curva_predosatore_type">
+    <xs:sequence>
+      <xs:element name="ValoreCurva" minOccurs="0" maxOccurs="unbounded" type="valore_curva_type"/>
+    </xs:sequence>
+    <xs:attribute name="IdMaterialeLog" type="xs:long"/>
+  </xs:complexType>
+
+  <!-- valori curva predosatore definition -->
+  <xs:complexType name ="valore_curva_type">
+    <xs:attribute name="valore" type="xs:integer"/>
+    <xs:attribute name="percento" type="PercentType"/>
+  </xs:complexType>
+
+<!--
+  '   Struttura contenente il set di un predosatore
+  Public Type SetPredosatoreType
+
+    set As Integer
+
+    '   Ora per verificare due set consecutivi
+    setOra As Long
+
+    tempoStart As Long
+    tempoStop As Long
+
+    cambioManuale As Boolean
+
+  End Type
+-->
+
+
+
+  <!--
+  Public Type CurvaPredosatoreType
+  Nome As String
+
+    'Dati taratura predosatore
+    valori(0 To MAXPUNTICURVAPREDOSATORE - 1) As Integer
+
+    'Valore introdotto del potenziometro individuale predosatore
+    percento(0 To MAXPUNTICURVAPREDOSATORE - 1) As Integer
+
+    IdMaterialeLog As Long
+
+  End Type
+-->
+
+<!--
+
+  Public Type GraficoPredosatoreType
+
+    'Inclusione serie di 5 dati da introdurre. (ex SerieDatiPred)
+    curvaAttiva As Integer '0, 1 o 2 per primo, secondo o terzo grafico
+
+    curva(0 To MAXCURVEPREDOSATORE - 1) As CurvaPredosatoreType
+
+  End Type
+-->
+  
+  <!-- ELEVATORE -->
+  <xs:complexType name ="elevatore_type">
+    <xs:sequence>
+      <xs:element name="Property" minOccurs="0" maxOccurs="unbounded" type="property_type"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="obj_attributes_group"/>
+  </xs:complexType>
+
+  <!-- Bilancia -->
+  <xs:complexType name ="bilancia_type">
+    <xs:sequence>
+      <xs:element name="Property" minOccurs="0" maxOccurs="unbounded" type="property_type"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="obj_attributes_group"/>
+  </xs:complexType>
+
+  <!-- AMPEROMETRO -->
+  <xs:complexType name ="amperometro_type">
+    <xs:sequence>
+      <xs:element name="Property" minOccurs="0" maxOccurs="unbounded" type="property_type"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="obj_attributes_group"/>
+  </xs:complexType>
+
+  <!-- MOTORE -->
+  <xs:complexType name="motore_type">
+    <xs:sequence>
+      <xs:element name="Amperometro" minOccurs="0" maxOccurs="1" type="amperometro_type"/>
+      <xs:element name="Property" minOccurs="0" maxOccurs="unbounded" type="property_type"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="obj_attributes_group"/>
+  </xs:complexType>
+
+  <!-- PLCTAG -->
+  <xs:complexType name="plctag_type">
+    <xs:attributeGroup ref="obj_attributes_group"/>
+    <xs:attribute name="tagid" type="xs:string"/>
+  </xs:complexType>
+
+  <!-- PROPERTY -->
+  <xs:complexType name="property_type">
+    <xs:attributeGroup ref="prop_attributes_group"/>
+  </xs:complexType>
+
+  <!--                         -->
+  <!-- simple types definition -->
+  <!--                         -->
+
+  <!-- property type definition -->
+  <xs:simpleType name="PropertyType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Int"/>
+      <xs:enumeration value="Dint"/>
+      <xs:enumeration value="Bool"/>
+      <xs:enumeration value="Long"/>
+      <xs:enumeration value="Real"/>
+      <xs:enumeration value="Byte"/>
+      <xs:enumeration value="Word"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- persistence type definition -->
+  <xs:simpleType name="PersistenceType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Auto"/>
+      <xs:enumeration value="Manual"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- stato predosatore type definition -->
+  <xs:simpleType name="StatoPredosatoreType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Stop"/>
+      <xs:enumeration value="Stopping"/>
+      <xs:enumeration value="Start"/>
+      <xs:enumeration value="Starting"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- percent type definition -->
+  <xs:simpleType name="PercentType">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="100"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- binddirection type definition -->
+  <xs:simpleType name="BindDirectionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Default"/>
+      <xs:enumeration value="OneTime"/>
+      <xs:enumeration value="OneWay"/>
+      <xs:enumeration value="OneWaySource"/>
+      <xs:enumeration value="TwoWay"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- bind type definition -->
+  <xs:simpleType name="BindType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PLCTag"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- bool type definition -->
+  <xs:simpleType name="BoolType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="true"/>
+      <xs:enumeration value="false"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!--                                  -->
+  <!--   Attributes groups definitions  -->
+  <!--                                  -->
+
+  <!-- Object Attributes Group -->
+  <xs:attributeGroup name="obj_attributes_group">
+    <xs:attribute name="id" type="xs:string"/>
+    <xs:attribute name="name" type="xs:string"/>
+    <xs:attribute name="type" type="xs:string"/>
+  </xs:attributeGroup>
+
+  <!-- Property Attributes Group -->
+  <xs:attributeGroup name="prop_attributes_group">
+    <xs:attribute name="id" type="xs:string"/>
+    <xs:attribute name="name" type="xs:string"/>
+    <xs:attribute name="bind" type="xs:string"/>
+    <xs:attribute name="bindtype" type="BindType"/>
+    <xs:attribute name="binddirection" type="BindDirectionType"/>
+    <xs:attribute name="value" type="xs:string"/>
+    <xs:attribute name="persistence" type="PersistenceType"/>
+    <xs:attribute name="type" type="PropertyType"/>
+  </xs:attributeGroup>
+
+
+
+
+</xs:schema>

@@ -1,0 +1,515 @@
+INFO  2017-05-09 17:31:45,565 [11   ] MariniWcfService.MariniRestService       - GetPropertyValue di MOTORE_02:name 
+INFO  2017-05-09 17:31:45,656 [11   ] MariniImpianti.MariniImpiantoTree        - Creata l'Istanza di MariniImpiantoTree
+INFO  2017-05-09 17:42:30,132 [11   ] MariniWcfService.MariniRestService       - GetPropertyValue di MOTORE_02:name 
+INFO  2017-05-09 17:42:30,158 [11   ] MariniImpianti.MariniImpiantoTree        - Creata l'Istanza di MariniImpiantoTree
+INFO  2017-05-09 17:48:44,448 [9    ] MariniWcfService.MariniRestService       - GetPropertyValue di MOTORE_02:name 
+INFO  2017-05-09 17:48:44,477 [9    ] MariniImpianti.MariniImpiantoTree        - Creata l'Istanza di MariniImpiantoTree
+INFO  2017-05-09 17:48:50,354 [10   ] MariniWcfService.MariniRestService       - GetPropertyValue di MOTORE_02:name 
+INFO  2017-05-09 17:48:59,292 [9    ] MariniWcfService.MariniRestService       - ChangePropertyValue di MOTORE_02:name con valore NUOVISSIMISSIMO
+DEBUG 2017-05-09 17:48:59,293 [9    ] riniImpianti.MariniImpiantoEventHandlers - Sono in MariniImpiantoEventHandlers.MyMotoreHandler, il sender e' MOTORE_02 e la proprieta' e' : name!!!!
+INFO  2017-05-09 17:49:06,767 [9    ] MariniWcfService.MariniRestService       - GetPropertyValue di MOTORE_02:name 
+INFO  2017-05-09 17:51:09,667 [11   ] MariniWcfService.MariniRestService       - ChangePropertyValue di MOTORE_02:description con valore NUOVISSIMISSIMA
+DEBUG 2017-05-09 17:51:09,667 [11   ] riniImpianti.MariniImpiantoEventHandlers - Sono in MariniImpiantoEventHandlers.MyMotoreHandler, il sender e' MOTORE_02 e la proprieta' e' : description!!!!
+INFO  2017-05-09 17:51:23,859 [18   ] MariniWcfService.MariniRestService       - GetPropertyValue di MOTORE_02:description 
+INFO  2017-05-09 17:51:46,059 [11   ] MariniWcfService.MariniRestService       - GetPropertyValue di MOTORE_02:description 
+INFO  2017-05-09 17:52:01,883 [19   ] MariniWcfService.MariniRestService       - ChangePropertyValue di MOTORE_02:description con valore NUOVISSIMISSIMA
+INFO  2017-05-09 17:52:25,241 [19   ] MariniWcfService.MariniRestService       - ChangePropertyValue di MOTORE_02:name con valore NUOVISSIMISSIMO_3
+DEBUG 2017-05-09 17:52:25,242 [19   ] riniImpianti.MariniImpiantoEventHandlers - Sono in MariniImpiantoEventHandlers.MyMotoreHandler, il sender e' MOTORE_02 e la proprieta' e' : name!!!!
+INFO  2017-05-09 17:52:41,440 [19   ] MariniWcfService.MariniRestService       - ChangePropertyValue di MOTORE_02:name con valore NUOVISSIMISSIMO_4
+DEBUG 2017-05-09 17:52:41,440 [19   ] riniImpianti.MariniImpiantoEventHandlers - Sono in MariniImpiantoEventHandlers.MyMotoreHandler, il sender e' MOTORE_02 e la proprieta' e' : name!!!!
+INFO  2017-05-09 17:52:46,974 [21   ] MariniWcfService.MariniRestService       - GetPropertyValue di MOTORE_02:name 
+INFO  2017-05-09 17:53:19,403 [17   ] MariniWcfService.MariniRestService       - GetPropertyValue di MOTORE_02:name 
+INFO  2017-05-09 17:53:23,719 [26   ] MariniWcfService.MariniRestService       - GetPropertyValue di MOTORE_02:name 
+INFO  2017-05-09 17:53:24,331 [26   ] MariniWcfService.MariniRestService       - GetPropertyValue di MOTORE_02:name 
+INFO  2017-05-09 17:53:24,702 [26   ] MariniWcfService.MariniRestService       - GetPropertyValue di MOTORE_02:name 
+INFO  2017-05-09 17:53:24,942 [26   ] MariniWcfService.MariniRestService       - GetPropertyValue di MOTORE_02:name 
+INFO  2017-05-09 17:53:25,138 [26   ] MariniWcfService.MariniRestService       - GetPropertyValue di MOTORE_02:name 
+INFO  2017-05-09 17:53:25,332 [26   ] MariniWcfService.MariniRestService       - GetPropertyValue di MOTORE_02:name 
+INFO  2017-05-09 17:53:25,572 [26   ] MariniWcfService.MariniRestService       - GetPropertyValue di MOTORE_02:name 
+INFO  2017-05-09 17:53:25,774 [26   ] MariniWcfService.MariniRestService       - GetPropertyValue di MOTORE_02:name 
+INFO  2017-05-09 17:54:27,286 [17   ] MariniWcfService.MariniRestService       - GetPropertyValue di MOTORE_02:name 
+INFO  2017-05-09 17:54:35,044 [31   ] MariniWcfService.MariniRestService       - GetPropertyValue di MOTORE_02:description 
+INFO  2017-05-09 17:54:53,717 [31   ] MariniWcfService.MariniRestService       - ChangePropertyValue di MOTORE_02:description con valore NUOVISSIMISSIMA
+INFO  2017-05-09 17:55:07,788 [31   ] MariniWcfService.MariniRestService       - ChangePropertyValue di MOTORE_02:description con valore M2descr1
+DEBUG 2017-05-09 17:55:07,788 [31   ] riniImpianti.MariniImpiantoEventHandlers - Sono in MariniImpiantoEventHandlers.MyMotoreHandler, il sender e' MOTORE_02 e la proprieta' e' : description!!!!
+INFO  2017-05-09 17:57:54,335 [31   ] MariniWcfService.MariniRestService       - ChangePropertyValue di MOTORE_02:description con valore M2descr2
+DEBUG 2017-05-09 17:57:54,335 [31   ] riniImpianti.MariniImpiantoEventHandlers - Sono in MariniImpiantoEventHandlers.MyMotoreHandler, il sender e' MOTORE_02 e la proprieta' e' : description!!!!
+INFO  2017-05-12 11:26:46,322 [8    ] MariniWcfService.MariniRestService       - GetPropertyValue di MOTORE_02:description 
+DEBUG 2017-05-12 11:26:46,343 [8    ] MariniImpianti.MariniImpiantoTree        - ---> MariniImpiantoTree(string filename)
+DEBUG 2017-05-12 11:26:46,351 [8    ] MariniImpianti.MariniImpiantoTree        - Tento la creazione di MariniImpianto dal file XML: Q:\VARIE\ael\new-project\doc\analisi\impianto.xml
+DEBUG 2017-05-12 11:26:46,354 [8    ] MariniImpianti.MariniImpiantoTree        - IMPIANTO - Nessun handler trovato
+DEBUG 2017-05-12 11:26:46,354 [8    ] MariniImpianti.MariniImpiantoTree        - ZONA_PREDOSAGGIO - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:26:46,354 [8    ] MariniImpianti.MariniImpiantoTree        - PRED_01 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:26:46,354 [8    ] MariniImpianti.MariniImpiantoTree        - PRESENTE_01 - Nessun handler trovato
+DEBUG 2017-05-12 11:26:46,354 [8    ] MariniImpianti.MariniImpiantoTree        - BIL_02 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:26:46,354 [8    ] MariniImpianti.MariniImpiantoTree        - TEMPO_STAB_02 - Nessun handler trovato
+DEBUG 2017-05-12 11:26:46,354 [8    ] MariniImpianti.MariniImpiantoTree        - TOLLERANZA_02 - Nessun handler trovato
+DEBUG 2017-05-12 11:26:46,354 [8    ] MariniImpianti.MariniImpiantoTree        - PRESENTE_02 - Nessun handler trovato
+DEBUG 2017-05-12 11:26:46,355 [8    ] MariniImpianti.MariniImpiantoTree        - NASTRO_01 - Nessun handler trovato
+DEBUG 2017-05-12 11:26:46,355 [8    ] MariniImpianti.MariniImpiantoTree        - MOTORE_01 - Nessun handler trovato
+DEBUG 2017-05-12 11:26:46,355 [8    ] MariniImpianti.MariniImpiantoTree        - AMP_MOT_01 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:26:46,355 [8    ] MariniImpianti.MariniImpiantoTree        - CMD_MOT_01 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:26:46,355 [8    ] MariniImpianti.MariniImpiantoTree        - ALRM_MOT_01 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:26:46,355 [8    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_DI_RitMotore01 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:26:46,355 [8    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_Ritorno_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:26:46,355 [8    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_RitornoIndietro_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:26:46,355 [8    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_ForzatoDarwin_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:26:46,355 [8    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_AllarmeMotore_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:26:46,355 [8    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_BloccoMotore_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:26:46,355 [8    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_AccesoForzatoPLC_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:26:46,355 [8    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_SpentoForzatoPLC_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:26:46,355 [8    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_ZonaAsservimenti_AsservimentiDefault_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:26:46,355 [8    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_CMD_SemiAuto_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:26:46,355 [8    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_CMD_InvSemiAuto_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:26:46,355 [8    ] MariniImpianti.MariniImpiantoTree        - NO_ID - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:26:46,355 [8    ] MariniImpianti.MariniImpiantoTree        - PRED_02 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:26:46,355 [8    ] MariniImpianti.MariniImpiantoTree        - PRESENTE_003 - Nessun handler trovato
+DEBUG 2017-05-12 11:26:46,355 [8    ] MariniImpianti.MariniImpiantoTree        - BIL_04 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:26:46,355 [8    ] MariniImpianti.MariniImpiantoTree        - TEMPO_STAB_04 - Nessun handler trovato
+DEBUG 2017-05-12 11:26:46,355 [8    ] MariniImpianti.MariniImpiantoTree        - TOLLERANZA_04 - Nessun handler trovato
+DEBUG 2017-05-12 11:26:46,355 [8    ] MariniImpianti.MariniImpiantoTree        - PRESENTE_04 - Nessun handler trovato
+DEBUG 2017-05-12 11:26:46,355 [8    ] MariniImpianti.MariniImpiantoTree        - NASTRO_02 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:26:46,355 [8    ] MariniImpianti.MariniImpiantoTree        - MOTORE_02 - Nessun handler trovato
+DEBUG 2017-05-12 11:26:46,355 [8    ] MariniImpianti.MariniImpiantoTree        - AMP_02 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:26:46,355 [8    ] MariniImpianti.MariniImpiantoTree        - LIMITE_MINIMO_02 - Nessun handler trovato
+DEBUG 2017-05-12 11:26:46,355 [8    ] MariniImpianti.MariniImpiantoTree        - LIMITE_MASSIMO_02 - Nessun handler trovato
+DEBUG 2017-05-12 11:26:46,355 [8    ] MariniImpianti.MariniImpiantoTree        - PRESENTE_005 - Nessun handler trovato
+DEBUG 2017-05-12 11:26:46,355 [8    ] MariniImpianti.MariniImpiantoTree        - TAMBURO - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:26:46,355 [8    ] MariniImpianti.MariniImpiantoTree        - FILTRO - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:26:46,355 [8    ] MariniImpianti.MariniImpiantoTree        - <--- MariniImpiantoTree(string filename)
+WARN  2017-05-12 11:26:46,355 [8    ] MariniImpianti.MariniImpiantoTree        - Creata l'Istanza DI DEFAULT di MariniImpiantoTree
+INFO  2017-05-12 11:31:22,887 [9    ] MariniWcfService.MariniRestService       - GetPropertyValue di MOTORE_02:description 
+DEBUG 2017-05-12 11:31:22,895 [9    ] MariniImpianti.MariniImpiantoTree        - ---> MariniImpiantoTree(string filename)
+DEBUG 2017-05-12 11:31:22,901 [9    ] MariniImpianti.MariniImpiantoTree        - Tento la creazione di MariniImpianto dal file XML: Q:\VARIE\ael\new-project\doc\analisi\impianto.xml
+DEBUG 2017-05-12 11:31:22,905 [9    ] MariniImpianti.MariniImpiantoTree        - IMPIANTO - Nessun handler trovato
+DEBUG 2017-05-12 11:31:22,905 [9    ] MariniImpianti.MariniImpiantoTree        - ZONA_PREDOSAGGIO - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:31:22,905 [9    ] MariniImpianti.MariniImpiantoTree        - PRED_01 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:31:22,905 [9    ] MariniImpianti.MariniImpiantoTree        - PRESENTE_01 - Nessun handler trovato
+DEBUG 2017-05-12 11:31:22,905 [9    ] MariniImpianti.MariniImpiantoTree        - BIL_02 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:31:22,905 [9    ] MariniImpianti.MariniImpiantoTree        - TEMPO_STAB_02 - Nessun handler trovato
+DEBUG 2017-05-12 11:31:22,905 [9    ] MariniImpianti.MariniImpiantoTree        - TOLLERANZA_02 - Nessun handler trovato
+DEBUG 2017-05-12 11:31:22,905 [9    ] MariniImpianti.MariniImpiantoTree        - PRESENTE_02 - Nessun handler trovato
+DEBUG 2017-05-12 11:31:22,905 [9    ] MariniImpianti.MariniImpiantoTree        - NASTRO_01 - Nessun handler trovato
+DEBUG 2017-05-12 11:31:22,905 [9    ] MariniImpianti.MariniImpiantoTree        - MOTORE_01 - Nessun handler trovato
+DEBUG 2017-05-12 11:31:22,905 [9    ] MariniImpianti.MariniImpiantoTree        - AMP_MOT_01 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:31:22,905 [9    ] MariniImpianti.MariniImpiantoTree        - CMD_MOT_01 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:31:22,905 [9    ] MariniImpianti.MariniImpiantoTree        - ALRM_MOT_01 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:31:22,905 [9    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_DI_RitMotore01 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:31:22,905 [9    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_Ritorno_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:31:22,905 [9    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_RitornoIndietro_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:31:22,905 [9    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_ForzatoDarwin_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:31:22,905 [9    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_AllarmeMotore_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:31:22,905 [9    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_BloccoMotore_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:31:22,905 [9    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_AccesoForzatoPLC_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:31:22,905 [9    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_SpentoForzatoPLC_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:31:22,905 [9    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_ZonaAsservimenti_AsservimentiDefault_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:31:22,905 [9    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_CMD_SemiAuto_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:31:22,905 [9    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_CMD_InvSemiAuto_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:31:22,905 [9    ] MariniImpianti.MariniImpiantoTree        - NO_ID - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:31:22,905 [9    ] MariniImpianti.MariniImpiantoTree        - PRED_02 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:31:22,905 [9    ] MariniImpianti.MariniImpiantoTree        - PRESENTE_003 - Nessun handler trovato
+DEBUG 2017-05-12 11:31:22,905 [9    ] MariniImpianti.MariniImpiantoTree        - BIL_04 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:31:22,905 [9    ] MariniImpianti.MariniImpiantoTree        - TEMPO_STAB_04 - Nessun handler trovato
+DEBUG 2017-05-12 11:31:22,905 [9    ] MariniImpianti.MariniImpiantoTree        - TOLLERANZA_04 - Nessun handler trovato
+DEBUG 2017-05-12 11:31:22,905 [9    ] MariniImpianti.MariniImpiantoTree        - PRESENTE_04 - Nessun handler trovato
+DEBUG 2017-05-12 11:31:22,905 [9    ] MariniImpianti.MariniImpiantoTree        - NASTRO_02 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:31:22,905 [9    ] MariniImpianti.MariniImpiantoTree        - MOTORE_02 - Nessun handler trovato
+DEBUG 2017-05-12 11:31:22,905 [9    ] MariniImpianti.MariniImpiantoTree        - AMP_02 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:31:22,905 [9    ] MariniImpianti.MariniImpiantoTree        - LIMITE_MINIMO_02 - Nessun handler trovato
+DEBUG 2017-05-12 11:31:22,905 [9    ] MariniImpianti.MariniImpiantoTree        - LIMITE_MASSIMO_02 - Nessun handler trovato
+DEBUG 2017-05-12 11:31:22,905 [9    ] MariniImpianti.MariniImpiantoTree        - PRESENTE_005 - Nessun handler trovato
+DEBUG 2017-05-12 11:31:22,905 [9    ] MariniImpianti.MariniImpiantoTree        - TAMBURO - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:31:22,905 [9    ] MariniImpianti.MariniImpiantoTree        - FILTRO - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:31:22,905 [9    ] MariniImpianti.MariniImpiantoTree        - <--- MariniImpiantoTree(string filename)
+WARN  2017-05-12 11:31:22,905 [9    ] MariniImpianti.MariniImpiantoTree        - *************************************************
+WARN  2017-05-12 11:31:22,906 [9    ] MariniImpianti.MariniImpiantoTree        - Creata l'Istanza DI DEFAULT di MariniImpiantoTree
+WARN  2017-05-12 11:31:22,906 [9    ] MariniImpianti.MariniImpiantoTree        - *************************************************
+INFO  2017-05-12 11:36:45,308 [9    ] MariniWcfService.MariniRestService       - GetPropertyValue di MOTORE_02:description 
+DEBUG 2017-05-12 11:36:45,316 [9    ] MariniImpianti.MariniImpiantoTree        - ---> MariniImpiantoTree(string filename)
+DEBUG 2017-05-12 11:36:45,323 [9    ] MariniImpianti.MariniImpiantoTree        - Tento la creazione di MariniImpianto dal file XML: Q:\VARIE\ael\new-project\doc\analisi\impianto.xml
+DEBUG 2017-05-12 11:36:45,327 [9    ] MariniImpianti.MariniImpiantoTree        - IMPIANTO - Nessun handler trovato
+DEBUG 2017-05-12 11:36:45,327 [9    ] MariniImpianti.MariniImpiantoTree        - ZONA_PREDOSAGGIO - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:36:45,327 [9    ] MariniImpianti.MariniImpiantoTree        - PRED_01 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:36:45,327 [9    ] MariniImpianti.MariniImpiantoTree        - PRESENTE_01 - Nessun handler trovato
+DEBUG 2017-05-12 11:36:45,327 [9    ] MariniImpianti.MariniImpiantoTree        - BIL_02 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:36:45,327 [9    ] MariniImpianti.MariniImpiantoTree        - TEMPO_STAB_02 - Nessun handler trovato
+DEBUG 2017-05-12 11:36:45,327 [9    ] MariniImpianti.MariniImpiantoTree        - TOLLERANZA_02 - Nessun handler trovato
+DEBUG 2017-05-12 11:36:45,327 [9    ] MariniImpianti.MariniImpiantoTree        - PRESENTE_02 - Nessun handler trovato
+DEBUG 2017-05-12 11:36:45,327 [9    ] MariniImpianti.MariniImpiantoTree        - NASTRO_01 - Nessun handler trovato
+DEBUG 2017-05-12 11:36:45,327 [9    ] MariniImpianti.MariniImpiantoTree        - MOTORE_01 - Nessun handler trovato
+DEBUG 2017-05-12 11:36:45,327 [9    ] MariniImpianti.MariniImpiantoTree        - AMP_MOT_01 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:36:45,327 [9    ] MariniImpianti.MariniImpiantoTree        - CMD_MOT_01 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:36:45,327 [9    ] MariniImpianti.MariniImpiantoTree        - ALRM_MOT_01 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:36:45,327 [9    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_DI_RitMotore01 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:36:45,327 [9    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_Ritorno_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:36:45,327 [9    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_RitornoIndietro_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:36:45,327 [9    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_ForzatoDarwin_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:36:45,327 [9    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_AllarmeMotore_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:36:45,327 [9    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_BloccoMotore_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:36:45,327 [9    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_AccesoForzatoPLC_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:36:45,327 [9    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_SpentoForzatoPLC_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:36:45,327 [9    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_ZonaAsservimenti_AsservimentiDefault_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:36:45,327 [9    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_CMD_SemiAuto_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:36:45,327 [9    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_CMD_InvSemiAuto_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:36:45,327 [9    ] MariniImpianti.MariniImpiantoTree        - NO_ID - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:36:45,327 [9    ] MariniImpianti.MariniImpiantoTree        - PRED_02 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:36:45,327 [9    ] MariniImpianti.MariniImpiantoTree        - PRESENTE_003 - Nessun handler trovato
+DEBUG 2017-05-12 11:36:45,327 [9    ] MariniImpianti.MariniImpiantoTree        - BIL_04 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:36:45,327 [9    ] MariniImpianti.MariniImpiantoTree        - TEMPO_STAB_04 - Nessun handler trovato
+DEBUG 2017-05-12 11:36:45,327 [9    ] MariniImpianti.MariniImpiantoTree        - TOLLERANZA_04 - Nessun handler trovato
+DEBUG 2017-05-12 11:36:45,327 [9    ] MariniImpianti.MariniImpiantoTree        - PRESENTE_04 - Nessun handler trovato
+DEBUG 2017-05-12 11:36:45,327 [9    ] MariniImpianti.MariniImpiantoTree        - NASTRO_02 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:36:45,327 [9    ] MariniImpianti.MariniImpiantoTree        - MOTORE_02 - Nessun handler trovato
+DEBUG 2017-05-12 11:36:45,327 [9    ] MariniImpianti.MariniImpiantoTree        - AMP_02 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:36:45,327 [9    ] MariniImpianti.MariniImpiantoTree        - LIMITE_MINIMO_02 - Nessun handler trovato
+DEBUG 2017-05-12 11:36:45,327 [9    ] MariniImpianti.MariniImpiantoTree        - LIMITE_MASSIMO_02 - Nessun handler trovato
+DEBUG 2017-05-12 11:36:45,327 [9    ] MariniImpianti.MariniImpiantoTree        - PRESENTE_005 - Nessun handler trovato
+DEBUG 2017-05-12 11:36:45,327 [9    ] MariniImpianti.MariniImpiantoTree        - TAMBURO - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:36:45,327 [9    ] MariniImpianti.MariniImpiantoTree        - FILTRO - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:36:45,327 [9    ] MariniImpianti.MariniImpiantoTree        - <--- MariniImpiantoTree(string filename)
+WARN  2017-05-12 11:36:45,327 [9    ] MariniImpianti.MariniImpiantoTree        - *************************************************
+WARN  2017-05-12 11:36:45,327 [9    ] MariniImpianti.MariniImpiantoTree        - Creata l'Istanza DI DEFAULT di MariniImpiantoTree
+WARN  2017-05-12 11:36:45,327 [9    ] MariniImpianti.MariniImpiantoTree        - *************************************************
+INFO  2017-05-12 11:36:45,327 [9    ] MariniImpianti.MariniImpiantoTree        - Recupero l'Istanza di MariniImpiantoTree
+INFO  2017-05-12 11:36:45,328 [9    ] MariniImpianti.MariniImpiantoTree        - Recupero l'Istanza di MariniImpiantoTree
+INFO  2017-05-12 11:36:54,648 [7    ] MariniWcfService.MariniRestService       - GetPropertyValue di MOTORE_02:description 
+INFO  2017-05-12 11:36:54,648 [7    ] MariniImpianti.MariniImpiantoTree        - Recupero l'Istanza di MariniImpiantoTree
+INFO  2017-05-12 11:36:54,648 [7    ] MariniImpianti.MariniImpiantoTree        - Recupero l'Istanza di MariniImpiantoTree
+INFO  2017-05-12 11:37:10,831 [7    ] MariniWcfService.MariniRestService       - GetPropertyValue di MOTORE_02:description 
+INFO  2017-05-12 11:37:10,831 [7    ] MariniImpianti.MariniImpiantoTree        - Recupero l'Istanza di MariniImpiantoTree
+INFO  2017-05-12 11:37:10,832 [7    ] MariniImpianti.MariniImpiantoTree        - Recupero l'Istanza di MariniImpiantoTree
+INFO  2017-05-12 11:37:16,786 [7    ] MariniWcfService.MariniRestService       - ChangePropertyValue di MOTORE_02:description con valore NUOVISSIMISSIMA
+INFO  2017-05-12 11:37:16,786 [7    ] MariniImpianti.MariniImpiantoTree        - Recupero l'Istanza di MariniImpiantoTree
+INFO  2017-05-12 11:37:16,786 [7    ] MariniImpianti.MariniImpiantoTree        - Recupero l'Istanza di MariniImpiantoTree
+INFO  2017-05-12 11:37:55,318 [15   ] MariniWcfService.MariniRestService       - GetPropertyValue di MOTORE_02:description 
+INFO  2017-05-12 11:37:55,318 [15   ] MariniImpianti.MariniImpiantoTree        - Recupero l'Istanza di MariniImpiantoTree
+INFO  2017-05-12 11:37:55,318 [15   ] MariniImpianti.MariniImpiantoTree        - Recupero l'Istanza di MariniImpiantoTree
+INFO  2017-05-12 11:55:41,759 [9    ] MariniWcfService.MariniRestService       - ChangePropertyValue di MOTORE_02:description con valore NUOVISSIMISSIMA
+DEBUG 2017-05-12 11:55:41,766 [9    ] MariniImpianti.MariniImpiantoTree        - ---> MariniImpiantoTree(string filename)
+DEBUG 2017-05-12 11:55:41,772 [9    ] MariniImpianti.MariniImpiantoTree        - Tento la creazione di MariniImpianto dal file XML: Q:\VARIE\ael\new-project\doc\analisi\impianto.xml
+DEBUG 2017-05-12 11:55:41,777 [9    ] MariniImpianti.MariniImpiantoTree        - IMPIANTO - Nessun handler trovato
+DEBUG 2017-05-12 11:55:41,777 [9    ] MariniImpianti.MariniImpiantoTree        - ZONA_PREDOSAGGIO - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:55:41,778 [9    ] MariniImpianti.MariniImpiantoTree        - PRED_01 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:55:41,778 [9    ] MariniImpianti.MariniImpiantoTree        - PRESENTE_01 - Nessun handler trovato
+DEBUG 2017-05-12 11:55:41,778 [9    ] MariniImpianti.MariniImpiantoTree        - BIL_02 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:55:41,778 [9    ] MariniImpianti.MariniImpiantoTree        - TEMPO_STAB_02 - Nessun handler trovato
+DEBUG 2017-05-12 11:55:41,778 [9    ] MariniImpianti.MariniImpiantoTree        - TOLLERANZA_02 - Nessun handler trovato
+DEBUG 2017-05-12 11:55:41,778 [9    ] MariniImpianti.MariniImpiantoTree        - PRESENTE_02 - Nessun handler trovato
+DEBUG 2017-05-12 11:55:41,778 [9    ] MariniImpianti.MariniImpiantoTree        - NASTRO_01 - Nessun handler trovato
+DEBUG 2017-05-12 11:55:41,778 [9    ] MariniImpianti.MariniImpiantoTree        - MOTORE_01 - Nessun handler trovato
+DEBUG 2017-05-12 11:55:41,778 [9    ] MariniImpianti.MariniImpiantoTree        - AMP_MOT_01 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:55:41,778 [9    ] MariniImpianti.MariniImpiantoTree        - CMD_MOT_01 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:55:41,778 [9    ] MariniImpianti.MariniImpiantoTree        - ALRM_MOT_01 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:55:41,778 [9    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_DI_RitMotore01 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:55:41,778 [9    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_Ritorno_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:55:41,778 [9    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_RitornoIndietro_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:55:41,778 [9    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_ForzatoDarwin_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:55:41,778 [9    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_AllarmeMotore_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:55:41,778 [9    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_BloccoMotore_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:55:41,778 [9    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_AccesoForzatoPLC_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:55:41,778 [9    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_SpentoForzatoPLC_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:55:41,778 [9    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_ZonaAsservimenti_AsservimentiDefault_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:55:41,778 [9    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_CMD_SemiAuto_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:55:41,778 [9    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_CMD_InvSemiAuto_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:55:41,778 [9    ] MariniImpianti.MariniImpiantoTree        - NO_ID - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:55:41,778 [9    ] MariniImpianti.MariniImpiantoTree        - PRED_02 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:55:41,778 [9    ] MariniImpianti.MariniImpiantoTree        - PRESENTE_003 - Nessun handler trovato
+DEBUG 2017-05-12 11:55:41,778 [9    ] MariniImpianti.MariniImpiantoTree        - BIL_04 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:55:41,778 [9    ] MariniImpianti.MariniImpiantoTree        - TEMPO_STAB_04 - Nessun handler trovato
+DEBUG 2017-05-12 11:55:41,778 [9    ] MariniImpianti.MariniImpiantoTree        - TOLLERANZA_04 - Nessun handler trovato
+DEBUG 2017-05-12 11:55:41,778 [9    ] MariniImpianti.MariniImpiantoTree        - PRESENTE_04 - Nessun handler trovato
+DEBUG 2017-05-12 11:55:41,778 [9    ] MariniImpianti.MariniImpiantoTree        - NASTRO_02 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:55:41,778 [9    ] MariniImpianti.MariniImpiantoTree        - MOTORE_02 - Nessun handler trovato
+DEBUG 2017-05-12 11:55:41,778 [9    ] MariniImpianti.MariniImpiantoTree        - AMP_02 - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:55:41,778 [9    ] MariniImpianti.MariniImpiantoTree        - LIMITE_MINIMO_02 - Nessun handler trovato
+DEBUG 2017-05-12 11:55:41,778 [9    ] MariniImpianti.MariniImpiantoTree        - LIMITE_MASSIMO_02 - Nessun handler trovato
+DEBUG 2017-05-12 11:55:41,778 [9    ] MariniImpianti.MariniImpiantoTree        - PRESENTE_005 - Nessun handler trovato
+DEBUG 2017-05-12 11:55:41,778 [9    ] MariniImpianti.MariniImpiantoTree        - TAMBURO - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:55:41,778 [9    ] MariniImpianti.MariniImpiantoTree        - FILTRO - Nessuna richiesta di handler
+DEBUG 2017-05-12 11:55:41,778 [9    ] MariniImpianti.MariniImpiantoTree        - <--- MariniImpiantoTree(string filename)
+WARN  2017-05-12 11:55:41,778 [9    ] MariniImpianti.MariniImpiantoTree        - *************************************************
+WARN  2017-05-12 11:55:41,778 [9    ] MariniImpianti.MariniImpiantoTree        - Creata l'Istanza DI DEFAULT di MariniImpiantoTree
+WARN  2017-05-12 11:55:41,778 [9    ] MariniImpianti.MariniImpiantoTree        - *************************************************
+INFO  2017-05-12 11:55:41,778 [9    ] MariniImpianti.MariniImpiantoTree        - Recupero l'Istanza di MariniImpiantoTree
+INFO  2017-05-12 11:55:41,778 [9    ] MariniImpianti.MariniImpiantoTree        - Recupero l'Istanza di MariniImpiantoTree
+INFO  2017-05-12 11:55:44,375 [7    ] MariniWcfService.MariniRestService       - GetPropertyValue di MOTORE_02:description 
+INFO  2017-05-12 11:55:44,375 [7    ] MariniImpianti.MariniImpiantoTree        - Recupero l'Istanza di MariniImpiantoTree
+INFO  2017-05-12 11:55:44,375 [7    ] MariniImpianti.MariniImpiantoTree        - Recupero l'Istanza di MariniImpiantoTree
+INFO  2017-05-12 12:09:27,069 [1    ] MariniWcfService.MariniRestService       - ***********************************
+INFO  2017-05-12 12:09:27,074 [1    ] MariniWcfService.MariniRestService       -        WCF SERVICE STARTED
+INFO  2017-05-12 12:09:27,074 [1    ] MariniWcfService.MariniRestService       - ***********************************
+DEBUG 2017-05-12 12:09:27,079 [1    ] MariniImpianti.MariniImpiantoTree        - ---> MariniImpiantoTree(string filename)
+DEBUG 2017-05-12 12:09:27,085 [1    ] MariniImpianti.MariniImpiantoTree        - Tento la creazione di MariniImpianto dal file XML: Q:\VARIE\ael\new-project\doc\analisi\impianto.xml
+DEBUG 2017-05-12 12:09:27,088 [1    ] MariniImpianti.MariniImpiantoTree        - IMPIANTO - Nessun handler trovato
+DEBUG 2017-05-12 12:09:27,088 [1    ] MariniImpianti.MariniImpiantoTree        - ZONA_PREDOSAGGIO - Nessuna richiesta di handler
+DEBUG 2017-05-12 12:09:27,089 [1    ] MariniImpianti.MariniImpiantoTree        - PRED_01 - Nessuna richiesta di handler
+DEBUG 2017-05-12 12:09:27,089 [1    ] MariniImpianti.MariniImpiantoTree        - PRESENTE_01 - Nessun handler trovato
+DEBUG 2017-05-12 12:09:27,089 [1    ] MariniImpianti.MariniImpiantoTree        - BIL_02 - Nessuna richiesta di handler
+DEBUG 2017-05-12 12:09:27,089 [1    ] MariniImpianti.MariniImpiantoTree        - TEMPO_STAB_02 - Nessun handler trovato
+DEBUG 2017-05-12 12:09:27,089 [1    ] MariniImpianti.MariniImpiantoTree        - TOLLERANZA_02 - Nessun handler trovato
+DEBUG 2017-05-12 12:09:27,089 [1    ] MariniImpianti.MariniImpiantoTree        - PRESENTE_02 - Nessun handler trovato
+DEBUG 2017-05-12 12:09:27,089 [1    ] MariniImpianti.MariniImpiantoTree        - NASTRO_01 - Nessun handler trovato
+DEBUG 2017-05-12 12:09:27,089 [1    ] MariniImpianti.MariniImpiantoTree        - MOTORE_01 - Nessun handler trovato
+DEBUG 2017-05-12 12:09:27,089 [1    ] MariniImpianti.MariniImpiantoTree        - AMP_MOT_01 - Nessuna richiesta di handler
+DEBUG 2017-05-12 12:09:27,089 [1    ] MariniImpianti.MariniImpiantoTree        - CMD_MOT_01 - Nessuna richiesta di handler
+DEBUG 2017-05-12 12:09:27,089 [1    ] MariniImpianti.MariniImpiantoTree        - ALRM_MOT_01 - Nessuna richiesta di handler
+DEBUG 2017-05-12 12:09:27,089 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_DI_RitMotore01 - Nessuna richiesta di handler
+DEBUG 2017-05-12 12:09:27,089 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_Ritorno_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 12:09:27,089 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_RitornoIndietro_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 12:09:27,089 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_ForzatoDarwin_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 12:09:27,089 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_AllarmeMotore_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 12:09:27,089 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_BloccoMotore_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 12:09:27,089 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_AccesoForzatoPLC_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 12:09:27,089 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_SpentoForzatoPLC_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 12:09:27,089 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_ZonaAsservimenti_AsservimentiDefault_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 12:09:27,089 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_CMD_SemiAuto_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 12:09:27,089 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_CMD_InvSemiAuto_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 12:09:27,089 [1    ] MariniImpianti.MariniImpiantoTree        - NO_ID - Nessuna richiesta di handler
+DEBUG 2017-05-12 12:09:27,089 [1    ] MariniImpianti.MariniImpiantoTree        - PRED_02 - Nessuna richiesta di handler
+DEBUG 2017-05-12 12:09:27,089 [1    ] MariniImpianti.MariniImpiantoTree        - PRESENTE_003 - Nessun handler trovato
+DEBUG 2017-05-12 12:09:27,089 [1    ] MariniImpianti.MariniImpiantoTree        - BIL_04 - Nessuna richiesta di handler
+DEBUG 2017-05-12 12:09:27,089 [1    ] MariniImpianti.MariniImpiantoTree        - TEMPO_STAB_04 - Nessun handler trovato
+DEBUG 2017-05-12 12:09:27,089 [1    ] MariniImpianti.MariniImpiantoTree        - TOLLERANZA_04 - Nessun handler trovato
+DEBUG 2017-05-12 12:09:27,089 [1    ] MariniImpianti.MariniImpiantoTree        - PRESENTE_04 - Nessun handler trovato
+DEBUG 2017-05-12 12:09:27,089 [1    ] MariniImpianti.MariniImpiantoTree        - NASTRO_02 - Nessuna richiesta di handler
+DEBUG 2017-05-12 12:09:27,089 [1    ] MariniImpianti.MariniImpiantoTree        - MOTORE_02 - Nessun handler trovato
+DEBUG 2017-05-12 12:09:27,089 [1    ] MariniImpianti.MariniImpiantoTree        - AMP_02 - Nessuna richiesta di handler
+DEBUG 2017-05-12 12:09:27,089 [1    ] MariniImpianti.MariniImpiantoTree        - LIMITE_MINIMO_02 - Nessun handler trovato
+DEBUG 2017-05-12 12:09:27,089 [1    ] MariniImpianti.MariniImpiantoTree        - LIMITE_MASSIMO_02 - Nessun handler trovato
+DEBUG 2017-05-12 12:09:27,089 [1    ] MariniImpianti.MariniImpiantoTree        - PRESENTE_005 - Nessun handler trovato
+DEBUG 2017-05-12 12:09:27,089 [1    ] MariniImpianti.MariniImpiantoTree        - TAMBURO - Nessuna richiesta di handler
+DEBUG 2017-05-12 12:09:27,089 [1    ] MariniImpianti.MariniImpiantoTree        - FILTRO - Nessuna richiesta di handler
+DEBUG 2017-05-12 12:09:27,089 [1    ] MariniImpianti.MariniImpiantoTree        - <--- MariniImpiantoTree(string filename)
+INFO  2017-05-12 12:09:27,089 [1    ] MariniImpianti.MariniImpiantoTree        - Recupero l'Istanza di MariniImpiantoTree
+INFO  2017-05-12 12:09:27,334 [9    ] MariniWcfService.MariniRestService       - GetPropertyValue di MOTORE_02:description 
+INFO  2017-05-12 12:09:27,334 [9    ] MariniImpianti.MariniImpiantoTree        - Recupero l'Istanza di MariniImpiantoTree
+INFO  2017-05-12 12:09:27,334 [9    ] MariniImpianti.MariniImpiantoTree        - Recupero l'Istanza di MariniImpiantoTree
+INFO  2017-05-12 12:09:28,704 [9    ] MariniWcfService.MariniRestService       - ChangePropertyValue di MOTORE_02:description con valore NUOVISSIMISSIMA1
+INFO  2017-05-12 12:09:28,704 [9    ] MariniImpianti.MariniImpiantoTree        - Recupero l'Istanza di MariniImpiantoTree
+INFO  2017-05-12 12:09:28,704 [9    ] MariniImpianti.MariniImpiantoTree        - Recupero l'Istanza di MariniImpiantoTree
+INFO  2017-05-12 12:09:32,182 [7    ] MariniWcfService.MariniRestService       - GetPropertyValue di MOTORE_02:description 
+INFO  2017-05-12 12:09:32,182 [7    ] MariniImpianti.MariniImpiantoTree        - Recupero l'Istanza di MariniImpiantoTree
+INFO  2017-05-12 12:09:32,182 [7    ] MariniImpianti.MariniImpiantoTree        - Recupero l'Istanza di MariniImpiantoTree
+INFO  2017-05-12 13:59:29,724 [1    ] MariniWcfService.MariniRestService       - ***********************************
+INFO  2017-05-12 13:59:29,759 [1    ] MariniWcfService.MariniRestService       -        WCF SERVICE STARTED
+INFO  2017-05-12 13:59:29,759 [1    ] MariniWcfService.MariniRestService       - ***********************************
+DEBUG 2017-05-12 13:59:29,764 [1    ] MariniImpianti.MariniImpiantoTree        - ---> MariniImpiantoTree(string filename)
+DEBUG 2017-05-12 13:59:29,819 [1    ] MariniImpianti.MariniImpiantoTree        - Tento la creazione di MariniImpianto dal file XML: Q:\VARIE\ael\new-project\doc\analisi\impianto.xml
+DEBUG 2017-05-12 13:59:29,830 [1    ] MariniImpianti.MariniImpiantoTree        - IMPIANTO - Nessun handler trovato
+DEBUG 2017-05-12 13:59:29,830 [1    ] MariniImpianti.MariniImpiantoTree        - ZONA_PREDOSAGGIO - Nessuna richiesta di handler
+DEBUG 2017-05-12 13:59:29,830 [1    ] MariniImpianti.MariniImpiantoTree        - PRED_01 - Nessuna richiesta di handler
+DEBUG 2017-05-12 13:59:29,830 [1    ] MariniImpianti.MariniImpiantoTree        - PRESENTE_01 - Nessun handler trovato
+DEBUG 2017-05-12 13:59:29,830 [1    ] MariniImpianti.MariniImpiantoTree        - BIL_02 - Nessuna richiesta di handler
+DEBUG 2017-05-12 13:59:29,830 [1    ] MariniImpianti.MariniImpiantoTree        - TEMPO_STAB_02 - Nessun handler trovato
+DEBUG 2017-05-12 13:59:29,830 [1    ] MariniImpianti.MariniImpiantoTree        - TOLLERANZA_02 - Nessun handler trovato
+DEBUG 2017-05-12 13:59:29,830 [1    ] MariniImpianti.MariniImpiantoTree        - PRESENTE_02 - Nessun handler trovato
+DEBUG 2017-05-12 13:59:29,830 [1    ] MariniImpianti.MariniImpiantoTree        - NASTRO_01 - Nessun handler trovato
+DEBUG 2017-05-12 13:59:29,830 [1    ] MariniImpianti.MariniImpiantoTree        - MOTORE_01 - Nessun handler trovato
+DEBUG 2017-05-12 13:59:29,830 [1    ] MariniImpianti.MariniImpiantoTree        - AMP_MOT_01 - Nessuna richiesta di handler
+DEBUG 2017-05-12 13:59:29,830 [1    ] MariniImpianti.MariniImpiantoTree        - CMD_MOT_01 - Nessuna richiesta di handler
+DEBUG 2017-05-12 13:59:29,830 [1    ] MariniImpianti.MariniImpiantoTree        - ALRM_MOT_01 - Nessuna richiesta di handler
+DEBUG 2017-05-12 13:59:29,830 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_DI_RitMotore01 - Nessuna richiesta di handler
+DEBUG 2017-05-12 13:59:29,830 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_Ritorno_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 13:59:29,830 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_RitornoIndietro_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 13:59:29,830 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_ForzatoDarwin_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 13:59:29,830 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_AllarmeMotore_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 13:59:29,830 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_BloccoMotore_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 13:59:29,830 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_AccesoForzatoPLC_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 13:59:29,830 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_SpentoForzatoPLC_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 13:59:29,831 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_ZonaAsservimenti_AsservimentiDefault_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 13:59:29,831 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_CMD_SemiAuto_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 13:59:29,831 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_CMD_InvSemiAuto_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 13:59:29,831 [1    ] MariniImpianti.MariniImpiantoTree        - NO_ID - Nessuna richiesta di handler
+DEBUG 2017-05-12 13:59:29,831 [1    ] MariniImpianti.MariniImpiantoTree        - PRED_02 - Nessuna richiesta di handler
+DEBUG 2017-05-12 13:59:29,831 [1    ] MariniImpianti.MariniImpiantoTree        - PRESENTE_003 - Nessun handler trovato
+DEBUG 2017-05-12 13:59:29,831 [1    ] MariniImpianti.MariniImpiantoTree        - BIL_04 - Nessuna richiesta di handler
+DEBUG 2017-05-12 13:59:29,831 [1    ] MariniImpianti.MariniImpiantoTree        - TEMPO_STAB_04 - Nessun handler trovato
+DEBUG 2017-05-12 13:59:29,831 [1    ] MariniImpianti.MariniImpiantoTree        - TOLLERANZA_04 - Nessun handler trovato
+DEBUG 2017-05-12 13:59:29,831 [1    ] MariniImpianti.MariniImpiantoTree        - PRESENTE_04 - Nessun handler trovato
+DEBUG 2017-05-12 13:59:29,831 [1    ] MariniImpianti.MariniImpiantoTree        - NASTRO_02 - Nessuna richiesta di handler
+DEBUG 2017-05-12 13:59:29,831 [1    ] MariniImpianti.MariniImpiantoTree        - MOTORE_02 - Nessun handler trovato
+DEBUG 2017-05-12 13:59:29,831 [1    ] MariniImpianti.MariniImpiantoTree        - AMP_02 - Nessuna richiesta di handler
+DEBUG 2017-05-12 13:59:29,831 [1    ] MariniImpianti.MariniImpiantoTree        - LIMITE_MINIMO_02 - Nessun handler trovato
+DEBUG 2017-05-12 13:59:29,831 [1    ] MariniImpianti.MariniImpiantoTree        - LIMITE_MASSIMO_02 - Nessun handler trovato
+DEBUG 2017-05-12 13:59:29,831 [1    ] MariniImpianti.MariniImpiantoTree        - PRESENTE_005 - Nessun handler trovato
+DEBUG 2017-05-12 13:59:29,831 [1    ] MariniImpianti.MariniImpiantoTree        - TAMBURO - Nessuna richiesta di handler
+DEBUG 2017-05-12 13:59:29,831 [1    ] MariniImpianti.MariniImpiantoTree        - FILTRO - Nessuna richiesta di handler
+DEBUG 2017-05-12 13:59:29,831 [1    ] MariniImpianti.MariniImpiantoTree        - <--- MariniImpiantoTree(string filename)
+INFO  2017-05-12 13:59:29,831 [1    ] MariniImpianti.MariniImpiantoTree        - Recupero l'Istanza di MariniImpiantoTree
+INFO  2017-05-12 13:59:31,579 [10   ] MariniWcfService.MariniRestService       - GetPropertyValue di MOTORE_02:description 
+INFO  2017-05-12 13:59:31,579 [10   ] MariniImpianti.MariniImpiantoTree        - Recupero l'Istanza di MariniImpiantoTree
+INFO  2017-05-12 13:59:31,579 [11   ] MariniWcfService.MariniRestService       - ChangePropertyValue di MOTORE_02:description con valore NUOVISSIMISSIMA2
+INFO  2017-05-12 13:59:31,579 [11   ] MariniImpianti.MariniImpiantoTree        - Recupero l'Istanza di MariniImpiantoTree
+INFO  2017-05-12 13:59:31,579 [10   ] MariniImpianti.MariniImpiantoTree        - Recupero l'Istanza di MariniImpiantoTree
+INFO  2017-05-12 13:59:31,579 [11   ] MariniImpianti.MariniImpiantoTree        - Recupero l'Istanza di MariniImpiantoTree
+INFO  2017-05-12 13:59:37,278 [11   ] MariniWcfService.MariniRestService       - ChangePropertyValue di MOTORE_02:description con valore NUOVISSIMISSIMA3
+INFO  2017-05-12 13:59:37,278 [11   ] MariniImpianti.MariniImpiantoTree        - Recupero l'Istanza di MariniImpiantoTree
+INFO  2017-05-12 13:59:37,278 [11   ] MariniImpianti.MariniImpiantoTree        - Recupero l'Istanza di MariniImpiantoTree
+INFO  2017-05-12 14:11:39,066 [11   ] MariniWcfService.MariniRestService       - ChangePropertyValue di MOTORE_02:description con valore NUOVISSIMISSIMA4
+INFO  2017-05-12 14:11:39,068 [11   ] MariniImpianti.MariniImpiantoTree        - Recupero l'Istanza di MariniImpiantoTree
+INFO  2017-05-12 14:11:39,068 [11   ] MariniImpianti.MariniImpiantoTree        - Recupero l'Istanza di MariniImpiantoTree
+INFO  2017-05-12 14:11:43,016 [11   ] MariniWcfService.MariniRestService       - GetPropertyValue di MOTORE_02:description 
+INFO  2017-05-12 14:11:43,057 [11   ] MariniImpianti.MariniImpiantoTree        - Recupero l'Istanza di MariniImpiantoTree
+INFO  2017-05-12 14:11:43,057 [11   ] MariniImpianti.MariniImpiantoTree        - Recupero l'Istanza di MariniImpiantoTree
+INFO  2017-05-12 14:42:17,783 [1    ] MariniWcfService.MariniRestService       - ***********************************
+INFO  2017-05-12 14:42:17,811 [1    ] MariniWcfService.MariniRestService       -        WCF SERVICE STARTED
+INFO  2017-05-12 14:42:17,811 [1    ] MariniWcfService.MariniRestService       - ***********************************
+DEBUG 2017-05-12 14:42:17,814 [1    ] MariniImpianti.MariniImpiantoTree        - ---> MariniImpiantoTree(string filename)
+DEBUG 2017-05-12 14:42:17,820 [1    ] MariniImpianti.MariniImpiantoTree        - Tento la creazione di MariniImpianto dal file XML: Q:\VARIE\ael\new-project\doc\analisi\impianto.xml
+DEBUG 2017-05-12 14:42:17,824 [1    ] MariniImpianti.MariniImpiantoTree        - IMPIANTO - Nessun handler trovato
+DEBUG 2017-05-12 14:42:17,824 [1    ] MariniImpianti.MariniImpiantoTree        - ZONA_PREDOSAGGIO - Nessuna richiesta di handler
+DEBUG 2017-05-12 14:42:17,824 [1    ] MariniImpianti.MariniImpiantoTree        - PRED_01 - Nessuna richiesta di handler
+DEBUG 2017-05-12 14:42:17,824 [1    ] MariniImpianti.MariniImpiantoTree        - PRESENTE_01 - Nessun handler trovato
+DEBUG 2017-05-12 14:42:17,824 [1    ] MariniImpianti.MariniImpiantoTree        - BIL_02 - Nessuna richiesta di handler
+DEBUG 2017-05-12 14:42:17,824 [1    ] MariniImpianti.MariniImpiantoTree        - TEMPO_STAB_02 - Nessun handler trovato
+DEBUG 2017-05-12 14:42:17,824 [1    ] MariniImpianti.MariniImpiantoTree        - TOLLERANZA_02 - Nessun handler trovato
+DEBUG 2017-05-12 14:42:17,824 [1    ] MariniImpianti.MariniImpiantoTree        - PRESENTE_02 - Nessun handler trovato
+DEBUG 2017-05-12 14:42:17,824 [1    ] MariniImpianti.MariniImpiantoTree        - NASTRO_01 - Nessun handler trovato
+DEBUG 2017-05-12 14:42:17,824 [1    ] MariniImpianti.MariniImpiantoTree        - MOTORE_01 - Nessun handler trovato
+DEBUG 2017-05-12 14:42:17,824 [1    ] MariniImpianti.MariniImpiantoTree        - AMP_MOT_01 - Nessuna richiesta di handler
+DEBUG 2017-05-12 14:42:17,824 [1    ] MariniImpianti.MariniImpiantoTree        - CMD_MOT_01 - Nessuna richiesta di handler
+DEBUG 2017-05-12 14:42:17,824 [1    ] MariniImpianti.MariniImpiantoTree        - ALRM_MOT_01 - Nessuna richiesta di handler
+DEBUG 2017-05-12 14:42:17,824 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_DI_RitMotore01 - Nessuna richiesta di handler
+DEBUG 2017-05-12 14:42:17,824 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_Ritorno_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 14:42:17,824 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_RitornoIndietro_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 14:42:17,824 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_ForzatoDarwin_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 14:42:17,824 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_AllarmeMotore_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 14:42:17,824 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_BloccoMotore_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 14:42:17,824 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_AccesoForzatoPLC_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 14:42:17,824 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_SpentoForzatoPLC_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 14:42:17,824 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_ZonaAsservimenti_AsservimentiDefault_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 14:42:17,824 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_CMD_SemiAuto_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 14:42:17,824 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_CMD_InvSemiAuto_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 14:42:17,824 [1    ] MariniImpianti.MariniImpiantoTree        - NO_ID - Nessuna richiesta di handler
+DEBUG 2017-05-12 14:42:17,824 [1    ] MariniImpianti.MariniImpiantoTree        - PRED_02 - Nessuna richiesta di handler
+DEBUG 2017-05-12 14:42:17,824 [1    ] MariniImpianti.MariniImpiantoTree        - PRESENTE_003 - Nessun handler trovato
+DEBUG 2017-05-12 14:42:17,824 [1    ] MariniImpianti.MariniImpiantoTree        - BIL_04 - Nessuna richiesta di handler
+DEBUG 2017-05-12 14:42:17,824 [1    ] MariniImpianti.MariniImpiantoTree        - TEMPO_STAB_04 - Nessun handler trovato
+DEBUG 2017-05-12 14:42:17,824 [1    ] MariniImpianti.MariniImpiantoTree        - TOLLERANZA_04 - Nessun handler trovato
+DEBUG 2017-05-12 14:42:17,824 [1    ] MariniImpianti.MariniImpiantoTree        - PRESENTE_04 - Nessun handler trovato
+DEBUG 2017-05-12 14:42:17,824 [1    ] MariniImpianti.MariniImpiantoTree        - NASTRO_02 - Nessuna richiesta di handler
+DEBUG 2017-05-12 14:42:17,824 [1    ] MariniImpianti.MariniImpiantoTree        - MOTORE_02 - Nessun handler trovato
+DEBUG 2017-05-12 14:42:17,824 [1    ] MariniImpianti.MariniImpiantoTree        - AMP_02 - Nessuna richiesta di handler
+DEBUG 2017-05-12 14:42:17,824 [1    ] MariniImpianti.MariniImpiantoTree        - LIMITE_MINIMO_02 - Nessun handler trovato
+DEBUG 2017-05-12 14:42:17,824 [1    ] MariniImpianti.MariniImpiantoTree        - LIMITE_MASSIMO_02 - Nessun handler trovato
+DEBUG 2017-05-12 14:42:17,824 [1    ] MariniImpianti.MariniImpiantoTree        - PRESENTE_005 - Nessun handler trovato
+DEBUG 2017-05-12 14:42:17,824 [1    ] MariniImpianti.MariniImpiantoTree        - TAMBURO - Nessuna richiesta di handler
+DEBUG 2017-05-12 14:42:17,824 [1    ] MariniImpianti.MariniImpiantoTree        - FILTRO - Nessuna richiesta di handler
+DEBUG 2017-05-12 14:42:17,824 [1    ] MariniImpianti.MariniImpiantoTree        - <--- MariniImpiantoTree(string filename)
+INFO  2017-05-12 14:42:17,825 [1    ] MariniImpianti.MariniImpiantoTree        - Recupero l'Istanza di MariniImpiantoTree
+INFO  2017-05-12 14:42:19,435 [9    ] MariniWcfService.MariniRestService       - GetPropertyValue di MOTORE_02:description 
+INFO  2017-05-12 14:42:19,435 [9    ] MariniImpianti.MariniImpiantoTree        - Recupero l'Istanza di MariniImpiantoTree
+INFO  2017-05-12 14:42:19,435 [9    ] MariniImpianti.MariniImpiantoTree        - Recupero l'Istanza di MariniImpiantoTree
+INFO  2017-05-12 14:42:28,868 [10   ] MariniWcfService.MariniRestService       - ChangePropertyValue di MOTORE_02:description con valore NUOVISSIMISSIMA4
+INFO  2017-05-12 14:42:28,868 [10   ] MariniImpianti.MariniImpiantoTree        - Recupero l'Istanza di MariniImpiantoTree
+INFO  2017-05-12 14:42:28,868 [10   ] MariniImpianti.MariniImpiantoTree        - Recupero l'Istanza di MariniImpiantoTree
+INFO  2017-05-12 14:42:32,725 [9    ] MariniWcfService.MariniRestService       - GetPropertyValue di MOTORE_02:description 
+INFO  2017-05-12 14:42:32,725 [9    ] MariniImpianti.MariniImpiantoTree        - Recupero l'Istanza di MariniImpiantoTree
+INFO  2017-05-12 14:42:32,725 [9    ] MariniImpianti.MariniImpiantoTree        - Recupero l'Istanza di MariniImpiantoTree
+INFO  2017-05-12 14:47:15,633 [1    ] MariniWcfService.MariniRestService       - ***********************************
+INFO  2017-05-12 14:47:15,642 [1    ] MariniWcfService.MariniRestService       -        WCF SERVICE STARTED
+INFO  2017-05-12 14:47:15,642 [1    ] MariniWcfService.MariniRestService       - ***********************************
+DEBUG 2017-05-12 14:47:15,646 [1    ] MariniImpianti.MariniImpiantoTree        - ---> MariniImpiantoTree(string filename)
+DEBUG 2017-05-12 14:47:15,653 [1    ] MariniImpianti.MariniImpiantoTree        - Tento la creazione di MariniImpianto dal file XML: Q:\VARIE\ael\new-project\doc\analisi\impianto.xml
+DEBUG 2017-05-12 14:47:15,658 [1    ] MariniImpianti.MariniImpiantoTree        - IMPIANTO - Nessun handler trovato
+DEBUG 2017-05-12 14:47:15,658 [1    ] MariniImpianti.MariniImpiantoTree        - ZONA_PREDOSAGGIO - Nessuna richiesta di handler
+DEBUG 2017-05-12 14:47:15,658 [1    ] MariniImpianti.MariniImpiantoTree        - PRED_01 - Nessuna richiesta di handler
+DEBUG 2017-05-12 14:47:15,658 [1    ] MariniImpianti.MariniImpiantoTree        - PRESENTE_01 - Nessun handler trovato
+DEBUG 2017-05-12 14:47:15,658 [1    ] MariniImpianti.MariniImpiantoTree        - BIL_02 - Nessuna richiesta di handler
+DEBUG 2017-05-12 14:47:15,658 [1    ] MariniImpianti.MariniImpiantoTree        - TEMPO_STAB_02 - Nessun handler trovato
+DEBUG 2017-05-12 14:47:15,658 [1    ] MariniImpianti.MariniImpiantoTree        - TOLLERANZA_02 - Nessun handler trovato
+DEBUG 2017-05-12 14:47:15,658 [1    ] MariniImpianti.MariniImpiantoTree        - PRESENTE_02 - Nessun handler trovato
+DEBUG 2017-05-12 14:47:15,658 [1    ] MariniImpianti.MariniImpiantoTree        - NASTRO_01 - Nessun handler trovato
+DEBUG 2017-05-12 14:47:15,658 [1    ] MariniImpianti.MariniImpiantoTree        - MOTORE_01 - Nessun handler trovato
+DEBUG 2017-05-12 14:47:15,658 [1    ] MariniImpianti.MariniImpiantoTree        - AMP_MOT_01 - Nessuna richiesta di handler
+DEBUG 2017-05-12 14:47:15,658 [1    ] MariniImpianti.MariniImpiantoTree        - CMD_MOT_01 - Nessuna richiesta di handler
+DEBUG 2017-05-12 14:47:15,658 [1    ] MariniImpianti.MariniImpiantoTree        - ALRM_MOT_01 - Nessuna richiesta di handler
+DEBUG 2017-05-12 14:47:15,658 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_DI_RitMotore01 - Nessuna richiesta di handler
+DEBUG 2017-05-12 14:47:15,658 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_Ritorno_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 14:47:15,658 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_RitornoIndietro_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 14:47:15,658 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_ForzatoDarwin_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 14:47:15,658 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_AllarmeMotore_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 14:47:15,658 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_BloccoMotore_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 14:47:15,658 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_AccesoForzatoPLC_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 14:47:15,658 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_SpentoForzatoPLC_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 14:47:15,658 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_ZonaAsservimenti_AsservimentiDefault_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 14:47:15,658 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_CMD_SemiAuto_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 14:47:15,658 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_CMD_InvSemiAuto_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 14:47:15,658 [1    ] MariniImpianti.MariniImpiantoTree        - NO_ID - Nessuna richiesta di handler
+DEBUG 2017-05-12 14:47:15,658 [1    ] MariniImpianti.MariniImpiantoTree        - PRED_02 - Nessuna richiesta di handler
+DEBUG 2017-05-12 14:47:15,658 [1    ] MariniImpianti.MariniImpiantoTree        - PRESENTE_003 - Nessun handler trovato
+DEBUG 2017-05-12 14:47:15,658 [1    ] MariniImpianti.MariniImpiantoTree        - BIL_04 - Nessuna richiesta di handler
+DEBUG 2017-05-12 14:47:15,658 [1    ] MariniImpianti.MariniImpiantoTree        - TEMPO_STAB_04 - Nessun handler trovato
+DEBUG 2017-05-12 14:47:15,658 [1    ] MariniImpianti.MariniImpiantoTree        - TOLLERANZA_04 - Nessun handler trovato
+DEBUG 2017-05-12 14:47:15,658 [1    ] MariniImpianti.MariniImpiantoTree        - PRESENTE_04 - Nessun handler trovato
+DEBUG 2017-05-12 14:47:15,658 [1    ] MariniImpianti.MariniImpiantoTree        - NASTRO_02 - Nessuna richiesta di handler
+DEBUG 2017-05-12 14:47:15,658 [1    ] MariniImpianti.MariniImpiantoTree        - MOTORE_02 - Nessun handler trovato
+DEBUG 2017-05-12 14:47:15,658 [1    ] MariniImpianti.MariniImpiantoTree        - AMP_02 - Nessuna richiesta di handler
+DEBUG 2017-05-12 14:47:15,658 [1    ] MariniImpianti.MariniImpiantoTree        - LIMITE_MINIMO_02 - Nessun handler trovato
+DEBUG 2017-05-12 14:47:15,658 [1    ] MariniImpianti.MariniImpiantoTree        - LIMITE_MASSIMO_02 - Nessun handler trovato
+DEBUG 2017-05-12 14:47:15,658 [1    ] MariniImpianti.MariniImpiantoTree        - PRESENTE_005 - Nessun handler trovato
+DEBUG 2017-05-12 14:47:15,658 [1    ] MariniImpianti.MariniImpiantoTree        - TAMBURO - Nessuna richiesta di handler
+DEBUG 2017-05-12 14:47:15,658 [1    ] MariniImpianti.MariniImpiantoTree        - FILTRO - Nessuna richiesta di handler
+DEBUG 2017-05-12 14:47:15,658 [1    ] MariniImpianti.MariniImpiantoTree        - <--- MariniImpiantoTree(string filename)
+INFO  2017-05-12 14:47:15,659 [1    ] MariniImpianti.MariniImpiantoTree        - Recupero l'Istanza di MariniImpiantoTree
+INFO  2017-05-12 14:47:16,039 [7    ] MariniWcfService.MariniRestService       - GetPropertyValue di MOTORE_02:description 
+INFO  2017-05-12 14:47:16,039 [7    ] MariniImpianti.MariniImpiantoTree        - Recupero l'Istanza di MariniImpiantoTree
+INFO  2017-05-12 14:47:16,039 [7    ] MariniImpianti.MariniImpiantoTree        - Recupero l'Istanza di MariniImpiantoTree
+INFO  2017-05-12 14:47:21,082 [10   ] MariniWcfService.MariniRestService       - ChangePropertyValue di MOTORE_02:description con valore NUOVISSIMISSIMA4
+INFO  2017-05-12 14:47:21,082 [10   ] MariniImpianti.MariniImpiantoTree        - Recupero l'Istanza di MariniImpiantoTree
+INFO  2017-05-12 14:47:21,082 [10   ] MariniImpianti.MariniImpiantoTree        - Recupero l'Istanza di MariniImpiantoTree
+INFO  2017-05-12 14:47:26,134 [11   ] MariniWcfService.MariniRestService       - GetPropertyValue di MOTORE_02:description 
+INFO  2017-05-12 14:47:26,135 [11   ] MariniImpianti.MariniImpiantoTree        - Recupero l'Istanza di MariniImpiantoTree
+INFO  2017-05-12 14:47:26,135 [11   ] MariniImpianti.MariniImpiantoTree        - Recupero l'Istanza di MariniImpiantoTree
+INFO  2017-05-12 15:13:43,323 [1    ] MariniWcfService.MariniRestService       - ***********************************
+INFO  2017-05-12 15:13:43,350 [1    ] MariniWcfService.MariniRestService       -        WCF SERVICE STARTED
+INFO  2017-05-12 15:13:43,350 [1    ] MariniWcfService.MariniRestService       - ***********************************
+DEBUG 2017-05-12 15:13:43,354 [1    ] MariniImpianti.MariniImpiantoTree        - ---> MariniImpiantoTree(string filename)
+DEBUG 2017-05-12 15:13:43,373 [1    ] MariniImpianti.MariniImpiantoTree        - Tento la creazione di MariniImpianto dal file XML: Q:\VARIE\ael\new-project\doc\analisi\impianto.xml
+DEBUG 2017-05-12 15:13:43,376 [1    ] MariniImpianti.MariniImpiantoTree        - IMPIANTO - Nessun handler trovato
+DEBUG 2017-05-12 15:13:43,377 [1    ] MariniImpianti.MariniImpiantoTree        - ZONA_PREDOSAGGIO - Nessuna richiesta di handler
+DEBUG 2017-05-12 15:13:43,377 [1    ] MariniImpianti.MariniImpiantoTree        - PRED_01 - Nessuna richiesta di handler
+DEBUG 2017-05-12 15:13:43,377 [1    ] MariniImpianti.MariniImpiantoTree        - PRESENTE_01 - Nessun handler trovato
+DEBUG 2017-05-12 15:13:43,377 [1    ] MariniImpianti.MariniImpiantoTree        - BIL_02 - Nessuna richiesta di handler
+DEBUG 2017-05-12 15:13:43,377 [1    ] MariniImpianti.MariniImpiantoTree        - TEMPO_STAB_02 - Nessun handler trovato
+DEBUG 2017-05-12 15:13:43,377 [1    ] MariniImpianti.MariniImpiantoTree        - TOLLERANZA_02 - Nessun handler trovato
+DEBUG 2017-05-12 15:13:43,377 [1    ] MariniImpianti.MariniImpiantoTree        - PRESENTE_02 - Nessun handler trovato
+DEBUG 2017-05-12 15:13:43,377 [1    ] MariniImpianti.MariniImpiantoTree        - NASTRO_01 - Nessun handler trovato
+DEBUG 2017-05-12 15:13:43,377 [1    ] MariniImpianti.MariniImpiantoTree        - MOTORE_01 - Nessun handler trovato
+DEBUG 2017-05-12 15:13:43,377 [1    ] MariniImpianti.MariniImpiantoTree        - AMP_MOT_01 - Nessuna richiesta di handler
+DEBUG 2017-05-12 15:13:43,377 [1    ] MariniImpianti.MariniImpiantoTree        - CMD_MOT_01 - Nessuna richiesta di handler
+DEBUG 2017-05-12 15:13:43,377 [1    ] MariniImpianti.MariniImpiantoTree        - ALRM_MOT_01 - Nessuna richiesta di handler
+DEBUG 2017-05-12 15:13:43,377 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_DI_RitMotore01 - Nessuna richiesta di handler
+DEBUG 2017-05-12 15:13:43,377 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_Ritorno_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 15:13:43,377 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_RitornoIndietro_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 15:13:43,377 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_ForzatoDarwin_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 15:13:43,377 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_AllarmeMotore_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 15:13:43,377 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_BloccoMotore_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 15:13:43,377 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_AccesoForzatoPLC_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 15:13:43,377 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_SpentoForzatoPLC_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 15:13:43,377 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_ZonaAsservimenti_AsservimentiDefault_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 15:13:43,377 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_CMD_SemiAuto_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 15:13:43,377 [1    ] MariniImpianti.MariniImpiantoTree        - PLCTAG_NM_CMD_InvSemiAuto_1 - Nessuna richiesta di handler
+DEBUG 2017-05-12 15:13:43,377 [1    ] MariniImpianti.MariniImpiantoTree        - NO_ID - Nessuna richiesta di handler
+DEBUG 2017-05-12 15:13:43,377 [1    ] MariniImpianti.MariniImpiantoTree        - PRED_02 - Nessuna richiesta di handler
+DEBUG 2017-05-12 15:13:43,377 [1    ] MariniImpianti.MariniImpiantoTree        - PRESENTE_003 - Nessun handler trovato
+DEBUG 2017-05-12 15:13:43,377 [1    ] MariniImpianti.MariniImpiantoTree        - BIL_04 - Nessuna richiesta di handler
+DEBUG 2017-05-12 15:13:43,377 [1    ] MariniImpianti.MariniImpiantoTree        - TEMPO_STAB_04 - Nessun handler trovato
+DEBUG 2017-05-12 15:13:43,377 [1    ] MariniImpianti.MariniImpiantoTree        - TOLLERANZA_04 - Nessun handler trovato
+DEBUG 2017-05-12 15:13:43,377 [1    ] MariniImpianti.MariniImpiantoTree        - PRESENTE_04 - Nessun handler trovato
+DEBUG 2017-05-12 15:13:43,377 [1    ] MariniImpianti.MariniImpiantoTree        - NASTRO_02 - Nessuna richiesta di handler
+DEBUG 2017-05-12 15:13:43,377 [1    ] MariniImpianti.MariniImpiantoTree        - MOTORE_02 - Nessun handler trovato
+DEBUG 2017-05-12 15:13:43,377 [1    ] MariniImpianti.MariniImpiantoTree        - AMP_02 - Nessuna richiesta di handler
+DEBUG 2017-05-12 15:13:43,377 [1    ] MariniImpianti.MariniImpiantoTree        - LIMITE_MINIMO_02 - Nessun handler trovato
+DEBUG 2017-05-12 15:13:43,377 [1    ] MariniImpianti.MariniImpiantoTree        - LIMITE_MASSIMO_02 - Nessun handler trovato
+DEBUG 2017-05-12 15:13:43,377 [1    ] MariniImpianti.MariniImpiantoTree        - PRESENTE_005 - Nessun handler trovato
+DEBUG 2017-05-12 15:13:43,377 [1    ] MariniImpianti.MariniImpiantoTree        - TAMBURO - Nessuna richiesta di handler
+DEBUG 2017-05-12 15:13:43,377 [1    ] MariniImpianti.MariniImpiantoTree        - FILTRO - Nessuna richiesta di handler
+DEBUG 2017-05-12 15:13:43,377 [1    ] MariniImpianti.MariniImpiantoTree        - <--- MariniImpiantoTree(string filename)
+INFO  2017-05-12 15:13:43,377 [1    ] MariniImpianti.MariniImpiantoTree        - Recupero l'Istanza di MariniImpiantoTree
+INFO  2017-05-12 15:13:44,992 [12   ] MariniWcfService.MariniRestService       - GetPropertyValue di MOTORE_02:name 
+INFO  2017-05-12 15:13:44,992 [12   ] MariniImpianti.MariniImpiantoTree        - Recupero l'Istanza di MariniImpiantoTree
+INFO  2017-05-12 15:13:44,992 [12   ] MariniImpianti.MariniImpiantoTree        - Recupero l'Istanza di MariniImpiantoTree
+INFO  2017-05-12 15:13:56,444 [11   ] MariniWcfService.MariniRestService       - GetPropertyValue di MOTORE_02:name 
+INFO  2017-05-12 15:13:56,444 [11   ] MariniImpianti.MariniImpiantoTree        - Recupero l'Istanza di MariniImpiantoTree
+INFO  2017-05-12 15:13:56,444 [11   ] MariniImpianti.MariniImpiantoTree        - Recupero l'Istanza di MariniImpiantoTree

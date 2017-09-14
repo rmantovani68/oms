@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Impianto
+  xmlns="http://www.marini.fayat.com/impianto.xsd"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.marini.fayat.com/impianto.xsd file:///C:/Users/uts.MARINI/Documents/projects/new-project/oms/MariniImpianto/impianto.xsd"
+  id="Impianto"
+  name="Impianto"
+  type="string">
+
+  <ZonaPredosaggio id="ZonaPredosaggio" name="Zona Predosaggio">
+    <Predosatore id="Predosatore1" name="Predosatore 1">
+      <Property id="Comando"        name="Comando"        propertytype="Bool" bind="PLCTAG_DO_Predosatore1"            bindtype="PLCTag" binddirection="OneWayToSource"/>
+
+      <Property id="Ritorno"        name="Ritorno"        propertytype="Bool" bind="PLCTAG_DI_RitPredosatore1"         bindtype="PLCTag" binddirection="OneWay"/>
+      <Property id="Termica"        name="Termica"        propertytype="Bool" bind="PLCTAG_DI_TermPredosatore1"        bindtype="PLCTag" binddirection="OneWay"/>
+      <Property id="Allarme"        name="Allarme"        propertytype="Bool" bind="PLCTAG_DI_AllPred1"                bindtype="PLCTag" binddirection="OneWay"/>
+      <Property id="Palpatore"      name="Palpatore"      propertytype="Bool" bind="PLCTAG_DI_PalpatorePred1"          bindtype="PLCTag" binddirection="OneWay"/>
+      <Property id="LivelloMinimo"  name="LivelloMinimo"  propertytype="Bool" bind="PLCTAG_DI_LivMinPred1"             bindtype="PLCTag" binddirection="OneWay"/>
+      <Property id="Vibratore"      name="Vibratore"      propertytype="Bool" bind="PLCTAG_DI_VibratoreP1"             bindtype="PLCTag" binddirection="OneWay"/>
+      <Property id="Livello"        name="Livello"        propertytype="Int"  bind="PLCTAG_AI_LivPredosatore1"         bindtype="PLCTag" binddirection="OneWay"/>
+
+      <Property id="Set"            name="Set"            propertytype="Int"  bind="PLCTAG_AO_SetPredosatore1"         bindtype="PLCTag" binddirection="OneWayToSource"/>
+      <Property id="SetLampada"     name="SetLampada"     propertytype="Bool" bind="PLCTAG_DO_LampadaP1"               bindtype="PLCTag" binddirection="OneWayToSource"/>
+      <Property id="SetVibratore"   name="SetLampada"     propertytype="Bool" bind="PLCTAG_DO_VibratoreP1"             bindtype="PLCTag" binddirection="OneWayToSource"/>
+    </Predosatore>
+
+    <Nastro id="Nastro1" name="Nastro 1">
+      <Motore id="Motore1" name="Motore 1">
+        <Property id="Presente"             name="Presente"            propertytype="Bool" bind="PLCTAG_NM_MOTORE1_Presente"            bindtype="PLCTag" binddirection="OneWayToSource"/>
+        <Property id="Comando"              name="Comando"             propertytype="Bool" bind="PLCTAG_NM_CMD_SemiAuto_1"              bindtype="PLCTag" binddirection="OneWayToSource"/>
+        <Property id="Set"                  name="Set"                 propertytype="Int"  bind="PLCTAG_AO_SetMotore01"                 bindtype="PLCTag" binddirection="OneWayToSource" />
+        <Property id="Ritorno"              name="Ritorno"             propertytype="Bool" bind="PLCTAG_NM_Ritorno_1"                   bindtype="PLCTag" binddirection="OneWay" />
+        <Property id="Allarme"              name="Allarme"             propertytype="Int"  bind="PLCTAG_NM_AllarmeMotore_1"             bindtype="PLCTag" binddirection="OneWay"/>
+        <Property id="Blocco"               name="Blocco"              propertytype="Bool" bind="PLCTAG_NM_BloccoMotore_1"              bindtype="PLCTag" binddirection="OneWay"/>
+        <Property id="AccesoForzato"        name="AccesoForzato"       propertytype="Bool" bind="PLCTAG_NM_AccesoForzatoPLC_1"          bindtype="PLCTag" binddirection="OneWay"/>
+        <Property id="SpentoForzato"        name="SpentoForzato"       propertytype="Bool" bind="PLCTAG_NM_SpentoForzatoPLC_1"          bindtype="PLCTag" binddirection="OneWay"/>
+        <Property id="ValoreAmperometro"    name="ValoreAmperometro"   propertytype="Int"  bind="PLCTAG_NM_MOTORE1_Amperometri_ValScal" bindtype="PLCTag" binddirection="OneWay"/>
+      </Motore>
+    </Nastro>
+
+  </ZonaPredosaggio>
+
+  <Property id="WatchDog" name="WatchDog" propertytype="Bool" bind="PLCTAG_F_WatchdogPC" bindtype="PLCTag" binddirection="TwoWay" handler="WatchDogPropertyHandler"/>
+
+</Impianto>
+

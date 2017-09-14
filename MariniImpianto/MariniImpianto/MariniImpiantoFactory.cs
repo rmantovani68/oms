@@ -16,27 +16,6 @@ namespace MariniImpianti
     public class MariniObjectCreator
     {
 
-        private static void on_manage_method(object sender, MariniGenericObject.OnManageEventArgs e)
-        {
-            // Console.WriteLine("Cicio : sto gestendo {0}",sender.ToString());
-        }
-
-        private static void impianto_on_manage_method(object sender, MariniGenericObject.OnManageEventArgs e)
-        {
-            // Console.WriteLine("Cicio : sto gestendo {0}",sender.ToString());
-        }
-
-        private static void on_change_method(object sender, MariniGenericObject.OnChangeEventArgs e)
-        {
-            Console.WriteLine("Pippo : in <{0}> qualcosa e' cambiato {1}", sender.ToString(), e.idImpianto);
-        }
-
-        private static void impianto_on_change_method(object sender, MariniGenericObject.OnChangeEventArgs e)
-        {
-            Console.WriteLine("Impianto : in <{0}> qualcosa e' cambiato {1}", sender.ToString(), e.idImpianto);
-        }
-
-
         private static MariniObjectCreator _mariniCreator = new MariniObjectCreator();
         public static MariniObjectCreator MariniCreator
         {
@@ -47,56 +26,25 @@ namespace MariniImpianti
         {
 
             MariniGenericObject mgo;
-
+            // uso il ToLower percui mettere tutto a minuscolo qui e come si vuole nel file xml
             switch (node.Name)
             {
-                case "impianto":
+                case "Impianto":
                     mgo = new MariniImpianto(parent, node);
                     break;
-                case "zona":
-                    mgo = new MariniZona(parent, node);
+                case "ZonaPredosaggio":
+                    mgo = new MariniZonaPredosaggio(parent, node);
                     break;
-                case "predosatore":
+                case "Predosatore":
                     mgo = new MariniPredosatore(parent, node);
                     break;
-                case "plctag":
-                    mgo = new MariniPlctag(parent, node);
-                    break;
-                case "bilancia":
-                    mgo = new MariniBilancia(parent, node);
-                    break;
-                case "motore":
-                    mgo = new MariniMotore(parent, node);
-                    break;
-                case "nastro":
-                    mgo = new MariniNastro(parent, node);
-                    break;
-                case "amperometro":
-                    mgo = new MariniAmperometro(parent, node);
+                case "Property":
+                    mgo = new MariniProperty(parent, node);
                     break;
                 default:
                     mgo = new MariniOggettoBase(parent, node);
                     break;
                 //    throw new ApplicationException(string.Format("MariniObject '{0}' cannot be created", mgo));
-            }
-
-            /* tutti gli oggetti creati vengono gestiti dalla stessa ... */
-            if (mgo is MariniImpianto)
-            {
-                mgo.OnManage += impianto_on_manage_method;
-            }
-            else
-            {
-                mgo.OnChange += on_change_method;
-            }
-
-            if (mgo is MariniImpianto)
-            {
-                mgo.OnChange += impianto_on_change_method;
-            }
-            else
-            {
-                mgo.OnChange += on_change_method;
             }
 
             /* Riempio la lista oggetti con i nodi figli */

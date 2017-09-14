@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpKI>
+  <HelpKINode Title="CreateMariniObject method" Url="html/3b27354c-5d70-09a4-c5a2-9c61a0d36da7.htm" />
+  <HelpKINode Title="description property" Url="html/5e2f9c7c-9c03-e714-3af1-87b09488d447.htm" />
+  <HelpKINode Title="GetChildDictionary method" Url="html/62651221-a105-006b-eaf3-100b32fa0f24.htm" />
+  <HelpKINode Title="GetObjectById method">
+    <HelpKINode Title="MariniGenericObject.GetObjectById Method " Url="html/ced45835-42c7-7950-b3b6-03b343b006df.htm" />
+    <HelpKINode Title="MariniImpiantoTree.GetObjectById Method " Url="html/52319b90-fe47-3d8d-5f97-2ac52e482348.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GetObjectListByType method" Url="html/727804f4-9156-c995-4ed7-1ef679822167.htm" />
+  <HelpKINode Title="handler property" Url="html/926ac012-56cf-4671-d292-03c798fd7423.htm" />
+  <HelpKINode Title="id property" Url="html/91c8cdd2-bc0d-c7ae-c0eb-21e823f954cf.htm" />
+  <HelpKINode Title="InitializeFromXmlFile method" Url="html/6ae65934-ed44-c678-8b06-882df048f3c6.htm" />
+  <HelpKINode Title="Instance property" Url="html/dda51267-ff10-f631-1642-3a38faad4e2d.htm" />
+  <HelpKINode Title="ListaGenericObject property" Url="html/31b61760-c140-e80f-6c65-3d77bd352014.htm" />
+  <HelpKINode Title="Logger field" Url="html/8f023203-ba7b-bbe2-7268-926cadb647c4.htm" />
+  <HelpKINode Title="MariniAmperometro class">
+    <HelpKINode Title="MariniAmperometro Class" Url="html/c307b1d4-3596-64f2-6816-284666a35f06.htm" />
+    <HelpKINode Title="about MariniAmperometro class" Url="html/c307b1d4-3596-64f2-6816-284666a35f06.htm" />
+    <HelpKINode Title="constructor" Url="html/02979867-3b3b-66f7-e17a-ed6cea2b55b5.htm" />
+    <HelpKINode Title="events" Url="html/70bc56ce-2c16-597a-28e1-6dc9cc65b526.htm" />
+    <HelpKINode Title="methods" Url="html/be8d4469-29d0-efaa-1a93-2eabc0c9c530.htm" />
+    <HelpKINode Title="properties" Url="html/f182143b-21b1-18e2-318b-dfbc350a19bb.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MariniAmperometro.MariniAmperometro constructor" Url="html/02979867-3b3b-66f7-e17a-ed6cea2b55b5.htm" />
+  <HelpKINode Title="MariniAmperometro.ToPlainText method" Url="html/667c87c1-0d20-8cb8-4c54-48a2febee582.htm" />
+  <HelpKINode Title="MariniBilancia class">
+    <HelpKINode Title="MariniBilancia Class" Url="html/5cd89ec8-a61e-a552-290f-007b78b695a0.htm" />
+    <HelpKINode Title="about MariniBilancia class" Url="html/5cd89ec8-a61e-a552-290f-007b78b695a0.htm" />
+    <HelpKINode Title="constructor" Url="html/1bf0b709-db64-1b73-7c0c-03dbd4c19deb.htm" />
+    <HelpKINode Title="events" Url="html/c7b71065-e932-aea3-b772-280b32fa40e3.htm" />
+    <HelpKINode Title="methods" Url="html/9f750f13-0754-da2e-8e66-0a266e51ecf5.htm" />
+    <HelpKINode Title="properties" Url="html/d1491868-75c1-3f33-51b4-a769b5e29e95.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MariniBilancia.MariniBilancia constructor" Url="html/1bf0b709-db64-1b73-7c0c-03dbd4c19deb.htm" />
+  <HelpKINode Title="MariniBilancia.ToPlainText method" Url="html/7a1136ca-38e7-c6ce-d058-61c8d4f6f3b9.htm" />
+  <HelpKINode Title="MariniCreator property" Url="html/48b9a81a-77d9-1635-20a2-87b7a2c233d7.htm" />
+  <HelpKINode Title="MariniGenericObject class">
+    <HelpKINode Title="MariniGenericObject Class" Url="html/c1101146-6838-05dd-6373-ef7f871cf22e.htm" />
+    <HelpKINode Title="about MariniGenericObject class" Url="html/c1101146-6838-05dd-6373-ef7f871cf22e.htm" />
+    <HelpKINode Title="constructor" Url="html/e4517300-ec3c-2b4c-7d74-8613bd9277ee.htm" />
+    <HelpKINode Title="events" Url="html/0635b608-7489-b09e-6b11-c74dfa766553.htm" />
+    <HelpKINode Title="methods" Url="html/dc47104d-1246-5fc8-b1d4-330cbaa45777.htm" />
+    <HelpKINode Title="properties" Url="html/54e30854-0889-11a3-f20e-2e5e52fe4196.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MariniGenericObject.description property" Url="html/5e2f9c7c-9c03-e714-3af1-87b09488d447.htm" />
+  <HelpKINode Title="MariniGenericObject.GetChildDictionary method" Url="html/62651221-a105-006b-eaf3-100b32fa0f24.htm" />
+  <HelpKINode Title="MariniGenericObject.GetObjectById method" Url="html/ced45835-42c7-7950-b3b6-03b343b006df.htm" />
+  <HelpKINode Title="MariniGenericObject.GetObjectListByType method" Url="html/727804f4-9156-c995-4ed7-1ef679822167.htm" />
+  <HelpKINode Title="MariniGenericObject.handler property" Url="html/926ac012-56cf-4671-d292-03c798fd7423.htm" />
+  <HelpKINode Title="MariniGenericObject.id property" Url="html/91c8cdd2-bc0d-c7ae-c0eb-21e823f954cf.htm" />
+  <HelpKINode Title="MariniGenericObject.ListaGenericObject property" Url="html/31b61760-c140-e80f-6c65-3d77bd352014.htm" />
+  <HelpKINode Title="MariniGenericObject.MariniGenericObject constructor" Url="html/e4517300-ec3c-2b4c-7d74-8613bd9277ee.htm" />
+  <HelpKINode Title="MariniGenericObject.name property" Url="html/ecd172fe-6664-1b0e-1543-41ac1c2a49af.htm" />
+  <HelpKINode Title="MariniGenericObject.OnPropertyChanged method" Url="html/3ad4e422-19e1-6edb-87d6-f3cd8b5516f4.htm" />
+  <HelpKINode Title="MariniGenericObject.parent property" Url="html/e1fedd1c-5879-d932-0b1f-95e7a3e10571.htm" />
+  <HelpKINode Title="MariniGenericObject.path property" Url="html/e10506ae-d84e-3c69-09a3-e4d1418438df.htm" />
+  <HelpKINode Title="MariniGenericObject.PropertyChanged event" Url="html/e2b436fb-9907-ac00-5e05-20d54fabcc31.htm" />
+  <HelpKINode Title="MariniGenericObject.SetField(Of T) method" Url="html/25d59a29-fc90-77ab-9ea5-03b5fcc7ba38.htm" />
+  <HelpKINode Title="MariniGenericObject.SetField&lt;T&gt; method" Url="html/25d59a29-fc90-77ab-9ea5-03b5fcc7ba38.htm" />
+  <HelpKINode Title="MariniGenericObject.ToPlainText method" Url="html/baff08fd-4423-363c-af01-8e08251f6b9e.htm" />
+  <HelpKINode Title="MariniGenericObject.ToPlainTextRecursive method" Url="html/3b27406c-f912-f584-d12b-9d623e8ee2cc.htm" />
+  <HelpKINode Title="MariniImpianti namespace" Url="html/38b6416d-4dbe-bba1-8417-9cae524d5585.htm" />
+  <HelpKINode Title="MariniImpianti.MariniAmperometro class" Url="html/c307b1d4-3596-64f2-6816-284666a35f06.htm" />
+  <HelpKINode Title="MariniImpianti.MariniBilancia class" Url="html/5cd89ec8-a61e-a552-290f-007b78b695a0.htm" />
+  <HelpKINode Title="MariniImpianti.MariniGenericObject class" Url="html/c1101146-6838-05dd-6373-ef7f871cf22e.htm" />
+  <HelpKINode Title="MariniImpianti.MariniImpianto class" Url="html/ec895dda-8d55-24a4-9eee-98a51bfd95a3.htm" />
+  <HelpKINode Title="MariniImpianti.MariniImpiantoEventHandlers class" Url="html/e231f2cc-3ff9-080d-7cf9-e48e64169ba6.htm" />
+  <HelpKINode Title="MariniImpianti.MariniImpiantoTree class" Url="html/a0aa1753-bc69-8dcd-f98b-b6bc527fd6ba.htm" />
+  <HelpKINode Title="MariniImpianti.MariniMotore class" Url="html/2808ade4-1970-d874-9255-7aa232022562.htm" />
+  <HelpKINode Title="MariniImpianti.MariniNastro class" Url="html/f7e14c34-8956-cac5-3f36-51b878128963.htm" />
+  <HelpKINode Title="MariniImpianti.MariniObjectCreator class" Url="html/84b5a50a-7a79-de7f-7a33-25ea89433db8.htm" />
+  <HelpKINode Title="MariniImpianti.MariniOggettoBase class" Url="html/4d0c83ab-4dc0-eca1-2154-820109009dc9.htm" />
+  <HelpKINode Title="MariniImpianti.MariniPlctag class" Url="html/1391fb40-68fe-13b0-384c-3e8d348622e7.htm" />
+  <HelpKINode Title="MariniImpianti.MariniPredosatore class" Url="html/4b5a1eeb-67eb-e9af-b3f4-f8a30197857b.htm" />
+  <HelpKINode Title="MariniImpianti.MariniZona class" Url="html/c4e1988d-0e6d-246e-d7e8-741f7d9b2893.htm" />
+  <HelpKINode Title="MariniImpianto class">
+    <HelpKINode Title="MariniImpianto Class" Url="html/ec895dda-8d55-24a4-9eee-98a51bfd95a3.htm" />
+    <HelpKINode Title="about MariniImpianto class" Url="html/ec895dda-8d55-24a4-9eee-98a51bfd95a3.htm" />
+    <HelpKINode Title="constructor" Url="html/a7fb63fe-6bfd-d90e-1e73-c93bef3b599c.htm" />
+    <HelpKINode Title="events" Url="html/8427a663-13ac-dc1f-805a-7e7981b007ce.htm" />
+    <HelpKINode Title="methods" Url="html/82c7493f-7550-aaea-2b38-d7ac1c843c6f.htm" />
+    <HelpKINode Title="properties" Url="html/b242f873-cc45-dfea-b728-c31a65703427.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MariniImpianto property" Url="html/ba6a8aae-12ff-de13-26dc-423988eb90c1.htm" />
+  <HelpKINode Title="MariniImpianto.MariniImpianto constructor" Url="html/a7fb63fe-6bfd-d90e-1e73-c93bef3b599c.htm" />
+  <HelpKINode Title="MariniImpianto.ToPlainText method" Url="html/19f1c31b-316a-7bde-d822-160b42ed32b5.htm" />
+  <HelpKINode Title="MariniImpiantoEventHandlers class">
+    <HelpKINode Title="MariniImpiantoEventHandlers Class" Url="html/e231f2cc-3ff9-080d-7cf9-e48e64169ba6.htm" />
+    <HelpKINode Title="about MariniImpiantoEventHandlers class" Url="html/e231f2cc-3ff9-080d-7cf9-e48e64169ba6.htm" />
+    <HelpKINode Title="constructor" Url="html/ef196a56-0d5c-0865-dfe4-b87ccba0bd92.htm" />
+    <HelpKINode Title="fields" Url="html/3570a6e9-7978-bfe3-a286-24d6e34390c7.htm" />
+    <HelpKINode Title="methods" Url="html/3c82db65-ede8-7e22-a240-90fe29eb4482.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MariniImpiantoEventHandlers property" Url="html/c492d8bf-b46f-7a5d-8d58-0b4bf3ccedd9.htm" />
+  <HelpKINode Title="MariniImpiantoEventHandlers.Logger field" Url="html/8f023203-ba7b-bbe2-7268-926cadb647c4.htm" />
+  <HelpKINode Title="MariniImpiantoEventHandlers.MariniImpiantoEventHandlers constructor" Url="html/ef196a56-0d5c-0865-dfe4-b87ccba0bd92.htm" />
+  <HelpKINode Title="MariniImpiantoEventHandlers.MyDefaultHandler method" Url="html/596db086-703a-8268-fc8f-38c8f71daeba.htm" />
+  <HelpKINode Title="MariniImpiantoEventHandlers.MyImpiantoHandler method" Url="html/8a5f7184-c88f-44d4-681c-33e4be8287ea.htm" />
+  <HelpKINode Title="MariniImpiantoEventHandlers.MyMotoreHandler method" Url="html/1c9e98fe-f1e4-fafd-1cc8-701afd17fda2.htm" />
+  <HelpKINode Title="MariniImpiantoEventHandlers.MyMotoreHandlerCustom method" Url="html/ffa7b75a-f700-e45e-2b9b-cfc313e07c5f.htm" />
+  <HelpKINode Title="MariniImpiantoEventHandlers.MyNastroHandler method" Url="html/f2f6c93c-d579-704a-fffd-af0f15ba9841.htm" />
+  <HelpKINode Title="MariniImpiantoEventHandlers.PropertyChangedEventHandler method" Url="html/e33c4ed8-a2eb-7311-6ac0-0d116f6777f5.htm" />
+  <HelpKINode Title="MariniImpiantoObjectsDictionary property" Url="html/ea83b621-d9fe-fb3c-ecd2-16c262ba1536.htm" />
+  <HelpKINode Title="MariniImpiantoTree class">
+    <HelpKINode Title="MariniImpiantoTree Class" Url="html/a0aa1753-bc69-8dcd-f98b-b6bc527fd6ba.htm" />
+    <HelpKINode Title="about MariniImpiantoTree class" Url="html/a0aa1753-bc69-8dcd-f98b-b6bc527fd6ba.htm" />
+    <HelpKINode Title="methods" Url="html/7b7ca00c-fe23-ff8c-1625-e8441e8226b6.htm" />
+    <HelpKINode Title="properties" Url="html/8e333ed5-051a-27f8-6c25-1102220f60f6.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MariniImpiantoTree.GetObjectById method" Url="html/52319b90-fe47-3d8d-5f97-2ac52e482348.htm" />
+  <HelpKINode Title="MariniImpiantoTree.InitializeFromXmlFile method" Url="html/6ae65934-ed44-c678-8b06-882df048f3c6.htm" />
+  <HelpKINode Title="MariniImpiantoTree.Instance property" Url="html/dda51267-ff10-f631-1642-3a38faad4e2d.htm" />
+  <HelpKINode Title="MariniImpiantoTree.MariniImpianto property" Url="html/ba6a8aae-12ff-de13-26dc-423988eb90c1.htm" />
+  <HelpKINode Title="MariniImpiantoTree.MariniImpiantoEventHandlers property" Url="html/c492d8bf-b46f-7a5d-8d58-0b4bf3ccedd9.htm" />
+  <HelpKINode Title="MariniImpiantoTree.MariniImpiantoObjectsDictionary property" Url="html/ea83b621-d9fe-fb3c-ecd2-16c262ba1536.htm" />
+  <HelpKINode Title="MariniImpiantoTree.SerializeObject method" Url="html/3e8c9cef-3435-18fb-d5d3-d586ca515de4.htm" />
+  <HelpKINode Title="MariniMotore class">
+    <HelpKINode Title="MariniMotore Class" Url="html/2808ade4-1970-d874-9255-7aa232022562.htm" />
+    <HelpKINode Title="about MariniMotore class" Url="html/2808ade4-1970-d874-9255-7aa232022562.htm" />
+    <HelpKINode Title="constructor" Url="html/bc59dbb1-b396-439c-7f43-92c5b19150d5.htm" />
+    <HelpKINode Title="events" Url="html/da77df1b-2a5b-60dd-13fc-e2640e413fd4.htm" />
+    <HelpKINode Title="methods" Url="html/8b0e6c53-4951-2ea2-2532-a50ceb6cd4e2.htm" />
+    <HelpKINode Title="properties" Url="html/219b12ab-bce6-b839-7efd-b99b9d07879b.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MariniMotore.MariniMotore constructor" Url="html/bc59dbb1-b396-439c-7f43-92c5b19150d5.htm" />
+  <HelpKINode Title="MariniMotore.ToPlainText method" Url="html/3e126d63-050a-aeb5-11b0-eaa07a654f3d.htm" />
+  <HelpKINode Title="MariniNastro class">
+    <HelpKINode Title="MariniNastro Class" Url="html/f7e14c34-8956-cac5-3f36-51b878128963.htm" />
+    <HelpKINode Title="about MariniNastro class" Url="html/f7e14c34-8956-cac5-3f36-51b878128963.htm" />
+    <HelpKINode Title="constructor" Url="html/17170a18-7ae9-8cc2-da88-6f4140923acb.htm" />
+    <HelpKINode Title="events" Url="html/cebfe647-5606-9f2e-d0be-daf91d122fe1.htm" />
+    <HelpKINode Title="methods" Url="html/f7c6a7fb-6f62-9d09-5b06-0096fee0d4fa.htm" />
+    <HelpKINode Title="properties" Url="html/ebf42e22-a7f1-230f-5ebe-2eb0ce2ccbcb.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MariniNastro.MariniNastro constructor" Url="html/17170a18-7ae9-8cc2-da88-6f4140923acb.htm" />
+  <HelpKINode Title="MariniNastro.ToPlainText method" Url="html/f350deb9-5abe-ed2d-da61-a166e398a6fe.htm" />
+  <HelpKINode Title="MariniObjectCreator class">
+    <HelpKINode Title="MariniObjectCreator Class" Url="html/84b5a50a-7a79-de7f-7a33-25ea89433db8.htm" />
+    <HelpKINode Title="about MariniObjectCreator class" Url="html/84b5a50a-7a79-de7f-7a33-25ea89433db8.htm" />
+    <HelpKINode Title="constructor" Url="html/62823e22-efd1-cb49-75d5-441cd33eeaf9.htm" />
+    <HelpKINode Title="methods" Url="html/333f5792-ad43-5b60-fe57-3a53138b2357.htm" />
+    <HelpKINode Title="properties" Url="html/0ab662f3-f67b-4977-ca3f-cb4e8fe046f0.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MariniObjectCreator.CreateMariniObject method" Url="html/3b27354c-5d70-09a4-c5a2-9c61a0d36da7.htm" />
+  <HelpKINode Title="MariniObjectCreator.MariniCreator property" Url="html/48b9a81a-77d9-1635-20a2-87b7a2c233d7.htm" />
+  <HelpKINode Title="MariniObjectCreator.MariniObjectCreator constructor" Url="html/62823e22-efd1-cb49-75d5-441cd33eeaf9.htm" />
+  <HelpKINode Title="MariniOggettoBase class">
+    <HelpKINode Title="MariniOggettoBase Class" Url="html/4d0c83ab-4dc0-eca1-2154-820109009dc9.htm" />
+    <HelpKINode Title="about MariniOggettoBase class" Url="html/4d0c83ab-4dc0-eca1-2154-820109009dc9.htm" />
+    <HelpKINode Title="constructor" Url="html/46ef5a5d-cef7-dba0-7eda-89842cf3b1f9.htm" />
+    <HelpKINode Title="events" Url="html/2a8ba125-88bb-7cf6-2fd0-7892cf7b6dc5.htm" />
+    <HelpKINode Title="methods" Url="html/a80a8024-4b1d-95f8-3690-783a9e610c7c.htm" />
+    <HelpKINode Title="properties" Url="html/a5f91756-178d-834c-5664-40c4a5d27969.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MariniOggettoBase.MariniOggettoBase constructor" Url="html/46ef5a5d-cef7-dba0-7eda-89842cf3b1f9.htm" />
+  <HelpKINode Title="MariniOggettoBase.ToPlainText method" Url="html/55782849-9f2f-69bc-fd5c-503ad8f6bf14.htm" />
+  <HelpKINode Title="MariniPlctag class">
+    <HelpKINode Title="MariniPlctag Class" Url="html/1391fb40-68fe-13b0-384c-3e8d348622e7.htm" />
+    <HelpKINode Title="about MariniPlctag class" Url="html/1391fb40-68fe-13b0-384c-3e8d348622e7.htm" />
+    <HelpKINode Title="constructor" Url="html/30ee6de0-ef0d-f2fd-3c0e-b9d4fe305807.htm" />
+    <HelpKINode Title="events" Url="html/47f117e4-e6ec-508b-3e86-543192f1920f.htm" />
+    <HelpKINode Title="methods" Url="html/8f1475a7-402f-fa71-ef9c-0c8762c1282a.htm" />
+    <HelpKINode Title="properties" Url="html/e8e9456d-862a-91f6-900a-9255a7537fd9.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MariniPlctag.MariniPlctag constructor" Url="html/30ee6de0-ef0d-f2fd-3c0e-b9d4fe305807.htm" />
+  <HelpKINode Title="MariniPlctag.tagid property" Url="html/ea1b2bab-4388-6300-ea0d-b666bbf3af4f.htm" />
+  <HelpKINode Title="MariniPlctag.ToPlainText method" Url="html/9e96990e-492b-5900-3e72-e7de5eab088e.htm" />
+  <HelpKINode Title="MariniPredosatore class">
+    <HelpKINode Title="MariniPredosatore Class" Url="html/4b5a1eeb-67eb-e9af-b3f4-f8a30197857b.htm" />
+    <HelpKINode Title="about MariniPredosatore class" Url="html/4b5a1eeb-67eb-e9af-b3f4-f8a30197857b.htm" />
+    <HelpKINode Title="constructor" Url="html/28f94253-c17a-71b3-0866-5b0f7132b00a.htm" />
+    <HelpKINode Title="events" Url="html/976f0b2f-b749-f994-7f91-1c6da85ff897.htm" />
+    <HelpKINode Title="methods" Url="html/d8111e0f-d701-142b-c676-55b241cf3368.htm" />
+    <HelpKINode Title="properties" Url="html/93d7cc5e-4565-9d62-e67f-263fa58bca94.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MariniPredosatore.MariniPredosatore constructor" Url="html/28f94253-c17a-71b3-0866-5b0f7132b00a.htm" />
+  <HelpKINode Title="MariniPredosatore.ToPlainText method" Url="html/28455f4b-0332-0c00-2c75-5b65d2cc9c45.htm" />
+  <HelpKINode Title="MariniZona class">
+    <HelpKINode Title="MariniZona Class" Url="html/c4e1988d-0e6d-246e-d7e8-741f7d9b2893.htm" />
+    <HelpKINode Title="about MariniZona class" Url="html/c4e1988d-0e6d-246e-d7e8-741f7d9b2893.htm" />
+    <HelpKINode Title="constructor" Url="html/77a01349-9d85-d196-8010-57699ef4b941.htm" />
+    <HelpKINode Title="events" Url="html/4b351e2c-375c-60f1-93b0-66530b1037a5.htm" />
+    <HelpKINode Title="methods" Url="html/66a01b7f-0e54-9ec7-af34-be4d94426b6a.htm" />
+    <HelpKINode Title="properties" Url="html/7b8ef38e-75db-4628-172b-1ae1d2a891a4.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MariniZona.MariniZona constructor" Url="html/77a01349-9d85-d196-8010-57699ef4b941.htm" />
+  <HelpKINode Title="MariniZona.ToPlainText method" Url="html/c91d32cb-c56e-0019-545f-87b379085d3a.htm" />
+  <HelpKINode Title="MyDefaultHandler method" Url="html/596db086-703a-8268-fc8f-38c8f71daeba.htm" />
+  <HelpKINode Title="MyImpiantoHandler method" Url="html/8a5f7184-c88f-44d4-681c-33e4be8287ea.htm" />
+  <HelpKINode Title="MyMotoreHandler method" Url="html/1c9e98fe-f1e4-fafd-1cc8-701afd17fda2.htm" />
+  <HelpKINode Title="MyMotoreHandlerCustom method" Url="html/ffa7b75a-f700-e45e-2b9b-cfc313e07c5f.htm" />
+  <HelpKINode Title="MyNastroHandler method" Url="html/f2f6c93c-d579-704a-fffd-af0f15ba9841.htm" />
+  <HelpKINode Title="name property" Url="html/ecd172fe-6664-1b0e-1543-41ac1c2a49af.htm" />
+  <HelpKINode Title="OnPropertyChanged method" Url="html/3ad4e422-19e1-6edb-87d6-f3cd8b5516f4.htm" />
+  <HelpKINode Title="parent property" Url="html/e1fedd1c-5879-d932-0b1f-95e7a3e10571.htm" />
+  <HelpKINode Title="path property" Url="html/e10506ae-d84e-3c69-09a3-e4d1418438df.htm" />
+  <HelpKINode Title="PropertyChanged event" Url="html/e2b436fb-9907-ac00-5e05-20d54fabcc31.htm" />
+  <HelpKINode Title="PropertyChangedEventHandler method" Url="html/e33c4ed8-a2eb-7311-6ac0-0d116f6777f5.htm" />
+  <HelpKINode Title="SerializeObject method" Url="html/3e8c9cef-3435-18fb-d5d3-d586ca515de4.htm" />
+  <HelpKINode Title="SetField(Of T) method" Url="html/25d59a29-fc90-77ab-9ea5-03b5fcc7ba38.htm" />
+  <HelpKINode Title="SetField&lt;T&gt; method" Url="html/25d59a29-fc90-77ab-9ea5-03b5fcc7ba38.htm" />
+  <HelpKINode Title="tagid property" Url="html/ea1b2bab-4388-6300-ea0d-b666bbf3af4f.htm" />
+  <HelpKINode Title="ToPlainText method">
+    <HelpKINode Title="MariniAmperometro.ToPlainText Method " Url="html/667c87c1-0d20-8cb8-4c54-48a2febee582.htm" />
+    <HelpKINode Title="MariniBilancia.ToPlainText Method " Url="html/7a1136ca-38e7-c6ce-d058-61c8d4f6f3b9.htm" />
+    <HelpKINode Title="MariniGenericObject.ToPlainText Method " Url="html/baff08fd-4423-363c-af01-8e08251f6b9e.htm" />
+    <HelpKINode Title="MariniImpianto.ToPlainText Method " Url="html/19f1c31b-316a-7bde-d822-160b42ed32b5.htm" />
+    <HelpKINode Title="MariniMotore.ToPlainText Method " Url="html/3e126d63-050a-aeb5-11b0-eaa07a654f3d.htm" />
+    <HelpKINode Title="MariniNastro.ToPlainText Method " Url="html/f350deb9-5abe-ed2d-da61-a166e398a6fe.htm" />
+    <HelpKINode Title="MariniOggettoBase.ToPlainText Method " Url="html/55782849-9f2f-69bc-fd5c-503ad8f6bf14.htm" />
+    <HelpKINode Title="MariniPlctag.ToPlainText Method " Url="html/9e96990e-492b-5900-3e72-e7de5eab088e.htm" />
+    <HelpKINode Title="MariniPredosatore.ToPlainText Method " Url="html/28455f4b-0332-0c00-2c75-5b65d2cc9c45.htm" />
+    <HelpKINode Title="MariniZona.ToPlainText Method " Url="html/c91d32cb-c56e-0019-545f-87b379085d3a.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ToPlainTextRecursive method" Url="html/3b27406c-f912-f584-d12b-9d623e8ee2cc.htm" />
+</HelpKI>

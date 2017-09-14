@@ -1,0 +1,2921 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reflection>
+  <assemblies>
+    <assembly name="MariniImpianto">
+      <assemblydata version="1.0.0.0" culture="" key="" hash="SHA1" />
+      <attributes>
+        <attribute>
+          <type api="T:System.Reflection.AssemblyFileVersionAttribute" ref="true" />
+          <argument>
+            <type api="T:System.String" ref="true" />
+            <value>1.0.0.0</value>
+          </argument>
+        </attribute>
+      </attributes>
+    </assembly>
+  </assemblies>
+  <apis>
+    <api id="N:MariniImpianti">
+      <apidata name="MariniImpianti" group="namespace" />
+      <elements>
+        <element api="T:MariniImpianti.MariniImpiantoEventHandlers" />
+        <element api="T:MariniImpianti.MariniObjectCreator" />
+        <element api="T:MariniImpianti.MariniImpiantoTree" />
+        <element api="T:MariniImpianti.MariniGenericObject" />
+        <element api="T:MariniImpianti.MariniOggettoBase" />
+        <element api="T:MariniImpianti.MariniImpianto" />
+        <element api="T:MariniImpianti.MariniZona" />
+        <element api="T:MariniImpianti.MariniPredosatore" />
+        <element api="T:MariniImpianti.MariniPlctag" />
+        <element api="T:MariniImpianti.MariniBilancia" />
+        <element api="T:MariniImpianti.MariniMotore" />
+        <element api="T:MariniImpianti.MariniNastro" />
+        <element api="T:MariniImpianti.MariniAmperometro" />
+      </elements>
+    </api>
+    <api id="T:MariniImpianti.MariniAmperometro">
+      <apidata name="MariniAmperometro" group="type" subgroup="class" />
+      <typedata visibility="public" serializable="false" />
+      <family>
+        <ancestors>
+          <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+          <type api="T:System.Object" ref="true" />
+        </ancestors>
+      </family>
+      <elements>
+        <element api="M:MariniImpianti.MariniAmperometro.#ctor(MariniImpianti.MariniGenericObject)" />
+        <element api="M:MariniImpianti.MariniAmperometro.#ctor" />
+        <element api="M:MariniImpianti.MariniAmperometro.#ctor(MariniImpianti.MariniGenericObject,System.Xml.XmlNode)" />
+        <element api="M:MariniImpianti.MariniAmperometro.#ctor(System.Xml.XmlNode)" />
+        <element api="M:MariniImpianti.MariniAmperometro.ToPlainText" />
+        <element api="M:MariniImpianti.MariniGenericObject.OnPropertyChanged(System.String)" />
+        <element api="M:MariniImpianti.MariniGenericObject.SetField``1(``0@,``0,System.String)" />
+        <element api="M:MariniImpianti.MariniGenericObject.ToPlainTextRecursive" />
+        <element api="M:MariniImpianti.MariniGenericObject.GetObjectById(System.String)" />
+        <element api="M:MariniImpianti.MariniGenericObject.GetObjectListByType(System.Type)" />
+        <element api="M:MariniImpianti.MariniGenericObject.GetChildDictionary" />
+        <element api="P:MariniImpianti.MariniGenericObject.parent" />
+        <element api="P:MariniImpianti.MariniGenericObject.id" />
+        <element api="P:MariniImpianti.MariniGenericObject.name" />
+        <element api="P:MariniImpianti.MariniGenericObject.path" />
+        <element api="P:MariniImpianti.MariniGenericObject.description" />
+        <element api="P:MariniImpianti.MariniGenericObject.handler" />
+        <element api="P:MariniImpianti.MariniGenericObject.ListaGenericObject" />
+        <element api="E:MariniImpianti.MariniGenericObject.PropertyChanged" />
+        <element api="M:System.Object.ToString">
+          <apidata name="ToString" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <returns>
+            <type api="T:System.String" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Equals(System.Object)">
+          <apidata name="Equals" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <parameters>
+            <parameter name="obj">
+              <type api="T:System.Object" ref="true" />
+            </parameter>
+          </parameters>
+          <returns>
+            <type api="T:System.Boolean" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetHashCode">
+          <apidata name="GetHashCode" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <returns>
+            <type api="T:System.Int32" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetType">
+          <apidata name="GetType" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="false" />
+          <returns>
+            <type api="T:System.Type" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Finalize">
+          <apidata name="Finalize" group="member" subgroup="method" />
+          <memberdata visibility="family" />
+          <proceduredata virtual="true" />
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.MemberwiseClone">
+          <apidata name="MemberwiseClone" group="member" subgroup="method" />
+          <memberdata visibility="family" />
+          <proceduredata virtual="false" />
+          <returns>
+            <type api="T:System.Object" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+      </elements>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniAmperometro.#ctor">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" />
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniAmperometro" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniAmperometro.#ctor(MariniImpianti.MariniGenericObject)">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" />
+      <parameters>
+        <parameter name="parent">
+          <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniAmperometro" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniAmperometro.#ctor(MariniImpianti.MariniGenericObject,System.Xml.XmlNode)">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" />
+      <parameters>
+        <parameter name="parent">
+          <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+        </parameter>
+        <parameter name="node">
+          <type api="T:System.Xml.XmlNode" ref="true" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniAmperometro" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniAmperometro.#ctor(System.Xml.XmlNode)">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" />
+      <parameters>
+        <parameter name="node">
+          <type api="T:System.Xml.XmlNode" ref="true" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniAmperometro" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniAmperometro.ToPlainText">
+      <apidata name="ToPlainText" group="member" subgroup="method" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="true" />
+      <overrides>
+        <member api="M:MariniImpianti.MariniGenericObject.ToPlainText">
+          <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+        </member>
+      </overrides>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniAmperometro" ref="true" />
+      </containers>
+    </api>
+    <api id="T:MariniImpianti.MariniBilancia">
+      <apidata name="MariniBilancia" group="type" subgroup="class" />
+      <typedata visibility="public" serializable="false" />
+      <family>
+        <ancestors>
+          <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+          <type api="T:System.Object" ref="true" />
+        </ancestors>
+      </family>
+      <elements>
+        <element api="M:MariniImpianti.MariniBilancia.#ctor(MariniImpianti.MariniGenericObject)" />
+        <element api="M:MariniImpianti.MariniBilancia.#ctor" />
+        <element api="M:MariniImpianti.MariniBilancia.#ctor(MariniImpianti.MariniGenericObject,System.Xml.XmlNode)" />
+        <element api="M:MariniImpianti.MariniBilancia.#ctor(System.Xml.XmlNode)" />
+        <element api="M:MariniImpianti.MariniBilancia.ToPlainText" />
+        <element api="M:MariniImpianti.MariniGenericObject.OnPropertyChanged(System.String)" />
+        <element api="M:MariniImpianti.MariniGenericObject.SetField``1(``0@,``0,System.String)" />
+        <element api="M:MariniImpianti.MariniGenericObject.ToPlainTextRecursive" />
+        <element api="M:MariniImpianti.MariniGenericObject.GetObjectById(System.String)" />
+        <element api="M:MariniImpianti.MariniGenericObject.GetObjectListByType(System.Type)" />
+        <element api="M:MariniImpianti.MariniGenericObject.GetChildDictionary" />
+        <element api="P:MariniImpianti.MariniGenericObject.parent" />
+        <element api="P:MariniImpianti.MariniGenericObject.id" />
+        <element api="P:MariniImpianti.MariniGenericObject.name" />
+        <element api="P:MariniImpianti.MariniGenericObject.path" />
+        <element api="P:MariniImpianti.MariniGenericObject.description" />
+        <element api="P:MariniImpianti.MariniGenericObject.handler" />
+        <element api="P:MariniImpianti.MariniGenericObject.ListaGenericObject" />
+        <element api="E:MariniImpianti.MariniGenericObject.PropertyChanged" />
+        <element api="M:System.Object.ToString">
+          <apidata name="ToString" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <returns>
+            <type api="T:System.String" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Equals(System.Object)">
+          <apidata name="Equals" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <parameters>
+            <parameter name="obj">
+              <type api="T:System.Object" ref="true" />
+            </parameter>
+          </parameters>
+          <returns>
+            <type api="T:System.Boolean" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetHashCode">
+          <apidata name="GetHashCode" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <returns>
+            <type api="T:System.Int32" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetType">
+          <apidata name="GetType" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="false" />
+          <returns>
+            <type api="T:System.Type" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Finalize">
+          <apidata name="Finalize" group="member" subgroup="method" />
+          <memberdata visibility="family" />
+          <proceduredata virtual="true" />
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.MemberwiseClone">
+          <apidata name="MemberwiseClone" group="member" subgroup="method" />
+          <memberdata visibility="family" />
+          <proceduredata virtual="false" />
+          <returns>
+            <type api="T:System.Object" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+      </elements>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniBilancia.#ctor">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" />
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniBilancia" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniBilancia.#ctor(MariniImpianti.MariniGenericObject)">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" />
+      <parameters>
+        <parameter name="parent">
+          <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniBilancia" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniBilancia.#ctor(MariniImpianti.MariniGenericObject,System.Xml.XmlNode)">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" />
+      <parameters>
+        <parameter name="parent">
+          <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+        </parameter>
+        <parameter name="node">
+          <type api="T:System.Xml.XmlNode" ref="true" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniBilancia" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniBilancia.#ctor(System.Xml.XmlNode)">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" />
+      <parameters>
+        <parameter name="node">
+          <type api="T:System.Xml.XmlNode" ref="true" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniBilancia" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniBilancia.ToPlainText">
+      <apidata name="ToPlainText" group="member" subgroup="method" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="true" />
+      <overrides>
+        <member api="M:MariniImpianti.MariniGenericObject.ToPlainText">
+          <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+        </member>
+      </overrides>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniBilancia" ref="true" />
+      </containers>
+    </api>
+    <api id="T:MariniImpianti.MariniGenericObject">
+      <apidata name="MariniGenericObject" group="type" subgroup="class" />
+      <typedata visibility="public" abstract="true" serializable="false" />
+      <family>
+        <ancestors>
+          <type api="T:System.Object" ref="true" />
+        </ancestors>
+        <descendents>
+          <type api="T:MariniImpianti.MariniOggettoBase" ref="true" />
+          <type api="T:MariniImpianti.MariniImpianto" ref="true" />
+          <type api="T:MariniImpianti.MariniZona" ref="true" />
+          <type api="T:MariniImpianti.MariniPredosatore" ref="true" />
+          <type api="T:MariniImpianti.MariniPlctag" ref="true" />
+          <type api="T:MariniImpianti.MariniBilancia" ref="true" />
+          <type api="T:MariniImpianti.MariniMotore" ref="true" />
+          <type api="T:MariniImpianti.MariniNastro" ref="true" />
+          <type api="T:MariniImpianti.MariniAmperometro" ref="true" />
+        </descendents>
+      </family>
+      <implements>
+        <type api="T:System.ComponentModel.INotifyPropertyChanged" ref="true" />
+      </implements>
+      <elements>
+        <element api="M:MariniImpianti.MariniGenericObject.OnPropertyChanged(System.String)" />
+        <element api="M:MariniImpianti.MariniGenericObject.SetField``1(``0@,``0,System.String)" />
+        <element api="M:MariniImpianti.MariniGenericObject.#ctor(MariniImpianti.MariniGenericObject,System.String,System.String,System.String,System.String)" />
+        <element api="M:MariniImpianti.MariniGenericObject.#ctor(MariniImpianti.MariniGenericObject,System.String,System.String,System.String)" />
+        <element api="M:MariniImpianti.MariniGenericObject.#ctor(MariniImpianti.MariniGenericObject,System.String,System.String)" />
+        <element api="M:MariniImpianti.MariniGenericObject.#ctor(MariniImpianti.MariniGenericObject,System.String)" />
+        <element api="M:MariniImpianti.MariniGenericObject.#ctor(MariniImpianti.MariniGenericObject)" />
+        <element api="M:MariniImpianti.MariniGenericObject.#ctor" />
+        <element api="M:MariniImpianti.MariniGenericObject.#ctor(MariniImpianti.MariniGenericObject,System.Xml.XmlNode)" />
+        <element api="M:MariniImpianti.MariniGenericObject.#ctor(System.Xml.XmlNode)" />
+        <element api="M:MariniImpianti.MariniGenericObject.ToPlainText" />
+        <element api="M:MariniImpianti.MariniGenericObject.ToPlainTextRecursive" />
+        <element api="M:MariniImpianti.MariniGenericObject.GetObjectById(System.String)" />
+        <element api="M:MariniImpianti.MariniGenericObject.GetObjectListByType(System.Type)" />
+        <element api="M:MariniImpianti.MariniGenericObject.GetChildDictionary" />
+        <element api="P:MariniImpianti.MariniGenericObject.parent" />
+        <element api="P:MariniImpianti.MariniGenericObject.id" />
+        <element api="P:MariniImpianti.MariniGenericObject.name" />
+        <element api="P:MariniImpianti.MariniGenericObject.path" />
+        <element api="P:MariniImpianti.MariniGenericObject.description" />
+        <element api="P:MariniImpianti.MariniGenericObject.handler" />
+        <element api="P:MariniImpianti.MariniGenericObject.ListaGenericObject" />
+        <element api="E:MariniImpianti.MariniGenericObject.PropertyChanged" />
+        <element api="M:System.Object.ToString">
+          <apidata name="ToString" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <returns>
+            <type api="T:System.String" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Equals(System.Object)">
+          <apidata name="Equals" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <parameters>
+            <parameter name="obj">
+              <type api="T:System.Object" ref="true" />
+            </parameter>
+          </parameters>
+          <returns>
+            <type api="T:System.Boolean" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetHashCode">
+          <apidata name="GetHashCode" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <returns>
+            <type api="T:System.Int32" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetType">
+          <apidata name="GetType" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="false" />
+          <returns>
+            <type api="T:System.Type" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Finalize">
+          <apidata name="Finalize" group="member" subgroup="method" />
+          <memberdata visibility="family" />
+          <proceduredata virtual="true" />
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.MemberwiseClone">
+          <apidata name="MemberwiseClone" group="member" subgroup="method" />
+          <memberdata visibility="family" />
+          <proceduredata virtual="false" />
+          <returns>
+            <type api="T:System.Object" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+      </elements>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniGenericObject.#ctor">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="family" special="true" />
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniGenericObject.#ctor(MariniImpianti.MariniGenericObject)">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="family" special="true" />
+      <parameters>
+        <parameter name="parent">
+          <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniGenericObject.#ctor(MariniImpianti.MariniGenericObject,System.String)">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="family" special="true" />
+      <parameters>
+        <parameter name="parent">
+          <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+        </parameter>
+        <parameter name="id">
+          <type api="T:System.String" ref="true" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniGenericObject.#ctor(MariniImpianti.MariniGenericObject,System.String,System.String)">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="family" special="true" />
+      <parameters>
+        <parameter name="parent">
+          <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+        </parameter>
+        <parameter name="id">
+          <type api="T:System.String" ref="true" />
+        </parameter>
+        <parameter name="name">
+          <type api="T:System.String" ref="true" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniGenericObject.#ctor(MariniImpianti.MariniGenericObject,System.String,System.String,System.String)">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="family" special="true" />
+      <parameters>
+        <parameter name="parent">
+          <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+        </parameter>
+        <parameter name="id">
+          <type api="T:System.String" ref="true" />
+        </parameter>
+        <parameter name="name">
+          <type api="T:System.String" ref="true" />
+        </parameter>
+        <parameter name="description">
+          <type api="T:System.String" ref="true" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniGenericObject.#ctor(MariniImpianti.MariniGenericObject,System.String,System.String,System.String,System.String)">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="family" special="true" />
+      <parameters>
+        <parameter name="parent">
+          <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+        </parameter>
+        <parameter name="id">
+          <type api="T:System.String" ref="true" />
+        </parameter>
+        <parameter name="name">
+          <type api="T:System.String" ref="true" />
+        </parameter>
+        <parameter name="description">
+          <type api="T:System.String" ref="true" />
+        </parameter>
+        <parameter name="handler">
+          <type api="T:System.String" ref="true" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniGenericObject.#ctor(MariniImpianti.MariniGenericObject,System.Xml.XmlNode)">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="family" special="true" />
+      <parameters>
+        <parameter name="parent">
+          <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+        </parameter>
+        <parameter name="node">
+          <type api="T:System.Xml.XmlNode" ref="true" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniGenericObject.#ctor(System.Xml.XmlNode)">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="family" special="true" />
+      <parameters>
+        <parameter name="node">
+          <type api="T:System.Xml.XmlNode" ref="true" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+      </containers>
+    </api>
+    <api id="P:MariniImpianti.MariniGenericObject.description">
+      <apidata name="description" group="member" subgroup="property" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <propertydata get="true" set="true" />
+      <getter name="get_description" />
+      <setter name="set_description" />
+      <returns>
+        <type api="T:System.String" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniGenericObject.GetChildDictionary">
+      <apidata name="GetChildDictionary" group="member" subgroup="method" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <returns>
+        <type api="T:System.Collections.Generic.Dictionary`2" ref="true">
+          <specialization>
+            <type api="T:System.String" ref="true" />
+            <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+          </specialization>
+        </type>
+      </returns>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniGenericObject.GetObjectById(System.String)">
+      <apidata name="GetObjectById" group="member" subgroup="method" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <parameters>
+        <parameter name="id">
+          <type api="T:System.String" ref="true" />
+        </parameter>
+      </parameters>
+      <returns>
+        <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniGenericObject.GetObjectListByType(System.Type)">
+      <apidata name="GetObjectListByType" group="member" subgroup="method" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <parameters>
+        <parameter name="type">
+          <type api="T:System.Type" ref="true" />
+        </parameter>
+      </parameters>
+      <returns>
+        <type api="T:System.Collections.Generic.List`1" ref="true">
+          <specialization>
+            <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+          </specialization>
+        </type>
+      </returns>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+      </containers>
+    </api>
+    <api id="P:MariniImpianti.MariniGenericObject.handler">
+      <apidata name="handler" group="member" subgroup="property" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <propertydata get="true" set="true" />
+      <getter name="get_handler" />
+      <setter name="set_handler" />
+      <returns>
+        <type api="T:System.String" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+      </containers>
+    </api>
+    <api id="P:MariniImpianti.MariniGenericObject.id">
+      <apidata name="id" group="member" subgroup="property" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <propertydata get="true" set="true" />
+      <getter name="get_id" />
+      <setter name="set_id" />
+      <returns>
+        <type api="T:System.String" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+      </containers>
+    </api>
+    <api id="P:MariniImpianti.MariniGenericObject.ListaGenericObject">
+      <apidata name="ListaGenericObject" group="member" subgroup="property" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <propertydata get="true" />
+      <getter name="get_ListaGenericObject" />
+      <returns>
+        <type api="T:System.Collections.Generic.List`1" ref="true">
+          <specialization>
+            <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+          </specialization>
+        </type>
+      </returns>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+      </containers>
+    </api>
+    <api id="P:MariniImpianti.MariniGenericObject.name">
+      <apidata name="name" group="member" subgroup="property" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <propertydata get="true" set="true" />
+      <getter name="get_name" />
+      <setter name="set_name" />
+      <returns>
+        <type api="T:System.String" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniGenericObject.OnPropertyChanged(System.String)">
+      <apidata name="OnPropertyChanged" group="member" subgroup="method" />
+      <memberdata visibility="family" />
+      <proceduredata virtual="true" />
+      <parameters>
+        <parameter name="propertyName">
+          <type api="T:System.String" ref="true" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+      </containers>
+    </api>
+    <api id="P:MariniImpianti.MariniGenericObject.parent">
+      <apidata name="parent" group="member" subgroup="property" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <propertydata get="true" set="true" />
+      <getter name="get_parent" />
+      <setter name="set_parent" />
+      <returns>
+        <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+      </containers>
+    </api>
+    <api id="P:MariniImpianti.MariniGenericObject.path">
+      <apidata name="path" group="member" subgroup="property" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <propertydata get="true" set="true" />
+      <getter name="get_path" />
+      <setter name="set_path" />
+      <returns>
+        <type api="T:System.String" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+      </containers>
+    </api>
+    <api id="E:MariniImpianti.MariniGenericObject.PropertyChanged">
+      <apidata name="PropertyChanged" group="member" subgroup="event" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="true" final="true" />
+      <eventdata add="true" remove="true" />
+      <adder name="add_PropertyChanged" />
+      <remover name="remove_PropertyChanged" />
+      <eventhandler>
+        <type api="T:System.ComponentModel.PropertyChangedEventHandler" ref="true" />
+      </eventhandler>
+      <eventargs>
+        <type api="T:System.ComponentModel.PropertyChangedEventArgs" ref="true" />
+      </eventargs>
+      <implements>
+        <member api="E:System.ComponentModel.INotifyPropertyChanged.PropertyChanged">
+          <type api="T:System.ComponentModel.INotifyPropertyChanged" ref="true" />
+        </member>
+      </implements>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniGenericObject.SetField``1(``0@,``0,System.String)">
+      <apidata name="SetField" group="member" subgroup="method" />
+      <memberdata visibility="family" />
+      <proceduredata virtual="false" />
+      <templates>
+        <template name="T" />
+      </templates>
+      <parameters>
+        <parameter name="field">
+          <referenceTo>
+            <template name="T" index="0" api="M:MariniImpianti.MariniGenericObject.SetField``1(``0@,``0,System.String)" />
+          </referenceTo>
+        </parameter>
+        <parameter name="value">
+          <template name="T" index="0" api="M:MariniImpianti.MariniGenericObject.SetField``1(``0@,``0,System.String)" />
+        </parameter>
+        <parameter name="propertyName" optional="true">
+          <type api="T:System.String" ref="true" />
+          <argument>
+            <type api="T:System.Object" ref="true" />
+            <nullValue />
+          </argument>
+        </parameter>
+      </parameters>
+      <returns>
+        <type api="T:System.Boolean" ref="false" />
+      </returns>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniGenericObject.ToPlainText">
+      <apidata name="ToPlainText" group="member" subgroup="method" />
+      <memberdata visibility="public" />
+      <proceduredata abstract="true" virtual="true" />
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniGenericObject.ToPlainTextRecursive">
+      <apidata name="ToPlainTextRecursive" group="member" subgroup="method" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+      </containers>
+    </api>
+    <api id="T:MariniImpianti.MariniImpianto">
+      <apidata name="MariniImpianto" group="type" subgroup="class" />
+      <typedata visibility="public" serializable="false" />
+      <family>
+        <ancestors>
+          <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+          <type api="T:System.Object" ref="true" />
+        </ancestors>
+      </family>
+      <elements>
+        <element api="M:MariniImpianti.MariniImpianto.#ctor(MariniImpianti.MariniGenericObject)" />
+        <element api="M:MariniImpianti.MariniImpianto.#ctor" />
+        <element api="M:MariniImpianti.MariniImpianto.#ctor(MariniImpianti.MariniGenericObject,System.Xml.XmlNode)" />
+        <element api="M:MariniImpianti.MariniImpianto.#ctor(System.Xml.XmlNode)" />
+        <element api="M:MariniImpianti.MariniImpianto.ToPlainText" />
+        <element api="M:MariniImpianti.MariniGenericObject.OnPropertyChanged(System.String)" />
+        <element api="M:MariniImpianti.MariniGenericObject.SetField``1(``0@,``0,System.String)" />
+        <element api="M:MariniImpianti.MariniGenericObject.ToPlainTextRecursive" />
+        <element api="M:MariniImpianti.MariniGenericObject.GetObjectById(System.String)" />
+        <element api="M:MariniImpianti.MariniGenericObject.GetObjectListByType(System.Type)" />
+        <element api="M:MariniImpianti.MariniGenericObject.GetChildDictionary" />
+        <element api="P:MariniImpianti.MariniGenericObject.parent" />
+        <element api="P:MariniImpianti.MariniGenericObject.id" />
+        <element api="P:MariniImpianti.MariniGenericObject.name" />
+        <element api="P:MariniImpianti.MariniGenericObject.path" />
+        <element api="P:MariniImpianti.MariniGenericObject.description" />
+        <element api="P:MariniImpianti.MariniGenericObject.handler" />
+        <element api="P:MariniImpianti.MariniGenericObject.ListaGenericObject" />
+        <element api="E:MariniImpianti.MariniGenericObject.PropertyChanged" />
+        <element api="M:System.Object.ToString">
+          <apidata name="ToString" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <returns>
+            <type api="T:System.String" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Equals(System.Object)">
+          <apidata name="Equals" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <parameters>
+            <parameter name="obj">
+              <type api="T:System.Object" ref="true" />
+            </parameter>
+          </parameters>
+          <returns>
+            <type api="T:System.Boolean" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetHashCode">
+          <apidata name="GetHashCode" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <returns>
+            <type api="T:System.Int32" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetType">
+          <apidata name="GetType" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="false" />
+          <returns>
+            <type api="T:System.Type" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Finalize">
+          <apidata name="Finalize" group="member" subgroup="method" />
+          <memberdata visibility="family" />
+          <proceduredata virtual="true" />
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.MemberwiseClone">
+          <apidata name="MemberwiseClone" group="member" subgroup="method" />
+          <memberdata visibility="family" />
+          <proceduredata virtual="false" />
+          <returns>
+            <type api="T:System.Object" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+      </elements>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniImpianto.#ctor">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" />
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniImpianto" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniImpianto.#ctor(MariniImpianti.MariniGenericObject)">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" />
+      <parameters>
+        <parameter name="parent">
+          <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniImpianto" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniImpianto.#ctor(MariniImpianti.MariniGenericObject,System.Xml.XmlNode)">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" />
+      <parameters>
+        <parameter name="parent">
+          <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+        </parameter>
+        <parameter name="node">
+          <type api="T:System.Xml.XmlNode" ref="true" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniImpianto" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniImpianto.#ctor(System.Xml.XmlNode)">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" />
+      <parameters>
+        <parameter name="node">
+          <type api="T:System.Xml.XmlNode" ref="true" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniImpianto" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniImpianto.ToPlainText">
+      <apidata name="ToPlainText" group="member" subgroup="method" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="true" />
+      <overrides>
+        <member api="M:MariniImpianti.MariniGenericObject.ToPlainText">
+          <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+        </member>
+      </overrides>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniImpianto" ref="true" />
+      </containers>
+    </api>
+    <api id="T:MariniImpianti.MariniImpiantoEventHandlers">
+      <apidata name="MariniImpiantoEventHandlers" group="type" subgroup="class" />
+      <typedata visibility="public" serializable="false" />
+      <family>
+        <ancestors>
+          <type api="T:System.Object" ref="true" />
+        </ancestors>
+      </family>
+      <elements>
+        <element api="F:MariniImpianti.MariniImpiantoEventHandlers.Logger" />
+        <element api="M:MariniImpianti.MariniImpiantoEventHandlers.PropertyChangedEventHandler(System.Object,System.ComponentModel.PropertyChangedEventArgs)" />
+        <element api="M:MariniImpianti.MariniImpiantoEventHandlers.MyDefaultHandler(System.Object,System.ComponentModel.PropertyChangedEventArgs)" />
+        <element api="M:MariniImpianti.MariniImpiantoEventHandlers.MyImpiantoHandler(System.Object,System.ComponentModel.PropertyChangedEventArgs)" />
+        <element api="M:MariniImpianti.MariniImpiantoEventHandlers.MyMotoreHandler(System.Object,System.ComponentModel.PropertyChangedEventArgs)" />
+        <element api="M:MariniImpianti.MariniImpiantoEventHandlers.MyMotoreHandlerCustom(System.Object,System.ComponentModel.PropertyChangedEventArgs)" />
+        <element api="M:MariniImpianti.MariniImpiantoEventHandlers.MyNastroHandler(System.Object,System.ComponentModel.PropertyChangedEventArgs)" />
+        <element api="M:MariniImpianti.MariniImpiantoEventHandlers.#ctor" />
+        <element api="M:System.Object.ToString">
+          <apidata name="ToString" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <returns>
+            <type api="T:System.String" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Equals(System.Object)">
+          <apidata name="Equals" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <parameters>
+            <parameter name="obj">
+              <type api="T:System.Object" ref="true" />
+            </parameter>
+          </parameters>
+          <returns>
+            <type api="T:System.Boolean" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetHashCode">
+          <apidata name="GetHashCode" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <returns>
+            <type api="T:System.Int32" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetType">
+          <apidata name="GetType" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="false" />
+          <returns>
+            <type api="T:System.Type" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Finalize">
+          <apidata name="Finalize" group="member" subgroup="method" />
+          <memberdata visibility="family" />
+          <proceduredata virtual="true" />
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.MemberwiseClone">
+          <apidata name="MemberwiseClone" group="member" subgroup="method" />
+          <memberdata visibility="family" />
+          <proceduredata virtual="false" />
+          <returns>
+            <type api="T:System.Object" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+      </elements>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniImpiantoEventHandlers.#ctor">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" />
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniImpiantoEventHandlers" ref="true" />
+      </containers>
+    </api>
+    <api id="F:MariniImpianti.MariniImpiantoEventHandlers.Logger">
+      <apidata name="Logger" group="member" subgroup="field" />
+      <memberdata visibility="family" static="true" />
+      <fielddata literal="false" initonly="true" serialized="true" />
+      <returns>
+        <type api="T:log4net.ILog" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniImpiantoEventHandlers" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniImpiantoEventHandlers.MyDefaultHandler(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
+      <apidata name="MyDefaultHandler" group="member" subgroup="method" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <parameters>
+        <parameter name="sender">
+          <type api="T:System.Object" ref="true" />
+        </parameter>
+        <parameter name="e">
+          <type api="T:System.ComponentModel.PropertyChangedEventArgs" ref="true" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniImpiantoEventHandlers" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniImpiantoEventHandlers.MyImpiantoHandler(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
+      <apidata name="MyImpiantoHandler" group="member" subgroup="method" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <parameters>
+        <parameter name="sender">
+          <type api="T:System.Object" ref="true" />
+        </parameter>
+        <parameter name="e">
+          <type api="T:System.ComponentModel.PropertyChangedEventArgs" ref="true" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniImpiantoEventHandlers" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniImpiantoEventHandlers.MyMotoreHandler(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
+      <apidata name="MyMotoreHandler" group="member" subgroup="method" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <parameters>
+        <parameter name="sender">
+          <type api="T:System.Object" ref="true" />
+        </parameter>
+        <parameter name="e">
+          <type api="T:System.ComponentModel.PropertyChangedEventArgs" ref="true" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniImpiantoEventHandlers" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniImpiantoEventHandlers.MyMotoreHandlerCustom(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
+      <apidata name="MyMotoreHandlerCustom" group="member" subgroup="method" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <parameters>
+        <parameter name="sender">
+          <type api="T:System.Object" ref="true" />
+        </parameter>
+        <parameter name="e">
+          <type api="T:System.ComponentModel.PropertyChangedEventArgs" ref="true" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniImpiantoEventHandlers" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniImpiantoEventHandlers.MyNastroHandler(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
+      <apidata name="MyNastroHandler" group="member" subgroup="method" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <parameters>
+        <parameter name="sender">
+          <type api="T:System.Object" ref="true" />
+        </parameter>
+        <parameter name="e">
+          <type api="T:System.ComponentModel.PropertyChangedEventArgs" ref="true" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniImpiantoEventHandlers" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniImpiantoEventHandlers.PropertyChangedEventHandler(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
+      <apidata name="PropertyChangedEventHandler" group="member" subgroup="method" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <parameters>
+        <parameter name="sender">
+          <type api="T:System.Object" ref="true" />
+        </parameter>
+        <parameter name="e">
+          <type api="T:System.ComponentModel.PropertyChangedEventArgs" ref="true" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniImpiantoEventHandlers" ref="true" />
+      </containers>
+    </api>
+    <api id="T:MariniImpianti.MariniImpiantoTree">
+      <apidata name="MariniImpiantoTree" group="type" subgroup="class" />
+      <typedata visibility="public" sealed="true" serializable="false" />
+      <family>
+        <ancestors>
+          <type api="T:System.Object" ref="true" />
+        </ancestors>
+      </family>
+      <elements>
+        <element api="M:MariniImpianti.MariniImpiantoTree.InitializeFromXmlFile(System.String)" />
+        <element api="M:MariniImpianti.MariniImpiantoTree.GetObjectById(System.String)" />
+        <element api="M:MariniImpianti.MariniImpiantoTree.SerializeObject(System.String)" />
+        <element api="P:MariniImpianti.MariniImpiantoTree.MariniImpianto" />
+        <element api="P:MariniImpianti.MariniImpiantoTree.MariniImpiantoObjectsDictionary" />
+        <element api="P:MariniImpianti.MariniImpiantoTree.MariniImpiantoEventHandlers" />
+        <element api="P:MariniImpianti.MariniImpiantoTree.Instance" />
+        <element api="M:System.Object.ToString">
+          <apidata name="ToString" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <returns>
+            <type api="T:System.String" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Equals(System.Object)">
+          <apidata name="Equals" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <parameters>
+            <parameter name="obj">
+              <type api="T:System.Object" ref="true" />
+            </parameter>
+          </parameters>
+          <returns>
+            <type api="T:System.Boolean" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetHashCode">
+          <apidata name="GetHashCode" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <returns>
+            <type api="T:System.Int32" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetType">
+          <apidata name="GetType" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="false" />
+          <returns>
+            <type api="T:System.Type" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+      </elements>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniImpiantoTree.GetObjectById(System.String)">
+      <apidata name="GetObjectById" group="member" subgroup="method" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <parameters>
+        <parameter name="id">
+          <type api="T:System.String" ref="true" />
+        </parameter>
+      </parameters>
+      <returns>
+        <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniImpiantoTree" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniImpiantoTree.InitializeFromXmlFile(System.String)">
+      <apidata name="InitializeFromXmlFile" group="member" subgroup="method" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <parameters>
+        <parameter name="filename">
+          <type api="T:System.String" ref="true" />
+        </parameter>
+      </parameters>
+      <returns>
+        <type api="T:System.Boolean" ref="false" />
+      </returns>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniImpiantoTree" ref="true" />
+      </containers>
+    </api>
+    <api id="P:MariniImpianti.MariniImpiantoTree.Instance">
+      <apidata name="Instance" group="member" subgroup="property" />
+      <memberdata visibility="public" static="true" />
+      <proceduredata virtual="false" />
+      <propertydata get="true" />
+      <getter name="get_Instance" />
+      <returns>
+        <type api="T:MariniImpianti.MariniImpiantoTree" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniImpiantoTree" ref="true" />
+      </containers>
+    </api>
+    <api id="P:MariniImpianti.MariniImpiantoTree.MariniImpianto">
+      <apidata name="MariniImpianto" group="member" subgroup="property" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <propertydata get="true" />
+      <getter name="get_MariniImpianto" />
+      <returns>
+        <type api="T:MariniImpianti.MariniImpianto" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniImpiantoTree" ref="true" />
+      </containers>
+    </api>
+    <api id="P:MariniImpianti.MariniImpiantoTree.MariniImpiantoEventHandlers">
+      <apidata name="MariniImpiantoEventHandlers" group="member" subgroup="property" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <propertydata get="true" />
+      <getter name="get_MariniImpiantoEventHandlers" />
+      <returns>
+        <type api="T:MariniImpianti.MariniImpiantoEventHandlers" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniImpiantoTree" ref="true" />
+      </containers>
+    </api>
+    <api id="P:MariniImpianti.MariniImpiantoTree.MariniImpiantoObjectsDictionary">
+      <apidata name="MariniImpiantoObjectsDictionary" group="member" subgroup="property" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <propertydata get="true" />
+      <getter name="get_MariniImpiantoObjectsDictionary" />
+      <returns>
+        <type api="T:System.Collections.Generic.Dictionary`2" ref="true">
+          <specialization>
+            <type api="T:System.String" ref="true" />
+            <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+          </specialization>
+        </type>
+      </returns>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniImpiantoTree" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniImpiantoTree.SerializeObject(System.String)">
+      <apidata name="SerializeObject" group="member" subgroup="method" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <parameters>
+        <parameter name="id">
+          <type api="T:System.String" ref="true" />
+        </parameter>
+      </parameters>
+      <returns>
+        <type api="T:System.String" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniImpiantoTree" ref="true" />
+      </containers>
+    </api>
+    <api id="T:MariniImpianti.MariniMotore">
+      <apidata name="MariniMotore" group="type" subgroup="class" />
+      <typedata visibility="public" serializable="false" />
+      <family>
+        <ancestors>
+          <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+          <type api="T:System.Object" ref="true" />
+        </ancestors>
+      </family>
+      <elements>
+        <element api="M:MariniImpianti.MariniMotore.#ctor(MariniImpianti.MariniGenericObject)" />
+        <element api="M:MariniImpianti.MariniMotore.#ctor" />
+        <element api="M:MariniImpianti.MariniMotore.#ctor(MariniImpianti.MariniGenericObject,System.Xml.XmlNode)" />
+        <element api="M:MariniImpianti.MariniMotore.#ctor(System.Xml.XmlNode)" />
+        <element api="M:MariniImpianti.MariniMotore.ToPlainText" />
+        <element api="M:MariniImpianti.MariniGenericObject.OnPropertyChanged(System.String)" />
+        <element api="M:MariniImpianti.MariniGenericObject.SetField``1(``0@,``0,System.String)" />
+        <element api="M:MariniImpianti.MariniGenericObject.ToPlainTextRecursive" />
+        <element api="M:MariniImpianti.MariniGenericObject.GetObjectById(System.String)" />
+        <element api="M:MariniImpianti.MariniGenericObject.GetObjectListByType(System.Type)" />
+        <element api="M:MariniImpianti.MariniGenericObject.GetChildDictionary" />
+        <element api="P:MariniImpianti.MariniGenericObject.parent" />
+        <element api="P:MariniImpianti.MariniGenericObject.id" />
+        <element api="P:MariniImpianti.MariniGenericObject.name" />
+        <element api="P:MariniImpianti.MariniGenericObject.path" />
+        <element api="P:MariniImpianti.MariniGenericObject.description" />
+        <element api="P:MariniImpianti.MariniGenericObject.handler" />
+        <element api="P:MariniImpianti.MariniGenericObject.ListaGenericObject" />
+        <element api="E:MariniImpianti.MariniGenericObject.PropertyChanged" />
+        <element api="M:System.Object.ToString">
+          <apidata name="ToString" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <returns>
+            <type api="T:System.String" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Equals(System.Object)">
+          <apidata name="Equals" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <parameters>
+            <parameter name="obj">
+              <type api="T:System.Object" ref="true" />
+            </parameter>
+          </parameters>
+          <returns>
+            <type api="T:System.Boolean" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetHashCode">
+          <apidata name="GetHashCode" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <returns>
+            <type api="T:System.Int32" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetType">
+          <apidata name="GetType" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="false" />
+          <returns>
+            <type api="T:System.Type" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Finalize">
+          <apidata name="Finalize" group="member" subgroup="method" />
+          <memberdata visibility="family" />
+          <proceduredata virtual="true" />
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.MemberwiseClone">
+          <apidata name="MemberwiseClone" group="member" subgroup="method" />
+          <memberdata visibility="family" />
+          <proceduredata virtual="false" />
+          <returns>
+            <type api="T:System.Object" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+      </elements>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniMotore.#ctor">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" />
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniMotore" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniMotore.#ctor(MariniImpianti.MariniGenericObject)">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" />
+      <parameters>
+        <parameter name="parent">
+          <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniMotore" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniMotore.#ctor(MariniImpianti.MariniGenericObject,System.Xml.XmlNode)">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" />
+      <parameters>
+        <parameter name="parent">
+          <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+        </parameter>
+        <parameter name="node">
+          <type api="T:System.Xml.XmlNode" ref="true" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniMotore" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniMotore.#ctor(System.Xml.XmlNode)">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" />
+      <parameters>
+        <parameter name="node">
+          <type api="T:System.Xml.XmlNode" ref="true" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniMotore" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniMotore.ToPlainText">
+      <apidata name="ToPlainText" group="member" subgroup="method" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="true" />
+      <overrides>
+        <member api="M:MariniImpianti.MariniGenericObject.ToPlainText">
+          <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+        </member>
+      </overrides>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniMotore" ref="true" />
+      </containers>
+    </api>
+    <api id="T:MariniImpianti.MariniNastro">
+      <apidata name="MariniNastro" group="type" subgroup="class" />
+      <typedata visibility="public" serializable="false" />
+      <family>
+        <ancestors>
+          <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+          <type api="T:System.Object" ref="true" />
+        </ancestors>
+      </family>
+      <elements>
+        <element api="M:MariniImpianti.MariniNastro.#ctor(MariniImpianti.MariniGenericObject)" />
+        <element api="M:MariniImpianti.MariniNastro.#ctor" />
+        <element api="M:MariniImpianti.MariniNastro.#ctor(MariniImpianti.MariniGenericObject,System.Xml.XmlNode)" />
+        <element api="M:MariniImpianti.MariniNastro.#ctor(System.Xml.XmlNode)" />
+        <element api="M:MariniImpianti.MariniNastro.ToPlainText" />
+        <element api="M:MariniImpianti.MariniGenericObject.OnPropertyChanged(System.String)" />
+        <element api="M:MariniImpianti.MariniGenericObject.SetField``1(``0@,``0,System.String)" />
+        <element api="M:MariniImpianti.MariniGenericObject.ToPlainTextRecursive" />
+        <element api="M:MariniImpianti.MariniGenericObject.GetObjectById(System.String)" />
+        <element api="M:MariniImpianti.MariniGenericObject.GetObjectListByType(System.Type)" />
+        <element api="M:MariniImpianti.MariniGenericObject.GetChildDictionary" />
+        <element api="P:MariniImpianti.MariniGenericObject.parent" />
+        <element api="P:MariniImpianti.MariniGenericObject.id" />
+        <element api="P:MariniImpianti.MariniGenericObject.name" />
+        <element api="P:MariniImpianti.MariniGenericObject.path" />
+        <element api="P:MariniImpianti.MariniGenericObject.description" />
+        <element api="P:MariniImpianti.MariniGenericObject.handler" />
+        <element api="P:MariniImpianti.MariniGenericObject.ListaGenericObject" />
+        <element api="E:MariniImpianti.MariniGenericObject.PropertyChanged" />
+        <element api="M:System.Object.ToString">
+          <apidata name="ToString" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <returns>
+            <type api="T:System.String" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Equals(System.Object)">
+          <apidata name="Equals" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <parameters>
+            <parameter name="obj">
+              <type api="T:System.Object" ref="true" />
+            </parameter>
+          </parameters>
+          <returns>
+            <type api="T:System.Boolean" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetHashCode">
+          <apidata name="GetHashCode" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <returns>
+            <type api="T:System.Int32" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetType">
+          <apidata name="GetType" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="false" />
+          <returns>
+            <type api="T:System.Type" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Finalize">
+          <apidata name="Finalize" group="member" subgroup="method" />
+          <memberdata visibility="family" />
+          <proceduredata virtual="true" />
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.MemberwiseClone">
+          <apidata name="MemberwiseClone" group="member" subgroup="method" />
+          <memberdata visibility="family" />
+          <proceduredata virtual="false" />
+          <returns>
+            <type api="T:System.Object" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+      </elements>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniNastro.#ctor">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" />
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniNastro" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniNastro.#ctor(MariniImpianti.MariniGenericObject)">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" />
+      <parameters>
+        <parameter name="parent">
+          <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniNastro" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniNastro.#ctor(MariniImpianti.MariniGenericObject,System.Xml.XmlNode)">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" />
+      <parameters>
+        <parameter name="parent">
+          <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+        </parameter>
+        <parameter name="node">
+          <type api="T:System.Xml.XmlNode" ref="true" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniNastro" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniNastro.#ctor(System.Xml.XmlNode)">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" />
+      <parameters>
+        <parameter name="node">
+          <type api="T:System.Xml.XmlNode" ref="true" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniNastro" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniNastro.ToPlainText">
+      <apidata name="ToPlainText" group="member" subgroup="method" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="true" />
+      <overrides>
+        <member api="M:MariniImpianti.MariniGenericObject.ToPlainText">
+          <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+        </member>
+      </overrides>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniNastro" ref="true" />
+      </containers>
+    </api>
+    <api id="T:MariniImpianti.MariniObjectCreator">
+      <apidata name="MariniObjectCreator" group="type" subgroup="class" />
+      <typedata visibility="public" serializable="false" />
+      <family>
+        <ancestors>
+          <type api="T:System.Object" ref="true" />
+        </ancestors>
+      </family>
+      <elements>
+        <element api="M:MariniImpianti.MariniObjectCreator.CreateMariniObject(MariniImpianti.MariniGenericObject,System.Xml.XmlNode)" />
+        <element api="M:MariniImpianti.MariniObjectCreator.CreateMariniObject(System.Xml.XmlNode)" />
+        <element api="M:MariniImpianti.MariniObjectCreator.#ctor" />
+        <element api="P:MariniImpianti.MariniObjectCreator.MariniCreator" />
+        <element api="M:System.Object.ToString">
+          <apidata name="ToString" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <returns>
+            <type api="T:System.String" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Equals(System.Object)">
+          <apidata name="Equals" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <parameters>
+            <parameter name="obj">
+              <type api="T:System.Object" ref="true" />
+            </parameter>
+          </parameters>
+          <returns>
+            <type api="T:System.Boolean" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetHashCode">
+          <apidata name="GetHashCode" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <returns>
+            <type api="T:System.Int32" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetType">
+          <apidata name="GetType" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="false" />
+          <returns>
+            <type api="T:System.Type" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Finalize">
+          <apidata name="Finalize" group="member" subgroup="method" />
+          <memberdata visibility="family" />
+          <proceduredata virtual="true" />
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.MemberwiseClone">
+          <apidata name="MemberwiseClone" group="member" subgroup="method" />
+          <memberdata visibility="family" />
+          <proceduredata virtual="false" />
+          <returns>
+            <type api="T:System.Object" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+      </elements>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniObjectCreator.#ctor">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" />
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniObjectCreator" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniObjectCreator.CreateMariniObject(MariniImpianti.MariniGenericObject,System.Xml.XmlNode)">
+      <apidata name="CreateMariniObject" group="member" subgroup="method" />
+      <memberdata visibility="public" static="true" />
+      <proceduredata virtual="false" />
+      <parameters>
+        <parameter name="parent">
+          <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+        </parameter>
+        <parameter name="node">
+          <type api="T:System.Xml.XmlNode" ref="true" />
+        </parameter>
+      </parameters>
+      <returns>
+        <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniObjectCreator" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniObjectCreator.CreateMariniObject(System.Xml.XmlNode)">
+      <apidata name="CreateMariniObject" group="member" subgroup="method" />
+      <memberdata visibility="public" static="true" />
+      <proceduredata virtual="false" />
+      <parameters>
+        <parameter name="node">
+          <type api="T:System.Xml.XmlNode" ref="true" />
+        </parameter>
+      </parameters>
+      <returns>
+        <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniObjectCreator" ref="true" />
+      </containers>
+    </api>
+    <api id="P:MariniImpianti.MariniObjectCreator.MariniCreator">
+      <apidata name="MariniCreator" group="member" subgroup="property" />
+      <memberdata visibility="public" static="true" />
+      <proceduredata virtual="false" />
+      <propertydata get="true" />
+      <getter name="get_MariniCreator" />
+      <returns>
+        <type api="T:MariniImpianti.MariniObjectCreator" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniObjectCreator" ref="true" />
+      </containers>
+    </api>
+    <api id="T:MariniImpianti.MariniOggettoBase">
+      <apidata name="MariniOggettoBase" group="type" subgroup="class" />
+      <typedata visibility="public" serializable="false" />
+      <family>
+        <ancestors>
+          <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+          <type api="T:System.Object" ref="true" />
+        </ancestors>
+      </family>
+      <elements>
+        <element api="M:MariniImpianti.MariniOggettoBase.#ctor(MariniImpianti.MariniGenericObject,System.String,System.String,System.String)" />
+        <element api="M:MariniImpianti.MariniOggettoBase.#ctor(MariniImpianti.MariniGenericObject,System.String,System.String)" />
+        <element api="M:MariniImpianti.MariniOggettoBase.#ctor(MariniImpianti.MariniGenericObject,System.String)" />
+        <element api="M:MariniImpianti.MariniOggettoBase.#ctor(MariniImpianti.MariniGenericObject)" />
+        <element api="M:MariniImpianti.MariniOggettoBase.#ctor" />
+        <element api="M:MariniImpianti.MariniOggettoBase.#ctor(MariniImpianti.MariniGenericObject,System.Xml.XmlNode)" />
+        <element api="M:MariniImpianti.MariniOggettoBase.#ctor(System.Xml.XmlNode)" />
+        <element api="M:MariniImpianti.MariniOggettoBase.ToPlainText" />
+        <element api="M:MariniImpianti.MariniGenericObject.OnPropertyChanged(System.String)" />
+        <element api="M:MariniImpianti.MariniGenericObject.SetField``1(``0@,``0,System.String)" />
+        <element api="M:MariniImpianti.MariniGenericObject.ToPlainTextRecursive" />
+        <element api="M:MariniImpianti.MariniGenericObject.GetObjectById(System.String)" />
+        <element api="M:MariniImpianti.MariniGenericObject.GetObjectListByType(System.Type)" />
+        <element api="M:MariniImpianti.MariniGenericObject.GetChildDictionary" />
+        <element api="P:MariniImpianti.MariniGenericObject.parent" />
+        <element api="P:MariniImpianti.MariniGenericObject.id" />
+        <element api="P:MariniImpianti.MariniGenericObject.name" />
+        <element api="P:MariniImpianti.MariniGenericObject.path" />
+        <element api="P:MariniImpianti.MariniGenericObject.description" />
+        <element api="P:MariniImpianti.MariniGenericObject.handler" />
+        <element api="P:MariniImpianti.MariniGenericObject.ListaGenericObject" />
+        <element api="E:MariniImpianti.MariniGenericObject.PropertyChanged" />
+        <element api="M:System.Object.ToString">
+          <apidata name="ToString" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <returns>
+            <type api="T:System.String" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Equals(System.Object)">
+          <apidata name="Equals" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <parameters>
+            <parameter name="obj">
+              <type api="T:System.Object" ref="true" />
+            </parameter>
+          </parameters>
+          <returns>
+            <type api="T:System.Boolean" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetHashCode">
+          <apidata name="GetHashCode" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <returns>
+            <type api="T:System.Int32" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetType">
+          <apidata name="GetType" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="false" />
+          <returns>
+            <type api="T:System.Type" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Finalize">
+          <apidata name="Finalize" group="member" subgroup="method" />
+          <memberdata visibility="family" />
+          <proceduredata virtual="true" />
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.MemberwiseClone">
+          <apidata name="MemberwiseClone" group="member" subgroup="method" />
+          <memberdata visibility="family" />
+          <proceduredata virtual="false" />
+          <returns>
+            <type api="T:System.Object" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+      </elements>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniOggettoBase.#ctor">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" />
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniOggettoBase" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniOggettoBase.#ctor(MariniImpianti.MariniGenericObject)">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" />
+      <parameters>
+        <parameter name="parent">
+          <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniOggettoBase" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniOggettoBase.#ctor(MariniImpianti.MariniGenericObject,System.String)">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" />
+      <parameters>
+        <parameter name="parent">
+          <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+        </parameter>
+        <parameter name="id">
+          <type api="T:System.String" ref="true" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniOggettoBase" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniOggettoBase.#ctor(MariniImpianti.MariniGenericObject,System.String,System.String)">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" />
+      <parameters>
+        <parameter name="parent">
+          <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+        </parameter>
+        <parameter name="id">
+          <type api="T:System.String" ref="true" />
+        </parameter>
+        <parameter name="name">
+          <type api="T:System.String" ref="true" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniOggettoBase" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniOggettoBase.#ctor(MariniImpianti.MariniGenericObject,System.String,System.String,System.String)">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" />
+      <parameters>
+        <parameter name="parent">
+          <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+        </parameter>
+        <parameter name="id">
+          <type api="T:System.String" ref="true" />
+        </parameter>
+        <parameter name="name">
+          <type api="T:System.String" ref="true" />
+        </parameter>
+        <parameter name="description">
+          <type api="T:System.String" ref="true" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniOggettoBase" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniOggettoBase.#ctor(MariniImpianti.MariniGenericObject,System.Xml.XmlNode)">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" />
+      <parameters>
+        <parameter name="parent">
+          <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+        </parameter>
+        <parameter name="node">
+          <type api="T:System.Xml.XmlNode" ref="true" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniOggettoBase" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniOggettoBase.#ctor(System.Xml.XmlNode)">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" />
+      <parameters>
+        <parameter name="node">
+          <type api="T:System.Xml.XmlNode" ref="true" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniOggettoBase" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniOggettoBase.ToPlainText">
+      <apidata name="ToPlainText" group="member" subgroup="method" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="true" />
+      <overrides>
+        <member api="M:MariniImpianti.MariniGenericObject.ToPlainText">
+          <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+        </member>
+      </overrides>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniOggettoBase" ref="true" />
+      </containers>
+    </api>
+    <api id="T:MariniImpianti.MariniPlctag">
+      <apidata name="MariniPlctag" group="type" subgroup="class" />
+      <typedata visibility="public" serializable="false" />
+      <family>
+        <ancestors>
+          <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+          <type api="T:System.Object" ref="true" />
+        </ancestors>
+      </family>
+      <elements>
+        <element api="M:MariniImpianti.MariniPlctag.#ctor(MariniImpianti.MariniGenericObject,System.String)" />
+        <element api="M:MariniImpianti.MariniPlctag.#ctor(MariniImpianti.MariniGenericObject)" />
+        <element api="M:MariniImpianti.MariniPlctag.#ctor" />
+        <element api="M:MariniImpianti.MariniPlctag.#ctor(MariniImpianti.MariniGenericObject,System.Xml.XmlNode)" />
+        <element api="M:MariniImpianti.MariniPlctag.#ctor(System.Xml.XmlNode)" />
+        <element api="M:MariniImpianti.MariniPlctag.ToPlainText" />
+        <element api="P:MariniImpianti.MariniPlctag.tagid" />
+        <element api="M:MariniImpianti.MariniGenericObject.OnPropertyChanged(System.String)" />
+        <element api="M:MariniImpianti.MariniGenericObject.SetField``1(``0@,``0,System.String)" />
+        <element api="M:MariniImpianti.MariniGenericObject.ToPlainTextRecursive" />
+        <element api="M:MariniImpianti.MariniGenericObject.GetObjectById(System.String)" />
+        <element api="M:MariniImpianti.MariniGenericObject.GetObjectListByType(System.Type)" />
+        <element api="M:MariniImpianti.MariniGenericObject.GetChildDictionary" />
+        <element api="P:MariniImpianti.MariniGenericObject.parent" />
+        <element api="P:MariniImpianti.MariniGenericObject.id" />
+        <element api="P:MariniImpianti.MariniGenericObject.name" />
+        <element api="P:MariniImpianti.MariniGenericObject.path" />
+        <element api="P:MariniImpianti.MariniGenericObject.description" />
+        <element api="P:MariniImpianti.MariniGenericObject.handler" />
+        <element api="P:MariniImpianti.MariniGenericObject.ListaGenericObject" />
+        <element api="E:MariniImpianti.MariniGenericObject.PropertyChanged" />
+        <element api="M:System.Object.ToString">
+          <apidata name="ToString" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <returns>
+            <type api="T:System.String" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Equals(System.Object)">
+          <apidata name="Equals" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <parameters>
+            <parameter name="obj">
+              <type api="T:System.Object" ref="true" />
+            </parameter>
+          </parameters>
+          <returns>
+            <type api="T:System.Boolean" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetHashCode">
+          <apidata name="GetHashCode" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <returns>
+            <type api="T:System.Int32" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetType">
+          <apidata name="GetType" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="false" />
+          <returns>
+            <type api="T:System.Type" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Finalize">
+          <apidata name="Finalize" group="member" subgroup="method" />
+          <memberdata visibility="family" />
+          <proceduredata virtual="true" />
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.MemberwiseClone">
+          <apidata name="MemberwiseClone" group="member" subgroup="method" />
+          <memberdata visibility="family" />
+          <proceduredata virtual="false" />
+          <returns>
+            <type api="T:System.Object" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+      </elements>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniPlctag.#ctor">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" />
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniPlctag" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniPlctag.#ctor(MariniImpianti.MariniGenericObject)">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" />
+      <parameters>
+        <parameter name="parent">
+          <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniPlctag" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniPlctag.#ctor(MariniImpianti.MariniGenericObject,System.String)">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" />
+      <parameters>
+        <parameter name="parent">
+          <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+        </parameter>
+        <parameter name="tagid">
+          <type api="T:System.String" ref="true" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniPlctag" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniPlctag.#ctor(MariniImpianti.MariniGenericObject,System.Xml.XmlNode)">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" />
+      <parameters>
+        <parameter name="parent">
+          <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+        </parameter>
+        <parameter name="node">
+          <type api="T:System.Xml.XmlNode" ref="true" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniPlctag" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniPlctag.#ctor(System.Xml.XmlNode)">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" />
+      <parameters>
+        <parameter name="node">
+          <type api="T:System.Xml.XmlNode" ref="true" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniPlctag" ref="true" />
+      </containers>
+    </api>
+    <api id="P:MariniImpianti.MariniPlctag.tagid">
+      <apidata name="tagid" group="member" subgroup="property" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <propertydata get="true" set="true" />
+      <getter name="get_tagid" />
+      <setter name="set_tagid" />
+      <returns>
+        <type api="T:System.String" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniPlctag" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniPlctag.ToPlainText">
+      <apidata name="ToPlainText" group="member" subgroup="method" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="true" />
+      <overrides>
+        <member api="M:MariniImpianti.MariniGenericObject.ToPlainText">
+          <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+        </member>
+      </overrides>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniPlctag" ref="true" />
+      </containers>
+    </api>
+    <api id="T:MariniImpianti.MariniPredosatore">
+      <apidata name="MariniPredosatore" group="type" subgroup="class" />
+      <typedata visibility="public" serializable="false" />
+      <family>
+        <ancestors>
+          <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+          <type api="T:System.Object" ref="true" />
+        </ancestors>
+      </family>
+      <elements>
+        <element api="M:MariniImpianti.MariniPredosatore.#ctor(MariniImpianti.MariniGenericObject)" />
+        <element api="M:MariniImpianti.MariniPredosatore.#ctor" />
+        <element api="M:MariniImpianti.MariniPredosatore.#ctor(MariniImpianti.MariniGenericObject,System.Xml.XmlNode)" />
+        <element api="M:MariniImpianti.MariniPredosatore.#ctor(System.Xml.XmlNode)" />
+        <element api="M:MariniImpianti.MariniPredosatore.ToPlainText" />
+        <element api="M:MariniImpianti.MariniGenericObject.OnPropertyChanged(System.String)" />
+        <element api="M:MariniImpianti.MariniGenericObject.SetField``1(``0@,``0,System.String)" />
+        <element api="M:MariniImpianti.MariniGenericObject.ToPlainTextRecursive" />
+        <element api="M:MariniImpianti.MariniGenericObject.GetObjectById(System.String)" />
+        <element api="M:MariniImpianti.MariniGenericObject.GetObjectListByType(System.Type)" />
+        <element api="M:MariniImpianti.MariniGenericObject.GetChildDictionary" />
+        <element api="P:MariniImpianti.MariniGenericObject.parent" />
+        <element api="P:MariniImpianti.MariniGenericObject.id" />
+        <element api="P:MariniImpianti.MariniGenericObject.name" />
+        <element api="P:MariniImpianti.MariniGenericObject.path" />
+        <element api="P:MariniImpianti.MariniGenericObject.description" />
+        <element api="P:MariniImpianti.MariniGenericObject.handler" />
+        <element api="P:MariniImpianti.MariniGenericObject.ListaGenericObject" />
+        <element api="E:MariniImpianti.MariniGenericObject.PropertyChanged" />
+        <element api="M:System.Object.ToString">
+          <apidata name="ToString" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <returns>
+            <type api="T:System.String" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Equals(System.Object)">
+          <apidata name="Equals" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <parameters>
+            <parameter name="obj">
+              <type api="T:System.Object" ref="true" />
+            </parameter>
+          </parameters>
+          <returns>
+            <type api="T:System.Boolean" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetHashCode">
+          <apidata name="GetHashCode" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <returns>
+            <type api="T:System.Int32" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetType">
+          <apidata name="GetType" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="false" />
+          <returns>
+            <type api="T:System.Type" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Finalize">
+          <apidata name="Finalize" group="member" subgroup="method" />
+          <memberdata visibility="family" />
+          <proceduredata virtual="true" />
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.MemberwiseClone">
+          <apidata name="MemberwiseClone" group="member" subgroup="method" />
+          <memberdata visibility="family" />
+          <proceduredata virtual="false" />
+          <returns>
+            <type api="T:System.Object" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+      </elements>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniPredosatore.#ctor">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" />
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniPredosatore" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniPredosatore.#ctor(MariniImpianti.MariniGenericObject)">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" />
+      <parameters>
+        <parameter name="parent">
+          <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniPredosatore" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniPredosatore.#ctor(MariniImpianti.MariniGenericObject,System.Xml.XmlNode)">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" />
+      <parameters>
+        <parameter name="parent">
+          <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+        </parameter>
+        <parameter name="node">
+          <type api="T:System.Xml.XmlNode" ref="true" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniPredosatore" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniPredosatore.#ctor(System.Xml.XmlNode)">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" />
+      <parameters>
+        <parameter name="node">
+          <type api="T:System.Xml.XmlNode" ref="true" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniPredosatore" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniPredosatore.ToPlainText">
+      <apidata name="ToPlainText" group="member" subgroup="method" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="true" />
+      <overrides>
+        <member api="M:MariniImpianti.MariniGenericObject.ToPlainText">
+          <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+        </member>
+      </overrides>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniPredosatore" ref="true" />
+      </containers>
+    </api>
+    <api id="T:MariniImpianti.MariniZona">
+      <apidata name="MariniZona" group="type" subgroup="class" />
+      <typedata visibility="public" serializable="false" />
+      <family>
+        <ancestors>
+          <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+          <type api="T:System.Object" ref="true" />
+        </ancestors>
+      </family>
+      <elements>
+        <element api="M:MariniImpianti.MariniZona.#ctor(MariniImpianti.MariniGenericObject)" />
+        <element api="M:MariniImpianti.MariniZona.#ctor" />
+        <element api="M:MariniImpianti.MariniZona.#ctor(MariniImpianti.MariniGenericObject,System.Xml.XmlNode)" />
+        <element api="M:MariniImpianti.MariniZona.#ctor(System.Xml.XmlNode)" />
+        <element api="M:MariniImpianti.MariniZona.ToPlainText" />
+        <element api="M:MariniImpianti.MariniGenericObject.OnPropertyChanged(System.String)" />
+        <element api="M:MariniImpianti.MariniGenericObject.SetField``1(``0@,``0,System.String)" />
+        <element api="M:MariniImpianti.MariniGenericObject.ToPlainTextRecursive" />
+        <element api="M:MariniImpianti.MariniGenericObject.GetObjectById(System.String)" />
+        <element api="M:MariniImpianti.MariniGenericObject.GetObjectListByType(System.Type)" />
+        <element api="M:MariniImpianti.MariniGenericObject.GetChildDictionary" />
+        <element api="P:MariniImpianti.MariniGenericObject.parent" />
+        <element api="P:MariniImpianti.MariniGenericObject.id" />
+        <element api="P:MariniImpianti.MariniGenericObject.name" />
+        <element api="P:MariniImpianti.MariniGenericObject.path" />
+        <element api="P:MariniImpianti.MariniGenericObject.description" />
+        <element api="P:MariniImpianti.MariniGenericObject.handler" />
+        <element api="P:MariniImpianti.MariniGenericObject.ListaGenericObject" />
+        <element api="E:MariniImpianti.MariniGenericObject.PropertyChanged" />
+        <element api="M:System.Object.ToString">
+          <apidata name="ToString" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <returns>
+            <type api="T:System.String" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Equals(System.Object)">
+          <apidata name="Equals" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <parameters>
+            <parameter name="obj">
+              <type api="T:System.Object" ref="true" />
+            </parameter>
+          </parameters>
+          <returns>
+            <type api="T:System.Boolean" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetHashCode">
+          <apidata name="GetHashCode" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <returns>
+            <type api="T:System.Int32" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetType">
+          <apidata name="GetType" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="false" />
+          <returns>
+            <type api="T:System.Type" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Finalize">
+          <apidata name="Finalize" group="member" subgroup="method" />
+          <memberdata visibility="family" />
+          <proceduredata virtual="true" />
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.MemberwiseClone">
+          <apidata name="MemberwiseClone" group="member" subgroup="method" />
+          <memberdata visibility="family" />
+          <proceduredata virtual="false" />
+          <returns>
+            <type api="T:System.Object" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+      </elements>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniZona.#ctor">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" />
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniZona" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniZona.#ctor(MariniImpianti.MariniGenericObject)">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" />
+      <parameters>
+        <parameter name="parent">
+          <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniZona" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniZona.#ctor(MariniImpianti.MariniGenericObject,System.Xml.XmlNode)">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" />
+      <parameters>
+        <parameter name="parent">
+          <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+        </parameter>
+        <parameter name="node">
+          <type api="T:System.Xml.XmlNode" ref="true" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniZona" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniZona.#ctor(System.Xml.XmlNode)">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" />
+      <parameters>
+        <parameter name="node">
+          <type api="T:System.Xml.XmlNode" ref="true" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniZona" ref="true" />
+      </containers>
+    </api>
+    <api id="M:MariniImpianti.MariniZona.ToPlainText">
+      <apidata name="ToPlainText" group="member" subgroup="method" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="true" />
+      <overrides>
+        <member api="M:MariniImpianti.MariniGenericObject.ToPlainText">
+          <type api="T:MariniImpianti.MariniGenericObject" ref="true" />
+        </member>
+      </overrides>
+      <containers>
+        <library assembly="MariniImpianto" module="MariniImpianto" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:MariniImpianti" />
+        <type api="T:MariniImpianti.MariniZona" ref="true" />
+      </containers>
+    </api>
+  </apis>
+</reflection>

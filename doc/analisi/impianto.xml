@@ -1,4 +1,4 @@
-<impianto id="IMPIANTO" name="Impianto di test" type="CYBER500">
+<impianto id="IMPIANTO" name="Impianto di test" type="CYBER500" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file:///C:/Users/uts.MARINI/Documents/projects/new-project/oms/doc/analisi/XMLSchema.xsd">
     <zona id="ZONA_PREDOSAGGIO" name="Predosaggio">
         <predosatore id="PRED_01" name="PREDOSATORE 1" Active="true">
             <plctag id="PRESENTE" type="PRESENCE_TAG" tagid="PLCTAG_PRED1_PRESENTE"/>
@@ -17,9 +17,9 @@
                 </motore>
             </nastro>
         </predosatore>
-        <predosatore id="PRED_02" name="PREDOSATORE 2" Active="false"	>
+        <predosatore id="PRED_02" name="PREDOSATORE 2" Active="false">
             <plctag id="PRESENTE" type="PRESENCE_TAG" tagid="PLCTAG_PRED2_PRESENTE"/>
-            <bilancia id="BIL_02" name="BILANCIA PREDOSATORE 2" type="SYWAREX_T1" >
+            <bilancia id="BIL_02" name="BILANCIA PREDOSATORE 2" type="SYWAREX_T1">
                 <plctag id="TEMPO_STAB" type="TEMPO_STAB" tagid="PLCTAG_TEMPOSTAB_BIL2"/>
                 <plctag id="TOLLERANZA" type="TOLLERANZA" tagid="PLCTAG_TOLL_BIL_02"/>
                 <plctag id="PRESENTE" type="PRESENCE_TAG" tagid="PLCTAG_BIL2_PRESENTE"/>
@@ -40,4 +40,5 @@
     <zona id="FILTRO" name="Filtro">
     </zona>
 </impianto>
+
 

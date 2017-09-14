@@ -1,0 +1,181 @@
+<?xml version="1.0"?>
+
+<xs:schema xmlns:xs = "http://www.w3.org/2001/XMLSchema">
+	<xs:element name="impianto">
+		<xs:complexType>
+			<xs:sequence>
+        			<xs:element name="predosaggio"  minOccurs="0" maxOccurs="1" type="zona_predosaggio"/>
+        			<xs:element name="essiccazione" minOccurs="0" maxOccurs="1" type="zona_essiccazione"/>
+        			<xs:element name="dosaggio"     minOccurs="0" maxOccurs="1" type="zona_dosaggio"/>
+        			<xs:element name="cisterne"     minOccurs="0" maxOccurs="1" type="zona_cisterne"/>
+        			<xs:element name="stoccaggio"   minOccurs="0" maxOccurs="1" type="zona_stoccaggio"/>
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:string"/>
+			<xs:attribute name="name" type="xs:string"/>
+			<xs:attribute name="type" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+
+	<!-- Definizione dei tipi -->  
+
+	<!--  ZONA PREDOSAGGIO -->  
+	<xs:complexType name ="zona_predosaggio_type">
+		<xs:sequence>
+			<xs:element name="predosatore" type="predosatore_type"/>
+			<xs:element name="bilancia" type="bilancia_type"/>
+			<xs:element name="nastro" type="nastro_type"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string"/>
+		<xs:attribute name="name" type="xs:string"/>
+		<xs:attribute name="type" type="xs:string"/>
+	</xs:complexType>
+
+	<!--  ZONA ESSICCAZIONE -->  
+	<xs:complexType name ="zona_essiccazione_type">
+		<xs:sequence>
+			<xs:element name="tamburo" type="tamburo_type"/>
+			<xs:element name="elevatore" type="elevatore_type"/>
+			<xs:element name="filtro" type="filtro_type"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string"/>
+		<xs:attribute name="name" type="xs:string"/>
+		<xs:attribute name="type" type="xs:string"/>
+	</xs:complexType>
+
+	<!--  ZONA DOSAGGIO -->  
+	<xs:complexType name ="zona_dosaggio_type">
+		<xs:sequence>
+			<xs:element name="vaglio" type="vaglio_type"/>
+			<xs:element name="bilancia" type="bilancia_type"/>
+			<xs:element name="tramoggia" type="tramoggia_type"/>
+			<xs:element name="mescolatore" type="mescolatore_type"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string"/>
+		<xs:attribute name="name" type="xs:string"/>
+		<xs:attribute name="type" type="xs:string"/>
+	</xs:complexType>
+
+	<!--  ZONA STOCCAGGIO -->  
+	<xs:complexType name ="zona_stoccaggio_type">
+		<xs:sequence>
+			<xs:element name="silos" type="silos_type"/>
+			<xs:element name="navetta" type="navetta_type"/>
+			<xs:element name="nastro" type="nastro_type"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string"/>
+		<xs:attribute name="name" type="xs:string"/>
+		<xs:attribute name="type" type="xs:string"/>
+	</xs:complexType>
+
+	<!--  ZONA CISTERNE -->  
+	<xs:complexType name ="zona_cisterne_type">
+		<xs:sequence>
+			<xs:element name="cisterna" type="cisterna_type"/>
+			<xs:element name="nastro" type="nastro_type"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string"/>
+		<xs:attribute name="name" type="xs:string"/>
+		<xs:attribute name="type" type="xs:string"/>
+	</xs:complexType>
+
+
+	
+	<!--  PREDOSATORE -->  
+	<xs:complexType name ="predosatore_type">
+		<xs:sequence>
+			<xs:element name="plctag" type="plctag_type"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string"/>
+		<xs:attribute name="name" type="xs:string"/>
+		<xs:attribute name="type" type="xs:string"/>
+	</xs:complexType>
+
+	<!--  NASTRO -->  
+	<xs:complexType name ="nastro_type">
+		<xs:sequence>
+			<xs:element name="plctag" type="plctag_type"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string"/>
+		<xs:attribute name="name" type="xs:string"/>
+		<xs:attribute name="type" type="xs:string"/>
+	</xs:complexType>
+
+	<!--  CISTERNA -->  
+	<xs:complexType name ="cisterna_type">
+		<xs:sequence>
+			<xs:element name="plctag" type="plctag_type"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string"/>
+		<xs:attribute name="name" type="xs:string"/>
+		<xs:attribute name="type" type="xs:string"/>
+	</xs:complexType>>  
+
+	<!--  MESCOLATORE -->  
+	<xs:complexType name ="mescolatore_type">
+		<xs:sequence>
+			<xs:element name="plctag" type="plctag_type"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string"/>
+		<xs:attribute name="name" type="xs:string"/>
+		<xs:attribute name="type" type="xs:string"/>
+	</xs:complexType>>  
+
+	<!--  VAGLIO -->  
+	<xs:complexType name ="vaglio_type">
+		<xs:sequence>
+			<xs:element name="plctag" type="plctag_type"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string"/>
+		<xs:attribute name="name" type="xs:string"/>
+		<xs:attribute name="type" type="xs:string"/>
+	</xs:complexType>
+
+	<!--  FILTRO -->  
+	<xs:complexType name ="filtro_type">
+		<xs:sequence>
+			<xs:element name="plctag" type="plctag_type"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string"/>
+		<xs:attribute name="name" type="xs:string"/>
+		<xs:attribute name="type" type="xs:string"/>
+	</xs:complexType>
+
+	<!--  Bilancia -->  
+	<xs:complexType name ="bilancia_type">
+		<xs:sequence>
+			<xs:element name="plctag" type="plctag_type"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string"/>
+		<xs:attribute name="name" type="xs:string"/>
+		<xs:attribute name="type" type="xs:string"/>
+	</xs:complexType>
+
+	<!--  AMPEROMETRO -->  
+	<xs:complexType name ="amperometro_type">
+		<xs:sequence>
+			<xs:element name="plctag" type="plctag_type"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string"/>
+		<xs:attribute name="name" type="xs:string"/>
+		<xs:attribute name="type" type="xs:string"/>
+	</xs:complexType>
+
+	<!--  MOTORE -->  
+	<xs:complexType name="motore_type">
+		<xs:sequence>
+			<xs:element name="amperometro" type="amperometro_type"/>
+			<xs:element name="plctag" type="plctag_type"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string"/>
+		<xs:attribute name="name" type="xs:string"/>
+		<xs:attribute name="type" type="xs:string"/>
+	</xs:complexType>
+
+	<!--  PLCTAG -->  
+	<xs:complexType name = "plctag_type">
+		<xs:attribute name="id" type="xs:string"/>
+		<xs:attribute name="type" type="xs:string"/>
+		<xs:attribute name="tagid" type="xs:string"/>
+	</xs:complexType>
+</xs:schema>
+

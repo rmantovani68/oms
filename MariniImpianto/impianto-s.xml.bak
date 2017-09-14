@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<impianto 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:noNamespaceSchemaLocation="file:///C:/Users/uts.MARINI/Documents/projects/new-project/oms/MariniImpianto/impianto.xsd" 
+  id="string" 
+  type="string" 
+  name="string"
+  >
+  <zona_predosaggio id="string" type="string" name="string">
+    <predosatore id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </predosatore>
+    <predosatore id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </predosatore>
+    <predosatore id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </predosatore>
+    <predosatore id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </predosatore>
+    <bilancia id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </bilancia>
+    <bilancia id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </bilancia>
+    <bilancia id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </bilancia>
+    <bilancia id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </bilancia>
+    <nastro id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </nastro>
+    <nastro id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </nastro>
+    <nastro id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </nastro>
+    <nastro id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </nastro>
+  </zona_predosaggio>
+  <zona_essiccazione id="string" type="string" name="string">
+    <tamburo id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </tamburo>
+    <tamburo id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </tamburo>
+    <tamburo id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </tamburo>
+    <tamburo id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </tamburo>
+    <elevatore id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </elevatore>
+    <elevatore id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </elevatore>
+    <elevatore id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </elevatore>
+    <elevatore id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </elevatore>
+    <filtro id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </filtro>
+    <filtro id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </filtro>
+    <filtro id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </filtro>
+    <filtro id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </filtro>
+  </zona_essiccazione>
+  <zona_dosaggio id="string" type="string" name="string">
+    <vaglio id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </vaglio>
+    <vaglio id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </vaglio>
+    <vaglio id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </vaglio>
+    <vaglio id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </vaglio>
+    <bilancia id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </bilancia>
+    <bilancia id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </bilancia>
+    <bilancia id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </bilancia>
+    <bilancia id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </bilancia>
+    <tramoggia id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </tramoggia>
+    <tramoggia id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </tramoggia>
+    <tramoggia id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </tramoggia>
+    <tramoggia id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </tramoggia>
+    <mescolatore id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </mescolatore>
+    <mescolatore id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </mescolatore>
+    <mescolatore id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </mescolatore>
+    <mescolatore id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </mescolatore>
+  </zona_dosaggio>
+  <zona_cisterne id="string" type="string" name="string">
+    <cisterna id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </cisterna>
+    <cisterna id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </cisterna>
+    <cisterna id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </cisterna>
+    <cisterna id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </cisterna>
+    <nastro id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </nastro>
+    <nastro id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </nastro>
+    <nastro id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </nastro>
+    <nastro id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </nastro>
+  </zona_cisterne>
+  <zona_stoccaggio id="string" type="string" name="string">
+    <silos id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </silos>
+    <silos id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </silos>
+    <silos id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </silos>
+    <silos id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </silos>
+    <navetta id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </navetta>
+    <navetta id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </navetta>
+    <navetta id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </navetta>
+    <navetta id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </navetta>
+    <nastro id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </nastro>
+    <nastro id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </nastro>
+    <nastro id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </nastro>
+    <nastro id="string" type="string" name="string">
+      <plctag id="string" type="string" name="string" tagid="string"/>
+    </nastro>
+  </zona_stoccaggio>
+</impianto>

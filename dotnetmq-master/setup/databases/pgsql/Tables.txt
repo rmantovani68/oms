@@ -1,0 +1,16 @@
+CREATE SEQUENCE mds.messages_seq;
+
+CREATE TABLE  mds.messages (
+    Id int check (Id > 0) NOT NULL DEFAULT NEXTVAL ('mds.messages_seq'),
+    MessageId varchar(100) NOT NULL,
+    DestServer varchar(100) NOT NULL,
+    NextServer varchar(100) NOT NULL,
+    DestApplication varchar(100) NOT NULL,
+    MessageData bytea NOT NULL,
+    MessageDataLength int check (MessageDataLength > 0) NOT NULL,
+    RecordDate timestamp(0) NOT NULL,
+    PRIMARY KEY (Id)
+) ;
+
+CREATE INDEX IX_Ser_App ON mds.messages (NextServer,DestApplication,Id);
+CREATE INDEX IX_Ser ON mds.messages (NextServer,Id);

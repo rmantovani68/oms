@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<MDSConfiguration>
+
+	<Settings>
+		<Setting Key="ThisServerName" Value="this_server" />
+
+		<!-- Microsoft SQL Server 
+		<Setting Key="StorageType" Value="MSSQL" />
+		<Setting Key="ConnectionString" Value="Data Source=localhost;Initial Catalog=mds;Integrated Security=SSPI" />
+		-->
+
+		<!-- MySQL
+		<Setting Key="StorageType" Value="MySQL-ODBC" />
+		<Setting Key="MySQLConnectionString" Value="uid=root;server=localhost;driver={MySQL ODBC 3.51 Driver};database=mds" />
+		-->
+
+		<!-- PostgreSQL
+		<Setting Key="StorageType" Value="PostgreSQL" />
+		<Setting Key="ConnectionString" Value="Server=127.0.0.1;Port=5432;Database=mds;User Id=roberto;Password=3zin;" />
+		-->
+
+		<!-- Memory - No persistence -->
+		<Setting Key="StorageType" Value="Memory" />
+
+	</Settings>
+
+	<Servers>
+		<Server Name="this_server" IpAddress="127.0.0.1" Port="10905" Adjacents="" />
+	</Servers>
+
+	<Applications>
+		<Application Name="PLCServer" />
+		<Application Name="Manager" />
+		<Application Name="Interface" />
+	</Applications>
+
+	<Routes>
+	</Routes>
+
+</MDSConfiguration>

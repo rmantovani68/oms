@@ -16,13 +16,17 @@ using MDS;
 using MDS.Client;
 using MDS.Communication.Messages;
 using OMS.Core.Communication;
-using MariniImpianti;
+using DataModel;
 #endregion
 
 namespace Manager
 {
     class Manager
     {
+        
+        #region Public Fields
+        public string XMLfilename = @"impianto-test.xml";
+        #endregion
 
         #region Private Fields
         protected static readonly ILog Logger = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
@@ -57,12 +61,14 @@ namespace Manager
         // lista delle properties sottoscritte dai clients
         private Dictionary<string, HashSet<Property>> ListSubscriptions = new Dictionary<string, HashSet<Property>>();
 
-        MariniImpiantoTree mariniImpiantoTree;
+        // MariniImpiantoTree mariniImpiantoTree;
+
+        MariniImpiantoDataManager mariniDataManager;
 
         #endregion Private Fields
 
         #region Properties
-
+        
         public string ApplicationName { get; private set; }
         public string PLCServerApplicationName { get; private set; }
 
@@ -140,12 +146,24 @@ namespace Manager
             // configurazione
 
             // lettura del dominio degli oggetti
-            MariniImpiantoTree.InitializeFromXmlFile(@"C:\Users\uts.MARINI\Documents\projects\new-project\oms\MariniImpianto\impianto-test.xml");
+            // MariniImpiantoTree.InitializeFromXmlFile(@"C:\Users\uts.MARINI\Documents\projects\new-project\oms\MariniImpianto\impianto-test.xml");
+
+                     
+            // mariniImpiantoTree = MariniImpiantoTree.Instance;
+
             
-            mariniImpiantoTree = MariniImpiantoTree.Instance;
+            mariniDataManager = new MariniImpiantoDataManager(
+            XMLfilename, 
+            new MariniStandardXmlSerializer(), new List<IMariniEventHandler>(
+                new IMariniEventHandler[]{                            
+                    // new ImpiantoEventHandler(),
+                    // new MotoreEventHandler(),
+                    // new Motore1AlarmHandler()
+                }));
 
 
-            SubscribePLCTags(mariniImpiantoTree);
+
+            SubscribePLCTags(mariniDataManager);
 
             LoopTime = loopTime;
             timer.Elapsed += timer_Elapsed;

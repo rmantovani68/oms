@@ -57,6 +57,9 @@
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="MariniImpiantoDataModel">
+      <HintPath>..\..\datamodel\MariniImpiantoDataModel\bin\Debug\MariniImpiantoDataModel.dll</HintPath>
+    </Reference>
     <Reference Include="OMSCore">
       <HintPath>..\..\..\plcserver\OMSCore\bin\Debug\OMSCore.dll</HintPath>
     </Reference>
@@ -81,16 +84,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MariniImpiantiWcfLib\MariniImpiantiWcfLib.csproj">
-      <Project>{3ea9c122-4736-4a25-93b0-c35ef3c0d914}</Project>
-      <Name>MariniImpiantiWcfLib</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MariniImpianto\MariniImpianti.csproj">
-      <Project>{b3beacd0-1777-46c3-9c7d-0eed2812e792}</Project>
-      <Name>MariniImpianti</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Client\AppService\README.txt" />

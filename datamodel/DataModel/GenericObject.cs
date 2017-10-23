@@ -21,19 +21,19 @@ namespace DataModel
     /// <summary>
     /// Represents a generic object of MariniImpianto
     /// </summary>
-    public abstract class MariniGenericObject : INotifyPropertyChanged
+    public abstract class GenericObject : INotifyPropertyChanged
     {
 
         #region properties
 
         
 
-        private MariniGenericObject _parent;
+        private GenericObject _parent;
         /// <summary>
         /// Gets and Sets the parent of an object
         /// </summary>
         [System.Xml.Serialization.XmlIgnore]
-        public MariniGenericObject parent { get { return _parent; } set { _parent = value; } }
+        public GenericObject parent { get { return _parent; } set { _parent = value; } }
 
         //[System.Xml.Serialization.XmlElementAttribute("type")]
         private string _type;
@@ -80,17 +80,17 @@ namespace DataModel
         [System.Xml.Serialization.XmlAttribute]
         public string handler { get { return _handler; } set { _handler = value; } }
 
-        private readonly List<MariniGenericObject> _childList = new List<MariniGenericObject>();
+        private readonly List<GenericObject> _childList = new List<GenericObject>();
         /// <summary>
         /// Gets the list of children objects
         /// </summary>
         // TODO: Vanno aggiunti gli elementi presenti nella serializzazione.
-        [XmlElement("Property", Type = typeof(MariniProperty))]
-        [XmlElement("oggettobase", Type = typeof(MariniBaseObject))]
-        public List<MariniGenericObject> ChildList { get { return _childList; } }
+        [XmlElement("Property", Type = typeof(Property))]
+        [XmlElement("oggettobase", Type = typeof(BaseObject))]
+        public List<GenericObject> ChildList { get { return _childList; } }
 
         /// <summary>
-        /// Threadsafe implementation of the event <see cref="MariniGenericObject.OnPropertyChanged"/>
+        /// Threadsafe implementation of the event <see cref="GenericObject.OnPropertyChanged"/>
         /// </summary>
         readonly object synchro = new object();
 
@@ -144,7 +144,7 @@ namespace DataModel
         }
 
         /// <summary>
-        /// Used in every property set to launch <see cref="MariniGenericObject.OnPropertyChanged"/>
+        /// Used in every property set to launch <see cref="GenericObject.OnPropertyChanged"/>
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="field"></param>
@@ -174,15 +174,15 @@ namespace DataModel
         #region constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MariniGenericObject"/> class.
+        /// Initializes a new instance of the <see cref="GenericObject"/> class.
         /// </summary>
-        /// <param name="parent">MariniGenericObject parent</param>
-        /// <param name="type">MariniGenericObject ID</param>
-        /// <param name="id">MariniGenericObject ID</param>
-        /// <param name="name">MariniGenericObject name</param>
-        /// <param name="description">MariniGenericObject description</param>
-        /// <param name="handler">MariniGenericObject method name to handle the PropertyChange event</param>
-        protected MariniGenericObject(MariniGenericObject parent, string type, string id, string name, string description, string handler)
+        /// <param name="parent">GenericObject parent</param>
+        /// <param name="type">GenericObject ID</param>
+        /// <param name="id">GenericObject ID</param>
+        /// <param name="name">GenericObject name</param>
+        /// <param name="description">GenericObject description</param>
+        /// <param name="handler">GenericObject method name to handle the PropertyChange event</param>
+        protected GenericObject(GenericObject parent, string type, string id, string name, string description, string handler)
         {
             this.parent = parent;
             this.type = type;
@@ -195,74 +195,74 @@ namespace DataModel
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MariniGenericObject"/> class.
+        /// Initializes a new instance of the <see cref="GenericObject"/> class.
         /// </summary>
-        /// <param name="parent">MariniGenericObject parent</param>
-        /// <param name="type">MariniGenericObject ID</param>
-        /// <param name="id">MariniGenericObject ID</param>
-        /// <param name="name">MariniGenericObject name</param>
+        /// <param name="parent">GenericObject parent</param>
+        /// <param name="type">GenericObject ID</param>
+        /// <param name="id">GenericObject ID</param>
+        /// <param name="name">GenericObject name</param>
         /// <param name="description"></param>
-        protected MariniGenericObject(MariniGenericObject parent, string type, string id, string name, string description)
+        protected GenericObject(GenericObject parent, string type, string id, string name, string description)
             : this(parent, type, id, name, description, "NO_HANDLER")
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MariniGenericObject"/> class.
+        /// Initializes a new instance of the <see cref="GenericObject"/> class.
         /// </summary>
-        /// <param name="parent">MariniGenericObject parent</param>
-        /// <param name="type">MariniGenericObject ID</param>
-        /// <param name="id">MariniGenericObject ID</param>
-        /// <param name="name">MariniGenericObject name</param>
-        protected MariniGenericObject(MariniGenericObject parent, string type, string id, string name)
+        /// <param name="parent">GenericObject parent</param>
+        /// <param name="type">GenericObject ID</param>
+        /// <param name="id">GenericObject ID</param>
+        /// <param name="name">GenericObject name</param>
+        protected GenericObject(GenericObject parent, string type, string id, string name)
             : this(parent, type, id, name, "NO_DESCRIPTION")
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MariniGenericObject"/> class.
+        /// Initializes a new instance of the <see cref="GenericObject"/> class.
         /// </summary>
-        /// <param name="parent">MariniGenericObject parent</param>
-        /// <param name="type">MariniGenericObject ID</param>
-        /// <param name="id">MariniGenericObject ID</param>
-        protected MariniGenericObject(MariniGenericObject parent, string type, string id)
+        /// <param name="parent">GenericObject parent</param>
+        /// <param name="type">GenericObject ID</param>
+        /// <param name="id">GenericObject ID</param>
+        protected GenericObject(GenericObject parent, string type, string id)
             : this(parent, type, id, "NO_NAME")
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MariniGenericObject"/> class.
+        /// Initializes a new instance of the <see cref="GenericObject"/> class.
         /// </summary>
-        /// <param name="parent">MariniGenericObject parent</param>
-        /// <param name="type">MariniGenericObject ID</param>
-        protected MariniGenericObject(MariniGenericObject parent, string type)
+        /// <param name="parent">GenericObject parent</param>
+        /// <param name="type">GenericObject ID</param>
+        protected GenericObject(GenericObject parent, string type)
             : this(parent, type, "NO_ID")
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MariniGenericObject"/> class.
+        /// Initializes a new instance of the <see cref="GenericObject"/> class.
         /// </summary>
-        /// <param name="parent">MariniGenericObject parent</param>
-        protected MariniGenericObject(MariniGenericObject parent)
+        /// <param name="parent">GenericObject parent</param>
+        protected GenericObject(GenericObject parent)
             : this(parent, "NO_TYPE")
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MariniGenericObject"/> class.
+        /// Initializes a new instance of the <see cref="GenericObject"/> class.
         /// </summary>
-        protected MariniGenericObject()
+        protected GenericObject()
             : this(null, "NO_TYPE")
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MariniGenericObject"/> class.
+        /// Initializes a new instance of the <see cref="GenericObject"/> class.
         /// </summary>
-        /// <param name="parent">MariniGenericObject parent</param>
+        /// <param name="parent">GenericObject parent</param>
         /// <param name="node">An Xml node from which to construct the object</param>
-        protected MariniGenericObject(MariniGenericObject parent, XmlNode node)
+        protected GenericObject(GenericObject parent, XmlNode node)
             : this(parent)
         {
             // L'attributo type viene ricavato dal nome del nodo
@@ -302,10 +302,10 @@ namespace DataModel
         }
 
         /// <summary>
-        /// Initializes the object path for the MariniGenericObject <see cref="MariniGenericObject"/> class.
+        /// Initializes the object path for the GenericObject <see cref="GenericObject"/> class.
         /// </summary>
         /// <param name="node">An Xml node from which to construct the object</param>
-        private void SetObjPath(MariniGenericObject parent)
+        private void SetObjPath(GenericObject parent)
         {
             if (parent == null)
             {
@@ -318,10 +318,10 @@ namespace DataModel
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MariniGenericObject"/> class.
+        /// Initializes a new instance of the <see cref="GenericObject"/> class.
         /// </summary>
         /// <param name="node">An Xml node from which to construct the object</param>
-        protected MariniGenericObject(XmlNode node)
+        protected GenericObject(XmlNode node)
             : this(null, node)
         {
         }
@@ -332,7 +332,7 @@ namespace DataModel
 
         public override bool Equals(Object o)
         {
-            MariniGenericObject mgo = o as MariniGenericObject;
+            GenericObject mgo = o as GenericObject;
             if (mgo == null)
                 return false;
             else
@@ -349,17 +349,17 @@ namespace DataModel
 
 
         /// <summary>
-        /// Plain description of the MariniGenericObject.
+        /// Plain description of the GenericObject.
         /// </summary>
         public abstract void ToPlainText();
 
         /// <summary>
-        /// Plain description of the MariniGenericObject and, recursively, it's children.
+        /// Plain description of the GenericObject and, recursively, it's children.
         /// </summary>
         public void ToPlainTextRecursive()
         {
             ToPlainText();
-            foreach (MariniGenericObject mgo in _childList)
+            foreach (GenericObject mgo in _childList)
             {
                 mgo.ToPlainTextRecursive();
             }
@@ -368,18 +368,18 @@ namespace DataModel
 
         /*
         /// <summary>
-        /// Retrieve a list of MariniGenericObject child of a specific type
+        /// Retrieve a list of GenericObject child of a specific type
         /// </summary>
-        /// <param name="type">The type of MariniGenericObject</param>
-        /// <returns>A list of MariniGenericObject</returns>
-        public List<MariniGenericObject> GetObjectListByType(Type type)
+        /// <param name="type">The type of GenericObject</param>
+        /// <returns>A list of GenericObject</returns>
+        public List<GenericObject> GetObjectListByType(Type type)
         {
-            List<MariniGenericObject> mgoList = new List<MariniGenericObject>();
+            List<GenericObject> mgoList = new List<GenericObject>();
             _GetObjectListByType(type, ref mgoList);
             return mgoList;
         }
 
-        private void _GetObjectListByType(Type type, ref List<MariniGenericObject> mgoList)
+        private void _GetObjectListByType(Type type, ref List<GenericObject> mgoList)
         {
             if (this.GetType() == type)
             {
@@ -389,7 +389,7 @@ namespace DataModel
 
             if (_listaGenericObject.Count > 0)
             {
-                foreach (MariniGenericObject child in _listaGenericObject)
+                foreach (GenericObject child in _listaGenericObject)
                 {
                     child._GetObjectListByType(type, ref  mgoList);
                 }

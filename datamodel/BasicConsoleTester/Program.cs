@@ -61,10 +61,10 @@ namespace MIConsoleTester
             {
                 Logger.Info("MariniImpiantoDataManager - Inizio Creazione");
 
-                MariniImpiantoDataManager mariniDataManager = new MariniImpiantoDataManager(
+                DataManager mariniDataManager = new DataManager(
                     XMLfilename, 
-                    new MariniStandardXmlSerializer(), new List<IMariniEventHandler>(
-                        new IMariniEventHandler[]{                            
+                    new StandardXmlSerializer(), new List<IEventHandler>(
+                        new IEventHandler[]{                            
                             new ImpiantoEventHandler(),
                             new MotoreEventHandler(),
                             new Motore1AlarmHandler()
@@ -79,7 +79,7 @@ namespace MIConsoleTester
                 Logger.Info("MariniImpiantoDataManager - Fine ToPlainTextRecursive()\n");
                 // Vediamo come e' composto il dizionario con key = path
                 Console.WriteLine("\n----------> Questo e' il dizionario dei path");
-                foreach (KeyValuePair<string, MariniGenericObject> pair in mariniDataManager.PathObjectsDictionary)
+                foreach (KeyValuePair<string, GenericObject> pair in mariniDataManager.PathObjectsDictionary)
                 {
                     Console.WriteLine("{0}, {1}", pair.Key, pair.Value.name);
                 }
@@ -96,13 +96,13 @@ namespace MIConsoleTester
                 Console.WriteLine("{0}", sXML);
 
                 Console.WriteLine("\n----------> Scatta l'allarme di Motore1");
-                ((MariniProperty)mariniDataManager.GetObjectByPath("Impianto.ZonaPredosaggio.Nastro1.Motore1.Allarme")).value = "true";
+                ((Property)mariniDataManager.GetObjectByPath("Impianto.ZonaPredosaggio.Nastro1.Motore1.Allarme")).value = "true";
                 Console.ReadKey();
 
                 Console.WriteLine("\n----------> Recupero alcune property di MOTORE 3");
-                MariniBaseObject mbo = ((MariniBaseObject)mariniDataManager.GetObjectByPath("Impianto.ZonaPredosaggio.Nastro1.Motore1"));
-                Console.WriteLine("Il valore della proprieta' Ritorno di {0} e' {1}", mbo.path, mbo.GetMariniPropertyFromId("Ritorno").value);
-                Console.WriteLine("Il valore della proprieta' ValoreAmperometro di {0} e' {1}", mbo.path, mbo.GetMariniPropertyFromId("ValoreAmperometro").value);
+                BaseObject mbo = ((BaseObject)mariniDataManager.GetObjectByPath("Impianto.ZonaPredosaggio.Nastro1.Motore1"));
+                Console.WriteLine("Il valore della proprieta' Ritorno di {0} e' {1}", mbo.path, mbo.GetPropertyFromId("Ritorno").value);
+                Console.WriteLine("Il valore della proprieta' ValoreAmperometro di {0} e' {1}", mbo.path, mbo.GetPropertyFromId("ValoreAmperometro").value);
                 Console.ReadKey();
             }
             catch (Exception e)

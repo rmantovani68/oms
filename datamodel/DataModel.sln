@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataModel", "MariniImpiantoDataModel\DataModel.csproj", "{18ACD993-C594-49E9-9DDF-7B45C4BAA477}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataModel", "DataModel\DataModel.csproj", "{18ACD993-C594-49E9-9DDF-7B45C4BAA477}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MIConsoleTester", "MIConsoleTester\MIConsoleTester.csproj", "{F2011E22-D2E0-4CA4-909C-C53D644B0610}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicConsoleTester", "BasicConsoleTester\BasicConsoleTester.csproj", "{F2011E22-D2E0-4CA4-909C-C53D644B0610}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataModelUnitTest", "MariniImpiantoDataModelUnitTest\DataModelUnitTest.csproj", "{7A93E3AA-76EC-4FF3-AB1A-0D8B70469836}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataModelUnitTest", "DataModelUnitTest\DataModelUnitTest.csproj", "{7A93E3AA-76EC-4FF3-AB1A-0D8B70469836}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

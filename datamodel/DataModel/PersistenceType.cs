@@ -6,14 +6,9 @@ using System.Threading.Tasks;
 
 namespace DataModel
 {
-    public enum MariniPropertyTypeEnum
+    public enum PersistenceType
     {
-        Int,
-        Dint,
-        Bool,
-        Long,
-        Real,
-        Byte,
-        Word,
+        auto,
+        manual
     }
 }

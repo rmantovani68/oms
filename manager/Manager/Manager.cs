@@ -63,7 +63,7 @@ namespace Manager
 
         // MariniImpiantoTree mariniImpiantoTree;
 
-        MariniImpiantoDataManager mariniDataManager;
+        DataManager dataManager;
 
         #endregion Private Fields
 
@@ -152,10 +152,10 @@ namespace Manager
             // mariniImpiantoTree = MariniImpiantoTree.Instance;
 
             
-            mariniDataManager = new MariniImpiantoDataManager(
+            dataManager = new DataManager(
             XMLfilename, 
-            new MariniStandardXmlSerializer(), new List<IMariniEventHandler>(
-                new IMariniEventHandler[]{                            
+            new StandardXmlSerializer(), new List<IEventHandler>(
+                new IEventHandler[]{                            
                     // new ImpiantoEventHandler(),
                     // new MotoreEventHandler(),
                     // new Motore1AlarmHandler()
@@ -163,7 +163,7 @@ namespace Manager
 
 
 
-            SubscribePLCTags(mariniDataManager);
+            SubscribePLCTags(dataManager);
 
             LoopTime = loopTime;
             timer.Elapsed += timer_Elapsed;
@@ -217,13 +217,14 @@ namespace Manager
         /// <summary>
         /// sottoscrive la lista delle properties dell'impianto aventi bindtype = plctag e binddirection oneway o twoway
         /// </summary>
-        /// <param name="mariniImpiantoTree"></param>
+        /// <param name="DataManager"></param>
         /// <returns></returns>
-        private bool SubscribePLCTags(MariniImpiantoTree mariniImpiantoTree)
+        private bool SubscribePLCTags(DataManager dm)
         {
             bool RetVal = true;
             // recuperare la lista delle properties dell'impianto
-            List<MariniProperty> props = mariniImpiantoTree.MariniImpianto.GetObjectListByType(typeof(MariniProperty)).Cast<MariniProperty>().ToList();
+            List<Property> props = dataManager.PathObjectsDictionary.Values.Where(item => item.GetType() == typeof(Property)).Cast<Property>().ToList();
+            
 
             foreach (var prop in props)
             {
@@ -732,7 +733,7 @@ namespace Manager
             {
                 foreach (var sub in ListSubscriptions[Message.SourceApplicationName].ToList())
                 {
-                    RemoveProperty(Message.SourceApplicationName, new Property() { ObjPath= sub.ObjPath});
+                    RemoveProperty(Message.SourceApplicationName, new Property() { path= sub.path});
                 }
             }
 
@@ -754,7 +755,7 @@ namespace Manager
             {
                 foreach (var sub in ListSubscriptions[Message.SourceApplicationName].ToList())
                 {
-                    RemoveProperty(Message.SourceApplicationName, new Property() { ObjPath= sub.ObjPath});
+                    RemoveProperty(Message.SourceApplicationName, new Property() { path= sub.path});
                 }
                 ListSubscriptions.Remove(Message.SourceApplicationName);
             }
@@ -775,7 +776,7 @@ namespace Manager
             bool RetValue = true;
 
             // verifica che la property esista e sia sottoscrivibile
-            var property = mariniImpiantoTree.GetObjectByPath(prop.ObjPath) as MariniProperty;
+            var property = dataManager.GetObjectByPath(prop.path) as Property;
 
             if (property == null)
             {
@@ -797,7 +798,7 @@ namespace Manager
                 }
                 catch (Exception exc)
                 {
-                    Logger.WarnFormat("Error subscribing property {0} : {1}", prop.ObjPath, exc.Message);
+                    Logger.WarnFormat("Error subscribing property {0} : {1}", prop.path, exc.Message);
                     RetValue = false;
                 }
             }
@@ -875,14 +876,14 @@ namespace Manager
                     }
                     catch (Exception exc)
                     {
-                        Logger.WarnFormat("Error removing property {0} : {1}", prop.ObjPath, exc.Message);
+                        Logger.WarnFormat("Error removing property {0} : {1}", prop.path, exc.Message);
                         RetValue = false;
                     }
                 }
                 else 
                 {
                     // non c'è
-                    Logger.WarnFormat("Property {0} : doesn't exists", prop.ObjPath);
+                    Logger.WarnFormat("Property {0} : doesn't exists", prop.path);
                     RetValue = false;
                 }
             }
@@ -968,10 +969,11 @@ namespace Manager
                 }
                 
                 // recupero la lista delle properties dell'impianto
-                List<MariniProperty> props = mariniImpiantoTree.MariniImpianto.GetObjectListByType(typeof(MariniProperty)).Cast<MariniProperty>().ToList();
+                // LG: Ma la uso anche in SubscribePLCTags!!! Devo fare tutte le volte sta roba? 
+                List<Property> props = dataManager.PathObjectsDictionary.Values.Where(item => item.GetType() == typeof(Property)).Cast<Property>().ToList();
 
                 // trova la property associata e cambia il valore
-                MariniProperty property = props.FirstOrDefault(prp=> prp.bind == tag.Name);
+                Property property = props.FirstOrDefault(prp=> prp.bind == tag.Name);
 
                 if (property != null)
                 {
@@ -1024,9 +1026,10 @@ namespace Manager
                     }
 
                     // recuperare la lista delle properties dell'impianto
-                    List<MariniProperty> props = mariniImpiantoTree.MariniImpianto.GetObjectListByType(typeof(MariniProperty)).Cast<MariniProperty>().ToList();
+                    // LG: Ma la uso anche in SubscribePLCTags e PLCTagChanged!!! Devo fare tutte le volte sta roba? 
+                    List<Property> props = dataManager.PathObjectsDictionary.Values.Where(item => item.GetType() == typeof(Property)).Cast<Property>().ToList();
                     // trova la property associata e cambia il valore
-                    MariniProperty property = props.FirstOrDefault(prp => prp.bind == tag.Name);
+                    Property property = props.FirstOrDefault(prp => prp.bind == tag.Name);
 
                     if (property != null)
                     {
@@ -1059,7 +1062,7 @@ namespace Manager
         /// <param name="e"></param>
         public void PropertyValueChangedHandler(object sender, PropertyChangedEventArgs e)
         {
-            MariniProperty mp = sender as MariniProperty;
+            Property mp = sender as Property;
 
             /* se la property ha un plctag associato ... */
             switch (mp.binddirection)
@@ -1083,14 +1086,14 @@ namespace Manager
         /// invia la notifica ai sottoscrittori 
         /// </summary>
         /// <param name="mp">Property to notify</param>
-        private void ObjectPropertyNotifyToSubscribers(MariniProperty mp)
+        private void ObjectPropertyNotifyToSubscribers(Property mp)
         {
             foreach (var subscriber in ListSubscriptions.Keys)
             {
                 Property property=null;
                 // cerco la property con path corrispondente
                 foreach(var prop in ListSubscriptions[subscriber].ToList()){
-                    if (prop.ObjPath == mp.path)
+                    if (prop.path == mp.path)
                     {
                         property = prop;
                         break;
@@ -1100,7 +1103,7 @@ namespace Manager
                 if (property != null)
                 {
                     // assegno il valore alla property
-                    property.Value = mp.value;
+                    property.value = mp.value;
 
                     // Mando messaggio di property changed al sottoscrittore
                     //Create a DotNetMQ Message to send 
@@ -1140,10 +1143,10 @@ namespace Manager
         {
             bool bOK=true;
 
-            var mp = MariniImpiantoTree.Instance.GetObjectByPath(prop.ObjPath) as MariniProperty;
+            var mp = dataManager.GetObjectByPath(prop.path) as Property;
             if(mp !=null)
             {
-                prop.Value = mp.value;
+                prop.value = mp.value;
             } 
             else
             {
@@ -1189,7 +1192,7 @@ namespace Manager
 
 
 
-        private bool SetPropertyPLCTag(MariniProperty mp)
+        private bool SetPropertyPLCTag(Property mp)
         {
             bool bOK = true;
 

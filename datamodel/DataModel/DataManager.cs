@@ -9,17 +9,17 @@ using System.Xml;
 namespace DataModel
 {
     /// <summary>
-    /// Classe singleton con la quale accedere al modello dell'impianto Marini. Crea dinamicamente il modello
+    /// Classe con la quale accedere al modello dei dati. Crea dinamicamente il modello
     /// partendo da un file xml. Contiene alcuni metodi di supporto per la gestione del modello.
     /// </summary>
-    public class MariniImpiantoDataManager
+    public class DataManager
     {
         
-        private MariniBaseObject _dataTree;
+        private BaseObject _dataTree;
         /// <summary>
-        /// Gets the actual MariniImpiantoDataTree
+        /// Gets the actual ImpiantoDataTree
         /// </summary>
-        public MariniBaseObject DataTree
+        public BaseObject DataTree
         {
             get
             {
@@ -27,11 +27,11 @@ namespace DataModel
             }
         }
 
-        private Dictionary<string, MariniGenericObject> _pathObjectsDictionary = new Dictionary<string,MariniGenericObject>();
+        private Dictionary<string, GenericObject> _pathObjectsDictionary = new Dictionary<string,GenericObject>();
         /// <summary>
-        /// Gets the dictionary of all object that composed MariniImpianto with path key
+        /// Gets the dictionary of all object that composed DataModel with path key
         /// </summary>
-        public Dictionary<string, MariniGenericObject> PathObjectsDictionary
+        public Dictionary<string, GenericObject> PathObjectsDictionary
         {
             get
             {
@@ -39,11 +39,11 @@ namespace DataModel
             }
         }
 
-        private List<IMariniEventHandler> _eventHandlerList = new List<IMariniEventHandler>();
+        private List<IEventHandler> _eventHandlerList = new List<IEventHandler>();
         /// <summary>
         /// Gets the class with event handler methods
         /// </summary>
-        public List<IMariniEventHandler> EventHandlerList
+        public List<IEventHandler> EventHandlerList
         {
             get
             {
@@ -51,11 +51,11 @@ namespace DataModel
             }
         }
 
-        private IMariniSerializer _serializer;
+        private ISerializer _serializer;
         /// <summary>
-        /// Gets the actual MariniImpiantoDataTree
+        /// Gets the actual DataManager
         /// </summary>
-        public IMariniSerializer Serializer
+        public ISerializer Serializer
         {
             get
             {
@@ -64,51 +64,47 @@ namespace DataModel
         }
 
         //Nei costruttori faccio Dependency Injection / Inversion of Control, ovvero sposto il codice su oggetti esterni.
-        public MariniImpiantoDataManager(MariniBaseObject dataTree, IMariniSerializer serializer, List <IMariniEventHandler> eventHandlerList)
+        public DataManager(BaseObject dataTree, ISerializer serializer, List <IEventHandler> eventHandlerList)
         {
             _Initialize(dataTree, serializer, eventHandlerList);   
         }
 
-        public MariniImpiantoDataManager(string filename, IMariniSerializer serializer, List<IMariniEventHandler> eventHandlerList)
+        public DataManager(string filename, ISerializer serializer, List<IEventHandler> eventHandlerList)
         {
             // TODO: Una qualche validazione del filename? Magari con metodo apposito, o oggetto validatore esterno
             // TODO: una qualche validazione dell'XML? Magari con metodo apposito o con oggetto validatore esterno (vedi XSD)
             XmlDocument doc = new XmlDocument();
             doc.Load(filename);
             XmlNode root = doc.SelectSingleNode("*");
-            MariniBaseObject dataTree = (MariniBaseObject)MariniObjectCreator.CreateMariniObject(root);
+            BaseObject dataTree = (BaseObject)ObjectCreator.CreateMariniObject(root);
 
             _Initialize(dataTree, serializer, eventHandlerList);
         }
         
         /// <summary>
-        /// Initialize the MariniImpiantoDataManager. Sets the mariniImpiantoDataTree and populate the Dictionaries
+        /// Initialize the DataManager. Sets the DataManager and populate the Dictionaries
         /// </summary>
         /// <param name="mariniImpiantoDataTree"></param>
-        private void _Initialize(MariniBaseObject dataTree, IMariniSerializer serializer, List<IMariniEventHandler> eventHandlerList)
+        private void _Initialize(BaseObject dataTree, ISerializer serializer, List<IEventHandler> eventHandlerList)
         {
             // TODO Faccio cosi' o uso un setter???
             this._dataTree = dataTree;
             this._serializer = serializer;
             this._eventHandlerList = eventHandlerList;
             _InitializeDictionaries();
-            //foreach (IMariniEventHandler mariniEventsHandler in this._eventHandlerList)
-            //{
-            //    _SubscribeEvents(mariniEventsHandler);
-            //}
             _SubscribeEvents();
         }
 
         /// <summary>
-        /// Initialize and populate the dictionaries of MariniImpiantoDataManager.
+        /// Initialize and populate the dictionaries of DataManager.
         /// </summary>
         /// <param name="mariniImpiantoDataTree"></param>
         private void _InitializeDictionaries()
         {
             // TODO: sviluppare un metodo GetChildDictionaryByParam che chieda in ingresso anche il parametro
-            // di MariniGenericObject da usare come key del dizionario, per non fare 2 funzioni che fanno la stessa
+            // di GenericObject da usare come key del dizionario, per non fare 2 funzioni che fanno la stessa
             // cosa. Uso Reflection?
-            _pathObjectsDictionary = new Dictionary<string, MariniGenericObject>();
+            _pathObjectsDictionary = new Dictionary<string, GenericObject>();
             _populatePathObjectsDictionary(this._dataTree);
         }
 
@@ -117,9 +113,9 @@ namespace DataModel
         {
             Console.WriteLine("\n\n\n========== INIZIO Sottoscrizione Eventi ==========");
 
-            foreach (MariniGenericObject mgo in this._pathObjectsDictionary.Values)
+            foreach (GenericObject mgo in this._pathObjectsDictionary.Values)
             {
-                Console.WriteLine("\n\n\t-----> Oggetto Marini {0} chiede la sottoscrizione dell'handler {1}", mgo.path, mgo.handler);
+                Console.WriteLine("\n\n\t-----> Oggetto {0} chiede la sottoscrizione dell'handler {1}", mgo.path, mgo.handler);
                 if (mgo.handler == "NO_HANDLER")
                 {
                     //Console.WriteLine("\n\tNessun handler richiesto");
@@ -127,11 +123,11 @@ namespace DataModel
                 else
                 {
 
-                    foreach (IMariniEventHandler mariniEventHandler in this._eventHandlerList)
+                    foreach (IEventHandler eventHandler in this._eventHandlerList)
                     {
-                        if (mariniEventHandler.GetType().Name == mgo.handler)
+                        if (eventHandler.GetType().Name == mgo.handler)
                         {
-                            mgo.PropertyChanged += mariniEventHandler.Handle;
+                            mgo.PropertyChanged += eventHandler.Handle;
                         }
                     }
 
@@ -142,15 +138,15 @@ namespace DataModel
 
 
         /// <summary>
-        /// Retrieve a dictionary of MariniGenericObject children with Path key
+        /// Retrieve a dictionary of GenericObject children with Path key
         /// </summary>
         /// <returns>The children dictionary</returns>
-        public void _populatePathObjectsDictionary(MariniGenericObject mgo)
+        public void _populatePathObjectsDictionary(GenericObject mgo)
         {
             _pathObjectsDictionary.Add(mgo.path, mgo);
             if (mgo.ChildList.Count > 0)
             {
-                foreach (MariniGenericObject child in mgo.ChildList)
+                foreach (GenericObject child in mgo.ChildList)
                 {
                     _populatePathObjectsDictionary(child);
                 }
@@ -159,13 +155,13 @@ namespace DataModel
         }
 
         /// <summary>
-        /// Gets a specific object of MariniImpianto.
+        /// Gets a specific object of Datamodel.
         /// </summary>
         /// <param name="path">Path of the object</param>
-        /// <returns>The <c>MariniGenericObject</c> with the given Path, <c>null</c> if not found.</returns>
-        public MariniGenericObject GetObjectByPath(string path)
+        /// <returns>The <c>GenericObject</c> with the given Path, <c>null</c> if not found.</returns>
+        public GenericObject GetObjectByPath(string path)
         {
-            MariniGenericObject mgo = null;
+            GenericObject mgo = null;
             if (this.PathObjectsDictionary.TryGetValue(path, out mgo))
             {
                 return mgo;

@@ -15,13 +15,13 @@ using System.Reflection;
 
 namespace MIConsoleTester.EventsHandlers
 {
-    public class ExampleOfMariniEventHandler : IMariniEventHandler
+    public class ExampleOfMariniEventHandler : IEventHandler
     {
         protected static readonly ILog Logger = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
         public void Handle(object sender, PropertyChangedEventArgs e)
         {
-            Console.WriteLine("Sono in ExampleOfMariniEventHandler.Handle(), il sender e' {0} e la proprieta' e' : {1}!!!!", (sender as MariniGenericObject).id, e.PropertyName);
+            Console.WriteLine("Sono in ExampleOfMariniEventHandler.Handle(), il sender e' {0} e la proprieta' e' : {1}!!!!", (sender as GenericObject).id, e.PropertyName);
             //methodToBeCalledWhenPropertyIsSet();
         }
 

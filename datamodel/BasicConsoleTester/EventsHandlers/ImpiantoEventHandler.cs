@@ -15,15 +15,15 @@ using System.Reflection;
 
 namespace MIConsoleTester.EventsHandlers
 {
-    public class MotoreEventHandler : IMariniEventHandler
+    public class ImpiantoEventHandler : IEventHandler
     {
         protected static readonly ILog Logger = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
         public void Handle(object sender, PropertyChangedEventArgs e)
         {
-            MariniProperty mp = sender as MariniProperty;
-            string p_name = e.PropertyName;
-            Console.WriteLine("MotoreEventHandler->Handler --- sender: {0} proprieta: {1} valore: {2}", mp.path, p_name, mp.value);
+            
+            Console.WriteLine("Sono in ImpiantoEventsHandlers->Handler, il sender e' {0} e la proprieta' e' : {1}!!!!", (sender as GenericObject).id, e.PropertyName);
+            
             //methodToBeCalledWhenPropertyIsSet();
         }
 

@@ -14,11 +14,11 @@ using System.Net;
 
 namespace DataModel
 {
-    public class MariniStandardXmlSerializer : IMariniSerializer
+    public class StandardXmlSerializer : ISerializer
     {
         private XmlSerializer _xmlSerializer;
 
-        public MariniStandardXmlSerializer()
+        public StandardXmlSerializer()
         {
 
         }
@@ -28,7 +28,7 @@ namespace DataModel
         /// </summary>
         /// <param name="path">the path of the object.</param>
         /// <returns>A string that contains the serialized object</returns>
-        public string Serialize(MariniGenericObject mgo)
+        public string Serialize(GenericObject mgo)
         {
             
             if (mgo == null)

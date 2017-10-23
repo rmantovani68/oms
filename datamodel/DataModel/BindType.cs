@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace DataModel
 {
-    public enum MariniBindDirectionEnum
+    public enum BindType
     {
-        Default,
-        OneTime,
-        OneWay,
-        OneWayToSource,
-        TwoWay,
+        PLCTag,
     }
 }

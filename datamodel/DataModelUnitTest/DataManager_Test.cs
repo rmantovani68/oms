@@ -7,14 +7,14 @@ using DataModel;
 namespace DataModelUnitTest
 {
     [TestClass]
-    public class MariniImpiantoDataManager_Test
+    public class DataManager_Test
     {
 
         /// <summary>
         ///A test for PersonName Constructor
         ///</summary>
         [TestMethod]
-        public void MariniBaseObject_ConstructorTest()
+        public void BaseObject_ConstructorTest()
         {
             XmlDocument doc = new XmlDocument();
             string sXml =
@@ -29,16 +29,16 @@ namespace DataModelUnitTest
                 ";
             doc.LoadXml(sXml);
             XmlNode root = doc.SelectSingleNode("*");
-            MariniGenericObject rootMGO = new MariniBaseObject(null, root);
+            GenericObject rootMGO = new BaseObject(null, root);
             Assert.IsNotNull(rootMGO);
-            Assert.IsInstanceOfType(rootMGO, typeof(MariniBaseObject));
+            Assert.IsInstanceOfType(rootMGO, typeof(BaseObject));
             foreach (var childMGO in rootMGO.ChildList)
             {
                 if (childMGO.id == "child1Id")
                 {
                     Assert.Equals(childMGO.type, "child1");
                     Assert.Equals(childMGO.path, "root.child1");
-                    Assert.IsInstanceOfType(childMGO, typeof(MariniBaseObject));
+                    Assert.IsInstanceOfType(childMGO, typeof(BaseObject));
                 }
             }
         }

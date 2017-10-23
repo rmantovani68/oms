@@ -10,45 +10,45 @@ using System.Xml;
 namespace DataModel
 {
 
-    public class MariniBaseObject : MariniGenericObject
+    public class BaseObject : GenericObject
     {
 
-        public MariniBaseObject(MariniGenericObject parent, string type, string id, string name, string description)
+        public BaseObject(GenericObject parent, string type, string id, string name, string description)
             : base(parent, type, id, name, description)
         {
         }
 
-        public MariniBaseObject(MariniGenericObject parent, string type, string id, string name)
+        public BaseObject(GenericObject parent, string type, string id, string name)
             : base(parent, type, id, name)
         {
         }
 
-        public MariniBaseObject(MariniGenericObject parent, string type, string id)
+        public BaseObject(GenericObject parent, string type, string id)
             : base(parent, type, id)
         {
         }
 
-        public MariniBaseObject(MariniGenericObject parent, string type)
+        public BaseObject(GenericObject parent, string type)
             : base(parent, type)
         {
         }
 
-        public MariniBaseObject(MariniGenericObject parent)
+        public BaseObject(GenericObject parent)
             : base(parent)
         {
         }
 
-        public MariniBaseObject()
+        public BaseObject()
             : base()
         {
         }
 
-        public MariniBaseObject(MariniGenericObject parent, XmlNode node)
+        public BaseObject(GenericObject parent, XmlNode node)
             : base(parent, node)
         {
         }
 
-        public MariniBaseObject(XmlNode node)
+        public BaseObject(XmlNode node)
             : base(node)
         {
         }
@@ -58,16 +58,16 @@ namespace DataModel
 
         
         /// <summary>
-        /// Retrieve the MariniProperty bound to the property prop_id
+        /// Retrieve the Property bound to the property prop_id
         /// </summary>
         /// <param name="prop_id">the property bound to the prop_id</param>
         /// <returns></returns>
-        public MariniProperty GetMariniPropertyFromId(string prop_id)
+        public Property GetPropertyFromId(string prop_id)
         {
 
             return ChildList
-                .Where(mgo => mgo.GetType() == typeof(MariniProperty))
-                .Cast<MariniProperty>()
+                .Where(mgo => mgo.GetType() == typeof(Property))
+                .Cast<Property>()
                 .FirstOrDefault(mp => mp.id == prop_id);
         }
 
@@ -76,12 +76,12 @@ namespace DataModel
         /// </summary>
         /// <param name="bind">the property bound to the bind item</param>
         /// <returns></returns>
-        public MariniProperty GetMariniPropertyFromBoundItem(string bind)
+        public Property GetPropertyFromBoundItem(string bind)
         {
 
             return ChildList
-                .Where(mgo => mgo.GetType() == typeof(MariniProperty))
-                .Cast<MariniProperty>()
+                .Where(mgo => mgo.GetType() == typeof(Property))
+                .Cast<Property>()
                 .FirstOrDefault(mp => mp.bind == bind);
         }
 

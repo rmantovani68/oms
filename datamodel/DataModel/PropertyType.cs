@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace DataModel
 {
-    public enum MariniBindTypeEnum
+    public enum PropertyType
     {
-        PLCTag,
+        Int,
+        Dint,
+        Bool,
+        Long,
+        Real,
+        Byte,
+        Word,
     }
 }

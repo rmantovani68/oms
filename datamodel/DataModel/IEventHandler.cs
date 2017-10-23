@@ -10,7 +10,7 @@ using System.ComponentModel;
 
 namespace DataModel
 {
-    public interface IMariniEventHandler
+    public interface IEventHandler
     {
         /// <summary>
         /// Gestisce un evento PropertyChangedEventArgs associato a un sender

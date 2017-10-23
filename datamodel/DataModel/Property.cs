@@ -16,27 +16,27 @@ using System.Runtime.CompilerServices;
 namespace DataModel
 {
     
-    public class MariniProperty : MariniBaseObject
+    public class Property : BaseObject
     {
         private string _bind;
         [System.Xml.Serialization.XmlAttribute]
         public string bind { get { return _bind; } set { _bind = value; } }
 
-        private MariniBindTypeEnum _bindtype;
+        private BindType _bindtype;
         [System.Xml.Serialization.XmlAttribute]
-        public MariniBindTypeEnum bindtype { get { return _bindtype; } set { _bindtype = value; } }
+        public BindType bindtype { get { return _bindtype; } set { _bindtype = value; } }
 
-        private MariniBindDirectionEnum _binddirection;
+        private BindDirection _binddirection;
         [System.Xml.Serialization.XmlAttribute]
-        public MariniBindDirectionEnum binddirection { get { return _binddirection; } set { _binddirection = value; } }
+        public BindDirection binddirection { get { return _binddirection; } set { _binddirection = value; } }
 
-        private MariniPersistenceTypeEnum _persistence;
+        private PersistenceType _persistence;
         [System.Xml.Serialization.XmlAttribute]
-        public MariniPersistenceTypeEnum persistence { get { return _persistence; } set { _persistence = value; } }
+        public PersistenceType persistence { get { return _persistence; } set { _persistence = value; } }
 
-        private MariniPropertyTypeEnum _propertytype;
+        private PropertyType _propertytype;
         [System.Xml.Serialization.XmlAttribute]
-        public MariniPropertyTypeEnum propertytype { get { return _propertytype; } set { _propertytype = value; } }
+        public PropertyType propertytype { get { return _propertytype; } set { _propertytype = value; } }
 
         private object _value;
         [System.Xml.Serialization.XmlIgnore]
@@ -44,18 +44,18 @@ namespace DataModel
         [System.Xml.Serialization.XmlAttribute("value")]
         public string valuestring { get { if (_value != null) { return _value.ToString(); } else { return "NO_VALUE"; }; } set { valuestring = value; } }
 
-        public MariniProperty(MariniGenericObject parent)
+        public Property(GenericObject parent)
             : base(parent)
         {
         }
 
-        public MariniProperty()
+        public Property()
             : base()
         {
         }
 
 
-        public MariniProperty(MariniGenericObject parent, XmlNode node)
+        public Property(GenericObject parent, XmlNode node)
             : base(parent, node)
         {
             if (node.Attributes != null)
@@ -75,16 +75,16 @@ namespace DataModel
                             bind = attr.Value;
                             break;
                         case "bindtype":
-                            bindtype = (MariniBindTypeEnum)Enum.Parse(typeof(MariniBindTypeEnum), attr.Value, true);
+                            bindtype = (BindType)Enum.Parse(typeof(BindType), attr.Value, true);
                             break;
                         case "binddirection":
-                            binddirection = (MariniBindDirectionEnum)Enum.Parse(typeof(MariniBindDirectionEnum), attr.Value, true);
+                            binddirection = (BindDirection)Enum.Parse(typeof(BindDirection), attr.Value, true);
                             break;
                         case "persistence":
-                            persistence = (MariniPersistenceTypeEnum)Enum.Parse(typeof(MariniPersistenceTypeEnum), attr.Value, true);
+                            persistence = (PersistenceType)Enum.Parse(typeof(PersistenceType), attr.Value, true);
                             break;
                         case "propertytype":
-                            propertytype = (MariniPropertyTypeEnum)Enum.Parse(typeof(MariniPropertyTypeEnum), attr.Value, true);
+                            propertytype = (PropertyType)Enum.Parse(typeof(PropertyType), attr.Value, true);
                             break;
                         case "value":
                             _s = attr.Value;
@@ -97,7 +97,7 @@ namespace DataModel
             }
         }
 
-        public MariniProperty(XmlNode node)
+        public Property(XmlNode node)
             : this(null, node)
         {
 
@@ -106,34 +106,34 @@ namespace DataModel
         /// <summary>
         /// Occurs when a property is changed
         /// </summary>
-        public event PropertyChangedEventHandler MariniPropertyChanged;
+        public event PropertyChangedEventHandler pPropertyChanged;
 
         /// <summary>
-        /// Raises the <see cref="MariniPropertyChanged">MariniPropertyChanged</see> event.
+        /// Raises the <see cref="pPropertyChanged">PropertyChanged</see> event.
         /// </summary>
         /// <param name="propertyName"></param>
-        protected virtual void OnMariniPropertyChanged(string propertyName)
+        protected virtual void OnPropertyChanged(string propertyName)
         {
-            PropertyChangedEventHandler ehandler = MariniPropertyChanged;
+            PropertyChangedEventHandler ehandler = pPropertyChanged;
             if (ehandler != null)
             {
                 ehandler(this, new PropertyChangedEventArgs(propertyName));
             }
         }
 
-        private object ParsePropertyValue(MariniPropertyTypeEnum type, string Value)
+        private object ParsePropertyValue(PropertyType type, string Value)
         {
             try
             {
                 switch (type)
                 {
-                    case MariniPropertyTypeEnum.Bool: return bool.Parse(Value);
-                    case MariniPropertyTypeEnum.Byte: return Byte.Parse(Value);
-                    case MariniPropertyTypeEnum.Dint: return int.Parse(Value);
-                    case MariniPropertyTypeEnum.Int: return int.Parse(Value);
-                    case MariniPropertyTypeEnum.Long: return int.Parse(Value);
-                    case MariniPropertyTypeEnum.Real: return int.Parse(Value);
-                    case MariniPropertyTypeEnum.Word: return short.Parse(Value);
+                    case PropertyType.Bool: return bool.Parse(Value);
+                    case PropertyType.Byte: return Byte.Parse(Value);
+                    case PropertyType.Dint: return int.Parse(Value);
+                    case PropertyType.Int: return int.Parse(Value);
+                    case PropertyType.Long: return int.Parse(Value);
+                    case PropertyType.Real: return int.Parse(Value);
+                    case PropertyType.Word: return short.Parse(Value);
                 }
 
             }
@@ -147,14 +147,14 @@ namespace DataModel
 
         //protected bool SetField<T>(ref T field, T value, string propertyName)
         /// <summary>
-        /// Used in every property set to launch <see cref="MariniGenericObject.OnMariniPropertyChanged"/>
+        /// Used in every property set to launch <see cref="GenericObject.OnPropertyChanged"/>
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="field"></param>
         /// <param name="value"></param>
         /// <param name="propertyName"></param>
         /// <returns><c>true</c> if the property is effectively changed; otherwise, <c>false</c>.</returns>
-        protected bool SetMariniPropertyField<T>(ref T field, T value, [CallerMemberName] string propertyName = null)
+        protected bool SetPropertyField<T>(ref T field, T value, [CallerMemberName] string propertyName = null)
         {
             if (EqualityComparer<T>.Default.Equals(field, value))
             {
@@ -162,8 +162,8 @@ namespace DataModel
                 return false;
             }
             field = value;
-            //Console.WriteLine("Sono nella SetField e lancio OnMariniPropertyChanged(propertyName)");
-            OnMariniPropertyChanged(propertyName);
+            //Console.WriteLine("Sono nella SetField e lancio OnPropertyChanged(propertyName)");
+            OnPropertyChanged(propertyName);
             return true;
         }
 

@@ -1,0 +1,72 @@
+﻿Obiezioni / ostacoli al progetto documentazione
+-----------------------------------------------
+- Si fa documentare il progetto da persone che non lo conoscono per permettere a persone che (non) lo conoscono di riscriverlo / portarlo su altro sistema di sviluppo.
+- Mancanza di disponibilità delle persone che conoscono il progetto perchè impegnate in altre attività.
+- Mancanza di un template / descrizione formale di un modello di documentazione da seguire.
+- Dimensioni del progetto : 150000 righe di codice, circa 1000 metodi, utilizzo massiccio di variabili globali
+- LG: ogni codice del sottosistema (predosatore, tamburo,...) manca di una chiara modellazione con macchina a stati finiti. Tutto questo si traduce in grandi pezzi di codice, spesso ripetuti, con if innestati di variabili globali senza alcuna strutturazione.
+      Esempio di buona macchina a stati finiti: if cond1, cond2, ... => vai in stato statoA. Se sei in statoA => funzioneA, funzioneB
+- LG: ogni sottosistema non è stato descritto con una struttura, ma mediante variabili globali sparse nei vari moduli .bas. Poteva essere una migliore implementazione avere il modello dei dati completamente globale, ma strutturato,
+      in modo da capire meglio a chi si riferiscono certe variabili. Capisco che VB6 non è a oggetti, ma le struct esistono.
+- RM: molte costanti non sono descritte nè enumerate, il che rende criptico il codice (si può evitare di criptarlo)
+- LG: la gestione dei cambiamenti delle condizioni che devono scatenare procedure (event-driven) non e' ben strutturata. Sicuramente c'e' il ciclo principale della form (VideataPrincipale) che fa tutte le sue belle cose,
+      ma poi ogni variabile (spesso globalona) viene settata in un  mucchio di posti nel codice, cosa per la quale si perde il senso della valutazione delle stesse.
+- LG: Chiamate di funzioni inerenti una certa gestione in timer e task di gestioni completamente differenti. Ad esempio, in GestioneStoricoPredosaggio, viene gestito anche il log delle tramogge in torre, e viene chiamata la GestioneFillerizzazione, che con
+      i predosatori non ha niente a che vedere. Tutto questo fa perdere completamente la catena di controlli, o meglio costringe a valutare ogni funzione come parte di un unico blob di programmazione di cui si perde la logica e la causalita' degli eventi
+
+- RM: presa documentazione cisterne e fatta modificare/rifare ad Alex, ora è una descrizione delle funzionalità della applicazione con qualche cenno ai blocchi PLC... no comment
+
+- RM: richiesta riunione tramite mail di Maiorana a Pioggia, nessuna risposta.
+
+Documentazione utile alla realizzazione di un nuovo sistema lato PC:
+descrizione delle variabili di scambio PC-PLC e relativo funzionamento del PLC, in pratica documentazione dell'interfaccia con il PLC
+
+problematiche relative al nostro impegno in Marini
+--------------------------------------------------
+- RM: Siamo lasciati a noi stessi, nessun coordinamento operativo da parte di una figura responsabile del nostro operato
+- RM: Inizialmente abbiamo 'imparato' l'ambiente di lavoro, poi siamo stati utilizzati per compiti operativi, poi abbiamo iniziato l'analisi e l'implementazione di un progetto di impianto generico
+      (plcserver / manager / ui), poi siamo stati utilizzati per documentare il software esistente (codice visual basic 6).
+- RM: non abbiamo praticamente contatti con i componenti dell'ufficio software, tutti impegnati in attività di assistenza, sviluppo nuove funzioni o di supporto ai collaudi o alla produzione, e quasi sempre in emergenza.
+
+RM - pensieri sparsi
+--------------------
+Si fanno configurare le macchine (pc) di produzione all'ufficio software, tale operazione è interamente manuale e molto dispendiosa in termini di tempo:
+- si prende l'immagine e si scrive il disco
+- si 'installano' tutte gli aggiornamenti relativi alla commessa
+- si 'copiano' i dati di configurazione e di database
+
+Generalmente si verificano problemi ed eccezioni, le configurazioni non sono ben formalizzate, le immagini sono registrate su hd portatili in dotazione all'ufficio software, a volte non si leggono/copiano correttamente.
+Meglio sarebbe implementare un sistema di generazione macchine automatico, dato il codice commessa reperisce tutte le informazioni necessarie in un database ben strutturato ed esegue tutte le oprazioni necessarie senza necessità di intervento.
+
+RM - Situazione Settembre 2017
+------------------------------
+Nuovo sistema B&R
+- basato su linux 
+- programmabile in C e Python
+Lo fa Betti ...
+
+Nuovo Sistema Cybertronic
+- Basato su Windows
+- programmato in C# e XML e XSD
+Lo facciamo Io Luca e il Criceto ...
+
+Si nota un certo pressapochismo nella gestione dei progetti e una mancanza di oculatezza nella scelta delle risorse da assegnare alle varie attività di sviluppo.
+
+RM - Storia della nostra attività in Marini
+-------------------------------------------
+All'inizio dovevamo fornire consulenza per : FRT - Impianto evoluto per la produzione di conglomerati bituminosi da materiale riciclato, ma questo solo sulla carta...
+Poi abbiamo affiancato il personale dell'ufficio software nell'attività di configurazione macchine, produzione chiavette, collaudi
+Poi abbiamo iniziato lo sviluppo del nuovo sistema - modulare - basato su C# e application message broker e XML
+Poi siamo stati passati a documentare il sistema attuale in vista dello sviluppo su B&R
+Poi siamo stati ripassati alla analisi e sviluppo ...
+
+
+RM - Alcune proposte di futuri sviluppi
+---------------------------------------
+- continuare sviluppo nuova applicazione / sistema cyber500 come da specifiche contratto
+- automazione nella preparazione macchine attraverso git / scripting / database / file server
+- studio e applicazione nuove tecnologie - embedded technology - open source tools - front end web - single page application
+- separare il configuratore dalla applicazione principale C#
+- separare il gestione reports dalla applicazione principale C#
+- aggiungere un editor di reports
+

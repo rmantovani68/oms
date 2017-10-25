@@ -21,7 +21,7 @@ namespace MIConsoleTester.EventsHandlers
 
         public void Handle(object sender, PropertyChangedEventArgs e)
         {
-            Property mp = sender as Property;
+            PropertyObject mp = sender as PropertyObject;
             string p_name = e.PropertyName;
             Console.WriteLine("MotoreEventHandler->Handler --- sender: {0} proprieta: {1} valore: {2}", mp.path, p_name, mp.value);
             //methodToBeCalledWhenPropertyIsSet();

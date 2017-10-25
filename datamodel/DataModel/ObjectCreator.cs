@@ -26,7 +26,7 @@ namespace DataModel
             switch (node.Name)
             {
                 case "Property":
-                    mgo = new Property(parent, node);
+                    mgo = new PropertyObject(parent, node);
                     break;
                 default:
                     mgo = new BaseObject(parent, node);

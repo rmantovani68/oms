@@ -48,8 +48,8 @@
     <Compile Include="ObjectCreator.cs" />
     <Compile Include="BaseObject.cs" />
     <Compile Include="PersistenceType.cs" />
-    <Compile Include="Property.cs" />
-    <Compile Include="PropertyType.cs" />
+    <Compile Include="PropertyObject.cs" />
+    <Compile Include="PropertyObjectType.cs" />
     <Compile Include="StandardXmlSerializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

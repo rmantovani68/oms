@@ -96,7 +96,7 @@ namespace MIConsoleTester
                 Console.WriteLine("{0}", sXML);
 
                 Console.WriteLine("\n----------> Scatta l'allarme di Motore1");
-                ((Property)mariniDataManager.GetObjectByPath("Impianto.ZonaPredosaggio.Nastro1.Motore1.Allarme")).value = "true";
+                ((PropertyObject)mariniDataManager.GetObjectByPath("Impianto.ZonaPredosaggio.Nastro1.Motore1.Allarme")).value = "true";
                 Console.ReadKey();
 
                 Console.WriteLine("\n----------> Recupero alcune property di MOTORE 3");

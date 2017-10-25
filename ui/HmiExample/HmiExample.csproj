@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{607F367C-ECEA-4398-A751-118C10143D32}</ProjectGuid>
+    <ProjectGuid>{29ADEA94-12DA-4019-99B7-957B0FBEE868}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>HmiExample</RootNamespace>
@@ -49,26 +49,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DotNetMQ.MDSCommonLib, Version=0.9.0.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DotNetMQ.MDSCommonLib.0.9.0.1\lib\net35\DotNetMQ.MDSCommonLib.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="DotNetProjects.Input.Toolkit, Version=5.0.38.0, Culture=neutral, PublicKeyToken=79778c5f2eed289b, processorArchitecture=MSIL">
-      <HintPath>..\packages\DotNetProjects.Wpf.Toolkit.5.0.38\lib\net40\DotNetProjects.Input.Toolkit.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="DotNetProjects.Layout.Toolkit, Version=5.0.38.0, Culture=neutral, PublicKeyToken=79778c5f2eed289b, processorArchitecture=MSIL">
-      <HintPath>..\packages\DotNetProjects.Wpf.Toolkit.5.0.38\lib\net40\DotNetProjects.Layout.Toolkit.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="DotNetProjects.WPF.Themes, Version=5.0.38.0, Culture=neutral, PublicKeyToken=79778c5f2eed289b, processorArchitecture=MSIL">
-      <HintPath>..\packages\DotNetProjects.Wpf.Toolkit.5.0.38\lib\net40\DotNetProjects.WPF.Themes.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
-      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="OMSCore, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\plcserver\OMSCore\bin\Debug\OMSCore.dll</HintPath>

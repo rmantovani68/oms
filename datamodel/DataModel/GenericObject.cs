@@ -85,7 +85,7 @@ namespace DataModel
         /// Gets the list of children objects
         /// </summary>
         // TODO: Vanno aggiunti gli elementi presenti nella serializzazione.
-        [XmlElement("Property", Type = typeof(Property))]
+        [XmlElement("Property", Type = typeof(PropertyObject))]
         [XmlElement("oggettobase", Type = typeof(BaseObject))]
         public List<GenericObject> ChildList { get { return _childList; } }
 

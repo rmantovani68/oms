@@ -222,6 +222,8 @@ namespace Manager
         private bool SubscribePLCTags(DataManager dm)
         {
             bool RetVal = true;
+
+
             // recuperare la lista delle properties dell'impianto
             List<Property> props = dataManager.PathObjectsDictionary.Values.Where(item => item.GetType() == typeof(Property)).Cast<Property>().ToList();
             
@@ -733,7 +735,7 @@ namespace Manager
             {
                 foreach (var sub in ListSubscriptions[Message.SourceApplicationName].ToList())
                 {
-                    RemoveProperty(Message.SourceApplicationName, new Property() { path= sub.path});
+                    RemoveProperty(Message.SourceApplicationName, new Property() { path = sub.path });
                 }
             }
 
@@ -755,7 +757,7 @@ namespace Manager
             {
                 foreach (var sub in ListSubscriptions[Message.SourceApplicationName].ToList())
                 {
-                    RemoveProperty(Message.SourceApplicationName, new Property() { path= sub.path});
+                    RemoveProperty(Message.SourceApplicationName, new Property() { path = sub.path });
                 }
                 ListSubscriptions.Remove(Message.SourceApplicationName);
             }
@@ -973,7 +975,7 @@ namespace Manager
                 List<Property> props = dataManager.PathObjectsDictionary.Values.Where(item => item.GetType() == typeof(Property)).Cast<Property>().ToList();
 
                 // trova la property associata e cambia il valore
-                Property property = props.FirstOrDefault(prp=> prp.bind == tag.Name);
+                Property property = props.FirstOrDefault(prp => prp.bind == tag.Name);
 
                 if (property != null)
                 {
@@ -1090,7 +1092,7 @@ namespace Manager
         {
             foreach (var subscriber in ListSubscriptions.Keys)
             {
-                Property property=null;
+                Property property = null;
                 // cerco la property con path corrispondente
                 foreach(var prop in ListSubscriptions[subscriber].ToList()){
                     if (prop.path == mp.path)

@@ -62,12 +62,12 @@ namespace DataModel
         /// </summary>
         /// <param name="prop_id">the property bound to the prop_id</param>
         /// <returns></returns>
-        public Property GetPropertyFromId(string prop_id)
+        public PropertyObject GetPropertyFromId(string prop_id)
         {
 
             return ChildList
-                .Where(mgo => mgo.GetType() == typeof(Property))
-                .Cast<Property>()
+                .Where(mgo => mgo.GetType() == typeof(PropertyObject))
+                .Cast<PropertyObject>()
                 .FirstOrDefault(mp => mp.id == prop_id);
         }
 
@@ -76,12 +76,12 @@ namespace DataModel
         /// </summary>
         /// <param name="bind">the property bound to the bind item</param>
         /// <returns></returns>
-        public Property GetPropertyFromBoundItem(string bind)
+        public PropertyObject GetPropertyFromBoundItem(string bind)
         {
 
             return ChildList
-                .Where(mgo => mgo.GetType() == typeof(Property))
-                .Cast<Property>()
+                .Where(mgo => mgo.GetType() == typeof(PropertyObject))
+                .Cast<PropertyObject>()
                 .FirstOrDefault(mp => mp.bind == bind);
         }
 

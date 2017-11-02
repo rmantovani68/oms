@@ -225,7 +225,7 @@ namespace Manager
 
 
             // recuperare la lista delle properties dell'impianto
-            List<Property> props = dataManager.PathObjectsDictionary.Values.Where(item => item.GetType() == typeof(Property)).Cast<Property>().ToList();
+            List<PropertyObject> props = dataManager.PathObjectsDictionary.Values.Where(item => item.GetType() == typeof(PropertyObject)).Cast<PropertyObject>().ToList();
             
 
             foreach (var prop in props)
@@ -735,7 +735,7 @@ namespace Manager
             {
                 foreach (var sub in ListSubscriptions[Message.SourceApplicationName].ToList())
                 {
-                    RemoveProperty(Message.SourceApplicationName, new Property() { path = sub.path });
+                    RemoveProperty(Message.SourceApplicationName, new Property() { ObjPath = sub.ObjPath });
                 }
             }
 
@@ -757,7 +757,7 @@ namespace Manager
             {
                 foreach (var sub in ListSubscriptions[Message.SourceApplicationName].ToList())
                 {
-                    RemoveProperty(Message.SourceApplicationName, new Property() { path = sub.path });
+                    RemoveProperty(Message.SourceApplicationName, new Property() { ObjPath = sub.ObjPath });
                 }
                 ListSubscriptions.Remove(Message.SourceApplicationName);
             }
@@ -778,7 +778,7 @@ namespace Manager
             bool RetValue = true;
 
             // verifica che la property esista e sia sottoscrivibile
-            var property = dataManager.GetObjectByPath(prop.path) as Property;
+            var property = dataManager.GetObjectByPath(prop.ObjPath) as PropertyObject;
 
             if (property == null)
             {
@@ -800,7 +800,7 @@ namespace Manager
                 }
                 catch (Exception exc)
                 {
-                    Logger.WarnFormat("Error subscribing property {0} : {1}", prop.path, exc.Message);
+                    Logger.WarnFormat("Error subscribing property {0} : {1}", property.path, exc.Message);
                     RetValue = false;
                 }
             }
@@ -878,14 +878,14 @@ namespace Manager
                     }
                     catch (Exception exc)
                     {
-                        Logger.WarnFormat("Error removing property {0} : {1}", prop.path, exc.Message);
+                        Logger.WarnFormat("Error removing property {0} : {1}", prop.ObjPath, exc.Message);
                         RetValue = false;
                     }
                 }
                 else 
                 {
                     // non c'è
-                    Logger.WarnFormat("Property {0} : doesn't exists", prop.path);
+                    Logger.WarnFormat("Property {0} : doesn't exists", prop.ObjPath);
                     RetValue = false;
                 }
             }
@@ -981,11 +981,11 @@ namespace Manager
                 {
                     try
                     {
-                        property.value = tag.Value;
+                        property.Value = tag.Value;
                     }
                     catch (Exception exc)
                     {
-                        Logger.WarnFormat("Errore in cambio valore property {0}:{1} {2}", property.name,tag.Value,exc.Message);
+                        Logger.WarnFormat("Errore in cambio valore property {0}:{1} {2}", property.ObjID,tag.Value,exc.Message);
                         RetValue = false;
                     }
                 }
@@ -1037,7 +1037,7 @@ namespace Manager
                     {
                         try
                         {
-                            property.value = tag.Value;
+                            property.Value = tag.Value;
                         }
                         catch (Exception exc)
                         {
@@ -1095,7 +1095,7 @@ namespace Manager
                 Property property = null;
                 // cerco la property con path corrispondente
                 foreach(var prop in ListSubscriptions[subscriber].ToList()){
-                    if (prop.path == mp.path)
+                    if (prop.ObjPath == mp.ObjPath)
                     {
                         property = prop;
                         break;
@@ -1105,7 +1105,7 @@ namespace Manager
                 if (property != null)
                 {
                     // assegno il valore alla property
-                    property.value = mp.value;
+                    property.Value = mp.Value;
 
                     // Mando messaggio di property changed al sottoscrittore
                     //Create a DotNetMQ Message to send 
@@ -1145,10 +1145,10 @@ namespace Manager
         {
             bool bOK=true;
 
-            var mp = dataManager.GetObjectByPath(prop.path) as Property;
+            var mp = dataManager.GetObjectByPath(prop.ObjPath) as Property;
             if(mp !=null)
             {
-                prop.value = mp.value;
+                prop.Value = mp.Value;
             } 
             else
             {
@@ -1221,7 +1221,7 @@ namespace Manager
                     {
                         PLCName = plctag.PLCName,
                         Address = plctag.Address,
-                        Value = mp.value
+                        Value = mp.Value
                     }
                 };
 
@@ -1233,7 +1233,7 @@ namespace Manager
                 {
                     // send message
                     message.Send();
-                    Logger.InfoFormat("Set Value {0}:{1}", plctag.Name,  mp.value);
+                    Logger.InfoFormat("Set Value {0}:{1}", plctag.Name,  mp.Value);
                 }
                 catch (Exception exc)
                 {

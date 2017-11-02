@@ -33,19 +33,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DotNetMQ.MDSCommonLib, Version=0.9.0.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DotNetMQ.MDSCommonLib.0.9.0.1\lib\net35\DotNetMQ.MDSCommonLib.dll</HintPath>
+      <HintPath>..\..\packages\DotNetMQ.MDSCommonLib.0.9.0.1\lib\net35\DotNetMQ.MDSCommonLib.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
-      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
       <Private>True</Private>
-    </Reference>
-    <Reference Include="Msg">
-      <HintPath>..\..\new-project\oms\MariniImpianto\Msg\bin\Debug\Msg.dll</HintPath>
     </Reference>
     <Reference Include="S7.Net, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d5812d469e84c693, processorArchitecture=MSIL">
-      <HintPath>..\packages\S7netplus.0.1.4\lib\net45\S7.Net.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\..\packages\S7netplus.0.1.7\lib\net45\S7.Net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -75,6 +71,9 @@
       <Project>{2d06c9d1-69bc-4e29-977a-2d2adb09cd7f}</Project>
       <Name>S7NetWrapper</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Client\AppService\README.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

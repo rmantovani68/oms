@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2005
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicConsoleTester", "datamodel\BasicConsoleTester\BasicConsoleTester.csproj", "{F2011E22-D2E0-4CA4-909C-C53D644B0610}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -20,6 +20,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "plcserver", "plcserver", "{73E98A45-BB12-434C-9B2C-165B67325578}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HmiExample", "plcserver\HmiExample\HmiExample.csproj", "{607F367C-ECEA-4398-A751-118C10143D32}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2D06C9D1-69BC-4E29-977A-2D2ADB09CD7F} = {2D06C9D1-69BC-4E29-977A-2D2ADB09CD7F}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "plcserver", "plcserver\plcserver\plcserver.csproj", "{1DB1D5BC-4694-4AAD-9DAA-4D4F52051275}"
 EndProject
@@ -91,5 +94,8 @@ Global
 		{29ADEA94-12DA-4019-99B7-957B0FBEE868} = {3915DF2F-4C04-41C5-B3C1-B1EB8C23812F}
 		{2495D0D3-461F-4E67-9CED-B311F1F9EF33} = {A8EB8B1B-C325-4BF1-A476-7ED2D3ACC962}
 		{18ACD993-C594-49E9-9DDF-7B45C4BAA477} = {DB795B7C-CD9C-46A4-8C73-548E3930378B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5977F221-6AE6-42DC-8CD6-BA579A87C44D}
 	EndGlobalSection
 EndGlobal

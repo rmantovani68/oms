@@ -41,11 +41,12 @@ namespace HmiExample
             if (DialogResult == true)
             {
                 /* controllo le condizioni per validare la property da aggiungere */
-                if (!true)
-                {
+                /*
+                if (!true) {
                     MessageBox.Show(string.Format("Poperty Path {0} non corretto", this.tbPropertyPath.Text.Trim()));
                     e.Cancel = true;
                 }
+                */
             }
         }
     }

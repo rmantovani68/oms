@@ -972,20 +972,20 @@ namespace Manager
                 
                 // recupero la lista delle properties dell'impianto
                 // LG: Ma la uso anche in SubscribePLCTags!!! Devo fare tutte le volte sta roba? 
-                List<Property> props = dataManager.PathObjectsDictionary.Values.Where(item => item.GetType() == typeof(Property)).Cast<Property>().ToList();
+                List<PropertyObject> props = dataManager.PathObjectsDictionary.Values.Where(item => item.GetType() == typeof(PropertyObject)).Cast<PropertyObject>().ToList();
 
                 // trova la property associata e cambia il valore
-                Property property = props.FirstOrDefault(prp => prp.bind == tag.Name);
+                PropertyObject property = props.FirstOrDefault(prp => prp.bind == tag.Name);
 
                 if (property != null)
                 {
                     try
                     {
-                        property.Value = tag.Value;
+                        property.value = tag.Value;
                     }
                     catch (Exception exc)
                     {
-                        Logger.WarnFormat("Errore in cambio valore property {0}:{1} {2}", property.ObjID,tag.Value,exc.Message);
+                        Logger.WarnFormat("Errore in cambio valore property {0}:{1} {2}", property.path,tag.Value,exc.Message);
                         RetValue = false;
                     }
                 }
@@ -1029,19 +1029,19 @@ namespace Manager
 
                     // recuperare la lista delle properties dell'impianto
                     // LG: Ma la uso anche in SubscribePLCTags e PLCTagChanged!!! Devo fare tutte le volte sta roba? 
-                    List<Property> props = dataManager.PathObjectsDictionary.Values.Where(item => item.GetType() == typeof(Property)).Cast<Property>().ToList();
+                    List<PropertyObject> props = dataManager.PathObjectsDictionary.Values.Where(item => item.GetType() == typeof(PropertyObject)).Cast<PropertyObject>().ToList();
                     // trova la property associata e cambia il valore
-                    Property property = props.FirstOrDefault(prp => prp.bind == tag.Name);
+                    PropertyObject property = props.FirstOrDefault(prp => prp.bind == tag.Name);
 
                     if (property != null)
                     {
                         try
                         {
-                            property.Value = tag.Value;
+                            property.value = tag.Value;
                         }
                         catch (Exception exc)
                         {
-                            Logger.WarnFormat("Errore in cambio valore property {0}:{1} {2}", property.name, tag.Value, exc.Message);
+                            Logger.WarnFormat("Errore in cambio valore property {0}:{1} {2}", property.path, tag.Value, exc.Message);
                             bOK = false;
                         }
                     }
@@ -1064,7 +1064,7 @@ namespace Manager
         /// <param name="e"></param>
         public void PropertyValueChangedHandler(object sender, PropertyChangedEventArgs e)
         {
-            Property mp = sender as Property;
+            PropertyObject mp = sender as PropertyObject;
 
             /* se la property ha un plctag associato ... */
             switch (mp.binddirection)
@@ -1088,14 +1088,14 @@ namespace Manager
         /// invia la notifica ai sottoscrittori 
         /// </summary>
         /// <param name="mp">Property to notify</param>
-        private void ObjectPropertyNotifyToSubscribers(Property mp)
+        private void ObjectPropertyNotifyToSubscribers(PropertyObject mp)
         {
             foreach (var subscriber in ListSubscriptions.Keys)
             {
                 Property property = null;
                 // cerco la property con path corrispondente
                 foreach(var prop in ListSubscriptions[subscriber].ToList()){
-                    if (prop.ObjPath == mp.ObjPath)
+                    if (prop.ObjPath == mp.path)
                     {
                         property = prop;
                         break;
@@ -1105,7 +1105,7 @@ namespace Manager
                 if (property != null)
                 {
                     // assegno il valore alla property
-                    property.Value = mp.Value;
+                    property.Value = mp.value;
 
                     // Mando messaggio di property changed al sottoscrittore
                     //Create a DotNetMQ Message to send 
@@ -1145,10 +1145,10 @@ namespace Manager
         {
             bool bOK=true;
 
-            var mp = dataManager.GetObjectByPath(prop.ObjPath) as Property;
+            var mp = dataManager.GetObjectByPath(prop.ObjPath) as PropertyObject;
             if(mp !=null)
             {
-                prop.Value = mp.Value;
+                prop.Value = mp.value;
             } 
             else
             {
@@ -1194,7 +1194,7 @@ namespace Manager
 
 
 
-        private bool SetPropertyPLCTag(Property mp)
+        private bool SetPropertyPLCTag(PropertyObject mp)
         {
             bool bOK = true;
 
@@ -1221,7 +1221,7 @@ namespace Manager
                     {
                         PLCName = plctag.PLCName,
                         Address = plctag.Address,
-                        Value = mp.Value
+                        Value = mp.value
                     }
                 };
 
@@ -1233,7 +1233,7 @@ namespace Manager
                 {
                     // send message
                     message.Send();
-                    Logger.InfoFormat("Set Value {0}:{1}", plctag.Name,  mp.Value);
+                    Logger.InfoFormat("Set Value {0}:{1}", plctag.Name,  mp.value);
                 }
                 catch (Exception exc)
                 {

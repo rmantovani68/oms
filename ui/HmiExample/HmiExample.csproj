@@ -51,15 +51,9 @@
   <ItemGroup>
     <Reference Include="DotNetMQ.MDSCommonLib, Version=0.9.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\DotNetMQ.MDSCommonLib.0.9.0.1\lib\net35\DotNetMQ.MDSCommonLib.dll</HintPath>
-      <Private>True</Private>
     </Reference>
-    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="OMSCore, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\plcserver\OMSCore\bin\Debug\OMSCore.dll</HintPath>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -159,6 +153,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Client\AppService\README.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\plcserver\OMSCore\OMSCore.csproj">
+      <Project>{2495d0d3-461f-4e67-9ced-b311f1f9ef33}</Project>
+      <Name>OMSCore</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

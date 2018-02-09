@@ -27,6 +27,7 @@ namespace HmiExample
         private MDSClient MDSClientInstance;
 
         private string name;
+
         public string Name
         {
             get { return this.name; }
@@ -41,6 +42,7 @@ namespace HmiExample
         }
 
         private string ipAddress;
+
         public string IPAddress
         {
             get { return this.ipAddress; }
@@ -58,14 +60,11 @@ namespace HmiExample
 
         public PLCConnectionStatus ConnectionStatus
         {
-            get
-            {
-                return this.connectionStatus;
-            }
+            get { return this.connectionStatus; }
 
             set
             {
-                connectionStatus = value;
+                this.connectionStatus = value;
                 this.NotifyPropertyChanged("ConnectionStatus");
             }
         }

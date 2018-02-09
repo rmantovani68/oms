@@ -39,9 +39,10 @@ namespace HmiExample
         }
         #endregion Singleton
 
-        #region Public Properties
-
         protected static readonly ILog Logger = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+
+
+        #region Public Properties
 
         public MDSClient mdsClient { get; private set; }
 

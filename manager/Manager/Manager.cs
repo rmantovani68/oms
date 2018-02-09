@@ -100,7 +100,7 @@ namespace Manager
             Logger.InfoFormat("{0} application ready", ApplicationName);
 
             // Create MDSClient object to connect to DotNetMQ
-            // Name of this application: PLCServer
+            // Name of this application: Manager
             mdsClient = new MDSClient(ApplicationName);
             mdsClient.AutoAcknowledgeMessages = true;
 

@@ -26,16 +26,22 @@ namespace HmiExample
     {
         protected static readonly ILog Logger = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
+        #region Public Properties
+
         // lista dei tags sottoscritti
         public ObservableUniqueCollection<TagItem> ListTagItems { get; set; }
 
         // lista dei plc connessi
         public ObservableUniqueCollection<PLCItem> ListPLCItems { get; set; }
 
+        public bool ConnectionState = false;
+
+        #endregion Public Properties
+
+
         // timer 
         DispatcherTimer timer = new DispatcherTimer();
 
-        public bool ConnectionState = false;
 
         #region Constructor
         public Model()

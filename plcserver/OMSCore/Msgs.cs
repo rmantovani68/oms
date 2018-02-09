@@ -143,7 +143,8 @@ namespace OMS.Core.Communication
 
     [Serializable]
     public class PLCTag
-    {public bool Validation { get; set; }
+    {
+        public bool Validation { get; set; }
         public String PLCName { get; set; }
         public String Address { get; set; }
         public Object Value { get; set; }

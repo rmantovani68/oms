@@ -75,8 +75,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="PLCItem.cs" />
-    <Compile Include="TagItem.cs" />
     <Page Include="AddPLC.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -99,14 +97,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Controller.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -135,6 +131,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\PLCServerClient\PLCServerClient.csproj">
+      <Project>{bb77621e-f135-48a5-beea-4a4d427466da}</Project>
+      <Name>PLCServerClient</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OMSCore\OMSCore.csproj">
       <Project>{2495d0d3-461f-4e67-9ced-b311f1f9ef33}</Project>
       <Name>OMSCore</Name>

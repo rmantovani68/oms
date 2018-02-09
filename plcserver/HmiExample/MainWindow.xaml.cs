@@ -28,6 +28,7 @@ using MDS.Communication.Messages;
 using OMS.Core.Communication;
 
 using System.Diagnostics;
+using PLCServerClient;
 
 
 #endregion
@@ -44,7 +45,11 @@ namespace HmiExample
         
         public MainWindow()
         {
-            Logger.InfoFormat("{0} application ready",Controller.Instance.ApplicationName);
+
+            Controller.ApplicationName = Properties.Settings.Default.ApplicationName;
+            Controller.PLCServerApplicationName = Properties.Settings.Default.PLCServerApplicationName;
+
+            Logger.InfoFormat("{0} application ready", Controller.ApplicationName);
 
             /* necessario per il binding in xaml */
             this.DataContext = Controller.Instance.model;    

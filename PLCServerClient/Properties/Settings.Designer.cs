@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HmiExample.Properties {
+namespace PLCServerClient.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -25,7 +25,7 @@ namespace HmiExample.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("213.131.0.161")]
+        [global::System.Configuration.DefaultSettingValueAttribute("127.0.0.1")]
         public string IpAddress {
             get {
                 return ((string)(this["IpAddress"]));
@@ -44,18 +44,6 @@ namespace HmiExample.Properties {
             }
             set {
                 this["PLCName"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("100")]
-        public int Delay {
-            get {
-                return ((int)(this["Delay"]));
-            }
-            set {
-                this["Delay"] = value;
             }
         }
         

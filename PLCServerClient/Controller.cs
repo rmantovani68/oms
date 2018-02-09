@@ -13,14 +13,14 @@ using MDS.Communication.Messages;
 using OMS.Core.Communication;
 using System.Reflection;
 using System.Diagnostics;
-using System.Windows.Threading;
-using HmiExample.Properties;
+
 using System.Threading;
 using System.Windows;
 using System.Collections.ObjectModel;
+using PLCServerClient.Properties;
 #endregion
 
-namespace HmiExample
+namespace PLCServerClient
 {
     public class Controller
     {
@@ -41,21 +41,19 @@ namespace HmiExample
 
         protected static readonly ILog Logger = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
-
         #region Public Properties
 
         public MDSClient mdsClient { get; private set; }
 
-        public string ApplicationName { get; private set; }
+        public static string ApplicationName { get; set; }
 
-        public string PLCServerApplicationName { get; private set; }
+        public static string PLCServerApplicationName { get; set; }
 
         public Model model { get; private set; }
 
         #endregion Public Properties
 
         #region Private Properties
-        private DispatcherTimer timer { get; set; }
 
         private short LoopTime { get; set; }
 
@@ -64,38 +62,32 @@ namespace HmiExample
         #region Constructor
         private Controller()
         {
-                // Name of this application: Interface
-                ApplicationName = "Interface";
-                // Name of the plc server application: PLCServer
-                PLCServerApplicationName = "PLCServer";
+            //// Name of this application: Interface
+            //ApplicationName = Settings.Default.ApplicationName;
+            //// Name of the plc server application: PLCServer
+            //PLCServerApplicationName = Settings.Default.ApplicationName;
 
-                model = new Model();
+            model = new Model();
 
-                timer = new DispatcherTimer();
+            // Create MDSClient object to connect to DotNetMQ
+            mdsClient = new MDSClient(ApplicationName);
 
-                // Create MDSClient object to connect to DotNetMQ
-                mdsClient = new MDSClient(ApplicationName);
+            // Connect to DotNetMQ server
+            try
+            {
+                mdsClient.Connect();
+            }
+            catch (Exception ex)
+            {
+                Logger.Warn(ex.Message, ex);
+            }
 
-                // Connect to DotNetMQ server
-                try
-                {
-                    mdsClient.Connect();
-                }
-                catch (Exception ex)
-                {
-                    Logger.Warn(ex.Message, ex);
-                }
-
-                // connetto a plcserver
-                PLCServerConnect();
+            // connetto a plcserver
+            PLCServerConnect();
 
             // Register to MessageReceived event to get messages.
             mdsClient.MessageReceived += hmi_MessageReceived;
 
-            // timer 
-            timer.Interval = TimeSpan.FromMilliseconds(LoopTime);
-            timer.Tick += timer_Tick;
-            timer.IsEnabled = true;
         }
         #endregion
 
@@ -433,9 +425,6 @@ namespace HmiExample
 
         #region Private Methods
 
-        private void timer_Tick(object sender, EventArgs e)
-        {
-        }
 
         /// <summary>
         /// This method handles received messages from other applications via DotNetMQ.
@@ -461,16 +450,16 @@ namespace HmiExample
                 switch (MsgData.MsgCode)
                 {
                     case MsgCodes.PLCTagsChanged:          /* gestione da fare */                  break;
-                    case MsgCodes.PLCTagChanged:              PLCTagChanged(Message);              break;
-                    case MsgCodes.PLCStatus:                  PLCStatus(Message);                  break;
-                    case MsgCodes.ResultSubscribePLCTag:      ResultSubscribePLCTag(Message);      break;
-                    case MsgCodes.ResultSubscribePLCTags:                                          break;
-                    case MsgCodes.ResultSetPLCTag:                                                 break;
-                    case MsgCodes.ResultSetPLCTags:                                                break;
-                    case MsgCodes.ResultConnectSubscriber:    ResultConnectSubscriber(Message);    break;
+                    case MsgCodes.PLCTagChanged: PLCTagChanged(Message); break;
+                    case MsgCodes.PLCStatus: PLCStatus(Message); break;
+                    case MsgCodes.ResultSubscribePLCTag: ResultSubscribePLCTag(Message); break;
+                    case MsgCodes.ResultSubscribePLCTags: break;
+                    case MsgCodes.ResultSetPLCTag: break;
+                    case MsgCodes.ResultSetPLCTags: break;
+                    case MsgCodes.ResultConnectSubscriber: ResultConnectSubscriber(Message); break;
                     case MsgCodes.ResultDisconnectSubscriber: ResultDisconnectSubscriber(Message); break;
-                    case MsgCodes.ResultConnectPLC:           ResultConnectPLC(Message);           break;
-                    case MsgCodes.ResultDisconnectPLC:        ResultDisconnectPLC(Message);        break;
+                    case MsgCodes.ResultConnectPLC: ResultConnectPLC(Message); break;
+                    case MsgCodes.ResultDisconnectPLC: ResultDisconnectPLC(Message); break;
                 }
             }
             catch (Exception ex)
@@ -587,14 +576,14 @@ namespace HmiExample
 
             Logger.InfoFormat("Ricevuto Messaggio {1}/{2}:{3} da {0}", Message.SourceApplicationName, MsgData.PLCName, MsgData.IpAddress, MsgData.validation);
 
-            RetValue=MsgData.validation;
-            
+            RetValue = MsgData.validation;
+
             if (MsgData.validation)
             {
-                var plc = model.ListPLCItems.FirstOrDefault(item => item.Name == MsgData.PLCName );
+                var plc = model.ListPLCItems.FirstOrDefault(item => item.Name == MsgData.PLCName);
                 if (plc != null)
                 {
-                    RetValue=RequestPLCStatus(plc.Name);
+                    RetValue = RequestPLCStatus(plc.Name);
                 }
             }
 
@@ -617,11 +606,7 @@ namespace HmiExample
                 var plc = model.ListPLCItems.FirstOrDefault(item => item.Name == MsgData.PLCName);
                 if (plc != null)
                 {
-                    // reentrant... approfondire
-                    Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.Background, new Action(() =>
-                    {
-                        model.ListPLCItems.Remove(plc);
-                    }));
+                    model.ListPLCItems.Remove(plc);
                 }
             }
 
@@ -663,18 +648,7 @@ namespace HmiExample
             var tag = model.ListTagItems.FirstOrDefault(item => item.Address == MsgData.Tag.Address);
             if (tag != null)
             {
-                // funzionano entrambe, la Invoke esegue in modo bloccante, la BeginInvoke esegue in parallelo
-
-                //Application.Current.Dispatcher.Invoke(new Action(() =>
-                //{
-                //    tag.Value = MsgData.Tag.Value.ToString();
-                //}));
-
-                Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.Background, new Action(() =>
-                {
-                    tag.Value = MsgData.Tag.Value.ToString();
-                }));
-
+                tag.Value = MsgData.Tag.Value.ToString();
             }
             else
             {

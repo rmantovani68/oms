@@ -38,6 +38,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OMSCore", "plcserver\OMSCor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataModel", "datamodel\DataModel\DataModel.csproj", "{18ACD993-C594-49E9-9DDF-7B45C4BAA477}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PLCServerClient", "PLCServerClient\PLCServerClient.csproj", "{BB77621E-F135-48A5-BEEA-4A4D427466DA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -80,6 +82,10 @@ Global
 		{18ACD993-C594-49E9-9DDF-7B45C4BAA477}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18ACD993-C594-49E9-9DDF-7B45C4BAA477}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18ACD993-C594-49E9-9DDF-7B45C4BAA477}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB77621E-F135-48A5-BEEA-4A4D427466DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB77621E-F135-48A5-BEEA-4A4D427466DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB77621E-F135-48A5-BEEA-4A4D427466DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB77621E-F135-48A5-BEEA-4A4D427466DA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

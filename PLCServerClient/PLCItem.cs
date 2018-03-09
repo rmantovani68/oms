@@ -168,12 +168,12 @@ namespace PLCServerClient
             {
                 //Send message
                 message.Send();
-                Logger.InfoFormat("Inviato Messaggio a {0}", message.DestinationApplicationName);
+                Logger.InfoFormat(Texts._MSG_SENT_TO_ + " {0}", message.DestinationApplicationName);
             }
             catch (Exception exc)
             {
                 // non sono riuscito a inviare il messaggio
-                Logger.WarnFormat("Messaggio non inviato : {0}",exc.Message);
+                Logger.WarnFormat(Texts._MSG_NOT_SENT_+" : {0}",exc.Message);
                 RetValue = false;
             }
             return RetValue;
@@ -207,12 +207,12 @@ namespace PLCServerClient
                 //Send message
                 message.Send();
 
-                Logger.InfoFormat("Inviato Messaggio a {0}", message.DestinationApplicationName);
+                Logger.InfoFormat(Texts._MSG_SENT_TO_ + " {0}", message.DestinationApplicationName);
             }
             catch (Exception exc)
             {
                 // non sono riuscito a inviare il messaggio
-                Logger.WarnFormat("Disconnection() : Messaggio non inviato : {0}",exc.Message);
+                Logger.WarnFormat(Texts._MSG_NOT_SENT_+" : {0}",exc.Message);
                 RetVal = false;
             }
             return RetVal;

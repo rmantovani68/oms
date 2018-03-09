@@ -19,6 +19,7 @@ using System.Windows.Shapes;
 using System.Windows.Threading;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Threading;
 
 using log4net;
 using MDS;
@@ -49,12 +50,13 @@ namespace HmiExample
             Controller.ApplicationName = Properties.Settings.Default.ApplicationName;
             Controller.PLCServerApplicationName = Properties.Settings.Default.PLCServerApplicationName;
 
-            Logger.InfoFormat("{0} application ready", Controller.ApplicationName);
+            Logger.InfoFormat("{0} Application ready", Controller.ApplicationName);
 
             /* necessario per il binding in xaml */
             this.DataContext = Controller.Instance.model;    
 
             InitializeComponent();
+            Controller.GuiContext = SynchronizationContext.Current;
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)

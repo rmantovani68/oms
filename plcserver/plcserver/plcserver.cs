@@ -15,6 +15,7 @@ using MDS.Client;
 using MDS.Communication.Messages;
 
 using OMS.Core.Communication;
+using OMSCore;
 #endregion Using
 
 namespace plcserver
@@ -41,6 +42,9 @@ namespace plcserver
 
         /* associazione sender / subscriptions */
         private Dictionary<string, HashSet<Subscription>> _Subs = new Dictionary<string, HashSet<Subscription>>();
+
+        private AppRegister _appRegister;
+
         #endregion Private Fields
         
         #region Properties
@@ -68,6 +72,11 @@ namespace plcserver
         {
             ApplicationName = applicationName;
 
+            _appRegister = new AppRegister(applicationName, "127.0.0.1", 10905);
+
+            _appRegister.RegisterApp();
+
+
             // Create MDSClient object to connect to DotNetMQ
             // Name of this application: PLCServer
             mdsClient = new MDSClient(ApplicationName);
@@ -90,7 +99,7 @@ namespace plcserver
             timer.Elapsed += timer_Elapsed;
             timer.Enabled = true;
 
-            Logger.InfoFormat("{0} application ready", ApplicationName);
+            Logger.InfoFormat("{0} Application ready", ApplicationName);
         }
 
         public plcserver()
@@ -122,6 +131,9 @@ namespace plcserver
             //Disconnect from DotNetMQ server
             Logger.InfoFormat("{0} Exit Application", ApplicationName);
             mdsClient.Disconnect();
+
+            _appRegister.UnregisterApp();
+            _appRegister.Dispose();
         }
 
         #endregion Public Methods
@@ -720,7 +732,7 @@ namespace plcserver
                 if (!_PLCs.ContainsKey(tag.PLCName))
                 {
                     // log
-                    Logger.WarnFormat("PLC [{1}] not connected", tag.PLCName);
+                    Logger.WarnFormat("PLC [{0}] not connected", tag.PLCName);
 
                     tag.Validation = true;
                     RetValue = false;
@@ -960,7 +972,7 @@ namespace plcserver
                     catch (Exception exc)
                     {
                         // non sono riuscito a inviare il messaggio
-                        Logger.WarnFormat("Messaggio non inviato - {0}", exc.Message);
+                        Logger.WarnFormat(Texts._MSG_NOT_SENT_+" - {0}", exc.Message);
                     }
                 }
             }
@@ -994,12 +1006,12 @@ namespace plcserver
             {
                 //Send message
                 message.Send();
-                Logger.InfoFormat("Inviato msg a {0}", message.DestinationApplicationName);
+                Logger.InfoFormat(Texts._MSG_SENT_TO_ + ": {0}", message.DestinationApplicationName);
             }
             catch (Exception exc)
             {
                 // non sono riuscito a inviare il messaggio
-                Logger.WarnFormat("Messaggio non inviato - {0}", exc.Message);
+                Logger.WarnFormat(Texts._MSG_NOT_SENT_+" - {0}", exc.Message);
                 bOK = false;
             }
 

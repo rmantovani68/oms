@@ -51,9 +51,27 @@
   <ItemGroup>
     <Reference Include="DotNetMQ.MDSCommonLib, Version=0.9.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\DotNetMQ.MDSCommonLib.0.9.0.1\lib\net35\DotNetMQ.MDSCommonLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DotNetProjects.DataVisualization.Toolkit, Version=5.0.43.0, Culture=neutral, PublicKeyToken=79778c5f2eed289b, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\DotNetProjects.Wpf.Toolkit.5.0.43\lib\net40\DotNetProjects.DataVisualization.Toolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DotNetProjects.Input.Toolkit, Version=5.0.43.0, Culture=neutral, PublicKeyToken=79778c5f2eed289b, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\DotNetProjects.Wpf.Toolkit.5.0.43\lib\net40\DotNetProjects.Input.Toolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DotNetProjects.Layout.Toolkit, Version=5.0.43.0, Culture=neutral, PublicKeyToken=79778c5f2eed289b, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\DotNetProjects.Wpf.Toolkit.5.0.43\lib\net40\DotNetProjects.Layout.Toolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DotNetProjects.WPF.Themes, Version=5.0.43.0, Culture=neutral, PublicKeyToken=79778c5f2eed289b, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\DotNetProjects.Wpf.Toolkit.5.0.43\lib\net40\DotNetProjects.WPF.Themes.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -152,13 +170,13 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Client\AppService\README.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\..\plcserver\OMSCore\OMSCore.csproj">
       <Project>{2495d0d3-461f-4e67-9ced-b311f1f9ef33}</Project>
       <Name>OMSCore</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Client\AppService\README.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

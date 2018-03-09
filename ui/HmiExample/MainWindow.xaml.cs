@@ -43,7 +43,7 @@ namespace HmiExample
         
         public MainWindow()
         {
-            Logger.InfoFormat("{0} application ready",Controller.Instance.ApplicationName);
+            Logger.InfoFormat("{0} Application ready",Controller.Instance.ApplicationName);
 
             /* necessario per il binding in xaml */
             this.DataContext = Controller.Instance.model;    

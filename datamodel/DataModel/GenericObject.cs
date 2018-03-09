@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 // InotifyPropertyChanged è l'interfaccia per notificare a clienti (in generale binding clients) che una
 // proprietà è cambiata
 using System.ComponentModel;
-// Libreria per far funzionare la serializzazione. Ad esmpio per decorare le proprietà da
+// Libreria per far funzionare la serializzazione. Ad esempio per decorare le proprietà da
 // serializzare con [XmlElement("oggettobase", Type = typeof(MariniOggettoBase))]
 using System.Xml.Serialization;
 // Libreria per far funzionare l'attributo [CallerMemberName] presente nella OnPropertyChanged(…).

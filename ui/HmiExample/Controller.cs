@@ -115,7 +115,7 @@ namespace HmiExample
             timer.Elapsed += timer_Elapsed;
             timer.Enabled = true;
 
-            Logger.InfoFormat("{0} application ready", ApplicationName);
+            Logger.InfoFormat("{0} Application ready", ApplicationName);
         }
 
         public Controller()
@@ -174,7 +174,7 @@ namespace HmiExample
             catch
             {
                 // non sono riuscito a inviare il messaggio
-                Logger.InfoFormat("Messaggio non inviato");
+                Logger.InfoFormat(Texts._MSG_NOT_SENT_);
                 RetValue = false;
             }
 
@@ -219,7 +219,7 @@ namespace HmiExample
             catch
             {
                 // non sono riuscito a inviare il messaggio
-                Logger.InfoFormat("Messaggio non inviato");
+                Logger.InfoFormat(Texts._MSG_NOT_SENT_);
                 RetValue = false;
             }
             // spostare dove arriverà messaggio di rimozione property
@@ -258,7 +258,7 @@ namespace HmiExample
             catch
             {
                 // non sono riuscito a inviare il messaggio
-                Logger.InfoFormat("Messaggio non inviato");
+                Logger.InfoFormat(Texts._MSG_NOT_SENT_);
                 RetValue = false;
             }
 
@@ -293,7 +293,7 @@ namespace HmiExample
             catch
             {
                 // non sono riuscito a inviare il messaggio
-                Logger.InfoFormat("Messaggio non inviato");
+                Logger.InfoFormat(Texts._MSG_NOT_SENT_);
                 RetValue = false;
             }
 

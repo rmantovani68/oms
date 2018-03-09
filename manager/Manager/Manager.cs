@@ -97,7 +97,7 @@ namespace Manager
             ApplicationName = applicationName;
             PLCServerApplicationName = plcserverApplicationName;
 
-            Logger.InfoFormat("{0} application ready", ApplicationName);
+            Logger.InfoFormat("{0} Application ready", ApplicationName);
 
             // Create MDSClient object to connect to DotNetMQ
             // Name of this application: Manager
@@ -169,7 +169,7 @@ namespace Manager
             timer.Elapsed += timer_Elapsed;
             timer.Enabled = true;
 
-            Logger.InfoFormat("{0} application ready", ApplicationName);
+            Logger.InfoFormat("{0} Application ready", ApplicationName);
         }
 
         public Manager()
@@ -376,7 +376,7 @@ namespace Manager
             catch
             {
                 // non sono riuscito a inviare il messaggio
-                Logger.InfoFormat("Messaggio non inviato");
+                Logger.InfoFormat(Texts._MSG_NOT_SENT_);
                 RetValue = false;
             }
 
@@ -422,7 +422,7 @@ namespace Manager
             catch
             {
                 // non sono riuscito a inviare il messaggio
-                Logger.InfoFormat("Messaggio non inviato");
+                Logger.InfoFormat(Texts._MSG_NOT_SENT_);
                 RetValue = false;
             }
 
@@ -565,7 +565,7 @@ namespace Manager
             catch
             {
                 // non sono riuscito a inviare il messaggio
-                Logger.InfoFormat("Messaggio non inviato");
+                Logger.InfoFormat(Texts._MSG_NOT_SENT_);
                 RetValue = false;
             }
 
@@ -616,7 +616,7 @@ namespace Manager
             catch
             {
                 // non sono riuscito a inviare il messaggio
-                Logger.InfoFormat("Messaggio non inviato");
+                Logger.InfoFormat(Texts._MSG_NOT_SENT_);
                 RetValue = false;
             }
 
@@ -1006,7 +1006,7 @@ namespace Manager
             var MsgData = GeneralHelper.DeserializeObject(Message.MessageData) as PLCTagsData;
             var plctags = MsgData.Tags;
 
-            Logger.InfoFormat("Ricevuto Messaggio da {0}", Message.SourceApplicationName);
+            Logger.InfoFormat(Texts._MSG_RECEIVED_FROM_ + " {0}", Message.SourceApplicationName);
 
             foreach (var plctag in plctags){
                 bool bOK = true;
@@ -1263,12 +1263,12 @@ namespace Manager
             {
                 //Send message
                 message.Send();
-                Logger.InfoFormat("Inviato msg a {0}", message.DestinationApplicationName);
+                Logger.InfoFormat(Texts._MSG_SENT_TO_ + " {0}", message.DestinationApplicationName);
             }
             catch (Exception exc)
             {
                 // non sono riuscito a inviare il messaggio
-                Logger.WarnFormat("Messaggio non inviato - {0}", exc.Message);
+                Logger.WarnFormat(Texts._MSG_NOT_SENT_+" - {0}", exc.Message);
                 bOK = false;
             }
 

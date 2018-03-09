@@ -121,7 +121,7 @@ namespace PLCServerClient
             }
 
             // Return true if either fields match:
-            return ((PLCName == tag.PLCName && Address == tag.Address));
+            return ((PLCName == tag.PLCName && Address == tag.Address && Type == tag.Type));
         }
         public override int GetHashCode()
         {

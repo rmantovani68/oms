@@ -65,6 +65,7 @@
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding PLCName}"  Header="PLC" />
                     <GridViewColumn DisplayMemberBinding="{Binding Name}"  Header="Name" />
+                    <GridViewColumn DisplayMemberBinding="{Binding Address}"  Header="Address" />
                     <GridViewColumn DisplayMemberBinding="{Binding Type}"  Header="Type" />
                     <GridViewColumn DisplayMemberBinding="{Binding Value}"  Header="Value" />
                 </GridView>

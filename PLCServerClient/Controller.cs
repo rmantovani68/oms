@@ -51,6 +51,9 @@ namespace PLCServerClient
 
         public Model model { get; private set; }
 
+        public static System.Threading.SynchronizationContext GuiContext {get; set;}
+
+
         #endregion Public Properties
 
         #region Private Properties
@@ -128,7 +131,7 @@ namespace PLCServerClient
             catch
             {
                 // non sono riuscito a inviare il messaggio
-                Logger.InfoFormat("Messaggio non inviato");
+                Logger.InfoFormat(Texts._MSG_NOT_SENT_);
                 RetValue = false;
             }
 
@@ -175,7 +178,7 @@ namespace PLCServerClient
             catch
             {
                 // non sono riuscito a inviare il messaggio
-                Logger.InfoFormat("Messaggio non inviato");
+                Logger.InfoFormat(Texts._MSG_NOT_SENT_);
                 RetValue = false;
             }
 
@@ -256,13 +259,13 @@ namespace PLCServerClient
                 //Send message
                 message.Send();
 
-                Logger.InfoFormat("Inviato Messaggio a {0}", message.DestinationApplicationName);
+                Logger.InfoFormat(Texts._MSG_SENT_TO_ + " {0}", message.DestinationApplicationName);
 
             }
             catch
             {
                 // non sono riuscito a inviare il messaggio
-                Logger.InfoFormat("Messaggio non inviato");
+                Logger.InfoFormat(Texts._MSG_NOT_SENT_);
                 RetValue = false;
             }
 
@@ -297,12 +300,12 @@ namespace PLCServerClient
                 //Send message
                 message.Send();
 
-                Logger.InfoFormat("Inviato Messaggio a {0}", message.DestinationApplicationName);
+                Logger.InfoFormat(Texts._MSG_SENT_TO_ + " {0}", message.DestinationApplicationName);
             }
             catch
             {
                 // non sono riuscito a inviare il messaggio
-                Logger.InfoFormat("Messaggio non inviato");
+                Logger.InfoFormat(Texts._MSG_NOT_SENT_);
                 RetValue = false;
             }
 
@@ -445,7 +448,7 @@ namespace PLCServerClient
                 // Get message data
                 var MsgData = GeneralHelper.DeserializeObject(Message.MessageData) as MsgData;
 
-                Logger.InfoFormat("Ricevuto Messaggio {0}", MsgData.MsgCode);
+                Logger.InfoFormat(Texts._MSG_RECEIVED_ + " {0}", MsgData.MsgCode);
 
                 switch (MsgData.MsgCode)
                 {
@@ -500,7 +503,7 @@ namespace PLCServerClient
             catch
             {
                 // non sono riuscito a inviare il messaggio
-                Logger.InfoFormat("Messaggio non inviato");
+                Logger.InfoFormat(Texts._MSG_NOT_SENT_);
                 RetValue = false;
             }
 
@@ -624,13 +627,21 @@ namespace PLCServerClient
 
             Logger.InfoFormat("Ricevuto Messaggio {1}/{2}:{3} da {0}", Message.SourceApplicationName, MsgData.Tag.PLCName, MsgData.Tag.Address, MsgData.Tag.Value);
 
-            TagItem tag = new TagItem() { PLCName = MsgData.Tag.PLCName, Name = MsgData.Tag.Address };
+            TagItem tag = new TagItem() { PLCName = MsgData.Tag.PLCName, Address = MsgData.Tag.Address };
             if (tag != null)
             {
-                Logger.InfoFormat("Aggiunto {0}/{1}:{2}", tag.PLCName, tag.Address, tag.Type);
+                Logger.InfoFormat("Aggiunto {0}/{1}", tag.PLCName, tag.Address);
 
-                /* verifica il nome del plc tag */
-                model.ListTagItems.Add(tag);
+                if (GuiContext != null)
+                {
+                    GuiContext.Send((o) => { model.ListTagItems.Add(tag); }, null);
+                }
+                else
+                {
+                    Logger.InfoFormat("GuiContext NULL");
+                    Debug.Assert(false);
+                }
+                
             }
             return RetValue;
         }
@@ -652,7 +663,7 @@ namespace PLCServerClient
             }
             else
             {
-                Logger.InfoFormat("Tag {0}/{1} non trovato", tag.PLCName, tag.Address);
+                Logger.InfoFormat("Tag {0}/{1} non trovato", MsgData.Tag.PLCName, MsgData.Tag.Address);
                 RetValue = false;
             }
 

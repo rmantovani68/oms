@@ -1,5 +1,5 @@
 # oms
-*Object Manager System*
+*Object Management System*
 
 # plcserver
 Applicazione di comunicazione con plc siemens 
